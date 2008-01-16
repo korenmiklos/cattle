@@ -1,0 +1,122 @@
+
+\documentclass[12pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath,amsthm}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{minionpro}
+\usepackage{array,graphicx}
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{TCIstyle=LaTeX article (bright).cst}
+
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.00.0.2570}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{Created=Monday, January 29, 2007 11:45:31}
+%TCIDATA{LastRevised=Friday, November 30, 2007 08:35:24}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Exams and Syllabi\SW\Assignment">}
+%TCIDATA{Language=American English}
+
+\setlength{\topmargin}{-0.3in} \setlength{\textheight}{8.75in}
+\setlength{\oddsidemargin}{0.0in} \setlength{\evensidemargin}{0.0in}
+\setlength{\textwidth}{6.5in}
+\def\labelenumi{\arabic{enumi}.}
+\def\theenumi{\arabic{enumi}}
+\def\labelenumii{(\alph{enumii})}
+\def\theenumii{\alph{enumii}}
+\def\p@enumii{\theenumi.}
+\def\labelenumiii{\arabic{enumiii}.}
+\def\theenumiii{\arabic{enumiii}}
+\def\p@enumiii{(\theenumi)(\theenumii)}
+\def\labelenumiv{\arabic{enumiv}.}
+\def\theenumiv{\arabic{enumiv}}
+\def\p@enumiv{\p@enumiii.\theenumiii}
+\pagestyle{plain}
+\pagestyle{plain} \setcounter{secnumdepth}{3}
+\newcommand{\D}{\mathop{\mathrm{d\mathstrut}}\nolimits\!}
+\newcommand{\dt}{\D t}
+\newcommand{\dz}{\D z}
+\newcommand{\E}{\mathop{\mathrm{E\mathstrut}}\nolimits}
+\newcommand{\Var}{\mathop{\mathrm{Var\mathstrut}}\nolimits}
+\newcommand{\sd}{\mathop{\mathrm{sd\mathstrut}}\nolimits}
+\newcommand{\diag}{\mathop{\mathrm{diag\mathstrut}}\nolimits}
+\newcommand{\Cov}{\mathop{\mathrm{Cov\mathstrut}}\nolimits}
+\newcommand{\Corr}{\mathop{\mathrm{Corr\mathstrut}}\nolimits}
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{moment}{Empirical regularity}
+\newtheorem{insight}{Qualitative prediction}
+\input{tcilatex}
+
+\begin{document}
+
+\title{A Spatial Explanation of the Balassa--Samuelson Effect}
+\author{P\'eter Kar\'adi\thanks{New York University. E-mail: peter.karadi@nyu.edu} and Mikl\'os Koren\thanks{Princeton University. E-mail: mkoren@princeton.edu.}}
+\maketitle
+
+\begin{abstract}
+We propose a model of urbanization and development to explain why the price level is higher in rich countries (the ``Penn effect''). There are two sectors: manufacturing, which is freely tradable, and non-tradable services, which have to locate near customers in big cities. As countries develop, total factor productivity increases simultaneously in both sectors. However, because services compete with the urban population for scarce land, labor productivity will grow slower in services than in manufacturing. Services become more expensive, and the aggregate price level becomes higher. The model hence provides a theoretical foundation for the Balassa--Samuelson assumption that productivity growth is slower in the non-tradable sector than in the tradable sector. The key implications of the model are borne out in the data: while the Penn effect is very strong among countries where land is scarce (densely populated, highly urban countries), there is virtually no correlation between income and the price level among rural countries.
+\end{abstract}
+
+\section{Introduction}
+\section{A model with exogenous urbanization}
+\subsection{Technologies}
+There are three production sectors: manufacturing (bakers), services (barbers), and the provision of a local public good (policemen). To highlight the differences that arise endogenously from the spatial distribution of sectors within countries, all three sectors are going to have the exact same technology:
+\[
+y = AF(n,l),
+\]
+where $y$ is output, $A$ is a Hicks-neutral productivity shifter (and the engine of development), $F()$ is a standard CRS production function, $n$ is the number of workers, and $l$ is the amount of land.
+
+The only difference across sectors is that the output of manufacturing (bread) is freely tradable within and across countries (we start with a closed economy), the output of the two service sectors (haircut and safety) can only be consumed locally.
+
+There is a fourth sector, which converts land and public safety into residential housing services:
+\[
+h = G(x,l),
+\]
+where $h$ is service flow from housing, $G$ is a standard CRS production function, $x$ is the output of the public good at a certain location and $l$ is land devoted to residential investment. 
+
+This sector is key for two reasons. First, there is no technical progress in this sector, which implies that the demand for residential land will increase with development. The scarcity of land will hence constrain the productivity of some sectors, those that have to locate near their customers. As we will see, one has to shut down technical progress somewhere so that development leads to changes in relative prices. We believe it is reasonable to assume that the same square footage of housing with the same level of public goods leads to similar housing services in rich and poor countries. The potential differences are certainly smaller than in any of the productive sectors.
+
+Second, the public-good nature of $x$ will introduce a force of spatial clustering: the more people live in a city, the higher level of the public good they can maintain.
+\subsection{Tastes}
+People consumer manufacturing goods, services, and housing:
+\[
+u = u(m,s,h),
+\]
+where $u$ is a standard neoclassical utility function.
+\subsection{Space}
+For now we assume there are two potential locations of economic activity and residential housing. We call these locations villages. The spatial assumptions are as follows.
+
+Services (both haircuts and public safety) can only be consumed in the same village in which they are produced.
+
+Manufacturing goods are freely traded across the villages.
+
+People can commute to work freely, but they consume all their services in the village in which they live. Changing residence is costless.
+
+Each village is endowed with $L$ amount of land, and the total number of workers is $2N$.
+\subsection{The planner's problem}
+Maximize 
+\[
+N_iu(m_i,s_i,h_i)+N_ju(m_j,s_j,h_j)
+\]
+subject to
+\begin{align*}
+N(m_i+m_j) &=A\left[F(n_{im},l_{im})+F(n_{jm},l_{jm})\right]\\
+N_is_i &=AF(n_{is},l_{is})\\
+x_i &=AF(n_{ix},l_{ix})\\
+N_ih_i &=G(x_{i},l_{ih})\\
+n_{im}+n_{is}+n_{ix}&=N_i\\
+l_{im}+l_{is}+l_{ix}+l_{ih}&=L_i
+\end{align*}
+\subsection{Equilibrium}
+An equilibrium is an allocation of $m_i$, $s_i$, $g_i$ and $h_i$ produced in either location $i$, the allocation of land and labor towards the sectors, $L_{im}$..., $N_{im}$...***
+
+\begin{enumerate}
+  \item The local markets for haircuts and public safety clear.
+  \item The global market for bread clears.
+  \item Land and labor are fully utilized in both villages.
+  \item Each resident***
+\end{enumerate}
+\end{document}
