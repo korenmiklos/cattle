@@ -48,12 +48,12 @@
 \newtheorem{proposition}{Proposition}
 \newtheorem{moment}{Empirical regularity}
 \newtheorem{insight}{Qualitative prediction}
-\input{tcilatex}
+%\input{tcilatex}
 
 \begin{document}
 
-\title{A Spatial Explanation of the Balassa--Samuelson Effect}
-\author{P\'eter Kar\'adi\thanks{New York University. E-mail: peter.karadi@nyu.edu} and Mikl\'os Koren\thanks{Princeton University. E-mail: mkoren@princeton.edu.}}
+\title{A Spatial Explanation for the Balassa--Samuelson Effect}
+\author{P\'eter Kar\'adi\thanks{New York University. E-mail: peter.karadi@nyu.edu}~ and Mikl\'os Koren\thanks{Princeton University. E-mail: mkoren@princeton.edu.}}
 \maketitle
 
 \begin{abstract}
@@ -61,62 +61,115 @@ We propose a model of urbanization and development to explain why the price leve
 \end{abstract}
 
 \section{Introduction}
+Services are more expensive in rich countries than in poor ones. Penn effect. Balassa and Samuelson and productivities. Hsieh and Klenow.
+
+Services are more expensive in rich cities than in poor cities. [Take two mid-sized American city and some restaurant price from Parsley Wei.] A simple explanation of this fact is that rents are higher in richer cities, which makes restaurants more expensive.
+
+We propose a model of development and urbanization that reconciles these two facts. There are two sectors: manufacturing, which is freely tradable, and non-tradable services, which have to locate near customers in big cities. As countries develop, total factor productivity increases simultaneously in both sectors. However, because services compete with the urban population for scarce land, labor productivity will grow slower in services than in manufacturing. Services become more expensive, and the aggregate price level becomes higher with development.
+
+Our model rests on three key observations. 
+
+First, most people in the world live in cities, and hence the analysis of price dispersion across cities can potentially inform our analysis of price dispersion across countries. In 2005, around 50 percent of the world population lived in cities. (***REF) The overall population density of the earth is rather low, 43 people per square kilometer.  However, population is very clustered, so the average person lives in an area with a population density of 5,700 people per km${}^2$.\footnote{We used high-resolution population density data from LandScan to calculate, for the average person on earth, the number of people living within the same 30 arc second by 30 arc second area. (This is basically a population-weighted population density.) } This suggests that the scarcity of land, which has the potential to explain price differences across cities, can also be partly responsible for price differences across countries.
+
+Second, whether a good is tradable or not has implications not only for cross-country trade but also for within-country trade, and hence the location of production within the country. There are many technological differences between tradable sectors such as manufacturing, and non-tradable sectors such as services. The fundamental difference is that non-tradable goods or services have to be produced at the location of their consumption, whereas tradable goods and services can be produced far away from consumers, where land prices may be cheaper. ***T/NT empirical observations within countries, modelling choices.  We make the extreme assumption that one of the goods is freely tradable, whereas the other cannot be traded at all, but conjecture that our results hold for more general trade costs, as well.
+
+Third, the scarcity of land can be an important constraint to development in at least one sector of the economy: residential housing. Development is usually accompanied by an increase in total factor productivity.\footnote{Hall and Jones (1996) find that most of the output per worker differences across countries can be accounted for by differences in TFP.} Rich countries can produce more output with the same amount of inputs. This also holds for non-reproducible factors, such as land; after all, retail trade has seen one of the highest productivity increase in the past X years in the U.S., where sales per square feet went up from X to Y.\footnote{Thanks, in a large extent, to the success of Wal Mart.} However, land remains a constraining factor for residential housing. Increased productivity in construction can lead to taller and higher-quality buildings, but the ``footprint'' of a typical household does not decline with development. Davis and Heathcote (2007) estimate that the price of residential land in the U.S.~has more than tripled between 1975 and 2005. During this same period, the share of land in the value of a home has increased from 35 percent to 45 percent, suggesting that growth does not bring about a substitution away from residential land.\footnote{Also see Davis and Palumbo (2008).}
+
+
+Model results.
+
+The key implication of the model is that relationship between income and the price of non-tradables is stronger among highly urbanized countries than among rural countries. This is because land available for non-tradable production is more scarce in urbanized countries and ***. Empirically, this relationship is strongly borne out in the data. For a cross section of 187 countries in 2005, the ***. This result is robust to alternative definitions or urbanization (population density, the spatial clustering of population).
+
+We emphasize that the above effect is distinct from the direct effect of development on urbanization. Richer countries tend to be more urban; more urban countries, in turn, tend to have higher prices. Even though this effect is also fully consistent with our model, we would like to test the robustness of the \emph{interaction} effect of urbanization and development. We instrument urbanization rates by the geographic features within the country, such as the variation elevation, slope of the terrain (cite Puga), distance to coastline and rivers, and latitude. [***TO BE WRITTEN]
+
+Other, more convoluted testable implications.
+
+Our results do not overturn previous explanations proposed in international macroeconomics or the regional economics literature. Instead, we view them as complementing both types of explanations and potentially bridging the gap between the two. The non-reproducible nature of residential land, together with the optimal location of industries, provides a microfoundation for the \emph{assumption} made by Balassa and Samuelson that non-tradable industries face slower productivity growth.
+
+We then look at how urbanization evolved in the post-world period. Because urbanization was lower, the model predicts the Balassa-Samuelson effect to be weaker. Check in 1960 data. Extrapolating urbanization trends, when did the B-S effect first appear? Our model may provide an explanation for why the Balassa-Samuelson effect is a relatively recent phenomenon.***CHECK. PUT IN NUMBERS. CITE TAYLOR.
+
+
+
 \section{A model with exogenous urbanization}
 \subsection{Technologies}
-There are three production sectors: manufacturing (bakers), services (barbers), and the provision of a local public good (policemen). To highlight the differences that arise endogenously from the spatial distribution of sectors within countries, all three sectors are going to have the exact same technology:
+There are two production sectors: manufacturing (bakers) and services (barbers). To highlight the differences that arise endogenously from the spatial distribution of sectors within countries, both sectors have the exact same technology:
 \[
 y = AF(n,l),
 \]
 where $y$ is output, $A$ is a Hicks-neutral productivity shifter (and the engine of development), $F()$ is a standard CRS production function, $n$ is the number of workers, and $l$ is the amount of land.
 
-The only difference across sectors is that the output of manufacturing (bread) is freely tradable within and across countries (we start with a closed economy), the output of the two service sectors (haircut and safety) can only be consumed locally.
+The only difference across sectors is that the output of manufacturing (bread) is freely tradable within and across countries (we start with a closed economy), the output of the service sector (haircut) can only be consumed locally.
 
-There is a fourth sector, which converts land and public safety into residential housing services:
+There is a third sector, which converts land into residential housing services:
 \[
-h = G(x,l),
+h = l_h,
 \]
-where $h$ is service flow from housing, $G$ is a standard CRS production function, $x$ is the output of the public good at a certain location and $l$ is land devoted to residential investment. 
+where $h$ is service flow from housing and $l_h$ is land devoted to residential investment.
 
-This sector is key for two reasons. First, there is no technical progress in this sector, which implies that the demand for residential land will increase with development. The scarcity of land will hence constrain the productivity of some sectors, those that have to locate near their customers. As we will see, one has to shut down technical progress somewhere so that development leads to changes in relative prices. We believe it is reasonable to assume that the same square footage of housing with the same level of public goods leads to similar housing services in rich and poor countries. The potential differences are certainly smaller than in any of the productive sectors.
+The key assumption regarding this sector is that there is no technical progress. This implies that the demand for residential land will increase with development. The scarcity of land will hence constrain the productivity of the other sectors. As we will see, one has to shut down technical progress somewhere so that development leads to changes in relative prices. We believe it is reasonable to assume that the same square footage of housing leads to similar housing services in rich and poor countries, or, at least, that the potential differences are smaller than in any of the productive sectors.
 
-Second, the public-good nature of $x$ will introduce a force of spatial clustering: the more people live in a city, the higher level of the public good they can maintain.
 \subsection{Tastes}
 People consumer manufacturing goods, services, and housing:
 \[
 u = u(m,s,h),
 \]
-where $u$ is a standard neoclassical utility function.
+where $u$ is a standard \emph{homothetic} neoclassical utility function.
 \subsection{Space}
 For now we assume there are two potential locations of economic activity and residential housing. We call these locations villages. The spatial assumptions are as follows.
 
-Services (both haircuts and public safety) can only be consumed in the same village in which they are produced.
+Services can only be consumed in the same village in which they are produced.
 
 Manufacturing goods are freely traded across the villages.
 
-People can commute to work freely, but they consume all their services in the village in which they live. Changing residence is costless.
+People can commute to work freely, but they consume all their services in the village in which they live. People are not allowed to change residence. (We study endogenous urbanization later.)
 
-Each village is endowed with $L$ amount of land, and the total number of workers is $2N$.
-\subsection{The planner's problem}
-Maximize 
-\[
-N_iu(m_i,s_i,h_i)+N_ju(m_j,s_j,h_j)
-\]
-subject to
-\begin{align*}
-N(m_i+m_j) &=A\left[F(n_{im},l_{im})+F(n_{jm},l_{jm})\right]\\
-N_is_i &=AF(n_{is},l_{is})\\
-x_i &=AF(n_{ix},l_{ix})\\
-N_ih_i &=G(x_{i},l_{ih})\\
-n_{im}+n_{is}+n_{ix}&=N_i\\
-l_{im}+l_{is}+l_{ix}+l_{ih}&=L_i
-\end{align*}
-\subsection{Equilibrium}
-An equilibrium is an allocation of $m_i$, $s_i$, $g_i$ and $h_i$ produced in either location $i$, the allocation of land and labor towards the sectors, $L_{im}$..., $N_{im}$...***
+Each village is endowed with $L$ amount of land, village 1 has $N^1$ workers, village 2 has $N^2$. Without loss of generality, we assume $N^1\ge N^2$ and refer to village 1 as the ``city.''
+\subsection{Random thoughts about the equilibrium}
+The statements we would like to establish are as follows.
 
 \begin{enumerate}
-  \item The local markets for haircuts and public safety clear.
-  \item The global market for bread clears.
-  \item Land and labor are fully utilized in both villages.
-  \item Each resident***
+  \item Land prices increase with development.
+  \item The relative price of services and manufacturing increases in land prices.
+  \item This relationship is stronger if more people live in cities.
 \end{enumerate}
+
+First observe that if both sectors are active in both locations, they will have the same price. The cost function both manufacturing and services is
+\[
+c(w^i,r^i)/A,
+\]
+where $w^i$ is the wage rate, $r^i$ is the land rent in location $i$. (Superscripts will denote location, subscripts denote the sector.) Profit maximization for sector $j$ in location $j$ requires that
+\[
+p_j^i \le c(w^i,r^i)/A,
+\]
+with equality if the sector is active (produces positive amount).
+
+Hence if both sectors are active, $p_m^i = p_s^i$. Free trade equalizes the price of manufacturing at the two locations, $p_m^i = p_m^j$. In this case, then, no relative price differentials exist among the two locations, or among traded and non-traded goods. Development has no impact on relative prices.
+
+\subsubsection{Incomplete specialization}
+Still, we first work out the case of incomplete specialization as
+a warm-up exercise to the model.
+
+\subsubsection{Complete specialization}
+
+We hence need \emph{complete specialization}, that is, manufacturing to be only active in one location. It is easy to see (***but has to be verified) that this will be the village and no manufacturing takes place within the city. We conjecture that with trade costs and an explicit spatial structure we would only need manufacturing to be farther away from residents than services are. In what follows, we focus on the complete specialization equilibrium.
+
+Each location is characterized by its factor prices, $w^i$ and $r^i$. We normalize the price of the manufacturing good to one so that
+\[
+1 = c(w^1,r^1)/A.
+\]
+
+In the village, by the above argument, the price of manufacturing and services are equal, $p_m^1 = p_s^1=1$. The two sectors also use the same \emph{technique} of production, that is, the same amount of land per worker. This depends on the relative price of the two factors,
+\[
+\frac{l^1}{n^1} = g\left(\frac{w^1}{r^1}\right).
+\]
+It is important to note that $g()$ does not depend on $A$, because technical progress is neutral both across factors and across sectors.
+
+The amount of land used in production in the village is
+\[
+N^1g\left(\frac{w^1}{r^1}\right),
+\]
+and the remaining is used for housing,
+\[
+h^1 = L-N^1g\left(\frac{w^1}{r^1}\right).
+\]
 \end{document}
