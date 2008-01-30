@@ -67,7 +67,7 @@ Services are more expensive in rich cities than in poor cities. [Take two mid-si
 
 We propose a model of development and urbanization that reconciles these two facts. There are two sectors: manufacturing, which is freely tradable, and non-tradable services, which have to locate near customers in big cities. As countries develop, total factor productivity increases simultaneously in both sectors. However, because services compete with the urban population for scarce land, labor productivity will grow slower in services than in manufacturing. Services become more expensive, and the aggregate price level becomes higher with development.
 
-Our model rests on three key observations. 
+Our model rests on three key observations.
 
 First, most people in the world live in cities, and hence the analysis of price dispersion across cities can potentially inform our analysis of price dispersion across countries. In 2005, around 50 percent of the world population lived in cities. (***REF) The overall population density of the earth is rather low, 43 people per square kilometer.  However, population is very clustered, so the average person lives in an area with a population density of 5,700 people per km${}^2$.\footnote{We used high-resolution population density data from LandScan to calculate, for the average person on earth, the number of people living within the same 30 arc second by 30 arc second area. (This is basically a population-weighted population density.) } This suggests that the scarcity of land, which has the potential to explain price differences across cities, can also be partly responsible for price differences across countries.
 
@@ -89,18 +89,16 @@ Our results do not overturn previous explanations proposed in international macr
 We then look at how urbanization evolved in the post-world period. Because urbanization was lower, the model predicts the Balassa-Samuelson effect to be weaker. Check in 1960 data. Extrapolating urbanization trends, when did the B-S effect first appear? Our model may provide an explanation for why the Balassa-Samuelson effect is a relatively recent phenomenon.***CHECK. PUT IN NUMBERS. CITE TAYLOR.
 
 
+\section{The model of a single location}
+We introduce our model in three steps. First, we construct the model of housing in a single location and a single production sector (manufacturing). This already enables us to analyze the effect of development on land rents. Then we introduce two locations and analyze the spatial distribution of manufacturing and land rents. Finally, we introduce a nontraded sector in both locations.
 
-\section{A model with exogenous urbanization}
-\subsection{Technologies}
-There are two production sectors: manufacturing (bakers) and services (barbers). To highlight the differences that arise endogenously from the spatial distribution of sectors within countries, both sectors have the exact same technology:
+For now we assume a single consumption good, produced using the following technology:
 \[
-y = AF(n,l),
+x = AF(n,l),
 \]
-where $y$ is output, $A$ is a Hicks-neutral productivity shifter (and the engine of development), $F()$ is a standard CRS production function, $n$ is the number of workers, and $l$ is the amount of land.
+where $x$ is output, $A$ is a Hicks-neutral productivity shifter (and the engine of development), $F()$ is a standard CRS production function (quasi-concave and satisfying the Inada conditions), $n$ is the number of workers, and $l$ is the amount of land.
 
-The only difference across sectors is that the output of manufacturing (bread) is freely tradable within and across countries (we start with a closed economy), the output of the service sector (haircut) can only be consumed locally.
-
-There is a third sector, which converts land into residential housing services:
+There is another sector, which converts land into residential housing services:
 \[
 h = l_h,
 \]
@@ -108,32 +106,74 @@ where $h$ is service flow from housing and $l_h$ is land devoted to residential 
 
 The key assumption regarding this sector is that there is no technical progress. This implies that the demand for residential land will increase with development. The scarcity of land will hence constrain the productivity of the other sectors. As we will see, one has to shut down technical progress somewhere so that development leads to changes in relative prices. We believe it is reasonable to assume that the same square footage of housing leads to similar housing services in rich and poor countries, or, at least, that the potential differences are smaller than in any of the productive sectors.
 
-\subsection{Tastes}
-People consumer manufacturing goods, services, and housing:
+People consume the final good and housing, and their demand is represented by a homothetic, quasi-concave utility function satisfying the Inada conditions:
 \[
-u = u(m,s,h),
+u(x,h).
 \]
-where $u$ is a standard \emph{homothetic} neoclassical utility function.
-\subsection{Space}
-For now we assume there are two potential locations of economic activity and residential housing. We call these locations villages. The spatial assumptions are as follows.
 
-Services can only be consumed in the same village in which they are produced.
+The economy has $L$ amount of land and $N$ workers. All land is owned by a lord, who then redistributes the rental income to each worker in the form of lump-sum transfers.
 
-Manufacturing goods are freely traded across the villages.
+In equilibrium there is full employment of both land and workers. Since workers can only be employed in manufacturing, the only interesting allocation is that of land. Let $s_h$ denote the share of land devoted to housing, $s_h = l_h/L$. Then the supply of housing is $s_h L$, and the supply of the manufacturing good is $AF[N,L(1-s_h)]$. Because $F()$ is CRS, we can express the relative supply of manufacturing and housing as
+\[
+\frac{x}{h} = \frac{AF(N/L,1-s_h)}{s_h}.
+\]
+This is clearly decreasing in $s_h$: the more land is allocated towards housing, the fewer manufacturing goods are produced.
 
-People can commute to work freely, but they consume all their services in the village in which they live. People are not allowed to change residence. (We study endogenous urbanization later.)
+The price of the manufactured good is normalized to 1. The price of housing equals the land rent, which is then determined by the alternative use of land. The value marginal product of land in the manufacturing sector is
+\begin{equation}\label{eq:MRT}
+r = AF_L(N,L-L_h) = AF_L(N/L,1-s_h),
+\end{equation}
+where the last equality follows from the linear homogenous nature of $F()$. This is clearly increasing in $s_h$: the more land is allocated to housing, the scarcer is land in manufacturing, which raises the marginal product. This equation provides the \emph{marginal rate of transformation} between housing and the manufactured good.
 
-Each village is endowed with $L$ amount of land, village 1 has $N^1$ workers, village 2 has $N^2$. Without loss of generality, we assume $N^1\ge N^2$ and refer to village 1 as the ``city.''
-\subsection{Random thoughts about the equilibrium}
-The statements we would like to establish are as follows.
+The demand side provides the \emph{marginal rate of substitution} between the two goods. By the homothetic nature of $u()$, the MRS only depends on the relative consumption of $x$ and $h$,
+\[
+r = \frac{u_h(x,h)}{u_x(x,h)} = \frac{u_h(x/h,1)}{u_x(x/h,1)} = MRS(x/h).
+\]
+This is increasing in $x/h$. For simplicity, we assume that utility is CES, so that
+\[
+MRS = \frac{\beta}{1-\beta}\left(\frac{x}{h}\right)^{1/\sigma},
+\]
+***This is consistent with the evidence presented in *** that the share of housing expenditure in consumption is constant.
 
-\begin{enumerate}
-  \item Land prices increase with development.
-  \item The relative price of services and manufacturing increases in land prices.
-  \item This relationship is stronger if more people live in cities.
-\end{enumerate}
+Substituting in the relative supply of $x$ and $h$,
+\begin{equation}\label{eq:MRS}
+r = MRS(s_h) = \frac{\beta}{1-\beta}\left[\frac{AF(N/L,1-s_h)}{s_h}\right]^{1/\sigma}.
+\end{equation}
 
-First observe that if both sectors are active in both locations, they will have the same price. The cost function both manufacturing and services is
+In equilibrium $MRT=MRS$, and equations \eqref{eq:MRT} and \eqref{eq:MRS} can be solved for $r$ and $s_h$.
+
+***figure here
+
+\subsection{Comparative statics}
+Equilibrium condition:
+\[
+\frac{s_h^{1/\sigma}F_L(N/L,1-s_h)}{F(N/L,1-s_h)^{1/\sigma}} = \frac{\beta}{1-\beta}A^{1/\sigma-1},
+\]
+or, in logs,
+\[
+\frac1\sigma\ln{s_h}+\ln F_L(N/L,1-s_h)-\frac1\sigma\ln{F(N/L,1-s_h)} = \ln{\beta}-\ln{1-\beta})+\left({\frac1\sigma-1}\right)\ln A.
+\]
+
+\paragraph{Technical progress.} We model technical progress by increasing $A$. If $\sigma=1$, technical progress does not have an impact on $s_h$. A percentage change in $A$ is directly reflected in a percentage change in $r$. If $\sigma<1$, that is, housing and manufacturing are complements in utility, $s_h$ increases with development, and the impact of $A$ on rents is more than proportional. ***we may need this for magnification
+\paragraph{Population density.}
+
+\section{The model of two locations}
+Now we introduce another location within the country. Both  locations have the same endowment of land but they may differ in their population densities, $N/L$. Without loss of generality, we assume that location 2 has the higher population density, $N_2/L>N_1/L$. We then call this location the ``city,'' the less populous location the ``village.''
+
+The locations interact as follows. Manufacturing goods can be freely transported across locations. People are not allowed to change residence. (We study endogenous urbanization later.) Workers do not commute, so both land and labor are immobile factors.
+
+As before, a lord owns all the land in all locations, and redistributes the rental income for residents in the form of a lump-sum transfer. The budget constraint of the representative household in location $i$ is then
+\[
+x_i + r_i h_i \le w_i + T.
+\]
+Total spending on manufactured goods (with a price normalized to one) and rent cannot exceed income from wages and the transfer. The balanced-budget condition of the lord is
+\[
+TN = r_1L+r_2L.
+\]
+
+The equilibrium allocation is such that (i) workers and land are fully employed in both locations, (ii) the global market for manufacturing goods clears, (iii) the local markets for housing clear, (iv) firms maximize profits, and (v) households maximize utility given their budget constraint.
+
+***First observe that if manufacturing is active in both locations, they will have the same price. The cost function both manufacturing and services is
 \[
 c(w^i,r^i)/A,
 \]
@@ -145,31 +185,56 @@ with equality if the sector is active (produces positive amount).
 
 Hence if both sectors are active, $p_m^i = p_s^i$. Free trade equalizes the price of manufacturing at the two locations, $p_m^i = p_m^j$. In this case, then, no relative price differentials exist among the two locations, or among traded and non-traded goods. Development has no impact on relative prices.
 
-\subsubsection{Incomplete specialization}
-Still, we first work out the case of incomplete specialization as
-a warm-up exercise to the model.
-
 \subsubsection{Complete specialization}
 
 We hence need \emph{complete specialization}, that is, manufacturing to be only active in one location. It is easy to see (***but has to be verified) that this will be the village and no manufacturing takes place within the city. We conjecture that with trade costs and an explicit spatial structure we would only need manufacturing to be farther away from residents than services are. In what follows, we focus on the complete specialization equilibrium.
 
-Each location is characterized by its factor prices, $w^i$ and $r^i$. We normalize the price of the manufacturing good to one so that
+In this case, city residents have no wage income, all their income comes from rent transfers. All city land is used for housing, $h_2=L$. The budget constraint of the city is hence
 \[
-1 = c(w^1,r^1)/A.
+x_2+r_2L = \frac{N_2}{N}(r_1L+r_2L).
+\]
+Consumption and housing rents have to be covered from transfers that are proportional to total rent in the economy. Letting $\alpha=N_2/N$ denote the fraction of the population that live in the city,
+\[
+r_2 = \frac{\alpha}{1-\alpha}r_1 -\frac{x_2}{L}.
 \]
 
-In the village, by the above argument, the price of manufacturing and services are equal, $p_m^1 = p_s^1=1$. The two sectors also use the same \emph{technique} of production, that is, the same amount of land per worker. This depends on the relative price of the two factors,
-\[
-\frac{l^1}{n^1} = g\left(\frac{w^1}{r^1}\right).
-\]
-It is important to note that $g()$ does not depend on $A$, because technical progress is neutral both across factors and across sectors.
+We construct the equilibrium in the following steps.
+\begin{enumerate}
+  \item Take a land share of housing $s_h$ in the village. This pins down rent in the village, $r_1$, as the marginal product of land in manufacturing. Clearly, $r_1$ is increasing in $s_h$.
+      \[
+      r_1 = AF_L(N_1/L,1-s_h)
+      \]
+  \item It also pins down the supply of the manufactured good $x$, because the city has no manufacturing. This supply $x$ is decreasing in $s_h$.
+      \[
+      \frac{x}{L} = AF(N_1/L,1-s_h)
+      \]
+  \item Given the rent prevailing in the village and the amount of land allocated to housing, we can derive the villagers' demand for manufactured goods, $x_1$. This is increasing in $s_h$, both because of the higher rents, and because of a higher housing consumption.
+      \[
+      \frac{x_1}{L} = s_h\frac{1-\beta}{\beta}\left[AF_L(N_1/L,1-s_h)\right]^\sigma
+      \]
+  \item The supply of the manufactured good available to city-dwellers, $x_2=x-x_1$ is hence decreasing in $s_h$.
+      \begin{equation}\label{eq:eq1}
+      \frac{x_2}{L} = AF(N_1/L,1-s_h)-s_h\frac{1-\beta}{\beta}\left[AF_L(N_1/L,1-s_h)\right]^\sigma
+      \end{equation}
+  \item The demand for manufactured goods in the city is pinned down by the city rent, $r_2$:
+      \begin{equation}\label{eq:eq2}
+      \frac{x_2}{L} = \frac{1-\beta}{\beta}r_2^\sigma
+      \end{equation}
+  \item There is also the budget constraint of the city,
+  \begin{equation}\label{eq:eq3}
+    \frac{x_2}{L} = \alpha r_1 -(1-\alpha)r_2 = \alpha AF_L(N_1/L,1-s_h) -(1-\alpha)r_2.
+  \end{equation}
+  
+\end{enumerate}
 
-The amount of land used in production in the village is
-\[
-N^1g\left(\frac{w^1}{r^1}\right),
-\]
-and the remaining is used for housing,
-\[
-h^1 = L-N^1g\left(\frac{w^1}{r^1}\right).
-\]
+\subsection{Comparative statics}
+
+\subsection{Random thoughts about the equilibrium}
+The statements we would like to establish are as follows.
+
+\begin{enumerate}
+  \item Land prices increase with development.
+  \item The relative price of services and manufacturing increases in land prices.
+  \item This relationship is stronger if more people live in cities.
+\end{enumerate}
 \end{document}
