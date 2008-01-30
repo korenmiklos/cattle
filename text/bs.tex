@@ -89,9 +89,11 @@ Our results do not overturn previous explanations proposed in international macr
 We then look at how urbanization evolved in the post-world period. Because urbanization was lower, the model predicts the Balassa-Samuelson effect to be weaker. Check in 1960 data. Extrapolating urbanization trends, when did the B-S effect first appear? Our model may provide an explanation for why the Balassa-Samuelson effect is a relatively recent phenomenon.***CHECK. PUT IN NUMBERS. CITE TAYLOR.
 
 
-\section{The model of a single location}
+\section{A mode of housing, development, and relative prices}
 We introduce our model in three steps. First, we construct the model of housing in a single location and a single production sector (manufacturing). This already enables us to analyze the effect of development on land rents. Then we introduce two locations and analyze the spatial distribution of manufacturing and land rents. Finally, we introduce a nontraded sector in both locations.
 
+In the current version, we are holding several key variables fixed. Development is taken to be exogenous, represented by a Hicks-neutral total factor productivity shifter. Urbanization is also taken as given, modeled as the exogenous spatial allocation of workers across locations. We later wish to analyze the effects of endogenous urbanization.
+\section{A single location}
 For now we assume a single consumption good, produced using the following technology:
 \[
 x = AF(n,l),
@@ -129,15 +131,15 @@ The demand side provides the \emph{marginal rate of substitution} between the tw
 \[
 r = \frac{u_h(x,h)}{u_x(x,h)} = \frac{u_h(x/h,1)}{u_x(x/h,1)} = MRS(x/h).
 \]
-This is increasing in $x/h$. For simplicity, we assume that utility is CES, so that
+This is increasing in $x/h$. For simplicity, we assume that utility is Cobb-Douglas, so that
 \[
-MRS = \frac{\beta}{1-\beta}\left(\frac{x}{h}\right)^{1/\sigma},
+MRS = \frac{\beta}{1-\beta}\frac{x}{h},
 \]
-***This is consistent with the evidence presented in *** that the share of housing expenditure in consumption is constant.
+where $\beta$ is the share of housing in expenditure. This is consistent with the evidence presented in *** that the share of housing expenditure in consumption is constant.
 
 Substituting in the relative supply of $x$ and $h$,
 \begin{equation}\label{eq:MRS}
-r = MRS(s_h) = \frac{\beta}{1-\beta}\left[\frac{AF(N/L,1-s_h)}{s_h}\right]^{1/\sigma}.
+r = MRS(s_h) = \frac{\beta}{1-\beta}\frac{AF(N/L,1-s_h)}{s_h}.
 \end{equation}
 
 In equilibrium $MRT=MRS$, and equations \eqref{eq:MRT} and \eqref{eq:MRS} can be solved for $r$ and $s_h$.
@@ -147,12 +149,9 @@ In equilibrium $MRT=MRS$, and equations \eqref{eq:MRT} and \eqref{eq:MRS} can be
 \subsection{Comparative statics}
 Equilibrium condition:
 \[
-\frac{s_h^{1/\sigma}F_L(N/L,1-s_h)}{F(N/L,1-s_h)^{1/\sigma}} = \frac{\beta}{1-\beta}A^{1/\sigma-1},
+{s_hF_L(N/L,1-s_h)} = \frac{\beta}{1-\beta}F(N/L,1-s_h),
 \]
-or, in logs,
-\[
-\frac1\sigma\ln{s_h}+\ln F_L(N/L,1-s_h)-\frac1\sigma\ln{F(N/L,1-s_h)} = \ln{\beta}-\ln{1-\beta})+\left({\frac1\sigma-1}\right)\ln A.
-\]
+which can be solved for the equilibrium $s_h$. Notice that the equilibrium share of housing does not depend on the level of development, $A$. This is the result of the Cobb-Douglas utility: since consumers want to spend a constant fraction of their income on housing, they will always devote a constant fraction of land to housing.
 
 \paragraph{Technical progress.} We model technical progress by increasing $A$. If $\sigma=1$, technical progress does not have an impact on $s_h$. A percentage change in $A$ is directly reflected in a percentage change in $r$. If $\sigma<1$, that is, housing and manufacturing are complements in utility, $s_h$ increases with development, and the impact of $A$ on rents is more than proportional. ***we may need this for magnification
 \paragraph{Population density.}
@@ -173,21 +172,7 @@ TN = r_1L+r_2L.
 
 The equilibrium allocation is such that (i) workers and land are fully employed in both locations, (ii) the global market for manufacturing goods clears, (iii) the local markets for housing clear, (iv) firms maximize profits, and (v) households maximize utility given their budget constraint.
 
-***First observe that if manufacturing is active in both locations, they will have the same price. The cost function both manufacturing and services is
-\[
-c(w^i,r^i)/A,
-\]
-where $w^i$ is the wage rate, $r^i$ is the land rent in location $i$. (Superscripts will denote location, subscripts denote the sector.) Profit maximization for sector $j$ in location $j$ requires that
-\[
-p_j^i \le c(w^i,r^i)/A,
-\]
-with equality if the sector is active (produces positive amount).
-
-Hence if both sectors are active, $p_m^i = p_s^i$. Free trade equalizes the price of manufacturing at the two locations, $p_m^i = p_m^j$. In this case, then, no relative price differentials exist among the two locations, or among traded and non-traded goods. Development has no impact on relative prices.
-
-\subsubsection{Complete specialization}
-
-We hence need \emph{complete specialization}, that is, manufacturing to be only active in one location. It is easy to see (***but has to be verified) that this will be the village and no manufacturing takes place within the city. We conjecture that with trade costs and an explicit spatial structure we would only need manufacturing to be farther away from residents than services are. In what follows, we focus on the complete specialization equilibrium.
+In what follows, we focus on equilibria that feature \emph{complete specialization}, that is, manufacturing only active in one location. It is easy to see that this will be the village and no manufacturing takes place within the city. We will later verify the parameter restrictions that require this to be an equilibrium.
 
 In this case, city residents have no wage income, all their income comes from rent transfers. All city land is used for housing, $h_2=L$. The budget constraint of the city is hence
 \[
@@ -210,24 +195,29 @@ We construct the equilibrium in the following steps.
       \]
   \item Given the rent prevailing in the village and the amount of land allocated to housing, we can derive the villagers' demand for manufactured goods, $x_1$. This is increasing in $s_h$, both because of the higher rents, and because of a higher housing consumption.
       \[
-      \frac{x_1}{L} = s_h\frac{1-\beta}{\beta}\left[AF_L(N_1/L,1-s_h)\right]^\sigma
+      \frac{x_1}{L} = s_h\frac{1-\beta}{\beta}AF_L(N_1/L,1-s_h)
       \]
   \item The supply of the manufactured good available to city-dwellers, $x_2=x-x_1$ is hence decreasing in $s_h$.
       \begin{equation}\label{eq:eq1}
-      \frac{x_2}{L} = AF(N_1/L,1-s_h)-s_h\frac{1-\beta}{\beta}\left[AF_L(N_1/L,1-s_h)\right]^\sigma
+      \frac{x_2}{L} = AF(N_1/L,1-s_h)-s_h\frac{1-\beta}{\beta}AF_L(N_1/L,1-s_h)
       \end{equation}
   \item The demand for manufactured goods in the city is pinned down by the city rent, $r_2$:
       \begin{equation}\label{eq:eq2}
-      \frac{x_2}{L} = \frac{1-\beta}{\beta}r_2^\sigma
+      \frac{x_2}{L} = \frac{1-\beta}{\beta}r_2
       \end{equation}
   \item There is also the budget constraint of the city,
   \begin{equation}\label{eq:eq3}
     \frac{x_2}{L} = \alpha r_1 -(1-\alpha)r_2 = \alpha AF_L(N_1/L,1-s_h) -(1-\alpha)r_2.
   \end{equation}
-  
 \end{enumerate}
+Equations \eqref{eq:eq1}, \eqref{eq:eq2} and \eqref{eq:eq3} can be solved for $s_h$, $r_2$ and $x_2$. 
 
 \subsection{Comparative statics}
+\paragraph{Technical progress.}
+Note first, that because the equations are linear in $(A,x_2,r_2)$ for any $s_h$, the level of development does not have an impact on the allocation of land. Development raises rents in the two locations as well as the demand and supply for manufactured goods proportionally.
+
+\paragraph{Urbanization.} 
+We can also look at the effect of urbanization (a higher fraction of people living in the city) on the allocation of land, production, and prices.
 
 \subsection{Random thoughts about the equilibrium}
 The statements we would like to establish are as follows.
@@ -237,4 +227,12 @@ The statements we would like to establish are as follows.
   \item The relative price of services and manufacturing increases in land prices.
   \item This relationship is stronger if more people live in cities.
 \end{enumerate}
+
+\section{Empirical results}
+***BS with urbanization
+
+***BS with population density
+
+***maybe more details on regressions etc we mention in the introduction
+
 \end{document}
