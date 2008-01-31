@@ -61,7 +61,20 @@ We propose a model of urbanization and development to explain why the price leve
 \end{abstract}
 
 \section{Introduction}
-Rich countries are more expensive than poor ones. This is the well-known ``Penn effect.''\footnote{The formal statement of the Penn effect is that the cost-of-living adjusted incomes differences are smaller than the unadjusted income differences.} Figure *** plots the price level of the consumption basket relative to the U.S.~against (PPP-adjusted) GDP per capita for *** countries in the *** benchmark year of the Penn World Tables.\footnote{***details on construction} Recently, Hsieh and Klenow have shown that *** Balassa and Samuelson and productivities.
+Rich countries are more expensive than poor ones. This is the
+well-known ``Penn effect.''\footnote{The formal statement of the
+Penn effect is that the cost-of-living adjusted incomes differences
+are smaller than the unadjusted income differences.} Figure ***
+plots the aggregate price level relative to the U.S. against
+(PPP-adjusted) GDP per capita for 188 countries in 2000 available in
+the Penn World Tables. Balassa (1964) and Samuelson (1964) suggested
+that the existence of tradable and non-tradable goods with immobile
+labor across countries and asymmetric sectoral productivity
+developments are able to explain this effect. Several propositions
+of the Balassa-Samuelson hypothesis are supported by the data (for
+an overview see e.g. Obstfeld-Rogoff, 1999), but the theory falls
+short of explaining why overall total factor productivity growth
+favors the tradable sector...
 
 Rich cities are more expensive than poor ones. According to \texttt{bestplaces.net}, the overall cost of living is 54 percent higher in Boston, MA than in Milwaukee, WI. The two cities are of similar size (close to 600,000 people), but the per capita income in Boston (\$28,000) is about 56 percent higher than that in Milwaukee (\$18,000). Similarly to the price differences across countries, the biggest price differences are in nontradable sectors. Healthcare is 33 percent more expensive in Boston, whereas housing is about 200 percent more expensive.\footnote{All data retrieved from \texttt{http://bestplaces.net} on January 30, 2008.} A simple explanation for the large service price differences across cities is that rents are higher in rich cities, which sustains the high service prices.
 
@@ -135,7 +148,7 @@ The demand side provides the \emph{marginal rate of substitution} between the tw
 \[
 r = \frac{u_h(x,h)}{u_x(x,h)} = MRS(x/h) = \left(\frac{x}{h}\right)^{1/\sigma} .
 \]
-This is increasing in $x/h$. 
+This is increasing in $x/h$.
 
 Substituting in the relative supply of $x$ and $h$,
 \begin{equation}\label{eq:MRS}
@@ -475,5 +488,57 @@ the level of urbanization -- measured in the proportion of urban
 population or population density -- significantly increases the
 proportion of employees working in non-tradable sectors supporting
 our spatial correlation assumption.
+
+\subsection{Land prices and income}
+The effects of development on the price of land is a major mechanism
+in our model influencing the relative price of services. To have a
+first look at the question, we use the data built by Davis and
+Palumbo, 2007 who created implied residential land value data for 46
+large U.S. metropolitan areas. To get this data, the authors use
+regional data on construction costs and decompose the value of an
+average home to replacement value and land value.
+
+Graph *** shows the (log) price of land as a function of per capita
+income for the US cities. It strongly supports our conjecture that
+higher income areas face more appreciated land prices.
+
+Table \ref{tab:land} shows the estimated effects of income on the
+land prices, the replacement values (constr) and home values
+controlling for the size of the metropolitan areas. The regressions
+show that the regional income influences all the values, but it has
+the largest effect on the land prices with an amplification factor
+of 2.8.
+
+\begin{table}[h]
+\center \caption{Land prices and income (Robust standard errors are
+in parentheses)} \label{tab:land}
+\begin{tabular}{c|ccc}
+  \hline\hline
+  Explanatory & \multicolumn{3}{c}{Dependent variable} \\
+  variables & log(land) & log(constr) & log(home) \\ \hline
+  log(income)    & \textbf{2.77}   & \textbf{0.38}  & \textbf{1.66}\\
+                 & (0.67)          & (0.11)         &  (0.38)\\
+  log(population)& 0.13            &  0.02          &  0.05\\
+                 & (0.18)          & (0.03)         &  0.10\\
+  constant       & \textbf{-19.47} & \textbf{7.38}  &  -5.83\\
+                 & (6.35)          & (1.12)         &  (3.53)\\ \hline
+  $R^2$          & 0.42            & 0.25           &   0.52\\
+  No. of obs.    & 46              & 46             &   46   \\ \hline\hline
+\end{tabular}
+\end{table}
+
+
+\begin{thebibliography}{99}
+\bibitem{Balassa64} Balassa, B., 1964, ``The Purchasing-Power Parity Doctrine: A
+Reappraisal,'' \emph{Journal of Political Economy}, 584-596.
+\bibitem{Davis07} Davis, M. A. and Palumbo, M. G., 2007, ``The Price
+of Residential Land in Large U.S. Cities,'' manuscript
+\bibitem{Heston06} Heston, A., R. Summers and B. Aten, 2006, Penn World Table Version 6.2, \emph{Center for International Comparisons of Production, Income and Prices at the University of
+Pennsylvania}
+\bibitem{Obstfeld99} Obstfeld, M. and Rogoff, K., 1999, \emph{Foundations of International
+Macroeconomics}, The MIT Press, Cambridge MA
+\bibitem{Samuelson64} Samuelson, P. A. , 1964, ``Theoretical Notes on Trade
+Problems,'' \emph{The Review of Economics and Statistics} 145-154.
+\end{thebibliography}
 
 \end{document}
