@@ -84,7 +84,17 @@ Our model rests on three key observations.
 
 First, most people in the world live in cities, and hence the analysis of price dispersion across cities can potentially inform our analysis of price dispersion across countries. In 2005, around 50 percent of the world population lived in cities.\footnote{World Development Indicators.} The overall population density of the earth is rather low, 43 people per square kilometer.  However, population is very clustered, so the average person lives in an area with a population density of 5,700 people per square kilometer.\footnote{We used high-resolution population density data from LandScan to calculate, for the average person on earth, the number of people living within the same 30 arc second by 30 arc second area. (This is basically a population-weighted population density.) } This suggests that the scarcity of land, which has the potential to explain price differences across cities, can also be partly responsible for price differences across countries.
 
-Second, whether a good is tradable or not has implications not only for cross-country trade but also for within-country trade, and hence the location of production within the country. There are many technological differences between tradable sectors such as manufacturing, and non-tradable sectors such as services. The fundamental difference is that non-tradable goods or services have to be produced at the location of their consumption, whereas tradable goods and services can be produced far away from consumers, where land prices may be cheaper. Figure *** shows a map of U.S.~counties, displaying the \emph{share} of employment in tradable sectors.\footnote{***description} Darker colors represent a higher share in tradable sectors. We see that tradable sectors locate farther away from population centers. This is confirmed in Figure ***, as well, which plots the fraction of employment in traded sectors against the population density of the county. The implication of this observation is that tradable prices are less sensitive to the price of land than non-tradable sectors.
+Second, whether a good is tradable or not has implications not only for cross-country trade but also for within-country trade, and hence the location of production within the country. There are many technological differences between tradable sectors such as manufacturing, and non-tradable sectors such as services. The fundamental difference is that non-tradable goods or services have to be produced at the location of their consumption, whereas tradable goods and services can be produced far away from consumers, where land prices may be cheaper. Figure \ref{fig:ntcounties} shows a map of U.S.~counties, displaying the \emph{share} of employment in non-tradable sectors. Darker colors represent a higher share in non-tradable sectors. We see that non-tradable sectors locate near population centers.\footnote{This is confirmed more formally in Section ***.} The implication of this observation is that tradable prices are less sensitive to the price of land than non-tradable sectors.
+
+\begin{figure}[h!]
+\centering
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=0.7\linewidth]{figures/ntcounties}
+  \vspace*{-7em}
+  \caption{The share of non-traded employment in U.S.~counties}\label{fig:ntcounties}
+  {\small\emph{Source}: 2000 U.S.~Census, Summary File 3.}
+\end{figure}
+
 
 Third, the scarcity of land can be an important constraint to development in at least one sector of the economy: residential housing. Development is usually accompanied by an increase in total factor productivity.\footnote{Hall and Jones (1996) find that most of the output per worker differences across countries can be accounted for by differences in TFP.} Rich countries can produce more output with the same amount of inputs. This also holds for non-reproducible factors, such as land; after all, retail trade has seen one of the highest productivity increase in the past X years in the U.S., where sales per square feet went up from X to Y.\footnote{Thanks, in a large extent, to the success of Wal Mart.} However, land remains a constraining factor for residential housing. Increased productivity in construction can lead to taller and higher-quality buildings, but the ``footprint'' of a typical household does not decline with development. Davis and Heathcote (2007) estimate that the price of residential land in the U.S.~has more than tripled between 1975 and 2005. During this same period, the share of land in the value of a home has increased from 35 percent to 45 percent, suggesting that growth does not bring about a substitution away from residential land.\footnote{Also see Davis and Palumbo (2008).} This implies that land rents increase with development. Together with the previous observation, we have ***
 
@@ -152,23 +162,30 @@ This is increasing in $x/h$.
 
 Substituting in the relative supply of $x$ and $h$,
 \begin{equation}\label{eq:MRS}
-r = MRS({\lambda}) = \left(\frac{AF(N/L,1-{\lambda})}{{\lambda}}\right)^{1/\sigma}.
+r = MRS({\lambda}) = \left[\frac{AF(N/L,1-{\lambda})}{{\lambda}}\right]^{1/\sigma}.
 \end{equation}
 
 In equilibrium $MRT=MRS$, and equations \eqref{eq:MRT} and \eqref{eq:MRS} can be solved for $r$ and ${\lambda}$.
 
-***figure here
+Figure \eqref{fig:mrt} displays the MRT and the MRS schedules in the $(\lambda,r)$ space. Clearly, the MRT schedule is increasing in $\lambda$. If a higher share of land is allocated to housing, less remains for the manufacturing, raising the marginal product of land there. MRS ic, in turn, decreasing in $\lambda$. The higher the supply of housing, the lower the marginal utility of housing consumption. Because the utility function satisfies the Inada conditions, there is a unique interior equilibrium.
 
-\subsubsection{Comparative statics}
-Equilibrium condition:
+\begin{figure}[h!]
+\centering
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=0.7\linewidth]{figures/compstat}\\
+  \caption{Residential land and land rents}\label{fig:mrt}
+\end{figure}
+
+
+The equilibrium is characterized by the following condition:
 \[
-{{\lambda}F_L(N/L,1-{\lambda})} = \frac{\beta}{1-\beta}F(N/L,1-{\lambda}),
+A^\sigma {\lambda}\left[F_L(N/L,1-{\lambda})\right]^\sigma = AF(N/L,1-{\lambda}),
 \]
-which can be solved for the equilibrium ${\lambda}$. Notice that the equilibrium share of housing does not depend on the level of development, $A$. This is the result of the Cobb-Douglas utility: since consumers want to spend a constant fraction of their income on housing, they will always devote a constant fraction of land to housing.
+which can then be solved for the equilibrium ${\lambda}$. The LHS is increasing in $\lambda$, while the RHS is decreasing. Notice how the equilibrium share of housing depends on the level of development, $A$. Because $\sigma<1$, the RHS increases faster with development than the LHS. This implies that the supply of housing, $\lambda$, increases with development. This crucially depends on consumption and housing being complements. Development increase the supply of manufactured goods in proportion to $A$.
+It also leads to cheaper manufactured goods, which increases their relative demand. The increase in demand is smaller, only proportional to $A^\sigma$. The supply of manufacturing has to adjust downward, the relative supply of housing adjusts upward.
 
-\paragraph{Technical progress.} We model technical progress by increasing $A$. If $\sigma=1$, technical progress does not have an impact on ${\lambda}$. A percentage change in $A$ is directly reflected in a percentage change in $r$. If $\sigma<1$, that is, housing and manufacturing are complements in utility, ${\lambda}$ increases with development, and the impact of $A$ on rents is more than proportional. ***we may need this for magnification
-\paragraph{Population density.}
 
+Because land rents are linear in $A$ for a given $\lambda$, and increase in $\lambda$, we have the following propositions.
 \begin{proposition}
 Development leads to higher rents, both relative to manufacturing prices and wages. Home sizes also increase.
 \end{proposition}
@@ -230,16 +247,21 @@ We construct the equilibrium in the following steps.
     \frac{x_2}{L} = \alpha r_1 -(1-\alpha)r_2 = \alpha \left[AF_L(N_1/L,1-{\lambda})\right]^\sigma -(1-\alpha)r_2.
   \end{equation}
 \end{enumerate}
-Equations \eqref{eq:eq1}, \eqref{eq:eq2} and \eqref{eq:eq3} can be solved for ${\lambda}$, $r_2$ and $x_2$.
+Equations \eqref{eq:eq1}, \eqref{eq:eq2} and \eqref{eq:eq3} can be solved for ${\lambda}$, $r_2$ and $x_2$. We combine \eqref{eq:eq2} and \eqref{eq:eq3} to substitute out $r_2$. This leads to an equation that gives the \emph{demand} for $x_2$ as a function of $\lambda$. Higher $\lambda$ implies higher land rents in the village, part of which increases the income of city residents, leading to higher city demand for the manufactured good. Equation \eqref{eq:eq1} then characterizes the \emph{supply} of $x_2$. Higher $\lambda$ implies lower manufacturing production and a lower supply of $x_2$.
 
-***supply and demand of $x_2$
+These demand and supply schedules are plotted on Figure \ref{fig:stage2}. We conduct two comparative statics. First, we increase $A$ to capture technical progress. Note that this increase both the demand and the supply of $x_2$, but the supply more than the demand, so the manufactured good has to become cheaper. Second, we increase $\alpha$, the fraction of people living in the city. In the current setup, because there is no production in the city, this only constitutes a larger income transfer from the village to the city.
 
-\subsection{Comparative statics}
-\paragraph{Technical progress.}
-Note first, that because the equations are linear in $(A,x_2,r_2)$ for any ${\lambda}$, the level of development does not have an impact on the allocation of land. Development raises rents in the two locations as well as the demand and supply for manufactured goods proportionally.
+\begin{figure}[h!]
+\centering
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=0.7\linewidth]{figures/compstat2}\\
+  \caption{The demand and supply of manufactured goods in the city}\label{fig:stage2}
+\end{figure}
 
-\paragraph{Urbanization.}
-We can also look at the effect of urbanization (a higher fraction of people living in the city) on the allocation of land, production, and prices.
+
+\begin{proposition}
+Development raises the demand for residential land. ***
+\end{proposition}
 
 \begin{proposition}
 Urbanization leads to higher manufacturing output, lower village rents, and higher city rents.
@@ -252,7 +274,7 @@ x = m^\gamma s^{1-\gamma},
 \]
 so that total utility is
 \[
-u(m,s,h) = \left[\left(m^{\gamma}m^{1-\gamma}\right)^{1-1/\sigma}+h^{1-1/\sigma}\right]^{\sigma/(\sigma-1)}.
+u(m,s,h) = \left[\left(m^{\gamma}s^{1-\gamma}\right)^{1-1/\sigma}+h^{1-1/\sigma}\right]^{\sigma/(\sigma-1)}.
 \]
 
 Both manufacturing and services are produced using the same technology
@@ -272,7 +294,7 @@ The equilibrium allocation is such that (i) workers and land are fully employed 
 
 Again, we focus on complete specialization equilibria. In these equilibria, manufacturing only produces in the village, which pins down services prices in the village as $p_1=1$. Service prices in the city are higher, $p_2>1$.
 
-In constructing the equilibrium, we first observe that, in the village, both services and manufacturing use the same factor proportions. This is implied by the profit maximization of firms that face common wages, rents, and technologies. If ${\lambda}$ share of land is allocated to housing, then the total land used in production is $(1-{\lambda})L$. The ratio of workers to land in both industries is
+When constructing the equilibrium, we first observe that, in the village, both services and manufacturing use the same factor proportions. This is implied by the profit maximization of firms that face common wages, rents, and technologies. If ${\lambda}$ share of land is allocated to housing, then the total land used in production is $(1-{\lambda})L$. The ratio of workers to land in both industries is
 \[
 \frac{n_{m1}}{l_{m1}}=\frac{n_{s1}}{l_{s1}}=\frac{N_1}{(1-{\lambda})L}.
 \]
@@ -286,13 +308,13 @@ y_{m}+s_1 = ALF(N_1/L,1-{\lambda}),
 \]
 where $y_{m}$ is the village supply of manufacturing (which may be different from the village demand).
 
-The total expenditure on services and manufacturing depends on the rent
+The total expenditure on services and manufacturing depends on the rent,
 \[
 \frac{m_1+s_1}{h_1}  = r_1^\sigma.
 \]
 The excess supply (net exports) of manufacturing is supply minus demand, $y_m-m_1$. This is simply
 \begin{equation}\label{eq:eq1b}
-\frac{y_m-m_1}{L} = \frac{(y_m+s_1)-(m_1+s_1)}{L} = AF(N_1/L,1-{\lambda}) - AF_L(N_1/L,1-{\lambda}),
+\frac{y_m-m_1}{L} = \frac{(y_m+s_1)-(m_1+s_1)}{L} = AF(N_1/L,1-{\lambda}) - \lambda\left[AF_L(N_1/L,1-{\lambda})\right]^\sigma,
 \end{equation}
 the same as in the previous case, \eqref{eq:eq1}.
 
@@ -310,9 +332,9 @@ m_2 +r_2L = TN_2,
 \]
 which is again the same as before. (Spending on manufactures and the total land rent in the city equals the transfer income.) Writing out transfers,
 \begin{equation}\label{eq:eq3b}
-    \frac{m_2}{L} = \alpha r_1-(1-\alpha)r_2 = \alpha AF_L(N_1/L,1-{\lambda})-(1-\alpha)r_2.
+    \frac{m_2}{L} = \alpha r_1-(1-\alpha)r_2 = \alpha \left[AF_L(N_1/L,1-{\lambda})\right]^\sigma-(1-\alpha)r_2.
 \end{equation}
-
+This equation is identical to \eqref{eq:eq3}.
 ***
 
 
@@ -343,8 +365,8 @@ different in every country, however, the cross-country results
 should be treated with some caution.
 
 Using the proportion of urban population to divide the sample
-equally to more rural and more urbanized countries, graph
-*** shows the cross-country relationships of the (log) price levels
+equally to more rural and more urbanized countries, Figure
+\ref{fig:pennX} shows the cross-country relationships of the (log) price levels
 and the (log) per capita GDP for both groups, using data from the
 Penn World Table. The graphs shows, in line with our conjecture,
 that the relationship between income and the price level is stronger
@@ -352,6 +374,14 @@ among more urbanized countries. It also shows that the comparison is
 valid as there are reasonable variation in per capita GDP for both
 groups, even if there are clearly more high-income countries among
 the more urbanized ones.
+
+\begin{figure}[h!]
+\centering
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=0.7\linewidth]{figures/sc_penn}\\
+  \caption{Development, urbanization, and price levels}\label{fig:pennX}
+\end{figure}
+
 
 To approach the question more formally, we estimated some
 regressions in the following form
@@ -446,9 +476,17 @@ information about the industry level employment, while the general
 short survey contains information about the urban population and
 population density according to various geographic areas}
 
-Graph *** shows the relationship between the proportion of urban
+Figure \ref{fig:nt-states} shows the relationship between the proportion of urban
 population and the relative non-tradable/tradable employment for US
 states, strongly supporting the conjectured positive relationship.
+
+\begin{figure}[h!]
+\centering
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=0.7\linewidth]{figures/sc_state}\\
+  \caption{Urbanization and non-traded employment in U.S.~states}\label{fig:nt-states}
+\end{figure}
+
 
 To examine the effects more formally, we used US county level data.
 The advantage of using counties is that it can capture the
