@@ -352,13 +352,13 @@ the more urbanized ones.
 To approach the question more formally, we estimated some
 regressions in the following form
 \begin{equation}
-\log{P}=\alpha_1+\alpha_2\log Y+\alpha_3Z+\alpha_4(Z-\bar{Z})(\log Y-\bar{\log Y})+\varepsilon,
+\log{P}=\alpha_1+\alpha_2\log Y+\alpha_3Z+\alpha_4(Z-\bar{Z})(\log Y-\overline{\log Y})+\varepsilon,
 \end{equation}
 where $P$ refers to the various price measures, Y is the measure of
 GDP, and $Z$-s are the different urbanization measures. Our main
-interest is the cross-term, as it can be expected to capture how the
-level of urbanization influences the relationship between the output
-and the price measures.
+interest is the (demeaned) cross-term, as it can be expected to
+capture how the level of urbanization influences the relationship
+between the output and the price measures.
 
 Our main price measure is the comparable price level available for
 over 180 countries from the Penn World Table.\footnote{The sample
@@ -382,7 +382,7 @@ comparable internationally than tradable prices,
 standard errors are in parentheses)} \center \label{tab:BS}
 \begin{tabular}{c|cc|cc}
   \hline\hline
-  Explanatory & \multicolumn{4}{|c}{Dependent variables} \\
+  Explanatory & \multicolumn{4}{c}{Dependent variables} \\
   variables &\multicolumn{2}{c}{$\log P$} & \multicolumn{2}{c}{$\log(P_{NT}/P_T)$} \\ \hline
   $\log Y$ & \textbf{0.25} & \textbf{0.34} & \textbf{0.28}   & \textbf{0.33} \\
            & (0.05)        & (0.03)        & (0.07)          & (0.05)        \\
@@ -403,8 +403,31 @@ standard errors are in parentheses)} \center \label{tab:BS}
 \end{table}
 
 Table \ref{tab:BS} implies that the regressions mostly support our
-conjectures: the regressors all have the right sign and they are
-significant. 
+conjectures. The first two columns use the (log) price levels as
+dependent variables, while the last two uses the (log) relative
+non-tradable/tradable prices. For both dependent variables, we
+present two regressions with the two urbanization measures. 'Urban'
+is the proportion of urban population, and 'density' is the
+population density; and 'urbanX' and 'densityX' are the demeaned
+output-urbanization cross terms.
+
+In line with well known previous results, higher per capita output
+increases both the price level and the relative prices across
+countries, but this relationship is significantly influenced by the
+level of urbanization, even after controlling for direct price
+effects of the urbanization. Looking at the first regression, we
+have found that 1\% higher per capita output increases the price
+level by 0.25\% for average level of urbanization (54\%), and 1\%
+higher urbanization has a further 0.61\% direct effect. The cross
+effect, however, implies that the effect of output on the prices
+would be close to 0 under the (extreme) case of 0 urbanization
+($0.25-0.54\cdot0.38=0.05$) and would be over 0.4 in case of full
+urbanization. The effects using the relative prices are similar
+supporting the conjecture that the price differences are the result
+of different non-tradable prices. Using the population density as
+explanatory variable still supports the effect using the price
+level, though it turns out to be insignificant for our sample in
+explaining the cross country relative price differences.
 
 \subsection{Population }
 The model conjectures that this effect comes from the facts that, on
