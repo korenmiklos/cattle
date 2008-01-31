@@ -111,10 +111,12 @@ where $h$ is service flow from housing and $l_h$ is land devoted to residential 
 
 The key assumption regarding the housing sector is that there is no technical progress. This implies that the demand for residential land will increase with development. The scarcity of land will hence constrain the productivity of the other sectors. As we will see, one has to shut down technical progress somewhere so that development leads to changes in relative prices. We believe it is reasonable to assume that the same square footage of housing leads to similar housing services in rich and poor countries, or, at least, that the potential differences are smaller than in any of the productive sectors.
 
-People consume the final good and housing, and their demand is represented by a homothetic, quasi-concave utility function satisfying the Inada conditions:
+People consume the final good and housing, and their demand is represented by a constant-elasticity-of-substitution utility function:
 \[
-u(x,h).
+u(x,h) = \left(x^{1-1/\sigma}+h^{1-1/\sigma}\right)^{\sigma/(\sigma-1)},
 \]
+with $\sigma$ being the elasticity of substitution between consumption and housing. We assume that $\sigma<1$, that is, consumption and housing are complements. As we explain below, this is important for our results, and is also consistent with empirical evidence.\footnote{Davis and Ortalo-Magné (2007) show that the share of housing in expenditure is constant, suggesting a Cobb--Douglas demand for housing. In our model, however, housing only uses land, and Davis and Heathcote (2007) show how the share of land value in the total value of a home has increased with the growth of U.S.~GDP. This suggests complementarities between land and reproducible goods in producing housing services or final utility.}
+
 The economy has $L$ amount of land and $N$ workers. Each worker supply a unit of labor inelastically. All land is owned by a lord, who then redistributes the rental income to each worker in the form of lump-sum transfers. Total income of a household is then the sum of wage income and this transfer.
 
 In equilibrium there is full employment of both land and workers. Since workers can only be employed in manufacturing, the only interesting allocation is that of land. Let ${\lambda}$ denote the share of land devoted to housing, ${\lambda} = l_h/L$. Then the supply of housing is ${\lambda} L$, and the supply of the manufacturing good is $AF[N,L(1-{\lambda})]$. Because $F()$ is CRS, we can express the relative supply of manufacturing and housing as
@@ -131,17 +133,13 @@ where the last equality follows from the linear homogenous nature of $F()$. This
 
 The demand side provides the \emph{marginal rate of substitution} between the two goods. By the homothetic nature of $u()$, the MRS only depends on the relative consumption of $x$ and $h$,
 \[
-r = \frac{u_h(x,h)}{u_x(x,h)} = \frac{u_h(x/h,1)}{u_x(x/h,1)} = MRS(x/h).
+r = \frac{u_h(x,h)}{u_x(x,h)} = MRS(x/h) = \left(\frac{x}{h}\right)^{1/\sigma} .
 \]
-This is increasing in $x/h$. For simplicity, we assume that utility is Cobb-Douglas, so that
-\[
-MRS = \frac{\beta}{1-\beta}\frac{x}{h},
-\]
-where $\beta$ is the share of housing in expenditure. This is consistent with the evidence presented in *** that the share of housing expenditure in consumption is constant.
+This is increasing in $x/h$. 
 
 Substituting in the relative supply of $x$ and $h$,
 \begin{equation}\label{eq:MRS}
-r = MRS({\lambda}) = \frac{\beta}{1-\beta}\frac{AF(N/L,1-{\lambda})}{{\lambda}}.
+r = MRS({\lambda}) = \left(\frac{AF(N/L,1-{\lambda})}{{\lambda}}\right)^{1/\sigma}.
 \end{equation}
 
 In equilibrium $MRT=MRS$, and equations \eqref{eq:MRT} and \eqref{eq:MRS} can be solved for $r$ and ${\lambda}$.
@@ -159,13 +157,10 @@ which can be solved for the equilibrium ${\lambda}$. Notice that the equilibrium
 \paragraph{Population density.}
 
 \begin{proposition}
-Land rents increase with development.
+Development leads to higher rents, both relative to manufacturing prices and wages. Home sizes also increase.
 \end{proposition}
 \begin{proposition}
 Land rents increase with population density.
-\end{proposition}
-\begin{proposition}
-Housing increases with population density if and only if land and labor are substitutes in production.
 \end{proposition}
 
 \subsection{Two locations}
@@ -207,19 +202,19 @@ We construct the equilibrium in the following steps.
       \]
   \item Given the rent prevailing in the village and the amount of land allocated to housing, we can derive the villagers' demand for manufactured goods, $x_1$. This is increasing in ${\lambda}$, both because of the higher rents, and because of a higher housing consumption.
       \[
-      \frac{x_1}{L} = {\lambda}\frac{1-\beta}{\beta}AF_L(N_1/L,1-{\lambda})
+      \frac{x_1}{L} = {\lambda}\left[AF_L(N_1/L,1-{\lambda}]\right)^\sigma
       \]
   \item The supply of the manufactured good available to city-dwellers, $x_2=x-x_1$ is hence decreasing in ${\lambda}$.
       \begin{equation}\label{eq:eq1}
-      \frac{x_2}{L} = AF(N_1/L,1-{\lambda})-{\lambda}\frac{1-\beta}{\beta}AF_L(N_1/L,1-{\lambda})
+      \frac{x_2}{L} = AF(N_1/L,1-{\lambda})-{\lambda}\left[AF_L(N_1/L,1-{\lambda})\right]^\sigma
       \end{equation}
   \item The demand for manufactured goods in the city is pinned down by the city rent, $r_2$:
       \begin{equation}\label{eq:eq2}
-      \frac{x_2}{L} = \frac{1-\beta}{\beta}r_2
+      \frac{x_2}{L} = r_2^\sigma.
       \end{equation}
   \item There is also the budget constraint of the city,
   \begin{equation}\label{eq:eq3}
-    \frac{x_2}{L} = \alpha r_1 -(1-\alpha)r_2 = \alpha AF_L(N_1/L,1-{\lambda}) -(1-\alpha)r_2.
+    \frac{x_2}{L} = \alpha r_1 -(1-\alpha)r_2 = \alpha \left[AF_L(N_1/L,1-{\lambda})\right]^\sigma -(1-\alpha)r_2.
   \end{equation}
 \end{enumerate}
 Equations \eqref{eq:eq1}, \eqref{eq:eq2} and \eqref{eq:eq3} can be solved for ${\lambda}$, $r_2$ and $x_2$.
@@ -244,7 +239,7 @@ x = m^\gamma s^{1-\gamma},
 \]
 so that total utility is
 \[
-u(m,s,h) = m^{\gamma(1-\beta)}m^{(1-\gamma)(1-\beta)}h^\beta.
+u(m,s,h) = \left[\left(m^{\gamma}m^{1-\gamma}\right)^{1-1/\sigma}+h^{1-1/\sigma}\right]^{\sigma/(\sigma-1)}.
 \]
 
 Both manufacturing and services are produced using the same technology
@@ -278,17 +273,13 @@ y_{m}+s_1 = ALF(N_1/L,1-{\lambda}),
 \]
 where $y_{m}$ is the village supply of manufacturing (which may be different from the village demand).
 
-Cobb-Douglas demand implies constant expenditure shares, so it is easy to determine the demand for services. This also equals the supply of services, because services are nontraded.
+The total expenditure on services and manufacturing depends on the rent
 \[
-\frac{s_1}{L}  = \frac{(1-\gamma)(1-\beta)}{\beta} r_1\frac{h_1}{L} = \frac{(1-\gamma)(1-\beta)}{\beta}{\lambda}AF_L(N_1/L,1-{\lambda}).
-\]
-The total spending on services and manufacturing is also a constant proportion of housing expenditure,
-\[
-\frac{m_1+s_1}{L}  = \frac{(1-\beta)}{\beta} r_1\frac{h_1}{L} = \frac{(1-\beta)}{\beta}{\lambda}AF_L(N_1/L,1-{\lambda}).
+\frac{m_1+s_1}{h_1}  = r_1^\sigma.
 \]
 The excess supply (net exports) of manufacturing is supply minus demand, $y_m-m_1$. This is simply
 \begin{equation}\label{eq:eq1b}
-\frac{y_m-m_1}{L} = \frac{(y_m+s_1)-(m_1+s_1)}{L} = AF(N_1/L,1-{\lambda}) - \frac{(1-\beta)}{\beta}{\lambda}AF_L(N_1/L,1-{\lambda}),
+\frac{y_m-m_1}{L} = \frac{(y_m+s_1)-(m_1+s_1)}{L} = AF(N_1/L,1-{\lambda}) - AF_L(N_1/L,1-{\lambda}),
 \end{equation}
 the same as in the previous case, \eqref{eq:eq1}.
 
