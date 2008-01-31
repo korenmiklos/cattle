@@ -61,7 +61,7 @@ We propose a model of urbanization and development to explain why the price leve
 \end{abstract}
 
 \section{Introduction}
-Rich countries are more expensive than poor ones. This is the well-known ``Penn effect.''\footnote{The formal statement of the Penn effect is that the cost-of-living adjusted incomes differences are smaller than the unadjusted income differences.} Figure *** plots the price level of the consumption basket relative to the U.S.~against (PPP-adjusted) GDP per capita for *** countries in the *** benchmark year of the Penn World Tables.\footnote{***details on construction} Recently, Hsieh and Klenow have shown that *** Balassa and Samuelson and productivities. 
+Rich countries are more expensive than poor ones. This is the well-known ``Penn effect.''\footnote{The formal statement of the Penn effect is that the cost-of-living adjusted incomes differences are smaller than the unadjusted income differences.} Figure *** plots the price level of the consumption basket relative to the U.S.~against (PPP-adjusted) GDP per capita for *** countries in the *** benchmark year of the Penn World Tables.\footnote{***details on construction} Recently, Hsieh and Klenow have shown that *** Balassa and Samuelson and productivities.
 
 Rich cities are more expensive than poor ones. According to \texttt{bestplaces.net}, the overall cost of living is 54 percent higher in Boston, MA than in Milwaukee, WI. The two cities are of similar size (close to 600,000 people), but the per capita income in Boston (\$28,000) is about 56 percent higher than that in Milwaukee (\$18,000). Similarly to the price differences across countries, the biggest price differences are in nontradable sectors. Healthcare is 33 percent more expensive in Boston, whereas housing is about 200 percent more expensive.\footnote{All data retrieved from \texttt{http://bestplaces.net} on January 30, 2008.} A simple explanation for the large service price differences across cities is that rents are higher in rich cities, which sustains the high service prices.
 
@@ -75,7 +75,7 @@ Second, whether a good is tradable or not has implications not only for cross-co
 
 Third, the scarcity of land can be an important constraint to development in at least one sector of the economy: residential housing. Development is usually accompanied by an increase in total factor productivity.\footnote{Hall and Jones (1996) find that most of the output per worker differences across countries can be accounted for by differences in TFP.} Rich countries can produce more output with the same amount of inputs. This also holds for non-reproducible factors, such as land; after all, retail trade has seen one of the highest productivity increase in the past X years in the U.S., where sales per square feet went up from X to Y.\footnote{Thanks, in a large extent, to the success of Wal Mart.} However, land remains a constraining factor for residential housing. Increased productivity in construction can lead to taller and higher-quality buildings, but the ``footprint'' of a typical household does not decline with development. Davis and Heathcote (2007) estimate that the price of residential land in the U.S.~has more than tripled between 1975 and 2005. During this same period, the share of land in the value of a home has increased from 35 percent to 45 percent, suggesting that growth does not bring about a substitution away from residential land.\footnote{Also see Davis and Palumbo (2008).} This implies that land rents increase with development. Together with the previous observation, we have ***
 
-These empirical patterns discipline our modeling choices.  
+These empirical patterns discipline our modeling choices.
 
 Land rents increase with development because of the scarcity of land available for housing. In the model,
 
@@ -230,7 +230,7 @@ Equations \eqref{eq:eq1}, \eqref{eq:eq2} and \eqref{eq:eq3} can be solved for ${
 \paragraph{Technical progress.}
 Note first, that because the equations are linear in $(A,x_2,r_2)$ for any ${\lambda}$, the level of development does not have an impact on the allocation of land. Development raises rents in the two locations as well as the demand and supply for manufactured goods proportionally.
 
-\paragraph{Urbanization.} 
+\paragraph{Urbanization.}
 We can also look at the effect of urbanization (a higher fraction of people living in the city) on the allocation of land, production, and prices.
 
 \begin{proposition}
@@ -247,7 +247,7 @@ so that total utility is
 u(m,s,h) = m^{\gamma(1-\beta)}m^{(1-\gamma)(1-\beta)}h^\beta.
 \]
 
-Both manufacturing and services are produced using the same technology 
+Both manufacturing and services are produced using the same technology
 \begin{align*}
 m&=AF(n_m,l_m),\\
 s&=AF(n_s,l_s),
@@ -312,12 +312,100 @@ which is again the same as before. (Spending on manufactures and the total land 
 ***
 
 
-
 \section{Empirical results}
-***BS with urbanization
+In this section, we present some suggestive evidence about the main
+mechanisms of the model.
 
-***BS with population density
+\subsection{Urbanization and prices}
+To motivate the main proposition of the model, we show that higher
+urbanization increases the influence of per capita income on the
+price level and the relative non-tradable/tradable prices in
+standard cross-country regressions.
 
-***maybe more details on regressions etc we mention in the introduction
+Two related, but distinct measures we can use to compare the
+urbanization level of a country are the proportion of urban
+population and the population density both available from the World
+Development Indicator database. For our purposes, the main question
+is the 'closeness of residents', for which both measures are
+imperfect.\footnote{Population weighted population-density would be
+a measure which would express the best the scarcity of land in a
+country. We are about to develop this measure using the detailed
+population and land area measures of the LandScan database.} We
+consider the proportion of urban population a better measure, as it
+can be expected to capture the clustering of the population better
+than just the average population density in a country. As the the
+definition of urban population is different in every country,
+however, the cross-country results should be treated with some
+caution.
+
+Using the proportion of urban population to separate the more rural
+countries from the urbanized ones, graph *** shows the cross-country
+relationships of the (log) price levels and the (log) per capita GDP
+for both groups, using the data from the Penn World Table. The
+graphs shows, in line with our main conjecture, that the
+relationship between income and the price level is stronger among
+more urbanized countries. It also shows that the comparison is valid
+as there are reasonable variation in per capita GDP for both groups,
+even if there are clearly more high-income countries among the more
+urbanized ones.
+
+To approach the question more formally, we estimated some
+regressions in the following form
+\begin{equation}
+\log{P}=\alpha_1+\alpha_2\log Y+\alpha_3Z+\alpha_4(Z-\bar{Z})(\log Y-\bar{\log Y})+\varepsilon,
+\end{equation}
+where $P$ refers to the various price measures, Y is the measure of
+GDP, and $Z$ are the different urbanization measures. Our main
+interest is the cross-term, as it can be expected to capture how the
+level of urbanization influences the relationship between the output
+and the price measures.
+
+To check the robustness of the results, we calculated a
+non-tradable/tradable relative price index ($P_{NT}/P_{T}$) using
+the basic heading level price data for consumption obtained by the
+International Comparison Program in 1996 and published together with
+the Penn World Table. The relative price, though can be expected to
+be less reliable than the aggregate price level as the non-tradable
+prices, like services, tend to be less comparable internationally
+than tradable prices, is more in line with the Balassa-Samuelson
+proposition, that implies that the main reason of the price level
+differences are because of the non-tradable prices.
+
+\begin{table}[h]
+\caption{Balassa-Samuelson regressions with urbanization (Robust
+standard errors are in parentheses)} \center \label{tab:BS}
+\begin{tabular}{c|cc|cc}
+  \hline\hline
+  Explanatory & \multicolumn{4}{|c}{Dependent variables} \\
+  variables &\multicolumn{2}{c}{$\log P$} & \multicolumn{2}{c}{$\log(P_{NT}/P_T)$} \\ \hline
+  $\log Y$ & \textbf{0.25} & \textbf{0.34} & \textbf{0.28}   & \textbf{0.33} \\
+           & (0.05)        & (0.03)        & (0.07)          & (0.05)        \\
+  urban    & \textbf{0.61} &               & 0.12            &               \\
+           & (0.21)        &               & (0.34)          &               \\
+  urbanX   & \textbf{0.38} &               & \textbf{0.43}   &              \\
+           & (0.11)        &               & (0.19)          &              \\
+  log(density) &           & -0.02         &                 & -0.02        \\
+             &             & (0.02)        &                 &  0.04        \\
+  densityX &               & \textbf{0.05} &                  & 0.01         \\
+           &               & (0.02)        &                 & 0.02         \\
+  constant & \textbf{1.13} & \textbf{0.82} & \textbf{-2.96}  & \textbf{-3.13}\\
+           & (0.31)        & (0.26)        & 0.50            & (0.41)        \\ \hline
+  No. of obs. & 186        & 183           & 113             & 113          \\
+  $R^2$    & 0.50          & 0.46          & 0.38            & 0.34  \\
+  \hline\hline
+\end{tabular}
+\end{table}
+
+Table \ref{tab:BS} implies that the regressions mostly support our
+conjectures, the regressors all have the right sign and they are
+significant...
+
+\subsection{Population }
+The model conjectures that this effect comes from the facts that, on
+the one hand, non-tradable products and services need to be produced
+close to the population and thereby needs to compete for land with
+residents, and, on the other hand, richer residents drive up the
+prices of the land. In order to provide some evidence to these
+mechanisms, we look at US data.
 
 \end{document}
