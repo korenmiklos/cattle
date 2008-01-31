@@ -429,12 +429,60 @@ explanatory variable still supports the effect using the price
 level, though it turns out to be insignificant for our sample in
 explaining the cross country relative price differences.
 
-\subsection{Population }
-The model conjectures that this effect comes from the facts that, on
-the one hand, non-tradable products and services need to be produced
-close to the population and thereby needs to compete for land with
-residents, and, on the other hand, richer residents drive up the
-prices of the land. In order to provide some evidence to these
-mechanisms, we look at US data.
+\subsection{Industry location}
+An important starting point of the model is the assumption that
+non-tradables have to be produced close to the consumers. An
+implication of this spatial assumption is that higher urbanization
+of the population in an area would imply higher relative employment
+in the non-tradable sectors than in the tradeable ones. We have
+examined this mechanism by looking at the US Census 2000
+data.\footnote{The more detailed survey covering approximately 15\%
+of the households contains detailed (NAICS 2 digit level)
+information about the industry level employment, while the general
+short survey contains information about the urban population and
+population density according to various geographic areas}
+
+Graph *** shows the relationship between the proportion of urban
+population and the relative non-tradable/tradable employment for US
+states, strongly supporting the conjectured positive relationship.
+
+To examine the effects more formally, we used US county level data.
+The advantage of using counties is that it can capture the
+population clustering better than state level data and covers the
+whole country, though a potential problem is that if a large number
+of the employees live and work in different
+counties.\footnote{Metropolitan statistical areas are a possible
+alternatives taking commuting habits into consideration, but,
+naturally, do not covering the whole country. Our regressions are
+robust to using these areas as well.} As before, we used the
+proportion of urban population and population density as measures of
+urbanizations and also included the (log) per capita median income
+within the county.
+
+\begin{table}[h]
+\center \caption{Urbanization and relative NT/T employment (Robust
+standard errors are in parentheses)}
+\begin{tabular}{c|cc}
+  \hline\hline
+  Explanatory & \multicolumn{2}{c}{Dependent variable} \\
+  variables & \multicolumn{2}{c}{$\log (N_{NT}/N_T)$} \\ \hline
+  urban         & \textbf{0.62} &  \\
+                & (0.02)        &  \\
+  log(density)  &               & \textbf{0.07} \\
+                &               & (0.01) \\
+  log(income)   & \textbf{0.11} & \textbf{0.18} \\
+                & (0.02)        & (0.03) \\
+  constant      & -0.53         & \textbf{-1.18} \\
+                & (0.28)        & (0.30) \\ \hline
+  $R^2$         & 0.20          & 0.10 \\
+  No. of obs.   & 3218          & 3218 \\ \hline\hline
+\end{tabular}
+\end{table}
+
+The results show that even after correcting for the median income,
+the level of urbanization -- measured in the proportion of urban
+population or population density -- significantly increases the
+proportion of employees working in non-tradable sectors supporting
+our spatial correlation assumption.
 
 \end{document}
