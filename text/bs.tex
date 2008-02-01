@@ -46,6 +46,7 @@
 \newcommand{\Corr}{\mathop{\mathrm{Corr\mathstrut}}\nolimits}
 \newtheorem{definition}{Definition}
 \newtheorem{proposition}{Proposition}
+\newtheorem{conjecture}{Conjecture}
 \newtheorem{moment}{Empirical regularity}
 \newtheorem{insight}{Qualitative prediction}
 %\input{tcilatex}
@@ -61,7 +62,7 @@ We propose a model of urbanization and development to explain why the price leve
 \end{abstract}
 
 \section{Introduction}
-Rich countries are more expensive than poor ones. Figure *** shows
+Rich countries are more expensive than poor ones. Figure \ref{fig:penn_joint} shows
 the strong correlation between aggregate price level and (PPP-adjusted) GDP per capita for 188 Penn-World-Table countries in 2000. Balassa (1964) and Samuelson
 (1964) suggested a simple and powerful explanation based on the
 observation that productivity growth of tradables, such as manufacturing,
@@ -83,7 +84,7 @@ empirical results are also consistent with the assumption that total factor
 productivity growth does tend to favor the tradable sector, the
 theory falls short of providing an explanation for it.
 
-Rich cities are more expensive than poor ones. According to \texttt{bestplaces.net}, the overall cost of living is 54 percent higher in Boston, MA than in Milwaukee, WI. The two cities are of similar size (close to 600,000 people), but the per capita income in Boston (\$28,000) is about 56 percent higher than that in Milwaukee (\$18,000). Similarly to the price differences across countries, the biggest price differences are in nontradable sectors. Healthcare is 33 percent more expensive in Boston, whereas housing is about 200 percent more expensive.\footnote{All data retrieved from \texttt{http://bestplaces.net} on January 30, 2008.} While the Balassa--Samuelson explanation has the potential to explain price differences across cities, some simple demand considerations also jump to mind. Demand for services is higher in high-income cities, while supply is limited by the scarcity of land. This drives up service prices.\footnote{Tang (2007) offers an income-based explanation for the positive correlation between price level and GDP per capita. He does not focus on cities and the spatial distribution of economic activity, however.}
+Rich cities are more expensive than poor ones. According to \texttt{bestplaces.net}, the overall cost of living is 54 percent higher in Boston, MA than in Milwaukee, WI. The two cities are of similar size (close to 600,000 people), but the per capita income in Boston (\$28,000) is about 56 percent higher than that in Milwaukee (\$18,000). Similarly to the price differences across countries, the biggest price differences are in nontradable sectors. Healthcare is 33 percent more expensive in Boston, whereas housing is about 200 percent more expensive.\footnote{All data retrieved from \texttt{http://bestplaces.net} on January 30, 2008.} While the Balassa--Samuelson explanation has the potential to explain price differences across cities, some simple demand considerations also jump to mind. Demand for services is higher in high-income cities, while supply is limited, which drives up service prices. A scarce factor in cities that may limit the supply of services is land.\footnote{Tang (2007) offers an income-based explanation for the positive correlation between price level and GDP per capita. He does not focus on cities and the spatial distribution of economic activity, however.}
 
 We propose a model of development and urbanization that reconciles these two facts and connects these two types of explanations. There are two sectors: manufacturing, which is freely tradable, and non-tradable services, which have to locate near customers in big cities. As countries develop, total factor productivity increases simultaneously in both sectors. However, because services compete with the urban population for scarce land, labor productivity will grow slower in services than in manufacturing. Services become more expensive, and the aggregate price level becomes higher with development.
 
@@ -108,13 +109,13 @@ Together with the previous two observations we have that services, which locate 
 
 These empirical observations discipline our modeling choices. We model the spatial distribution of economic activity between a city (with high population density) and a village (with low population density). Services have to be produced both in the the city and the village, but manufactured products will only be produced in the village, where rents are lower. Because land complements other consumption goods in final utility, the demand for residential land increases with development. This crowds out other users of land, especially in cities, where population density is higher. That is what leads to an increase in service prices.
 
-The key implication of the model is that relationship between income and the price of non-tradables is stronger among highly urbanized countries than among rural countries. This is because land available for non-tradable production is more scarce in urbanized countries and the increased demand for residential land puts more pressure on rents in these countries. Empirically, this relationship is strongly borne out in the data. As we later document in Table \ref{tab:BS} for a cross section of 186 countries in 1996, the positive correlation between income and the price level is very strong among urban countries, while there is virtually no such correlation among rural countries. This result is robust to alternative definitions or urbanization (percentage of the population living in cities vs population density).
+An implication of the model is that relationship between income and the price of non-tradables is stronger among highly urbanized countries than among rural countries. This is because land available for non-tradable production is more scarce in urbanized countries and the increased demand for residential land puts more pressure on rents in these countries. Empirically, this relationship is strongly borne out in the data. As we later document in Table \ref{tab:BS} for a cross section of 186 countries in 2000, the positive correlation between income and the price level is very strong among urban countries, while there is virtually no such correlation among rural countries. This result is robust to alternative definitions or urbanization (percentage of the population living in cities vs population density).
 
 Note  that the above effect is distinct from the direct effect of development on urbanization. Richer countries tend to be more urban; more urban countries, in turn, tend to have higher prices. Even though this effect is also fully consistent with our model, we would like to test the robustness of the \emph{interaction} effect of urbanization and development. In future work, we plant to instrument urbanization rates by the geographic features within the country, such as elevation, the slope of the terrain, distance to coastline and rivers, and latitude.
 
 We also emphasize that our results do not overturn previous explanations proposed in international macroeconomics or the regional economics literature. Instead, we view them as complementing both types of explanations and potentially bridging the gap between the two. The non-reproducible nature of residential land, together with the optimal location of industries, provides a microfoundation for the {assumption} made by Balassa and Samuelson that non-tradable industries face slower productivity growth.
 
-Section \ref{model} describes the model of housing, development, and relative prices. Although the necessary steps are described in detail, formal proofs are omitted in this draft. Section \ref{empirics} provides empirical evidence on both the key cross-country implication, as well as some suggestive evidence on the mechanism of the model.
+Section \ref{model} describes the model of housing, development, and relative prices. Although the necessary steps are described in some detail, formal proofs are omitted in this draft. Section \ref{empirics} provides empirical evidence on both the key cross-country implication, as well as some suggestive evidence on the mechanism of the model.
 
 \section{A model of housing, development, and relative prices}\label{model}
 We introduce our model in three steps. First, we construct the model of housing in a single location and a single production sector (manufacturing). This already enables us to analyze the effect of development on land rents. Then we introduce two locations and analyze the spatial distribution of manufacturing and land rents. Finally, we introduce a nontraded sector in both locations.
@@ -141,7 +142,7 @@ u(x,h) = \left(x^{1-1/\sigma}+h^{1-1/\sigma}\right)^{\sigma/(\sigma-1)},
 \]
 with $\sigma$ being the elasticity of substitution between consumption and housing. We assume that $\sigma<1$, that is, consumption and housing are complements. As we explain below, this is important for our results, and is also consistent with empirical evidence.\footnote{Davis and Ortalo-Magné (2007) show that the share of housing in expenditure is constant, suggesting a Cobb--Douglas demand for housing. In our model, however, housing only uses land, and Davis and Heathcote (2007) show how the share of land value in the total value of a home has increased with the growth of U.S.~GDP. This suggests complementarities between land and reproducible goods in producing housing services or final utility.}
 
-The economy has $L$ amount of land and $N$ workers. Each worker supply a unit of labor inelastically. All land is owned by a lord, who then redistributes the rental income to each worker in the form of lump-sum transfers. Total income of a household is then the sum of wage income and this transfer.
+The economy has $L$ amount of land and $N$ workers. Each worker supplies a unit of labor inelastically. All land is owned by a lord, who then redistributes the rental income to each worker in the form of lump-sum transfers. Total income of a household is then the sum of wage income and this transfer.
 
 In equilibrium there is full employment of both land and workers. Since workers can only be employed in manufacturing, the only interesting allocation is that of land. Let ${\lambda}$ denote the share of land devoted to housing, ${\lambda} = l_h/L$. Then the supply of housing is ${\lambda} L$, and the supply of the manufacturing good is $AF[N,L(1-{\lambda})]$. Because $F()$ is CRS, we can express the relative supply of manufacturing and housing as
 \[
@@ -205,7 +206,7 @@ of housing adjusts upward.
 
 Because land rents are linear in $A$ for a given $\lambda$, and increase in $\lambda$, we have the following propositions.
 \begin{proposition}
-Development leads to higher rents, both relative to manufacturing prices and wages. Home sizes also increase.
+Development leads to higher rents, both relative to manufacturing prices and wages. The share of rents in national income and the demand for residential land increase.
 \end{proposition}
 \begin{proposition}
 Land rents increase with population density.
@@ -227,7 +228,7 @@ TN = r_1L+r_2L.
 
 The equilibrium allocation is such that (i) workers and land are fully employed in both locations, (ii) the global market for manufacturing goods clears, (iii) the local markets for housing clear, (iv) firms maximize profits, and (v) households maximize utility given their budget constraint.
 
-In what follows, we focus on equilibria that feature \emph{complete specialization}, that is, manufacturing only active in one location. It is easy to see that this will be the village and no manufacturing takes place within the city. We will later verify the parameter restrictions that require this to be an equilibrium.
+In what follows, we focus on equilibria that feature \emph{complete specialization}, that is, manufacturing only active in one location. It is easy to see that this will be the village and no manufacturing takes place within the city. We will later verify the parameter restrictions that are required for this to be an equilibrium.
 
 In this case, city residents have no wage income, all their income comes from rent transfers. All city land is used for housing, $h_2=L$. The budget constraint of the city is hence
 \[
@@ -267,7 +268,7 @@ We construct the equilibrium in the following steps.
 \end{enumerate}
 Equations \eqref{eq:eq1}, \eqref{eq:eq2} and \eqref{eq:eq3} can be solved for ${\lambda}$, $r_2$ and $x_2$. We combine \eqref{eq:eq2} and \eqref{eq:eq3} to substitute out $r_2$. This leads to an equation that gives the \emph{demand} for $x_2$ as a function of $\lambda$. Higher $\lambda$ implies higher land rents in the village, part of which increases the income of city residents, leading to higher city demand for the manufactured good. Equation \eqref{eq:eq1} then characterizes the \emph{supply} of $x_2$. Higher $\lambda$ implies lower manufacturing production and a lower supply of $x_2$.
 
-These demand and supply schedules are plotted on Figure \ref{fig:stage2}. We conduct two comparative statics. First, we increase $A$ to capture technical progress. Note that this increase both the demand and the supply of $x_2$, but the supply more than the demand, so the manufactured good has to become cheaper. Second, we increase $\alpha$, the fraction of people living in the city. In the current setup, because there is no production in the city, this only constitutes a larger income transfer from the village to the city.
+These demand and supply schedules are plotted on Figure \ref{fig:stage2}. We conduct two comparative statics. First, we increase $A$ to capture technical progress. Note that this increases both the demand and the supply of $x_2$, but the supply more than the demand, so the manufactured good has to become cheaper. Second, we increase $\alpha$, the fraction of people living in the city. In the current setup, because there is no production in the city, this only constitutes a larger income transfer from the village to the city.
 
 \begin{figure}[h!]
 \centering
@@ -278,12 +279,15 @@ These demand and supply schedules are plotted on Figure \ref{fig:stage2}. We con
 
 
 \begin{proposition}
-Development raises the demand for residential land. It also raises the supply of manufactured goods available in the city, more***
+City rents increase faster with development than village rents.
 \end{proposition}
+The intuition for this result is that because rents increase faster than manufacturing TFP, rental income will outpace wage income. Since city residents earn a larger fraction of the rental income, this constitutes a transfer from the village to the city. Such a transfer raises the price of city housing relative to village housing.
 
 \begin{proposition}
 Urbanization leads to higher manufacturing output, lower village rents, and higher city rents.
 \end{proposition}
+Because urbanization (for a given population density in the village, $N_1/L$) only entails a transfer of rents, the supply schedule of manufacturing goods is unaffected, whereas the demand schedule shifts up. This leads to lower village housing (hence lower rents) and higher manufacturing output. The high manufacturing consumption in the city can only be sustained with higher city rents.
+
 
 \subsection{Introducing services}
 We introduce services in the simplest way. The final good $x$ is broken up as a Cobb-Douglas composite of manufacturing and services,
@@ -352,9 +356,17 @@ which is again the same as before. (Spending on manufactures and the total land 
 \begin{equation}\label{eq:eq3b}
     \frac{m_2}{L} = \alpha r_1-(1-\alpha)r_2 = \alpha \left[AF_L(N_1/L,1-{\lambda_1})\right]^\sigma-(1-\alpha)r_2.
 \end{equation}
-This equation is identical to \eqref{eq:eq3}. Both the supply of manufactured goods available in the city and the budget constraint of city residents is identical to the previous case, the only difference is in the relative demand for manufacturing goods.  This is what we turn next.
+This equation is identical to \eqref{eq:eq3}. Both the supply of manufactured goods available in the city and the budget constraint of city residents is identical to the previous case.  %This is what we turn next.
 
-***
+As in the previous setup, city rents increase faster than both village rents and village wages. This translates into relative price differentials, just as predicted by Balassa and Samuelson.
+\begin{proposition}
+Development raises the relative price of services in the city.
+\end{proposition}
+We also have the following conjecture.
+\begin{conjecture}
+The impact of development on service prices is stronger in more urban economies, where a bigger fraction of people live in cities.
+\end{conjecture}
+This statement holds true in the two extremes: if the two locations are of equal size, there is no specialization, and service prices will always equal manufacturing prices. With high-enough urbanization, there is complete specialization, which implies a positive impact of development on the relative price of services to manufacturing. We conjecture that this holds for intermediate degrees of urbanization, as well.
 
 
 \section{Empirical results}\label{empirics}
@@ -363,8 +375,7 @@ main mechanisms of the model.
 
 \subsection{Urbanization and prices}
 Figure \ref{fig:penn_joint} shows the well known result that higher
-per capita income is related to higher aggregate price level. To
-motivate one of the main propositions of our model, we show that
+per capita income is related to higher aggregate price level. We also show that
 higher urbanization increases this influence of per capita income on
 the price level and has a similar effect of the relative
 non-tradable/tradable prices in standard cross-country regressions.
@@ -379,7 +390,7 @@ non-tradable/tradable prices in standard cross-country regressions.
 Two related, but distinct measures we can use to compare the
 urbanization level of a country are the proportion of urban
 population and the population density, both available for a large
-number of countries from the World Development Indicator database.
+number of countries from the World Development Indicators database.
 As our main question is the difference in the 'closeness of
 residents', both measures are imperfect,\footnote{Population
 weighted population-density would be a measure which would express
@@ -418,7 +429,7 @@ regressions in the following form
 \end{equation}
 where $P$ refers to the various price measures, Y is the measure of
 GDP, and $Z$-s are the different urbanization measures. Our main
-interest is the (demeaned) cross-term, as it can be expected to
+interest is in the (demeaned) cross-term, as it can be expected to
 capture how the level of urbanization influences the relationship
 between the output and the price measures.
 
@@ -439,7 +450,7 @@ can be expected to be less reliable than the aggregate price level
 as the non-tradable prices, like services, tend to be less
 comparable internationally than tradable prices,
 
-\begin{table}[h]
+\begin{table}[h!]
 \caption{Balassa-Samuelson regressions with urbanization (Robust
 standard errors are in parentheses)} \center \label{tab:BS}
 \begin{tabular}{c|cc|cc}
@@ -478,9 +489,9 @@ increases both the price level and the relative prices across
 countries, but this relationship is significantly influenced by the
 level of urbanization, even after controlling for direct price
 effects of the urbanization. Looking at the first regression, we
-have found that 1\% higher per capita output increases the price
-level by 0.25\% for average level of urbanization (54\%), and 1\%
-higher urbanization has a further 0.61\% direct effect. The cross
+have found that 1 percent higher per capita output increases the price
+level by 0.25 percent for average level of urbanization (54 percent), and 1 percent
+higher urbanization has a further 0.61 percent direct effect. The cross
 effect, however, implies that the effect of output on the prices
 would be close to 0 under the (extreme) case of 0 urbanization
 ($0.25-0.54\cdot0.38=0.05$) and would be over 0.4 in case of full
@@ -498,7 +509,7 @@ implication of this spatial assumption is that higher urbanization
 of the population in an area would imply higher relative employment
 in the non-tradable sectors than in the tradeable ones. We have
 examined this mechanism by looking at the US Census 2000
-data.\footnote{The more detailed survey covering approximately 15\%
+data.\footnote{The more detailed survey covering approximately 15 percent
 of the households contains detailed (NAICS 2 digit level)
 information about the industry level employment, while the general
 short survey contains information about the urban population and
@@ -526,10 +537,10 @@ alternatives taking commuting habits into consideration, but,
 naturally, do not covering the whole country. Our regressions are
 robust to using these areas as well.} As before, we used the
 proportion of urban population and population density as measures of
-urbanizations and also included the (log) per capita median income
+urbanization and also included the (log) per capita median income
 within the county.
 
-\begin{table}[h]
+\begin{table}[h!]
 \center \caption{Urbanization and relative NT/T employment (Robust
 standard errors are in parentheses)}
 \begin{tabular}{c|cc}
@@ -558,9 +569,9 @@ our spatial correlation assumption.
 \subsection{Land prices and income}
 The effects of development on the price of land is a major mechanism
 in our model influencing the relative price of services. To have a
-first look at the question, we use the data built by Davis and
-Palumbo, 2007 who created implied residential land value data for 46
-large U.S. metropolitan areas. To get this data, the authors use
+first look at the question, we use the dataset constructed by Davis and
+Palumbo (2008) who created implied residential land value data for 46
+large U.S.~metropolitan areas. To get this data, the authors use
 regional data on construction costs and decompose the value of an
 average home to replacement value and land value.
 
@@ -572,7 +583,7 @@ average home to replacement value and land value.
 \end{figure}
 
 Figure \ref{fig:land} shows the (log) price of land as a function of
-per capita income for the US cities. It strongly supports our
+per capita income for the U.S.~cities. It strongly supports our
 conjecture that higher income areas face more appreciated land
 prices.
 
@@ -581,9 +592,9 @@ land prices, the replacement values (constr) and home values
 controlling for the size of the metropolitan areas. The regressions
 show that the regional income influences all the values, but it has
 the largest effect on the land prices with an amplification factor
-of 2.8.
+of 2.8. This is consistent with our model, in which the complementarity between land and consumption leads to an amplified response of rents to income.
 
-\begin{table}[h]
+\begin{table}[h!]
 \center \caption{Land prices and income (Robust standard errors are
 in parentheses)} \label{tab:land}
 \begin{tabular}{c|ccc}
@@ -601,6 +612,8 @@ in parentheses)} \label{tab:land}
 \end{tabular}
 \end{table}
 
+\section{Conclusion}
+[TO BE WRITTEN]
 
 \begin{thebibliography}{99}
 \bibitem{Balassa64} Balassa, B., 1964, ``The Purchasing-Power Parity Doctrine: A
