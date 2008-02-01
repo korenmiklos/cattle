@@ -4,7 +4,7 @@
 \usepackage{amsmath,amsthm}
 \usepackage[latin1]{inputenc}
 \usepackage[T1]{fontenc}
-%\usepackage{minionpro}
+\usepackage{minionpro}
 \usepackage{array,graphicx}
 
 \setcounter{MaxMatrixCols}{10}
@@ -57,18 +57,15 @@
 \maketitle
 
 \begin{abstract}
-We propose a model of urbanization and development to explain why the price level is higher in rich countries (the ``Penn effect''). There are two sectors: manufacturing, which is freely tradable, and non-tradable services, which have to locate near customers in big cities. As countries develop, total factor productivity increases simultaneously in both sectors. However, because services compete with the urban population for scarce land, labor productivity will grow slower in services than in manufacturing. Services become more expensive, and the aggregate price level becomes higher. The model hence provides a theoretical foundation for the Balassa--Samuelson assumption that productivity growth is slower in the non-tradable sector than in the tradable sector. The key implications of the model are borne out in the data: while the Penn effect is very strong among countries where land is scarce (densely populated, highly urban countries), there is virtually no correlation between income and the price level among rural countries.
+We propose a model of urbanization and development to explain why the price level is higher in rich countries. There are two sectors: manufacturing, which is freely tradable, and non-tradable services, which have to locate near customers in big cities. As countries develop, total factor productivity increases simultaneously in both sectors. However, because services compete with the urban population for scarce land, labor productivity will grow slower in services than in manufacturing. Services become more expensive, and the aggregate price level becomes higher. The model hence provides a theoretical foundation for the Balassa--Samuelson assumption that productivity growth is slower in the non-tradable sector than in the tradable sector. The key implications of the model are borne out in the data: while the positive correlation between income and the price level is very strong among countries where land is scarce (densely populated, highly urban countries), there is virtually no such correlation among rural countries.
 \end{abstract}
 
 \section{Introduction}
 Rich countries are more expensive than poor ones. Figure *** shows
-the strong correlation of the aggregate price level relative to the
-U.S. against (PPP-adjusted) GDP per capita for 188 countries in 2000
-available in the Penn World Table. Balassa (1964) and Samuelson
+the strong correlation between aggregate price level and (PPP-adjusted) GDP per capita for 188 Penn-World-Table countries in 2000. Balassa (1964) and Samuelson
 (1964) suggested a simple and powerful explanation based on the
-observation that aggregate total factor productivity growth tends to
-come from the productivity growth of tradables, like manufacturing,
-and much less from the productivity growth of non-tradables, like
+observation that productivity growth of tradables, such as manufacturing,
+tends to be faster than productivity growth of non-tradables, such as
 services. Assuming that labor is perfectly mobile across sectors,
 firms need to pay the same wage in both sectors in equilibrium, and
 these wages are pinned down by the international price of the
@@ -78,11 +75,11 @@ imply higher non-tradable prices. Empirical observations support the
 major propositions of the model about the importance of the
 non-tradable sector as well as the development of the relative
 productivities and their effects on the relative prices (see e.g.
-Obstfeld-Rogoff, 1999)\footnote{Hsieh and Klenow (1997) recently
+Obstfeld-Rogoff, 1996)\footnote{Hsieh and Klenow (1997) recently
 argued that low PPP investment rates in poor countries come from
 their low relative productivity in producing investment and tradable
 goods relative to non-tradable consumption services.} Though
-empirical results also support the assumption that total factor
+empirical results are also consistent with the assumption that total factor
 productivity growth does tend to favor the tradable sector, the
 theory falls short of providing an explanation for it.
 
@@ -92,15 +89,16 @@ We propose a model of development and urbanization that reconciles these two fac
 
 Our model rests on three key observations.
 
-First, most people in the world live in cities, and hence the analysis of price dispersion across cities can potentially inform our analysis of price dispersion across countries. In 2005, around 50 percent of the world population lived in cities.\footnote{World Development Indicators.} The overall population density of the earth is rather low, 43 people per square kilometer.  However, population is very clustered, so the average person lives in an area with a population density of 5,700 people per square kilometer.\footnote{We used high-resolution population density data from LandScan to calculate, for the average person on earth, the number of people living within the same 30 arc second by 30 arc second area. (This is basically a population-weighted population density.) } This suggests that the scarcity of land, which has the potential to explain price differences across cities, can also be partly responsible for price differences across countries.
+First, land is scarcer than one might first think. The overall population density of the earth is rather low, 43 people per square kilometer.  However, population is very clustered, so the average person lives in an area with a population density of 5,700 people per square kilometer.\footnote{We used high-resolution population density data from LandScan to calculate, for the average person on earth, the number of people living within the same 30 arc second by 30 arc second area. (This is basically a population-weighted population density.) } A related observation is that in 2005, around 50 percent of the world population lived in cities.\footnote{World Development Indicators.} This suggests that the scarcity of land, which has the potential to explain price differences across cities, can also be partly responsible for price differences across countries.
 
 Second, whether a good is tradable or not has implications not only for cross-country trade but also for within-country trade, and hence the location of production within the country. Arguably, there are many technological differences between tradable sectors such as manufacturing, and non-tradable sectors such as services. The fundamental difference, however, is that non-tradable goods or services have to be produced at the location of their consumption, whereas tradable goods and services can be produced far away from consumers, where land prices may be cheaper. Figure \ref{fig:ntcounties} shows a map of U.S.~counties, displaying the \emph{share} of employment in non-tradable sectors. Darker colors represent a higher share in non-tradable sectors. We see that non-tradable sectors locate closer to population centers than tradable sectors.\footnote{This is confirmed more formally in Section \ref{empirics}.} The implication of this observation is that non-tradable prices are more sensitive to the price of land than tradable prices.
 
 \begin{figure}[h!]
+%  \vspace*{-7em}
 \centering
   % Requires \usepackage{graphicx}
   \includegraphics[width=0.7\linewidth]{figures/ntcounties}
-  \vspace*{-7em}
+  \vspace*{-1em}
   \caption{The share of non-traded employment in U.S.~counties}\label{fig:ntcounties}
   {\small\emph{Source}: 2000 U.S.~Census, Summary File 3.}
 \end{figure}
@@ -110,8 +108,7 @@ Together with the previous two observations we have that services, which locate 
 
 These empirical observations discipline our modeling choices. We model the spatial distribution of economic activity between a city (with high population density) and a village (with low population density). Services have to be produced both in the the city and the village, but manufactured products will only be produced in the village, where rents are lower. Because land complements other consumption goods in final utility, the demand for residential land increases with development. This crowds out other users of land, especially in cities, where population density is higher. That is what leads to an increase in service prices.
 
-
-The key implication of the model is that relationship between income and the price of non-tradables is stronger among highly urbanized countries than among rural countries. This is because land available for non-tradable production is more scarce in urbanized countries and ***. Empirically, this relationship is strongly borne out in the data. For a cross section of 187 countries in 2005, the ***. This result is robust to alternative definitions or urbanization (population density, the spatial clustering of population).
+The key implication of the model is that relationship between income and the price of non-tradables is stronger among highly urbanized countries than among rural countries. This is because land available for non-tradable production is more scarce in urbanized countries and the increased demand for residential land puts more pressure on rents in these countries. Empirically, this relationship is strongly borne out in the data. As we later document in Table \ref{tab:BS} for a cross section of 186 countries in 1996, the positive correlation between income and the price level is very strong among urban countries, while there is virtually no such correlation among rural countries. This result is robust to alternative definitions or urbanization (percentage of the population living in cities vs population density).
 
 Note  that the above effect is distinct from the direct effect of development on urbanization. Richer countries tend to be more urban; more urban countries, in turn, tend to have higher prices. Even though this effect is also fully consistent with our model, we would like to test the robustness of the \emph{interaction} effect of urbanization and development. In future work, we plant to instrument urbanization rates by the geographic features within the country, such as elevation, the slope of the terrain, distance to coastline and rivers, and latitude.
 
@@ -281,7 +278,7 @@ These demand and supply schedules are plotted on Figure \ref{fig:stage2}. We con
 
 
 \begin{proposition}
-Development raises the demand for residential land. ***
+Development raises the demand for residential land. It also raises the supply of manufactured goods available in the city, more***
 \end{proposition}
 
 \begin{proposition}
@@ -315,17 +312,17 @@ The equilibrium allocation is such that (i) workers and land are fully employed 
 
 Again, we focus on complete specialization equilibria. In these equilibria, manufacturing only produces in the village, which pins down services prices in the village as $p_1=1$. Service prices in the city are higher, $p_2>1$.
 
-When constructing the equilibrium, we first observe that, in the village, both services and manufacturing use the same factor proportions. This is implied by the profit maximization of firms that face common wages, rents, and technologies. If ${\lambda}$ share of land is allocated to housing, then the total land used in production is $(1-{\lambda})L$. The ratio of workers to land in both industries is
+When constructing the equilibrium, we first observe that, in the village, both services and manufacturing use the same factor proportions. This is implied by the profit maximization of firms that face common wages, rents, and technologies. If ${\lambda_1}$ share of land is allocated to housing in the village, then the total land used in production is $(1-{\lambda_1})L$. The ratio of workers to land in both industries is
 \[
-\frac{n_{m1}}{l_{m1}}=\frac{n_{s1}}{l_{s1}}=\frac{N_1}{(1-{\lambda})L}.
+\frac{n_{m1}}{l_{m1}}=\frac{n_{s1}}{l_{s1}}=\frac{N_1}{(1-{\lambda_1})L}.
 \]
 The marginal product of land only depends on the factor proportions so it continues to be
 \[
-r_1 = AF_L(N_1/L,1-{\lambda}),
+r_1 = AF_L(N_1/L,1-{\lambda_1}),
 \]
 just as in the case without services. Also, because of the identical technologies, we can simply write the total supply of manufacturing and services in the village as
 \[
-y_{m}+s_1 = ALF(N_1/L,1-{\lambda}),
+y_{m}+s_1 = ALF(N_1/L,1-{\lambda_1}),
 \]
 where $y_{m}$ is the village supply of manufacturing (which may be different from the village demand).
 
@@ -335,7 +332,7 @@ The total expenditure on services and manufacturing depends on the rent,
 \]
 The excess supply (net exports) of manufacturing is supply minus demand, $y_m-m_1$. This is simply
 \begin{equation}\label{eq:eq1b}
-\frac{y_m-m_1}{L} = \frac{(y_m+s_1)-(m_1+s_1)}{L} = AF(N_1/L,1-{\lambda}) - \lambda\left[AF_L(N_1/L,1-{\lambda})\right]^\sigma,
+\frac{y_m-m_1}{L} = \frac{(y_m+s_1)-(m_1+s_1)}{L} = AF(N_1/L,1-{\lambda_1}) - \lambda_1\left[AF_L(N_1/L,1-{\lambda_1})\right]^\sigma,
 \end{equation}
 the same as in the previous case, \eqref{eq:eq1}.
 
@@ -353,9 +350,10 @@ m_2 +r_2L = TN_2,
 \]
 which is again the same as before. (Spending on manufactures and the total land rent in the city equals the transfer income.) Writing out transfers,
 \begin{equation}\label{eq:eq3b}
-    \frac{m_2}{L} = \alpha r_1-(1-\alpha)r_2 = \alpha \left[AF_L(N_1/L,1-{\lambda})\right]^\sigma-(1-\alpha)r_2.
+    \frac{m_2}{L} = \alpha r_1-(1-\alpha)r_2 = \alpha \left[AF_L(N_1/L,1-{\lambda_1})\right]^\sigma-(1-\alpha)r_2.
 \end{equation}
-This equation is identical to \eqref{eq:eq3}.
+This equation is identical to \eqref{eq:eq3}. Both the supply of manufactured goods available in the city and the budget constraint of city residents is identical to the previous case, the only difference is in the relative demand for manufacturing goods.  This is what we turn next.
+
 ***
 
 
@@ -607,16 +605,19 @@ in parentheses)} \label{tab:land}
 \begin{thebibliography}{99}
 \bibitem{Balassa64} Balassa, B., 1964, ``The Purchasing-Power Parity Doctrine: A
 Reappraisal,'' \emph{Journal of Political Economy}, 584-596.
-\bibitem{Davis07} Davis, M. A. and Palumbo, M. G., 2007, ``The Price
-of Residential Land in Large U.S. Cities,'' manuscript
+\bibitem{Davis07} Davis, M. A. and Heathcote, J., 2007, ``The Price and Quantity of Residential Land in the United States,'' \emph{Journal of Monetary Economics} 54:2595-2620.
+\bibitem{Davis07} Davis, M. A. and Palumbo, M. G., 2008, ``The Price
+of Residential Land in Large U.S. Cities,'' \emph{Journal of Urban Economics}, 63:352--384.
+\bibitem{} Davis, M. A. and Ortalo-Magne, F., 2007, ``Household Expenditures, Wages, Rents,'' working paper.
 \bibitem{Heston06} Heston, A., R. Summers and B. Aten, 2006, Penn World Table Version 6.2, \emph{Center for International Comparisons of Production, Income and Prices at the University of
 Pennsylvania}
 \bibitem{Klenow07} Hsieh, C.T and Klenow, P.J, ``Relative Prices and
 Relative Prosperity,'' \emph{The American Economic Review}, 562-585.
-\bibitem{Obstfeld99} Obstfeld, M. and Rogoff, K., 1999, \emph{Foundations of International
+    \bibitem{Obstfeld99} Obstfeld, M. and Rogoff, K., 1996, \emph{Foundations of International
 Macroeconomics}, The MIT Press, Cambridge MA
-\bibitem{Samuelson64} Samuelson, P. A. , 1964, ``Theoretical Notes on Trade
+    \bibitem{Samuelson64} Samuelson, P. A. , 1964, ``Theoretical Notes on Trade
 Problems,'' \emph{The Review of Economics and Statistics}, 145-154.
+    \bibitem{} Tang, X., 2007, ``The Rich Neighborhood Effect versus the Balassa-Samuelson Effect: An Income-Based Explanation of International Price Level Differences,'' working paper.
 \end{thebibliography}
 
 \end{document}
