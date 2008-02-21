@@ -1,0 +1,76 @@
+davis.dta
+
+Davis, M - M. Palumbo, 2008: "The Price of Residential Land in Large US Cities," Journal of Urban
+Economics; http://morris.marginalq.com/
+
+Current $ value of
+
+Home value
+Structure cost
+Land value
+
+Quarterly from 1984:4-2004:4
+
+in cities (46):
+
+Buffalo
+Chicago
+Cincinnati
+Cleveland
+Columbus
+Detroit
+Indianapolis
+Kansascity
+Milwaukee
+Minneapolisstpaul
+Pittsburgh
+Rochester
+Stlouis
+Atlanta
+Birmingham
+Charlotte
+Memphis
+Tampa
+Dallas
+Denver
+Fortworth
+Houston
+Neworleans
+Oklahomacity
+Phoenix
+Saltlakecity
+Sanantonio
+Baltimore
+Boston
+Hartford
+Miami
+Newyork
+Norfolk
+Philadelphia
+Providence
+Washingtondc
+Anaheim
+Losangeles
+Oakland
+Portland
+Sacramento
+Sanbernadino
+Sandiego
+Sanfrancisco
+Sanjose
+Seattle
+
+Income:
+per capita personal income downloaded from 
+http://www.bea.gov/regional/reis/default.cfm?catable=CA1-3&section=2
+by: Metropolitan Statistical Areas (first one)
+yearly: 1969-2005
+Downloaded 01/20/07
+
+Population:
+Population of the given metropolitan area
+http://www.bea.gov/regional/reis/default.cfm?catable=CA1-3&section=2
+by: Metropolitan Statistical Areas (first one)
+yearly: 1969-2005
+Downloaded 01/20/07
+

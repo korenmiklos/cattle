@@ -1,0 +1,58 @@
+pwtwdi.dat
+
+Penn World Table and the World Bank's World Development Indicators databases
+
+countryname: name of the country
+iso: ISO code of the country (3 letters)
+fips: FIPS code of the country (2 letters)
+year
+
+PWT variables:
+pop_pwt: population
+xr_pwt: LCU/USD average yearly exchange rate
+P_pwt: USD/I$ comparable price levels: calculated by dividing LCU/I$ PPP levels by the XR.
+Y_pwt: PPP per capita GDP
+relp_Y: relative price of non-tradables/tradables using the whole GDP (available for the 
+	1985 and 1996 benchmark years for the benchmark countries)
+relp_C: relative price of non-tradables/tradables using only consumption (available for the 
+	1985 and 1996 benchmark years for the benchmark countries)
+benchm_85: indicator variable for countries in the 1985 benchmark
+benchm_96: indicator variable for countries in the 1996 benchmark
+
+WDI variables:
+pop_wdi: population
+xr_wdi: LCU/USD average yearly exchange rate
+P_pwt: USD/I$ comparable price levels: calculated by dividing LCU/I$ PPP levels by the XR
+Y_pwt: PPP per capita GDP
+dens: population density
+densX: (lndens-meanlndens)*(lnY_pwt-meanlnY_pwt)
+urban: % of urban population (national definitions)
+urbanX: (urban-meanurban)*(lnY_pwt-meanlnY_pwt)
+lcity: % of population living in the largest city
+lcityX: (lcity-meanlcity)*(lnY_pwt-meanlnY_pwt)
+mcity: % of population living in cities with population >1 million
+mcityX: (mcity-meanmcity)*(lnY_pwt-meanlnY_pwt)
+agricult: agricultural land (% of land area)
+agricultX: (agricult-meanagricult)*(lnY_pwt-meanlnY_pwt)
+forest: forest area (% of land area)
+land: land area (sq km)
+
+OECD_Stan industrial database
+Traded sectors: agriculture (1-5), mining (10-14), manufacturing (15-37), trade (50-52), transport (60-64)
+Nontraded sectors: utilities (40-41), construction (45), hotels (55), finance, insurance, real estate (65-74), personal services(75-99)
+Business services: (50-74)
+Personal Services: (75-99)
+T_empl_stan: Total employment in the tradable sectors
+NT_empl_stan: Total employment in the non-tradable sectors
+rel_empl_stan: Relative NT/T employment
+bns_serv_empl_stan: Total employment in the business services
+pers_serv_empl_stan: Total employment in the personal services
+rel_serv_empl_stan: Relative bsn/pers employment
+
+pwdens_07: population weigthed density in 2007
+pwdensX: (lnpwdens-meanlnpwdens)*(lnY_pwt-meanlnY_pwt)
+dens_LS_07: density using LandScan in 2007
+densX_LS: (lndens_LS-meandens_LS)*(lnY_pwt-meanlnY_pwt)
+
+oecd_07: indicator variable for countries that were OECD members in 2007
+euro_01: indicator variable for the 12 countries joining the euro in 2001
