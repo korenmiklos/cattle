@@ -5,13 +5,15 @@ clear all;
 clc;
 
 %Setting the parameters
-theta   =   2;              %Elasticity of substitution in the production function
+theta   =   1;              %Elasticity of substitution in the production function
 weight_l=   0.05;           %Factor weight of land
 weight_n=   1-weight_l;     %Factor weight of labor
 
-sigma   =   0.9;              %Elasticity of substitution in the utility function
+sigma   =   0.5;              %Elasticity of substitution in the utility function
 A       =   1;              %TFP parameter
-N_over_L=   1;              %population density
+N       =   1;              %labor
+L       =   1;              %land
+N_over_L=   N/L;            %population density
 
 weights =   [weight_n weight_l];
 
@@ -33,23 +35,24 @@ exitf_A     =   zeros(1,T_A);
 r_A         =   zeros(1,T_A);
 w_A         =   zeros(1,T_A);
 R_sh_A      =   zeros(1,T_A);
+F_A         =   zeros(1,T_A);
 
 for i   =   1:T_A;
     A   =   A_i(i);
     lambda0     =   0.5;
     options     =   optimset('Display','off');
-    [lambda,diff,exitf]  =   fsolve(@f_landshare_SL,lambda0,options,A,N_over_L,theta,weights,sigma);
+    [lambda,diff,exitf]  =   fsolve(@f_landshare_SL,lambda0,options,A,N,L,theta,weights,sigma);
 
 %Calculating r
     switch theta
         case 1
             dF_L    =   dF_CD(2,[N_over_L 1-lambda],weights);
             dF_N    =   dF_CD(1,[N_over_L 1-lambda],weights);
-            F       =   F_CD([N_over_L 1-lambda],weights);
+            F       =   F_CD([N L*(1-lambda)],weights);
         otherwise
             dF_L    =   dF_CES(2,theta,[N_over_L 1-lambda],weights);
             dF_N    =   dF_CES(1,theta,[N_over_L 1-lambda],weights);
-            F   =   F_CES(theta,[N_over_L 1-lambda],weights);
+            F       =   F_CES(theta,[N L*(1-lambda)],weights);
     end;
 
 %Calculating w,r
@@ -57,7 +60,7 @@ for i   =   1:T_A;
     r   =   A*dF_L;
     
 %Share of rents in national income
-    R_sh    =   lambda*r/(A*F);
+    R_sh    =   lambda*r*L/(A*F);
     
     lambda_A(i)     =   lambda;
     diff_A(i)       =   diff;
@@ -65,6 +68,9 @@ for i   =   1:T_A;
     r_A(i)          =   r;
     w_A(i)          =   w;
     R_sh_A(i)       =   R_sh;
+    F_A(i)          =   F;
+    dF_L_A(i)       =   dF_L;
+    dF_N_A(i)       =   dF_N;
 end;
 
 %Creating grid for density
@@ -77,23 +83,25 @@ exitf_Dens     =   zeros(1,T_Dens);
 r_Dens         =   zeros(1,T_Dens);
 w_Dens         =   zeros(1,T_Dens);
 R_sh_Dens      =   zeros(1,T_Dens);
+F_Dens         =   zeros(1,T_Dens);
 
 for i   =   1:T_Dens;
-    N_over_L   =   Dens_i(i);
+    N_over_L   =    Dens_i(i);
+    N          =    L*N_over_L;
     lambda0     =   0.5;
-    options     =   optimset('Display','off');
-    [lambda,diff,exitf]  =   fsolve(@f_landshare_SL,lambda0,options,A,N_over_L,theta,weights,sigma);
+    options     =   optimset('Display','iter','TolFun',1e-16,'TolX',1e-16);
+    [lambda,diff,exitf]  =   fsolve(@f_landshare_SL,lambda0,options,A,N,L,theta,weights,sigma);
 
 %Calculating r
     switch theta
         case 1
             dF_L    =   dF_CD(2,[N_over_L 1-lambda],weights);
             dF_N    =   dF_CD(1,[N_over_L 1-lambda],weights);
-            F       =   F_CD([N_over_L 1-lambda],weights);
+            F       =   F_CD([N L*(1-lambda)],weights);
         otherwise
             dF_L    =   dF_CES(2,theta,[N_over_L 1-lambda],weights);
             dF_N    =   dF_CES(1,theta,[N_over_L 1-lambda],weights);
-            F   =   F_CES(theta,[N_over_L 1-lambda],weights);
+            F       =   F_CES(theta,[N L*(1-lambda)],weights);
     end;
 
 %Calculating w,r
@@ -101,7 +109,7 @@ for i   =   1:T_Dens;
     r   =   A*dF_L;
     
 %Share of rents in national income
-    R_sh    =   lambda*r/(A*F);
+    R_sh    =   lambda*r*L/(A*F);
     
     lambda_Dens(i)     =   lambda;
     diff_Dens(i)       =   diff;
@@ -109,18 +117,21 @@ for i   =   1:T_Dens;
     r_Dens(i)          =   r;
     w_Dens(i)          =   w;
     R_sh_Dens(i)       =   R_sh;
+    F_Dens(i)          =   F;
+    dF_L_Dens(i)       =   dF_L;
+    dF_N_Dens(i)       =   dF_N;
 end;
 
 
 figure(1)
     subplot(2,2,1); plot(A_i,r_A); title('Rents relative to manufacturing prices');
     subplot(2,2,2); plot(A_i,r_A./w_A); title('Rents relative to wages');
-    subplot(2,2,3); plot(A_i,lambda_A); title('Residential land share');
+    subplot(2,2,3); plot(A_i,lambda_A); title('\lambda');
     subplot(2,2,4); plot(A_i,R_sh_A); title('Rent share');
     
     
 figure(2)
     subplot(2,2,1); plot(Dens_i,r_Dens); title('Rents relative to manufacturing prices');
     subplot(2,2,2); plot(Dens_i,r_Dens./w_Dens); title('Rents relative to wages');
-    subplot(2,2,3); plot(Dens_i,lambda_Dens); title('Residential land share');
+    subplot(2,2,3); plot(Dens_i,lambda_Dens); title('\lambda');
     subplot(2,2,4); plot(Dens_i,R_sh_Dens); title('Rent share');

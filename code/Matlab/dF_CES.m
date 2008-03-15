@@ -11,6 +11,6 @@ if nargin==3
     weights=(1/NN)*ones(1,NN);
 end;
 
-F   =   (sum(weights.^(-1/theta).*factors.^((theta-1)/theta))^(theta/(theta-1)));
+F   =   (sum(weights.^(1/theta).*factors.^((theta-1)/theta))^(theta/(theta-1)));
 
-dF  =   (F/(weights(j)*factors(j)))^(1/theta);
+dF  =   (weights(j)*F/factors(j))^(1/theta);
