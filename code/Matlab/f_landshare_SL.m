@@ -19,4 +19,4 @@ switch theta
         F       =   F_CES(theta,[N L*(1-lambda)], weights);
 end;
 
-diff    =   A^sigma*lambda*F_L^sigma-A*F;
+diff    =   A^sigma*lambda*F_L^sigma-A*F/L;

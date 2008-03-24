@@ -89,7 +89,7 @@ for i   =   1:T_Dens;
     N_over_L   =    Dens_i(i);
     N          =    L*N_over_L;
     lambda0     =   0.5;
-    options     =   optimset('Display','iter','TolFun',1e-16,'TolX',1e-16);
+    options     =   optimset('Display','off','TolFun',1e-16,'TolX',1e-16);
     [lambda,diff,exitf]  =   fsolve(@f_landshare_SL,lambda0,options,A,N,L,theta,weights,sigma);
 
 %Calculating r
