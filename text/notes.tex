@@ -1,0 +1,87 @@
+% ----------------------------------------------------------------
+% AMS-LaTeX Paper ************************************************
+% **** -----------------------------------------------------------
+\documentclass{amsart}
+\usepackage{graphicx}
+% ----------------------------------------------------------------
+\vfuzz2pt % Don't report over-full v-boxes if over-edge is small
+\hfuzz2pt % Don't report over-full h-boxes if over-edge is small
+% THEOREMS -------------------------------------------------------
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\numberwithin{equation}{section}
+% MATH -----------------------------------------------------------
+\newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\Real}{\mathbb R}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\To}{\longrightarrow}
+\newcommand{\BX}{\mathbf{B}(X)}
+\newcommand{\A}{\mathcal{A}}
+% ----------------------------------------------------------------
+\begin{document}
+
+\title{Notes}%
+\author{Koren}%
+
+%\date{}%
+%\dedicatory{}%
+%\commby{}%
+% ----------------------------------------------------------------
+% ----------------------------------------------------------------
+\section{Derivation of Stage 3}
+In the Stage 3 equilibrium, we have 5 final-good supplies (2 housing, 2 services, 1 manufacturing), 6 demands (manufacturing, services, housing in each locations),
+
+\begin{enumerate}
+  \item Supply of housing in village ($h_1,\lambda_1$)
+  \item Supply of housing in city ($h_2,\lambda_2$)
+\end{enumerate}
+
+We collapse these into 4 equations and 4 unknowns by substituting in simple one-to-one relationships. First, we write the excess supply of manufacturing in the village as
+\[
+m_2(\lambda_1) = AF(N_1/L_1,1-\lambda_1) - \lambda_1/H.
+\]
+Similarly, the supply of services in the city is
+\[
+s_2(\lambda_2) = AF(N_2/L_2,1-\lambda_2).
+\]
+The rent in the village is
+\[
+r_1 = MPL_1(\lambda_1) = AF_L(N_1/L_1,1-\lambda_1).
+\]
+We then have a system of 4 unknowns, $\lambda_1$, $\lambda_2$, $r_2$ and $p_2$, and 4 equations:
+\begin{align}
+r_2(1-\alpha)L_2 &= \alpha r_1(\lambda_1) L_1 - m_2(\lambda_1) \tag{budget constraint}\\
+r_2              &= p_2 MPL_2(\lambda_2) \tag{value marginal product}\\
+\frac{m_2(\lambda_1)}{s_2(\lambda_2)} &= \frac{\gamma}{1-\gamma}p_2 \tag{relative demand of services}\\
+m_2(\lambda_1)^\gamma s_2(\lambda_2)^{1-\gamma} &= \lambda_2 L_2/H \tag{relative demand of housing}
+\end{align}
+We combine BC, VMP and RDS into (check if it's correct)
+\begin{equation}
+\frac{\alpha}{1-\alpha}\frac{MPL_1(\lambda_1)}{m_2(\lambda_1)} - \frac{1}{1-\alpha} = \frac{1-\gamma}{\gamma} L_2 \frac{MPL_2(\lambda_2)}{s_2(\lambda_2)}.
+\end{equation}
+This schedule implies a positive relationship between $\lambda_1$ and $\lambda_2$. A higher share of housing in the village reduces the supply of manufactured goods, thereby lowering the price of services in the city. This reduces the value marginal product of land in the city, inducing a move towards housing. The higher rent in the village also increases the rent transfers to the city, which further increases housing demand there.
+
+The other condition is RDH,
+\begin{equation}
+m_2(\lambda_1)^\gamma s_2(\lambda_2)^{1-\gamma} = \lambda_2 L_2/H,
+\end{equation}
+which implies a negative relationship between $\lambda_1$ and $\lambda_2$. Higher housing share in the village implies less manufactured good, which have to be compensated with more services (which would lead to less housing share in the city) and/or less housing so that city consumption is optimal.
+
+The intersection of these two schedules (if exists) is unique.
+\subsection{To do}
+\begin{enumerate}
+  \item Verify existence. Write out parameter conditions.
+  \item Verify that $p_2>1$, which is the condition for complete specialization to be an equilibrium. Write out parameter restrictions.
+  \item (?) Show that incomplete specialization or wrong-sided specialization are not equilibriua.
+  \item Conduct comparative statics wrt $A$ and $\alpha$.
+\end{enumerate}
+\end{document}
+% ----------------------------------------------------------------
