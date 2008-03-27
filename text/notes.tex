@@ -135,11 +135,11 @@ For given income and good prices, the optimal location choice of households dete
 \subsection{Equilibrium}
 In equilibrium, firms maximize profits (and hence choose location optimally), consumers maximize utility (and hence choose location optimally), the global markets for the two goods clear, as does the local market for each plot of land. (Note that there will always be unused land far-enough from the center, because it is not feasible to commute/transport to long distances.)
 
-We conjecture an equilibrium of the following spatial structure. Services are located closest to the center, followed by a ring of residential area, and by a ring of manufacturing belt. (This will need assumptions on $\tau_h$.) Let $z_1$ denote the boundary of the service sector, and $z_2>z_1$ the boundary of the residential sector. The city boundary is denoted by $z_3 = 1/\tau_m$. It is not feasible to transport manufactured goods from outside this boundary. By choice of distance units, we normalize $z_3=1$.
+We conjecture an equilibrium of the following spatial structure. Residents live closest to the center, followed by a ring of service establishments, and by a ring of manufacturing belt. (It probably suffices to set $\tau_h>\tau_s>\tau_m$.) Let $z_1$ denote the boundary of the service sector, and $z_2>z_1$ the boundary of the manufacturing sector. The city boundary is denoted by $z_3 = 1/\tau_m$. It is not feasible to transport manufactured goods from outside this boundary. By choice of distance units, we normalize $z_3=1$, which is equivalent to $\tau_m=1$.
 
-The supply of services is $A$ times the amount of land used in services, $l_s = z_1^2\pi$:
+The supply of services is $A$ times the amount of land used in services, $l_s = (z_1^2-z_1^2)\pi$:
 \[
-s = Az_1^2\pi.
+s = A(z_2^2-z_1^2)\pi.
 \]
 Similarly, the supply of manufacturing is
 \[
@@ -148,15 +148,15 @@ m = A(1-z_2^2)\pi.
 
 Suppose a mass of consumers consume $h(z)$ of housing at location $z$. In other words, $n(z) = 1/h(z)$ is the population density. 
 
-The total population of the city is the integral of the density between $z_1$ and $z_2$,
+The total population of the city is the integral of the density between $0$ and $z_1$,
 \[
-N = \int_{z_1}^{z_2}2\pi z n(z) dz.
+N = \int_{0}^{z_1}2\pi z n(z) dz.
 \]
 
 Arbitrage conditions for the boundaries
 \begin{align}
-R_s(z_1,p_s) &= R_h(z_1,I,p_s,p_m)\\
-R_m(z_2,p_m) &= R_h(z_2,I,p_s,p_m)
+R_h(z_1,I,p_s,p_m) &= R_s(z_1,p_s)\\
+R_m(z_2,p_m) &= R_s(z_1,p_s)
 \end{align}
 \subsection{Comments}
 \begin{enumerate}
@@ -181,19 +181,55 @@ Housing demand is the derivative of the expenditure function with respect to $r_
 \[
 h(z) = u H,
 \]
-independent of location. This way, population density is constant at $n(z) = 1/(uH)$, which pins down $u$ as a function of $z_1$ and $z_2$
+independent of location. This way, population density is constant at $n(z) = 1/(uH)$, which pins down $u$ as a function of $z_1$
 \[
-u = \frac{\pi}{N H}(z_2^2-z_1^2).
+u = \frac{\pi}{N H}z_1^2.
 \]
-The residential area is $\pi(z_2^2-z_1^2)$, so the amount of land per household is $\pi(z_2^2-z_1^2)/N$, each unit measure giving a utility of $1/H$.
-\subsection{Getting down to business}
-As a choice of numeraire, we set $Ap_m=1$. Writing out the three bid rent functions again,
+The residential area is $\pi z_1^2$, so the amount of land per household is $\pi z_1^2/N$, each unit measure giving a utility of $1/H$.
+
+\subsection{Constructing the equilibrium}
+We pick the manufactured good as the  numeraire, $p_m=1$. Writing out the three bid rent functions again,
 \begin{align*}
 R_s(z) &= Ap_s(1-\tau_s z)\\
-R_h(z) &= \frac{P}{H}(1-\tau_h z) -\frac {c}{AH} (Ap_s)^{1-\gamma}\\
-R_m(z) &= 1-\tau_m z
+R_h(z) &= \frac{IN}{\pi z_1}(1-\tau_h z) -\frac {c}{H} p_s^{1-\gamma}\\
+R_m(z) &= A(1-z)
 \end{align*}
+We need to find the equilibrium $z_1$ and $z_2$.We will need two conditions. 
 
+The price of services can be pinned down from the service / manufacturing arbitrage,
+\[
+Ap_s(1-\tau_s z_2) = A(1-z_2),
+\]
+\[
+p_s = \frac{1-z_2}{1-\tau_s z_2}.
+\]
+Because $\tau_s>1$, $p_s$ is increasing in $z_2$.
+
+The relative demand to manufacturing is increasing in $p_s$ and hence $z_2$,
+\[
+\frac{m}{s} = \frac{\gamma}{1-\gamma}p_s = \frac{\gamma}{1-\gamma}\frac{1-z_2}{1-\tau_s z_2}.
+\]
+The relative supply of manufacturing is simply
+\[
+\frac{m}{s} = \frac{A(1-z_2^2)\pi}{A(z_2^2-z_1^2)\pi} = \frac{1-z_2^2}{z_2^2-z_1^2}.
+\]
+This is decreasing in $z_2$ and increasing in $z_1$.
+
+Equating relative supply to relative demand creates a schedule between $z_1$ and $z_2$, with a positive slope. This is condition one.
+
+The second relative demand condition does not depend on prices because of the Leontief assumption,
+\[
+m(z)^\gamma s(z)^{1-\gamma} = h(z)/H.
+\]
+Notice that because this holds for all households in all locations $z$, and because $m/s$ does not vary across locations (the law of one price holds for services and manufacturing), the condition also holds in the aggregate,
+\[
+m^\gamma s^{1-\gamma} = h/H.
+\]
+We can then substitute in the aggregate supply functions to get the second condition for $z_1$ and $z_2$,
+\[
+A\pi (1-z_2^2)^\gamma(z_2^2-z_1^2)^{1-\gamma} = \pi z_1^2/H.
+\]
+This is condition two. Note that if there was a parallel TFP increase in housing, $z_1$ and $z_2$ would not be affected by TFP.
 
 \end{document}
 % ----------------------------------------------------------------
