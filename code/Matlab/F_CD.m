@@ -10,4 +10,4 @@ if nargin==1
     weights=(1/NN)*ones(1,NN);
 end;
 
-F   =   sum(factors.^(weights));
+F   =   prod(factors.^(weights));

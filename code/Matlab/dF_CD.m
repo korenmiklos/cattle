@@ -11,6 +11,6 @@ if nargin==2
     weights=(1/NN)*ones(1,NN);
 end;
 
-F   =   sum(factors.^weights);
+F   =   prod(factors.^weights);
 
 dF  =   weights(j)*(F/factors(j));

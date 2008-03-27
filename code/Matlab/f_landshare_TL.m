@@ -26,4 +26,4 @@ end;
 
 diff    =   zeros(2,1);
 diff(1) =   x2/L-A*F1/L+lambda*(A*F1_L)^sigma;
-diff(2) =   x2/L-alpha*(A*F1_L)^sigma+(1-alpha)*(x2/L)^(1/sigma);
+diff(2) =   x2/L-alpha*(A*F1_L)+(1-alpha)*(x2/L)^(1/sigma); %^sigma

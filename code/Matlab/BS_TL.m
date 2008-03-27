@@ -48,7 +48,7 @@ x_A         =   zeros(1,T_A);
 
 for i   =   1:T_A
     A   =   A_i(i);
-    lambda0     =   0.5;
+    lambda0     =   0.9;
     x20         =   1;
     X0          =   [lambda0 x20];
     options     =   optimset('Display','off');
@@ -158,19 +158,19 @@ end;
 
 
 figure(1)
-    subplot(2,2,1); plot(A_i,r1_A); title('Village rents relative to manufacturing prices');
-    subplot(2,2,2); plot(A_i,r2_A); title('City rents relative to manufacturing prices');
+    subplot(2,2,1); plot(A_i,r1_A); ylabel('r_1'); xlabel('A');
+    subplot(2,2,2); plot(A_i,r2_A); ylabel('r_2'); xlabel('A');
     %    subplot(2,2,2); plot(A_i,r_A./w_A); title('Rents relative to wages');
-    subplot(2,2,3); plot(A_i,lambda_A); title('\lambda');
-    subplot(2,2,4); plot(A_i,x2_A); title('x_2');
+    subplot(2,2,3); plot(A_i,lambda_A); ylabel('\lambda'); xlabel('A');
+    subplot(2,2,4); plot(A_i,x2_A); ylabel('x_2'); xlabel('A');
 %    subplot(2,2,4); plot(A_i,R_sh_A); title('Rent share');
     
     
 figure(2)
-    subplot(3,2,1); plot(Dens_i,r1_Dens); title('Village rents relative to manufacturing prices');
-    subplot(3,2,2); plot(Dens_i,r2_Dens); title('City rents relative to manufacturing prices');    
-    subplot(3,2,3); plot(Dens_i,r1_Dens./w_Dens); title('Village relative to wages');
-    subplot(3,2,4); plot(Dens_i,r2_Dens./w_Dens); title('City relative to wages');    
-    subplot(3,2,5); plot(Dens_i,lambda_Dens); title('\lambda');
-    subplot(3,2,6); plot(Dens_i,x_Dens); title('Manufacturing output');
+    subplot(3,2,1); plot(Dens_i,r1_Dens); ylabel('r_1'); xlabel('N_2/L');
+    subplot(3,2,2); plot(Dens_i,r2_Dens); ylabel('r_2'); xlabel('N_2/L');   
+    subplot(3,2,3); plot(Dens_i,r1_Dens./w_Dens); ylabel('r_1/w_1'); xlabel('N_2/L');
+    subplot(3,2,4); plot(Dens_i,r2_Dens./w_Dens); ylabel('r_2/w_2'); xlabel('N_2/L');   
+    subplot(3,2,5); plot(Dens_i,lambda_Dens); ylabel('\lambda'); xlabel('N_2/L');
+    subplot(3,2,6); plot(Dens_i,x_Dens); ylabel('m_1'); xlabel('N_2/L');
     %    subplot(2,2,4); plot(Dens_i,R_sh_Dens); title('Rent share');
