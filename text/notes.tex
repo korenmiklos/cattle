@@ -83,5 +83,86 @@ The intersection of these two schedules (if exists) is unique.
   \item (?) Show that incomplete specialization or wrong-sided specialization are not equilibriua.
   \item Conduct comparative statics wrt $A$ and $\alpha$.
 \end{enumerate}
+\section{Spatial version}
+We use the von Th\"unen monocentric city model. There is a central business district (CBD), which is a point in the plain. Businesses and residences can locate near this CBD. The CBD serves as a marketplace: all goods and services are exchanged there.
+
+There are two produced goods, and housing. Both goods are produced using land only (introducing labor is simple) and they are costly to transport to the CBD. Manufactured goods are assumed to have lower transport costs than services.
+
+Consumers consume manufactured goods, services and housing (in which the single input is land). They do not work, their only income $I$ is from a share of total city rents. They commute to the CBD to buy the two goods.
+
+All transport and commuting cost is of the iceberg nature. For a manufacturing plant $z$ miles from the center, the transport cost is $\tau_m z$ fraction of manufactured goods. For a service establishment, transport cost is $\tau_s z$. Commuting $z$ miles costs $\tau_h z$ units of the consumption bundle (manufacturing, service, housing). (One can think of this as time lost from consuming / enjoying the house.)
+
+Technology in the two sectors is identical,
+\begin{align*}
+m&=Al,\\
+s&=Al,
+\end{align*}
+where $l$ is the amount of land allocated to production, and $A$ is the yield per land. Technical progress will be captured as an increase in $A$.
+
+The profit of a firm in industry $i$ $z$ miles from the center is 
+\[
+\pi_i(z,l) = p_i(1-\tau_i z)Al - r_zl,
+\]
+where $r_z$ is the land rent in location $z$. 
+
+Profit maximization leads to
+\[
+p_i(1-\tau_i z)A \le r_z,
+\]
+with equality when there is positive production. This pins down industry $i$'s bid rent function,
+\[
+R_i(z,p_i) = p_i(1-\tau_i z)A.
+\]
+This is the maximum rent the industry is willing to pay at location $z$. It is linearly decreasing in $z$ (GRAPHS). Note that the bid rent function is steeper for services because $\tau_s>\tau_m$.
+
+
+There is a continuum of consumers with a mass $N$. Utility is homothetic
+\[
+u(m,s,h),
+\]
+so that indirect utility for a household $z$ miles from the center can be written as
+\[
+\frac{I(1-\tau_hz)}{P(p_m,p_s,r_z)}.
+\]
+Here $p_m$ is the (one) price of manufacturing, $p_s$ is the price of services, and $r_z$ is the land rent in location $z$.
+
+Suppose the level of utility is $u$ in all locations (this is equalized across locations, but the level $u$ is endogeoues). Then the bid rent function of households is such that
+\[
+P(p_m,p_s,R_z) = \frac Iu (1-\tau_h z).
+\]
+
+For given income and good prices, the optimal location choice of households determines their bid rent function, $R_h(z,I,p_m,p_s)$. Because the indirect utility function is homogeneous of degree zero in $I$, $p_m$, $p_s_$ and $r_z$, the bid rent function is homogeneous of degree one in $I$, $p_m$ and $p_s_$.
+\subsection{Equilibrium}
+In equilibrium, firms maximize profits (and hence choose location optimally), consumers maximize utility (and hence choose location optimally), the global markets for the two goods clear, as does the local market for each plot of land. (Note that there will always be unused land far-enough from the center, because it is not feasible to commute/transport to long distances.)
+
+We conjecture an equilibrium of the following spatial structure. Services are located closest to the center, followed by a ring of residential area, and by a ring of manufacturing belt. (This will need assumptions on $\tau_h$.) Let $z_1$ denote the boundary of the service sector, and $z_2>z_1$ the boundary of the residential sector. The city boundary is denoted by $z_3 = 1/\tau_m$. It is not feasible to transport manufactured goods from outside this boundary.
+
+The supply of services is $A$ times the amount of land used in services, $l_s = z_1^2\pi$:
+\[
+s = Az_1^2\pi.
+\]
+Similarly, the supply of manufacturing is
+\[
+m = A(z_3^2-z_2^2)\pi.
+\]
+
+Suppose a mass of consumers consume $h(z)$ of housing at location $z$. In other words, $n(z) = 1/h(z)$ is the population density. 
+
+The total population of the city is the integral of the density between $z_1$ and $z_2$,
+\[
+N = \int_{z_1}^{z_2}2\pi z n(z) dz.
+\]
+
+Arbitrage conditions for the boundaries
+\begin{align}
+R_s(z_1,p_s) &= R_h(z_1,I,p_s,p_m)\\
+R_m(z_2,p_m) &= R_h(z_2,I,p_s,p_m)
+\end{align}
+\subsection{Comments}
+\begin{enumerate}
+  \item It is easy to show that either Cobb-Douglas utility or symmetric TFP increase in housing kills our effect. We need slower TFP increase (0) \emph{and} complementary housing (Leontief) to make this work.
+  \item 
+  \item 
+\end{enumerate}
 \end{document}
 % ----------------------------------------------------------------
