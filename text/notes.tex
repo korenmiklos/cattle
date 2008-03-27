@@ -1,7 +1,7 @@
 % ----------------------------------------------------------------
 % AMS-LaTeX Paper ************************************************
 % **** -----------------------------------------------------------
-\documentclass{amsart}
+\documentclass[letter]{amsart}
 \usepackage{graphicx}
 % ----------------------------------------------------------------
 \vfuzz2pt % Don't report over-full v-boxes if over-edge is small
@@ -230,6 +230,40 @@ We can then substitute in the aggregate supply functions to get the second condi
 A\pi (1-z_2^2)^\gamma(z_2^2-z_1^2)^{1-\gamma} = \pi z_1^2/H.
 \]
 This is condition two. Note that if there was a parallel TFP increase in housing, $z_1$ and $z_2$ would not be affected by TFP.
+
+\subsection{The case with labor}
+Suppose all workers provide a unit of labor inelastically. Work is provided in the center. There is free intersectoral mobility.
+
+Production technology is Cobb-Douglas, with $\beta$ as the share of land,
+\[
+m(z) = A l(z)^\beta n(z)^{1-\beta}.
+\]
+Output per unit of land is hence
+\[
+m(z)/l(z) = A \left[\frac{n(z)}{l(z)}\right]^{1-\beta}.
+\]
+Labor intensity of production
+\[
+\frac{n(z)}{l(z)} = \frac{1-\beta}{\beta}\frac{r(z)}{w}.
+\]
+Substituting in
+\[
+\frac{m(z)}{l(z)} = A \left(\frac{1-\beta}{\beta}\right)^{1-\beta}r(z)^{1-\beta}w^{\beta-1}.
+\]
+Profit per unit of land
+\[
+(1-\tau_m z)A \left(\frac{1-\beta}{\beta}\right)^{1-\beta}r(z)^{1-\beta}w^{\beta-1} - r(z),
+\]
+so the zero-profit condition pins down the bid rent function,
+\[
+R_m(z) = (1-\tau_m z)^{1/\beta}A \left(\frac{1-\beta}{\beta}\right)^{1/\beta-1}r(z)^{1-\beta}w^{\beta-1}
+\]
+
+
+Profit maximization
+\[
+\max_{n,l} A p_i l^\beta n^{1-\beta} - wn - r_i(z)l
+\]
 
 \end{document}
 % ----------------------------------------------------------------
