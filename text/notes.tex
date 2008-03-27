@@ -131,7 +131,7 @@ Suppose the level of utility is $u$ in all locations (this is equalized across l
 P(p_m,p_s,R_z) = \frac Iu (1-\tau_h z).
 \]
 
-For given income and good prices, the optimal location choice of households determines their bid rent function, $R_h(z,I,p_m,p_s)$. Because the indirect utility function is homogeneous of degree zero in $I$, $p_m$, $p_s_$ and $r_z$, the bid rent function is homogeneous of degree one in $I$, $p_m$ and $p_s_$.
+For given income and good prices, the optimal location choice of households determines their bid rent function, $R_h(z,I,p_m,p_s)$. Because the indirect utility function is homogeneous of degree zero in $I$, $p_m$, $p_s$ and $r_z$, the bid rent function is homogeneous of degree one in $I$, $p_m$ and $p_s$.
 \subsection{Equilibrium}
 In equilibrium, firms maximize profits (and hence choose location optimally), consumers maximize utility (and hence choose location optimally), the global markets for the two goods clear, as does the local market for each plot of land. (Note that there will always be unused land far-enough from the center, because it is not feasible to commute/transport to long distances.)
 
@@ -161,8 +161,30 @@ R_m(z_2,p_m) &= R_h(z_2,I,p_s,p_m)
 \subsection{Comments}
 \begin{enumerate}
   \item It is easy to show that either Cobb-Douglas utility or symmetric TFP increase in housing kills our effect. We need slower TFP increase (0) \emph{and} complementary housing (Leontief) to make this work.
-  \item 
-  \item 
 \end{enumerate}
+\subsection{Leontief demand}
+Suppose utility is
+\[
+u(m,s,h) = \min\{m^\gamma s^{1-\gamma}, h/H\}.
+\]
+The price index is then
+\[
+P(p_m,p_s,r_z) = c p_m^\gamma p_s^{1-\gamma} + H r_z,
+\]
+where $c$ is some fancy constant that I always forget. The residential bid rent function is 
+\[
+R_h(z) = \frac{I}{uH}(1-\tau_h z) -\frac cH p_m^\gamma p_s^{1-\gamma}.
+\]
+Now all the bid rent functions are linear in $z$, which should make the determination of the cutoffs simpler.
+
+Housing demand is the derivative of the expenditure function with respect to $r_z$,
+\[
+h(z) = u H,
+\]
+independent of location. This way, population density is constant at $n(z) = 1/(uH)$, which pins down $u$ as a function of $z_1$ and $z_2$
+\[
+u = \frac{\pi}{N H}(z_2^2-z_1^2).
+\]
+The residential area is $\pi(z_2^2-z_1^2)$, so the amount of land per household is $\pi(z_2^2-z_1^2)/N$, each unit measure giving a utility of $1/H$.
 \end{document}
 % ----------------------------------------------------------------
