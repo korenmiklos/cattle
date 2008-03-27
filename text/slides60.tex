@@ -212,8 +212,143 @@ Mikl\'os Koren (Princeton)}
     \addtocounter{framenumber}{-1}
 \end{frame}
 
+
 \section{Introduction}
 \subsection{Motivation}
+\begin{frame}\frametitle{The Balassa--Samuelson effect}
+
+\begin{itemize}
+	\item Rich countries are more expensive than poor ones.
+    \item In Penn World Tables, 
+    \[
+    \ln P = 0.25\ln Y + e.
+    \]
+    %% The reason I put in numbers here is that I want to be able to do back of the env calcs.
+    \item This is caused by differences in non-tradable prices, as tradable prices are equalized.
+\end{itemize}
+\end{frame}
+
+%% show 2 hsieh klenow graphs
+
+\begin{frame}\frametitle{The Balassa--Samuelson explanation}
+
+\begin{itemize}
+	\item Productivity differences in non-tradables are smaller.
+    \item Prices in country $i$
+    \begin{align*}
+    p_{T,i} &= w_i/A_{T,i}\\
+    p_{NT,i} &= w_i/A_{NT,i}
+    \end{align*}
+    \item and relative prices
+    \[
+    \frac{p_{NT,i}}{p_{T,i}} = \frac{A_{T,i}}{A_{NT,i}}
+    \]
+    are highly correlated with $Y(A_{T,i},A_{NT,i})$.
+    \item But why is technical progress slower for non-tradables?
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}\frametitle{The Kravis--Lipsey--Bhagwati explanation}
+\begin{itemize}
+	\item Non-tradables are more intensive users of the non-reproducible factor (labor).
+    \item This raises their price with capital accumulation.
+    \item But the difference in labor intensity is small (Herrendorf and Valentinyi, 2007).
+    \item ***Also, is it just a convenient correlation that non-tradables use more non-reproducible factor?
+    \item ***Hard to do counterfactuals in this case.
+    \item We argue that it's not.
+\end{itemize}
+\end{frame}
+
+%% B-S is relatively recent
+
+
+\subsection{Basic idea of the model}
+\begin{frame}\frametitle{Basic idea}
+\begin{itemize}
+    \item Tradable sectors locate to where land is cheap.
+	\item Non-tradable sectors have to locate near consumers in big cities.
+    \item They compete with housing for scarce urban land.
+    \item Urban land becomes more and more scarce with development.
+    \item Raising the relative price of non-tradables.
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Key ingredients}
+\begin{itemize}
+	\item Land is scarce and has a non-negligible share in production.
+    \item Housing crowds out production.
+    \item Tradable sectors move out of cities.
+\end{itemize}
+\end{frame}
+
+%\section{Outline}
+\section{Key ingredients}
+\begin{frame}\frametitle{Land is scarce}
+\begin{itemize}
+	\item Population density of the Earth is 42$/\text{km}^2$, so land is abundant.
+    \item However, the average person lives in an area with population density of 7,000$/\text{km}^2$ (LandScan 2005), 
+    so \emph{land close to consumers} is scarce.
+\end{itemize}
+\end{frame}
+- land shares in various industries
+- measures of scarcity: population density, urbanization, landscan
+- figure from Clark's book
+
+\begin{frame}\frametitle{Housing crowds out production}
+\begin{itemize}
+	\item Between 1976 and 1992, U.S.~GDP per capita rose by 37\%.
+    \item During this same period, residential land per capita increased by 25\%. (Burchfield, Overman, Puga and Turner, 2006)
+    \item ***cite Morris Davis et al
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Tradable sectors move out of cities}
+\begin{itemize}
+    \item Holmes and Stevens (2004)
+	\item ***Locational quotients
+\end{itemize}
+\end{frame}
+
+\widefigure{LQ_map}{Locational quotient of tradable sectors}
+
+\section{Model}
+\subsection{Basic structure}
+\begin{frame}\frametitle{Basic structure}
+\begin{itemize}
+    \item There are three industries, manufacturing ($m$), services ($s$), and housing ($h$).
+    \item Technology is identical in the two productive sectors.
+    \item Manufacturing is freely tradable, services are non-tradable.
+    \item Two locations with immobile land ($L$) and labor ($N$).
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{How we proceed}
+We build and analyze the model in three stages.
+\begin{enumerate}
+    \item Manufacturing and housing in one location.
+    \item Manufacturing and housing in two locations.
+    \item Manufacturing, services and housing in two locations.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}\frametitle{Simplifications}
+\begin{itemize}
+    \item No explicit spatial structure.
+    \item Development (TFP) is exogenous.
+    \item Urbanization is exogenous.
+\end{itemize}
+\end{frame}
+
+\subsection{One location}
+\subsection{Two locations, one sector}
+* this can also be thought of as a special case where services are extremely land intensive so that rent = price of services
+\subsection{Two locations, two sectors}
+\subsection{Comparative statics}
+\subsection{Endogenous urbanization (?)}
+\section{Numerical exercise}
+\section{Empirics}
+
 \begin{frame}\frametitle{}
 
 \begin{itemize}[<+->]
