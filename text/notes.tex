@@ -135,7 +135,7 @@ For given income and good prices, the optimal location choice of households dete
 \subsection{Equilibrium}
 In equilibrium, firms maximize profits (and hence choose location optimally), consumers maximize utility (and hence choose location optimally), the global markets for the two goods clear, as does the local market for each plot of land. (Note that there will always be unused land far-enough from the center, because it is not feasible to commute/transport to long distances.)
 
-We conjecture an equilibrium of the following spatial structure. Services are located closest to the center, followed by a ring of residential area, and by a ring of manufacturing belt. (This will need assumptions on $\tau_h$.) Let $z_1$ denote the boundary of the service sector, and $z_2>z_1$ the boundary of the residential sector. The city boundary is denoted by $z_3 = 1/\tau_m$. It is not feasible to transport manufactured goods from outside this boundary.
+We conjecture an equilibrium of the following spatial structure. Services are located closest to the center, followed by a ring of residential area, and by a ring of manufacturing belt. (This will need assumptions on $\tau_h$.) Let $z_1$ denote the boundary of the service sector, and $z_2>z_1$ the boundary of the residential sector. The city boundary is denoted by $z_3 = 1/\tau_m$. It is not feasible to transport manufactured goods from outside this boundary. By choice of distance units, we normalize $z_3=1$.
 
 The supply of services is $A$ times the amount of land used in services, $l_s = z_1^2\pi$:
 \[
@@ -143,7 +143,7 @@ s = Az_1^2\pi.
 \]
 Similarly, the supply of manufacturing is
 \[
-m = A(z_3^2-z_2^2)\pi.
+m = A(1-z_2^2)\pi.
 \]
 
 Suppose a mass of consumers consume $h(z)$ of housing at location $z$. In other words, $n(z) = 1/h(z)$ is the population density. 
@@ -186,5 +186,14 @@ independent of location. This way, population density is constant at $n(z) = 1/(
 u = \frac{\pi}{N H}(z_2^2-z_1^2).
 \]
 The residential area is $\pi(z_2^2-z_1^2)$, so the amount of land per household is $\pi(z_2^2-z_1^2)/N$, each unit measure giving a utility of $1/H$.
+\subsection{Getting down to business}
+As a choice of numeraire, we set $Ap_m=1$. Writing out the three bid rent functions again,
+\begin{align*}
+R_s(z) &= Ap_s(1-\tau_s z)\\
+R_h(z) &= \frac{P}{H}(1-\tau_h z) -\frac {c}{AH} (Ap_s)^{1-\gamma}\\
+R_m(z) &= 1-\tau_m z
+\end{align*}
+
+
 \end{document}
 % ----------------------------------------------------------------
