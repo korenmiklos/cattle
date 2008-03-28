@@ -224,46 +224,33 @@ Mikl\'os Koren (Princeton)}
     \ln P = 0.25\ln Y + e.
     \]
     %% The reason I put in numbers here is that I want to be able to do back of the env calcs.
-    \item This is caused by differences in non-tradable prices, as tradable prices are equalized.
+    \item This is mostly due to differences in non-tradable prices, as tradable prices vary little across countries.
 \end{itemize}
 \end{frame}
 
 %% show 2 hsieh klenow graphs
 
-\begin{frame}\frametitle{The Balassa--Samuelson explanation}
+\begin{frame}\frametitle{Productivity-based explanations}
 
 \begin{itemize}
-    \item Productivity differences in non-tradables are smaller.
-    \item Prices in country $i$
-    \begin{align*}
-    p_{T,i} &= w_i/A_{T,i}\\
-    p_{NT,i} &= w_i/A_{NT,i}
-    \end{align*}
-    \item and relative prices
-    \[
-    \frac{p_{NT,i}}{p_{T,i}} = \frac{A_{T,i}}{A_{NT,i}}
-    \]
-    are highly correlated with $Y(A_{T,i},A_{NT,i})$.
-    \item But why is technical progress slower for non-tradables?
-\end{itemize}
-\end{frame}
-
-
-\begin{frame}\frametitle{The Kravis--Lipsey--Bhagwati explanation}
-\begin{itemize}
+    \item Balassa--Samuelson: Productivity differences in non-tradables are smaller than in non-tradables.
+        \begin{itemize}
+            \item But why is technical progress slower for non-tradables?
+        \end{itemize}
+    \item Kravis--Lipsey--Bhagwati:
     \item Non-tradables are more intensive users of the non-reproducible factor (labor).
     \item This raises their price with capital accumulation.
-    \item But the difference in labor intensity is small (Herrendorf and Valentinyi, 2007).
-    \item ***Also, is it just a convenient correlation that non-tradables use more non-reproducible factor?
-    \item ***Hard to do counterfactuals in this case.
-    \item We argue that it's not.
+        \begin{itemize}
+            \item But the difference in labor intensity is small (Herrendorf and Valentinyi, 2007).
+        \end{itemize}
+    \item We propose a simple model in which ***
 \end{itemize}
 \end{frame}
 
 %% B-S is relatively recent
 
 
-\subsection{Basic idea of the model}
+\subsection{Basic idea}
 \begin{frame}\frametitle{Basic idea}
 \begin{itemize}
     \item Tradable sectors locate to where land is cheap.
@@ -282,7 +269,17 @@ Mikl\'os Koren (Princeton)}
 \end{itemize}
 \end{frame}
 
-%\section{Outline}
+%% talk about outline
+
+\begin{frame}\frametitle{Outline}
+\begin{enumerate}
+    \item Some stylized facts about the role of land and space.
+    \item A simple spatial model.
+    \item Empirics.***
+\end{enumerate}
+\end{frame}
+
+
 \section{Key ingredients}
 \begin{frame}\frametitle{Land is scarce}
 \begin{itemize}
@@ -316,15 +313,14 @@ Services    & 0.32      & 0.05      & 0.15          & 0.12      \\ \hline\hline
 
 \begin{frame}\frametitle{Demand for residential land increases with development}
 \begin{itemize}
-    \item Between 1976 and 1992, U.S.~GDP per capita rose by 37\%.
-    \item During this same period, residential land per capita increased by 25\%.
-    (Burchfield, Overman, Puga and Turner, 2006; Overman, Puga and Turner, 2007)
     \item Between 1950 and 2000, the share of land in the value of a home increased from 10\% to 36\%. (Davis and Heathcote, 2007)
     \item During the same period, the price of residential land increased more than nine-fold.
+    \item Between 1976 and 1992, residential land per capita increased by 25\%.
+    (Burchfield, Overman, Puga and Turner, 2006; Overman, Puga and Turner, 2007)
 \end{itemize}
 \end{frame}
 
-\widefigure{dh-shares}{The share of land in home value (Davis and Heathcote, 2007)}
+\widefigure{dh-shares}{The share of land in home value\\ (Davis and Heathcote, 2007)}
 
 %% skip this in the interest of time
 
@@ -399,6 +395,10 @@ h&= A_hl_h
     \[
     u(I,p_m,p_s,p_h) = \frac{I}{P(p_m,p_s,p_h)}.
     \]
+    \item Assume nested structure
+    \[
+    P[\Phi(p_m,p_s),p_h].
+    \]
 \end{itemize}
 \end{frame}
 
@@ -424,7 +424,7 @@ h&= A_hl_h
     \item Commuting distance $z$ costs $\tau_h z$ fraction of the consumption bundle.
     \item So that indirect utility is
     \[
-    u(I,p_m,p_s,p_h) = \frac{(1-\tau_h z)I}{P(p_m,p_s,p_h)}.
+    u(I,p_m,p_s,p_h) = \frac{(1-\tau_h z)I}{P[\Phi(p_m,p_s),p_h]}.
     \]
     \item Commuting is the costliest of all,
     \[
@@ -433,6 +433,7 @@ h&= A_hl_h
 \end{itemize}
 \end{frame}
 
+\subsection{Equilibrium}
 
 \begin{frame}\frametitle{Equilibrium}
 \begin{itemize}
@@ -473,6 +474,7 @@ h&= A_hl_h
 \end{frame}
 
 %% graph of two bid rent curves
+\widefigure{bid-rent-2}{Bid rent curves of two industries}
 
 \begin{frame}\frametitle{The bid rent curve of households}
 \begin{itemize}
@@ -480,7 +482,11 @@ h&= A_hl_h
     \item Other two prices do not depend on residence.
     \item To achieve utility $u$ at location $z$,
     \[
-    uP[p_m,p_s,R_h(z)/A_h] = (1-\tau_h z) I.
+    u = \frac{(1-\tau_h z) I}{P[\Phi(p_m,p_s),r(z)/A_h]}.
+    \]
+    \item Bid rent function
+    \[
+    R_h(z) = A_h\Phi(p_m,p_s)P_2^{-1}\left[\frac{(1-\tau_h z) I}{u\Phi(p_m,p_s)}\right].
     \]
 \end{itemize}
 \end{frame}
@@ -490,13 +496,16 @@ h&= A_hl_h
 \begin{frame}\frametitle{Equilibrium city structure}
 \begin{itemize}
     \item Residents live closest to CBD, $\in[0,z_1]$.
+    \item With a (weakly) declining population density.
     \item Followed by a ring of service establishments, $\in(z_1,z_2]$.
     \item Followed by a ring of manufacturing plants, $\in(z_1,z_3]$.
     \item City boundary is $z_3 = 1/\tau_m$.
+%    \item The boundaries $z_1$ and $z_2$ determine the supply of housing 
 \end{itemize}
 \end{frame}
 
 %% graph of three bid rent curves
+\widefigure{bid-rent-3}{Equilibrium spatial structure}
 
 %% graph of concentric circles
 
@@ -507,7 +516,7 @@ h&= A_hl_h
     \item Overall supply:
     \begin{align*}
     s &= \int_{z_1}^{z_2}2\pi z (1-\tau_s z) dz = s(\underset{-}{z_1},\underset{+}{z_2})\\
-    m &= \int_{z_2}^{z_3}2\pi z (1-\tau_m z) dz = m(\underset{-}{z_2},z_3)
+    m &= \int_{z_2}^{z_3}2\pi z (1-\tau_m z) dz = m(\underset{-}{z_2})
     \end{align*}
 \end{itemize}
 \end{frame}
@@ -526,15 +535,11 @@ h&= A_hl_h
 \end{itemize}
 \end{frame}
 
-
-\begin{frame}\frametitle{Comparative statics}
-\begin{itemize}
-    \item
-\end{itemize}
-\end{frame}
+\subsection{Productivity growth}
 
 
-\begin{frame}\frametitle{Propositions}
+\begin{frame}\frametitle{Productivity growth}
+What happens if  $A_m$ and $A_s$ increase in parallel?
 \begin{block}{Balanced growth}
 Productivity growth does not change the relative price of services if
     \begin{enumerate}
@@ -542,6 +547,7 @@ Productivity growth does not change the relative price of services if
       \item \emph{or} demand for housing is Cobb--Douglas.
     \end{enumerate}
 \end{block}
+\pause
 \begin{block}{Balassa--Samuelson and the sprawl}
 Service prices rise with development if and only if residential land increases with development.
 \end{block}
@@ -551,22 +557,83 @@ Service prices rise with development if and only if residential land increases w
 
 %% explain sprawl
 
+\begin{frame}\frametitle{The relative demand for services}
+\begin{itemize}
+    \item The relative price of services
+    \[
+    \frac{p_s}{p_m} = \frac{1-\tau_m z_2}{1-\tau_s z_2}.
+    \]
+    \item Relative demand is
+    \[
+    \frac{s}{m} = \phi\left(\frac{p_s}{p_m}\right) = \phi\left(\frac{1-\tau_m z_2}{1-\tau_s z_2}\right),
+    \]
+    decreasing in $z_2$. ($\phi$ denotes $\Phi_2/\Phi_1$.)
+    \item Relative supply is increasing in $z_2$, so $z_1$ needs to increase to restore equilibrium.
+\end{itemize}
+\end{frame}
+
+%% do this with graphs
 
 
 \begin{frame}\frametitle{Complementary housing}
 \begin{itemize}
-    \item Balassa--Samuelson requires an increase in residential land.
     \item Housing is complementary with $m$ and $s$ (Leontief).
     \item Productivity growth in housing is slower (zero).
 \end{itemize}
 \end{frame}
 
+%% 
 
-\section{Numerical exercise}
+\begin{frame}\frametitle{Solving for $z_1$ and $z_2$}
+\begin{itemize}
+    \item ***DO WE NEED THIS?
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}\frametitle{Comparative statics}
+As productivity increases,
+\begin{enumerate}
+    \item residential land increases,
+    \item home prices increase,
+    \item the rent gradient becomes steeper,
+    \item services become more expensive.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}\frametitle{Adding labor}
+\begin{enumerate}
+    \item Change technology to $Af(n,l)$ ($n$ denotes labor).
+    \item Workers have to commute to CBD to meet their employers.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}\frametitle{Equilibrium city structure}
+\begin{itemize}
+    \item Spatial structure remains the same.
+    \item Employment density declines with distance to CBD.
+    \item Labor productivity is lower in services.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}\frametitle{Comparative statics}
+As population density increases,
+\begin{enumerate}
+    \item wages decrease,
+    \item residential land increases,
+    \item home prices increase,
+    \item the rent gradient becomes steeper,
+    \item services become more expensive.
+\end{enumerate}
+\end{frame}
+
+
+%\section{Numerical exercise}
 \section{Empirics}
 
 \begin{frame}\frametitle{}
-
+    
 \begin{itemize}[<+->]
     \item
     \begin{enumerate}[<+->]

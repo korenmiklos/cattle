@@ -99,11 +99,11 @@ s&=Al,
 \end{align*}
 where $l$ is the amount of land allocated to production, and $A$ is the yield per land. Technical progress will be captured as an increase in $A$.
 
-The profit of a firm in industry $i$ $z$ miles from the center is 
+The profit of a firm in industry $i$ $z$ miles from the center is
 \[
 \pi_i(z,l) = p_i(1-\tau_i z)Al - r_zl,
 \]
-where $r_z$ is the land rent in location $z$. 
+where $r_z$ is the land rent in location $z$.
 
 Profit maximization leads to
 \[
@@ -135,7 +135,7 @@ For given income and good prices, the optimal location choice of households dete
 \subsection{Equilibrium}
 In equilibrium, firms maximize profits (and hence choose location optimally), consumers maximize utility (and hence choose location optimally), the global markets for the two goods clear, as does the local market for each plot of land. (Note that there will always be unused land far-enough from the center, because it is not feasible to commute/transport to long distances.)
 
-We conjecture an equilibrium of the following spatial structure. Residents live closest to the center, followed by a ring of service establishments, and by a ring of manufacturing belt. (It probably suffices to set $\tau_h>\tau_s>\tau_m$.) Let $z_1$ denote the boundary of the service sector, and $z_2>z_1$ the boundary of the manufacturing sector. The city boundary is denoted by $z_3 = 1/\tau_m$. It is not feasible to transport manufactured goods from outside this boundary. 
+We conjecture an equilibrium of the following spatial structure. Residents live closest to the center, followed by a ring of service establishments, and by a ring of manufacturing belt. (It probably suffices to set $\tau_h>\tau_s>\tau_m$.) Let $z_1$ denote the boundary of the service sector, and $z_2>z_1$ the boundary of the manufacturing sector. The city boundary is denoted by $z_3 = 1/\tau_m$. It is not feasible to transport manufactured goods from outside this boundary.
 
 %% keep tau so that we can do comparative statics
 
@@ -148,7 +148,7 @@ Similarly, the supply of manufacturing is
 m = A(1/\tau_m^2-z_2^2)\pi.
 \]
 
-Suppose a mass of consumers consume $h(z)$ of housing at location $z$. In other words, $n(z) = 1/h(z)$ is the population density. 
+Suppose a mass of consumers consume $h(z)$ of housing at location $z$. In other words, $n(z) = 1/h(z)$ is the population density.
 
 The total population of the city is the integral of the density between $0$ and $z_1$,
 \[
@@ -173,7 +173,7 @@ The price index is then
 \[
 P(p_m,p_s,r_z) = c p_m^\gamma p_s^{1-\gamma} + H r_z,
 \]
-where $c$ is some fancy constant that I always forget. The residential bid rent function is 
+where $c$ is some fancy constant that I always forget. The residential bid rent function is
 \[
 R_h(z) = \frac{I}{uH}(1-\tau_h z) -\frac cH p_m^\gamma p_s^{1-\gamma}.
 \]
@@ -196,7 +196,7 @@ R_s(z) &= Ap_s(1-\tau_s z)\\
 R_h(z) &= \frac{IN}{\pi z_1}(1-\tau_h z) -\frac {c}{H} p_s^{1-\gamma}\\
 R_m(z) &= A(1-\tau_m z)
 \end{align*}
-We need to find the equilibrium $z_1$ and $z_2$.We will need two conditions. 
+We need to find the equilibrium $z_1$ and $z_2$.We will need two conditions.
 
 The price of services can be pinned down from the service / manufacturing arbitrage,
 \[
@@ -266,17 +266,17 @@ Note that net output per land is $r(z)/\beta$ (because land has a $\beta$ share 
 \[
 \mu(z) = (1-\tau_m z)^{1/\beta}A {\beta}^{1/\beta}w^{1-1/\beta}.
 \]
-The supply of manufacturing is 
+The supply of manufacturing is
 \[
-\int_{z_2}^{z_3} 2\pi z\mu(z) dz.
+\int_{z_2}^{z_3} 2\pi z\mu(z) dz = A {\beta}^{1/\beta}w^{1-1/\beta}\int_{z_2}^{z_3} 2\pi z(1-\tau_m z)^{1/\beta} dz.
 \]
-We can write a similar condition for the supply of services. The relative supply is, 
+We can write a similar condition for the supply of services. The relative supply is,
 \[
-\frac ms = \frac{\int_{z_2}^{z_3} 2\pi z(1-\tau_m z)^{1/\beta} dz}{\int_{z_1}^{z_2} 2\pi z(1-\tau_s z)^{1/\beta} dz}
+\frac ms = \frac{\int_{z_2}^{z_3} z(1-\tau_m z)^{1/\beta} dz}{\int_{z_1}^{z_2} z(1-\tau_s z)^{1/\beta} dz}
 \]
 and all other terms have dropped out.
 
-Relative prices are easily determined as, 
+Relative prices are easily determined as,
 \[
 p_s = \left(\frac{1-\tau_m z_2}{1-\tau_s z_2}\right)^{1/\beta}.
 \]
