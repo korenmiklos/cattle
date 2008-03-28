@@ -261,7 +261,7 @@ Mikl\'os Koren (Princeton)}
 \end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{Key ingredients}
+\begin{frame}\frametitle{Stylized facts}
 \begin{itemize}
     \item Land is scarce and has a non-negligible share in production.
     \item Demand for residential land increases with development.
@@ -375,6 +375,7 @@ Services    & 0.32      & 0.05      & 0.15          & 0.12      \\ \hline\hline
 \end{frame}
 
 %% graph of CBD
+\widefigure{monocentric-1}{The monocentric city}
 
 \begin{frame}\frametitle{Technology}
 \begin{itemize}
@@ -390,7 +391,7 @@ h&= A_hl_h
 
 \begin{frame}\frametitle{Tastes}
 \begin{itemize}
-    \item Consumers have a homothetic utility function over $m$, $s$ and $h$.
+    \item Consumers have a homothetic utility over $m$, $s$ and $h$.
     \item With indirect utility function
     \[
     u(I,p_m,p_s,p_h) = \frac{I}{P(p_m,p_s,p_h)}.
@@ -498,7 +499,7 @@ h&= A_hl_h
     \item Residents live closest to CBD, $\in[0,z_1]$.
     \item With a (weakly) declining population density.
     \item Followed by a ring of service establishments, $\in(z_1,z_2]$.
-    \item Followed by a ring of manufacturing plants, $\in(z_1,z_3]$.
+    \item Followed by a ring of manufacturing plants, $\in(z_2,z_3]$.
     \item City boundary is $z_3 = 1/\tau_m$.
 %    \item The boundaries $z_1$ and $z_2$ determine the supply of housing 
 \end{itemize}
@@ -525,7 +526,7 @@ h&= A_hl_h
 \begin{itemize}
     \item At the manufacturing--service boundary $z_2$,
     \[
-    p_mA_m(1-\tau_m z_2) = p_sA_s(1-\tau_s z).
+    p_mA_m(1-\tau_m z_2) = p_sA_s(1-\tau_s z_2).
     \]
     \item The relative price of services
     \[
@@ -539,7 +540,7 @@ h&= A_hl_h
 
 
 \begin{frame}\frametitle{Productivity growth}
-What happens if  $A_m$ and $A_s$ increase in parallel?
+What happens if  $A_m$ and $A_s$ increase in parallel?\pause
 \begin{block}{Balanced growth}
 Productivity growth does not change the relative price of services if
     \begin{enumerate}
@@ -549,7 +550,7 @@ Productivity growth does not change the relative price of services if
 \end{block}
 \pause
 \begin{block}{Balassa--Samuelson and the sprawl}
-Service prices rise with development if and only if residential land increases with development.
+Service prices rise with development if and only if residential land rises with development.
 \end{block}
 \end{frame}
 
@@ -557,7 +558,7 @@ Service prices rise with development if and only if residential land increases w
 
 %% explain sprawl
 
-\begin{frame}\frametitle{The relative demand for services}
+\begin{frame}\frametitle{Proof}
 \begin{itemize}
     \item The relative price of services
     \[
@@ -568,7 +569,9 @@ Service prices rise with development if and only if residential land increases w
     \frac{s}{m} = \phi\left(\frac{p_s}{p_m}\right) = \phi\left(\frac{1-\tau_m z_2}{1-\tau_s z_2}\right),
     \]
     decreasing in $z_2$. ($\phi$ denotes $\Phi_2/\Phi_1$.)
-    \item Relative supply is increasing in $z_2$, so $z_1$ needs to increase to restore equilibrium.
+    \item Relative supply is increasing in $z_2$. 
+    \item For a given $z_1$, there is a unique $z_2$ that equates relative demand and supply. 
+    \item This $z_2$ is increasing in $z_1$.
 \end{itemize}
 \end{frame}
 
@@ -577,18 +580,12 @@ Service prices rise with development if and only if residential land increases w
 
 \begin{frame}\frametitle{Complementary housing}
 \begin{itemize}
+    \item We need to restrict preferences to increase housing demand.
     \item Housing is complementary with $m$ and $s$ (Leontief).
     \item Productivity growth in housing is slower (zero).
 \end{itemize}
 \end{frame}
 
-%% 
-
-\begin{frame}\frametitle{Solving for $z_1$ and $z_2$}
-\begin{itemize}
-    \item ***DO WE NEED THIS?
-\end{itemize}
-\end{frame}
 
 
 \begin{frame}\frametitle{Comparative statics}
@@ -599,6 +596,7 @@ As productivity increases,
     \item the rent gradient becomes steeper,
     \item services become more expensive.
 \end{enumerate}
+All are consistent with stylized facts.
 \end{frame}
 
 \begin{frame}\frametitle{Adding labor}
