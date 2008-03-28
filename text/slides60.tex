@@ -277,7 +277,7 @@ Mikl\'os Koren (Princeton)}
 \begin{frame}\frametitle{Key ingredients}
 \begin{itemize}
     \item Land is scarce and has a non-negligible share in production.
-    \item Housing crowds out production.
+    \item Demand for residential land increases with development.
     \item Tradable sectors move out of cities.
 \end{itemize}
 \end{frame}
@@ -287,7 +287,8 @@ Mikl\'os Koren (Princeton)}
 \begin{frame}\frametitle{Land is scarce}
 \begin{itemize}
     \item Population density of the Earth is 42$/\text{km}^2$, so land is abundant.
-    \item However, the average person lives in an area with population density of 7,000$/\text{km}^2$ (LandScan 2005),
+    \pause
+    \item However, the average person lives in an area with a population density of 7,300$/\text{km}^2$ (LandScan 2005),
     so \emph{land close to consumers} is scarce.
 \end{itemize}
 \end{frame}
@@ -296,8 +297,7 @@ Mikl\'os Koren (Princeton)}
 \begin{itemize}
 \item Decreased from 25\% in mid 1700s to around 5\% now --- mainly
 because of the shrinking share of agriculture in GDP (Clark, 2007)
-\item Sector income share of land, structures and equipment in various industries (Herrendorf - Valentinyi, 2007)
-\item Sector income shares in various industries in the US (Herrendorf - Valentinyi, 2007)
+\item Sector income shares in various industries in the US (Herrendorf and Valentinyi, 2007)
 \begin{center}
 \begin{tabular}{l|c|ccc}
 \hline\hline
@@ -313,25 +313,50 @@ Services    & 0.32      & 0.05      & 0.15          & 0.12      \\ \hline\hline
 
 \widefigure{clark-landrents}{Agricultural and urban land rents in England (Clark, 2007)}
 
-- measures of scarcity: population density, urbanization, landscan -
-figure from Clark's book
 
-\begin{frame}\frametitle{Housing crowds out production}
+\begin{frame}\frametitle{Demand for residential land increases with development}
 \begin{itemize}
     \item Between 1976 and 1992, U.S.~GDP per capita rose by 37\%.
-    \item During this same period, residential land per capita increased by 25\%. (Burchfield, Overman, Puga and Turner, 2006)
-    \item ***cite Morris Davis et al
+    \item During this same period, residential land per capita increased by 25\%.
+    (Burchfield, Overman, Puga and Turner, 2006; Overman, Puga and Turner, 2007)
+    \item Between 1950 and 2000, the share of land in the value of a home increased from 10\% to 36\%. (Davis and Heathcote, 2007)
+    \item During the same period, the price of residential land increased more than nine-fold.
 \end{itemize}
+\end{frame}
+
+\widefigure{dh-shares}{The share of land in home value (Davis and Heathcote, 2007)}
+
+%% skip this in the interest of time
+
+\begin{frame}\frametitle{Income and the demand for housing}
+\begin{table}[h!]
+\center 
+\begin{tabular}{l|cc}
+  \hline\hline
+  Explanatory & \multicolumn{2}{c}{Dependent variable} \\
+  variables & Land value & Number of rooms \\ 
+            & (log)      & per capita (log) \\
+  \hline
+  Income (log)   & \textbf{2.77}   & \textbf{0.26}\\
+                 & (0.67)          & (0.08)\\
+  Population (log)    & 0.13            &  \textbf{-0.07}\\
+                 & (0.18)          & (0.01) \\ \hline
+  $R^2$          & 0.42            & 0.26\\
+  No. of obs.    & 46              & 3219\\ \hline\hline
+\end{tabular}
+\end{table}
 \end{frame}
 
 \begin{frame}\frametitle{Tradable sectors move out of cities}
 \begin{itemize}
-    \item Holmes and Stevens (2004)
-    \item ***Locational quotients
+    \item Burchfield, Overman, Puga and Turner (2006): commercial land is more scattered than residential land, more so in 1992 than in 1976.
+    \item Holmes and Stevens (2004): in 1997 manufacturing is underrepresented in large cities.
+    \item Desmet and Fafchamps (2006): manufacturing deconcentrated between 1970 and 2000.
 \end{itemize}
 \end{frame}
 
 \widefigure{LQ_map}{Locational quotient of tradable sectors}
+\widefigure{LQ_scatter}{Tradables stay away from dense counties}
 
 \section{Model}
 \subsection{Basic structure}
@@ -339,8 +364,7 @@ figure from Clark's book
 \begin{itemize}
     \item There are three industries, manufacturing ($m$), services ($s$), and housing ($h$).
     \item Technology is identical in the two productive sectors.
-    \item Manufacturing is freely tradable, services are non-tradable.
-    \item Two locations with immobile land ($L$) and labor ($N$).
+    \item Goods are costly to transport.
 \end{itemize}
 \end{frame}
 
@@ -371,6 +395,169 @@ h&= A_hl_h
 \begin{frame}\frametitle{Tastes}
 \begin{itemize}
     \item Consumers have a homothetic utility function over $m$, $s$ and $h$.
+    \item With indirect utility function
+    \[
+    u(I,p_m,p_s,p_h) = \frac{I}{P(p_m,p_s,p_h)}.
+    \]
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}\frametitle{Transport costs}
+\begin{itemize}
+    \item Goods are shipped to the CBD.
+    \item Both manufacturing and services have iceberg transport cost.
+    \item One good $i$ shipped from location $z$ melts to
+    \[
+    1-\tau_iz.
+    \]
+    \item Services are less tradable:
+    \[
+    \tau_s>\tau_m.
+    \]
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Commuting costs}
+\begin{itemize}
+    \item People go to the CBD to shop.
+    \item Commuting distance $z$ costs $\tau_h z$ fraction of the consumption bundle.
+    \item So that indirect utility is
+    \[
+    u(I,p_m,p_s,p_h) = \frac{(1-\tau_h z)I}{P(p_m,p_s,p_h)}.
+    \]
+    \item Commuting is the costliest of all,
+    \[
+    \tau_h>\tau_s>\tau_m.
+    \]
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}\frametitle{Equilibrium}
+\begin{itemize}
+    \item Firms maximize profits and choose location optimally.
+    \item Households maximize utility and choose residence optimally.
+    \item Manufacturing and service markets clear at the CBD.
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Profit maximization}
+\begin{itemize}
+    \item Land rent at location $z$: $r(z)$.
+    \item Profits for industry $i$ at location $z$:
+    \[
+    (1-\tau_i z) p_i A_i l_i(z) - r(z)l_i(z).
+    \]
+    \item Optimum requires
+    \[
+    (1-\tau_i z) p_i A_i \le r(z),
+    \]
+    with $=$ if industry $i$ produces at location $z$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{The bid rent curve}
+\begin{itemize}
+    \item Define a bid rent curve:
+    \[
+    R_i(z) = p_iA_i(1-\tau_i z).
+    \]
+    \item Profit maximization requires
+    \[
+    r(z)\ge R_i(z)
+    \]
+    \item Industry $i$ produces at location $z$ only if $=$.
+    \item Rent $r(z)$ is the upper envelope of the bid rent curves.
+\end{itemize}
+\end{frame}
+
+%% graph of two bid rent curves
+
+\begin{frame}\frametitle{The bid rent curve of households}
+\begin{itemize}
+    \item Housing at $z$ costs $r(z)/A_h$.
+    \item Other two prices do not depend on residence.
+    \item To achieve utility $u$ at location $z$,
+    \[
+    uP[p_m,p_s,R_h(z)/A_h] = (1-\tau_h z) I.
+    \]
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}\frametitle{Equilibrium city structure}
+\begin{itemize}
+    \item Residents live closest to CBD, $\in[0,z_1]$.
+    \item Followed by a ring of service establishments, $\in(z_1,z_2]$.
+    \item Followed by a ring of manufacturing plants, $\in(z_1,z_3]$.
+    \item City boundary is $z_3 = 1/\tau_m$.
+\end{itemize}
+\end{frame}
+
+%% graph of three bid rent curves
+
+%% graph of concentric circles
+
+\begin{frame}\frametitle{Aggregate supplies}
+\begin{itemize}
+    \item All land between $z_1$ and $z_2$ is allocated to services.
+    \item A fraction $\tau_s z$ gets lost in transit.
+    \item Overall supply:
+    \begin{align*}
+    s &= \int_{z_1}^{z_2}2\pi z (1-\tau_s z) dz = s(\underset{-}{z_1},\underset{+}{z_2})\\
+    m &= \int_{z_2}^{z_3}2\pi z (1-\tau_m z) dz = m(\underset{-}{z_2},z_3)
+    \end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{The relative price of services}
+\begin{itemize}
+    \item At the manufacturing--service boundary $z_2$,
+    \[
+    p_mA_m(1-\tau_m z_2) = p_sA_s(1-\tau_s z).
+    \]
+    \item The relative price of services
+    \[
+    \frac{p_s}{p_m} = \frac{A_m}{A_s}\frac{1-\tau_m z_2}{1-\tau_s z_2}.
+    \]
+    \item This increases if $A_m/A_s$ does or if $z_2$ does (because $\tau_m<\tau_s$).
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}\frametitle{Comparative statics}
+\begin{itemize}
+    \item
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}\frametitle{Propositions}
+\begin{block}{Balanced growth}
+Productivity growth does not change the relative price of services if
+    \begin{enumerate}
+      \item housing productivity grows at the same rate,
+      \item \emph{or} demand for housing is Cobb--Douglas.
+    \end{enumerate}
+\end{block}
+\begin{block}{Balassa--Samuelson and the sprawl}
+Service prices rise with development if and only if residential land increases with development.
+\end{block}
+\end{frame}
+
+%% explain C-D
+
+%% explain sprawl
+
+
+
+\begin{frame}\frametitle{Complementary housing}
+\begin{itemize}
+    \item Balassa--Samuelson requires an increase in residential land.
+    \item Housing is complementary with $m$ and $s$ (Leontief).
+    \item Productivity growth in housing is slower (zero).
 \end{itemize}
 \end{frame}
 
