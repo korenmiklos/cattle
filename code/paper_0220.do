@@ -13,6 +13,8 @@ regress lnP_pwt lnY_pwt lnpwdens pwdensX if year==1996 & benchm_96, robust
 regress relp_C lnY_pwt urban urbanX if year==1996, robust
 regress relp_C lnY_pwt lndens densX if year==1996, robust
 regress relp_C lnY_pwt lnpwdens pwdensX if year==1996, robust
+regress relp_C lnY_pwt lnpwdens if year==1996, robust
+
 
 regress rel_empl_stan urban if year==2000
 regress rel_empl_stan dens if year==2000
