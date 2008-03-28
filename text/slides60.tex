@@ -1,4 +1,4 @@
-\documentclass[compress,mathserif]{beamer}
+\documentclass[handout,compress,mathserif]{beamer}
 \usepackage[latin2]{inputenc}
 %\usepackage[absolute]{textpos}
 %\documentclass[handout,compress,mathserif]{beamer}
@@ -27,7 +27,7 @@
 
 \mode<presentation>
 {
-  \usetheme{pittsburgh}
+  %\usetheme{pittsburgh}
   % or ...
 
   \setbeamercovered{invisible}
@@ -344,29 +344,37 @@ figure from Clark's book
 \end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{How we proceed}
-We build and analyze the model in three stages.
-\begin{enumerate}
-    \item Manufacturing and housing in one location.
-    \item Manufacturing and housing in two locations.
-    \item Manufacturing, services and housing in two locations.
-\end{enumerate}
-\end{frame}
-
-\begin{frame}\frametitle{Simplifications}
+\begin{frame}\frametitle{Spatial structure}
 \begin{itemize}
-    \item No explicit spatial structure.
-    \item Development (TFP) is exogenous.
-    \item Urbanization is exogenous.
+    \item We model countries as monocentric cities (von Th\"unen).
+	\item All market exchange takes place in a central business district (CBD).
+	\item CBD is a point in the plain.
+	\item Residents, manufacturing and service establishments can choose their location freely in the plain.
+	\item Location is indexed by distance to the CBD, $z$.
 \end{itemize}
 \end{frame}
 
-\subsection{One location}
-\subsection{Two locations, one sector}
-* this can also be thought of as a special case where services are extremely land intensive so that rent = price of services
-\subsection{Two locations, two sectors}
-\subsection{Comparative statics}
-\subsection{Endogenous urbanization (?)}
+%% graph of CBD
+
+\begin{frame}\frametitle{Technology}
+\begin{itemize}
+    \item Land is the only factor of production. (We add labor later.)
+	\item Production functions:
+\begin{align*}
+m&=A_ml_m\\
+s&=A_sl_s\\
+h&= A_hl_h
+\end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Tastes}
+\begin{itemize}
+    \item Consumers have a homothetic utility function over $m$, $s$ and $h$.
+\end{itemize}
+\end{frame}
+
+
 \section{Numerical exercise}
 \section{Empirics}
 
