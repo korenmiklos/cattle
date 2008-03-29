@@ -237,13 +237,14 @@ Mikl\'os Koren (Princeton)}
         \begin{itemize}
             \item But why is technical progress slower for non-tradables?
         \end{itemize}
-    \item Kravis--Lipsey--Bhagwati:
-    \item Non-tradables are more intensive users of the non-reproducible factor (labor).
+\pause
+    \item Kravis--Lipsey--Bhagwati: Non-tradables are more intensive users of the non-reproducible factor (labor).
     \item This raises their price with capital accumulation.
         \begin{itemize}
             \item But the difference in labor intensity is small (Herrendorf and Valentinyi, 2007).
         \end{itemize}
-    \item We propose a simple model in which ***
+\pause
+    \item We propose a simple spatial model in which relative price changes arise endogenously from the location choice of industries.
 \end{itemize}
 \end{frame}
 
@@ -261,26 +262,12 @@ Mikl\'os Koren (Princeton)}
 \end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{Stylized facts}
-\begin{itemize}
-    \item Land is scarce and has a non-negligible share in production.
-    \item Demand for residential land increases with development.
-    \item Tradable sectors move out of cities.
-\end{itemize}
-\end{frame}
 
 %% talk about outline
 
-\begin{frame}\frametitle{Outline}
-\begin{enumerate}
-    \item Some stylized facts about the role of land and space.
-    \item A simple spatial model.
-    \item Empirics.***
-\end{enumerate}
-\end{frame}
 
 
-\section{Key ingredients}
+\section{Land matters}
 \begin{frame}\frametitle{Land is scarce}
 \begin{itemize}
     \item Population density of the Earth is 42$/\text{km}^2$, so land is abundant.
@@ -290,7 +277,7 @@ Mikl\'os Koren (Princeton)}
 \end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{Land share}
+\begin{frame}\frametitle{The share of land in GDP}
 \begin{itemize}
 \item Decreased from 25\% in mid 1700s to around 5\% now --- mainly
 because of the shrinking share of agriculture in GDP (Clark, 2007)
@@ -311,12 +298,304 @@ Services    & 0.32      & 0.05      & 0.15          & 0.12      \\ \hline\hline
 \widefigure{clark-landrents}{Agricultural and urban land rents in England (Clark, 2007)}
 
 
+
+\section{Model}
+\subsection{Basic structure}
+\begin{frame}\frametitle{Basic structure}
+\begin{itemize}
+    \item There are three industries, manufacturing ($m$), services ($s$), and housing ($h$).
+    \item We study how the relative prices of these industries depend on their choice of location...
+	\item ...and how location varies with development.
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Spatial structure}
+\begin{itemize}
+    \item We use the monocentric city model.
+	\item All market exchange takes place in a central business district (CBD).
+	\item CBD is a point in the plain.
+	\item Residents, manufacturing and service establishments can choose their location freely in the plain.
+	\item Location is indexed by distance to the CBD, $z$.
+\end{itemize}
+\end{frame}
+
+%% graph of CBD
+\widefigure{monocentric-1}{The monocentric city}
+
+\begin{frame}\frametitle{Technology}
+\begin{itemize}
+    \item Land is the only factor of production. (We add labor later.)
+	\item Production functions:
+\begin{align*}
+m&=A_ml_m\\
+s&=A_sl_s\\
+h&= A_hl_h
+\end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Tastes}
+\begin{itemize}
+    \item Consumers have homothetic utility over $m$, $s$ and $h$.
+    \item With indirect utility function
+    \[
+    u(I,p_m,p_s,p_h) = \frac{I}{P(p_m,p_s,p_h)}.
+    \]
+    \item Assume nested structure
+    \[
+    P[\Phi(p_m,p_s),p_h].
+    \]
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}\frametitle{Transport costs}
+\begin{itemize}
+    \item Goods are shipped to the center.
+    \item Both manufacturing and services have iceberg transport cost.
+    \item One good $i$ shipped from location $z$ melts to
+    \[
+    D(\tau_iz)<1,\,\,D'<0.
+    \]
+    \item Services are less tradable:
+    \[
+    \tau_s>\tau_m.
+    \]
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Commuting costs}
+\begin{itemize}
+    \item People go to the CBD to shop.
+    \item Commuting costs a $1-D(\tau_h z)$ fraction of the consumption bundle.
+    \item So that indirect utility is
+    \[
+    u(I,p_m,p_s,p_h) = \frac{D(\tau_h z)I}{P[\Phi(p_m,p_s),p_h]}.
+    \]
+    \item Commuting is the costliest of all,
+    \[
+    \tau_h>\tau_s>\tau_m.
+    \]
+\end{itemize}
+\end{frame}
+
+\subsection{Equilibrium}
+
+\begin{frame}\frametitle{Equilibrium}
+\begin{itemize}
+    \item Firms maximize profits and choose location optimally.
+    \item Households maximize utility and choose residence optimally.
+    \item Manufacturing and service markets clear at the CBD.
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Profit maximization}
+\begin{itemize}
+    \item Land rent at location $z$: $r(z)$.
+    \item Profits for industry $i$ at location $z$:
+    \[
+    D(\tau_i z) p_i A_i l_i(z) - r(z)l_i(z).
+    \]
+    \item Optimum requires
+    \[
+    D(\tau_i z) p_i A_i \le r(z),
+    \]
+    with equality if industry $i$ produces at location $z$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{The bid rent curve}
+\begin{itemize}
+    \item Define a bid rent curve:
+    \[
+    R_i(z) = p_iA_iD(\tau_i z).
+    \]
+    \item Profit maximization requires
+    \[
+    r(z)\ge R_i(z)
+    \]
+    \item Industry $i$ produces at location $z$ only if equal.
+    \item Rent $r(z)$ is the upper envelope of the bid rent curves.
+\end{itemize}
+\end{frame}
+
+%% graph of two bid rent curves
+\widefigure{bid-rent-2}{Bid rent curves of two industries}
+
+\begin{frame}\frametitle{The bid rent curve of households}
+\begin{itemize}
+    \item Housing at $z$ costs $r(z)/A_h$.
+    \item Other two prices do not depend on residence.
+    \item To achieve utility $u$ at location $z$,
+    \[
+    u = \frac{D(\tau_h z) I}{P[\Phi(p_m,p_s),r(z)/A_h]}.
+    \]
+    \item Bid rent function
+    \[
+    R_h(z) = A_h\Phi(p_m,p_s)P_2^{-1}\left[\frac{D(\tau_h z) I}{u\Phi(p_m,p_s)}\right].
+    \]
+	\item For example, with Cobb--Douglas utility,
+\[
+R_h(z) = A_h\left[\frac{D(\tau_h z) I}{up_m^{\alpha}p_s^{\beta}}\right]^{1/\gamma}.
+\]
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}\frametitle{Equilibrium city structure}
+\begin{itemize}
+    \item Residents live closest to CBD, $\in[0,z_1]$.
+    \item With a (weakly) declining population density.
+    \item Followed by a ring of service establishments, $\in(z_1,z_2]$.
+    \item Followed by a ring of manufacturing plants, $\in(z_2,z_3]$.
+    \item City boundary is $z_3: D(\tau_m z_3)=0$.
+%    \item The boundaries $z_1$ and $z_2$ determine the supply of housing 
+\end{itemize}
+\end{frame}
+
+%% graph of three bid rent curves
+\widefigure{bid-rent-3}{Equilibrium spatial structure}
+
+%% graph of concentric circles
+\widefigure{monocentric-3}{Equilibrium spatial structure}
+
+%% 	we don't really need these
+\begin{frame}\frametitle{Aggregate supplies}
+\begin{itemize}
+    \item All land between $z_1$ and $z_2$ is allocated to services.
+    \item A fraction $\tau_s z$ gets lost in transit.
+    \item Overall supply:
+    \begin{align*}
+    s &= \int_{z_1}^{z_2}2\pi z D(\tau_s z) dz = s(\underset{-}{z_1},\underset{+}{z_2})\\
+    m &= \int_{z_2}^{z_3}2\pi z D(\tau_m z) dz = m(\underset{-}{z_2})
+    \end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{The relative price of services}
+\begin{itemize}
+    \item At the manufacturing--service boundary $z_2$,
+    \[
+    p_mA_mD(\tau_m z_2) = p_sA_sD(\tau_s z_2).
+    \]
+    \item The relative price of services
+    \[
+    \frac{p_s}{p_m} = \frac{A_m}{A_s}\frac{1-\tau_m z_2}{1-\tau_s z_2}.
+    \]
+    \item This increases if $A_m/A_s$ does or if $z_2$ does (because $\tau_m<\tau_s$).
+\end{itemize}
+\end{frame}
+
+\subsection{Productivity growth}
+
+\begin{frame}\frametitle{Productivity growth}
+\begin{itemize}
+\item We conduct the following comparative statics.
+\item Increase $A_m$ and $A_s$ proportionally (so that productivity growth is neutral).
+\item What happens to industry location ($z_1$, $z_2$) and relative prices?
+\end{itemize}
+\end{frame}
+
+
+
+
+\begin{frame}\frametitle{Propositions}
+
+\begin{block}{Balassa--Samuelson and the sprawl}
+Service prices increase with development if and only if residential land increases with development.
+\end{block}
+\pause
+
+\begin{block}{Balanced growth}
+Productivity growth does not change the relative price of services if
+    \begin{enumerate}
+      \item housing productivity grows at the same rate,
+      \item \emph{or} demand for housing is Cobb--Douglas.
+    \end{enumerate}
+\end{block}
+
+\end{frame}
+
+%% explain C-D
+
+%% explain sprawl
+
+\begin{frame}\frametitle{Proof of Proposition 1}
+\begin{itemize}
+    \item From rent arbitrage at boundary $z_2$, the relative price of services
+    \[
+    \frac{p_s}{p_m} = \frac{D(\tau_m z_2)}{D(\tau_s z_2)},
+    \]
+	increasing in $z_2$.
+    \item Relative demand is
+    \[
+    \frac{s}{m} = \phi\left(\frac{p_s}{p_m}\right) = \phi\left(\frac{D(\tau_m z_2)}{D(\tau_s z_2)}\right),
+    \]
+    decreasing in $z_2$. ($\phi$ denotes $\Phi_2/\Phi_1$.)
+    \item Relative supply is increasing in $z_2$. 
+    \item For a given $z_1$, there is a unique $z_2$ that equates relative demand and supply. 
+    \item This $z_2$ is increasing in $z_1$.
+\end{itemize}
+\end{frame}
+
+%% do this with graphs
+\widefigure{bid-rent-3-prime}{Comparative statics}
+
+\subsection{Comparative statics}
+
+\begin{frame}\frametitle{***}
+\begin{itemize}
+    \item Utility is Cobb--Douglas in goods, Leontief in housing,
+\[
+u(m,s,h) = \min\{m^\gamma s^{1-\gamma} ,h/H\}.
+\]
+    \item Transport costs are exponential (constant hazard),
+\[
+D(\tau z) = \exp(-\tau z).
+\]
+	\item We add labor with identical intensities in both sectors,
+\begin{align*}
+m&=A_ml_m^\beta n_m^{1-\beta}\\
+s&=A_sl_s^\beta n_s^{1-\beta}
+\end{align*}
+	\item These lead to a closed-form solution.
+
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}\frametitle{Predictions}
+
+%% Spatial structure
+
+As productivity increases,
+\begin{enumerate}
+    \item residential land increases,
+    \item home prices increase,
+    \item the rent gradient becomes steeper,
+    \item services become more expensive,
+	\item labor productivity increases faster in manufacturing.
+%	\item employment becomes more concentrated.
+\end{enumerate}
+%%All are consistent with stylized facts.
+
+%% All effects are stronger for higher population densities. 
+\end{frame}
+
+
+%\section{Numerical exercise}
+\section{Empirics}
+
+\subsection{Demand for residential land}
+
 \begin{frame}\frametitle{Demand for residential land increases with development}
 \begin{itemize}
-    \item Between 1950 and 2000, the share of land in the value of a home increased from 10\% to 36\%. (Davis and Heathcote, 2007)
-    \item During the same period, the price of residential land increased more than nine-fold.
     \item Between 1976 and 1992, residential land per capita increased by 25\%.
     (Burchfield, Overman, Puga and Turner, 2006; Overman, Puga and Turner, 2007)
+    \item Between 1950 and 2000,  the price of residential land increased more than nine-fold. (Davis and Heathcote, 2007)
+    \item During the same period, the share of land in the value of a home increased from 10\% to 36\%.
 \end{itemize}
 \end{frame}
 
@@ -343,6 +622,11 @@ Services    & 0.32      & 0.05      & 0.15          & 0.12      \\ \hline\hline
 \end{table}
 \end{frame}
 
+\subsection{Rent gradient}
+%% rent gradient becomes steeper
+%% include davis heathcote graph on residential vs farm land
+
+\subsection{Industry location}
 \begin{frame}\frametitle{Tradable sectors move out of cities}
 \begin{itemize}
     \item Burchfield, Overman, Puga and Turner (2006): commercial land is more scattered than residential land, more so in 1992 than in 1976.
@@ -354,298 +638,36 @@ Services    & 0.32      & 0.05      & 0.15          & 0.12      \\ \hline\hline
 \widefigure{LQ_map}{Locational quotient of tradable sectors}
 \widefigure{LQ_scatter}{Tradables stay away from dense counties}
 
-\section{Model}
-\subsection{Basic structure}
-\begin{frame}\frametitle{Basic structure}
-\begin{itemize}
-    \item There are three industries, manufacturing ($m$), services ($s$), and housing ($h$).
-    \item Technology is identical in the two productive sectors.
-    \item Goods are costly to transport.
-\end{itemize}
+\subsection{Balassa--Samuelson Effect}
+\widefigure{sc_penn}{Balassa--Samuelson is stronger in urban countries}
+
+\begin{frame}\frametitle{Balassa--Samuelson is stronger in urban countries}
+\begin{tabular}{c|cc}
+  \hline\hline
+  Explanatory & \multicolumn{2}{c}{Dependent variables} \\
+  variables & \multicolumn{2}{c}{$\log(P_{NT}/P_T)$} \\ \hline
+  $\log Y$ &  \textbf{0.28}   & \textbf{0.33} \\
+           &  (0.07)          & (0.05)        \\
+  urban    & 0.12            &               \\
+           & (0.34)          &               \\
+  urbanX   &  \textbf{0.43}   &              \\
+           &  (0.19)          &              \\
+  log(density)                 & -0.02        \\
+           &                 &  0.04        \\
+  densityX &                   & 0.01         \\
+           &                  & 0.02         \\
+  constant &  \textbf{-2.96}  & \textbf{-3.13}\\
+           & 0.50            & (0.41)        \\ \hline
+  No. of obs. & 113             & 113          \\
+  $R^2$    & 0.38            & 0.34  \\
+  \hline\hline
+\end{tabular}
+
 \end{frame}
 
-\begin{frame}\frametitle{Spatial structure}
-\begin{itemize}
-    \item We model countries as monocentric cities (von Th\"unen).
-	\item All market exchange takes place in a central business district (CBD).
-	\item CBD is a point in the plain.
-	\item Residents, manufacturing and service establishments can choose their location freely in the plain.
-	\item Location is indexed by distance to the CBD, $z$.
-\end{itemize}
-\end{frame}
-
-%% graph of CBD
-\widefigure{monocentric-1}{The monocentric city}
-
-\begin{frame}\frametitle{Technology}
-\begin{itemize}
-    \item Land is the only factor of production. (We add labor later.)
-	\item Production functions:
-\begin{align*}
-m&=A_ml_m\\
-s&=A_sl_s\\
-h&= A_hl_h
-\end{align*}
-\end{itemize}
-\end{frame}
-
-\begin{frame}\frametitle{Tastes}
-\begin{itemize}
-    \item Consumers have a homothetic utility over $m$, $s$ and $h$.
-    \item With indirect utility function
-    \[
-    u(I,p_m,p_s,p_h) = \frac{I}{P(p_m,p_s,p_h)}.
-    \]
-    \item Assume nested structure
-    \[
-    P[\Phi(p_m,p_s),p_h].
-    \]
-\end{itemize}
-\end{frame}
-
-
-\begin{frame}\frametitle{Transport costs}
-\begin{itemize}
-    \item Goods are shipped to the CBD.
-    \item Both manufacturing and services have iceberg transport cost.
-    \item One good $i$ shipped from location $z$ melts to
-    \[
-    1-\tau_iz.
-    \]
-    \item Services are less tradable:
-    \[
-    \tau_s>\tau_m.
-    \]
-\end{itemize}
-\end{frame}
-
-\begin{frame}\frametitle{Commuting costs}
-\begin{itemize}
-    \item People go to the CBD to shop.
-    \item Commuting distance $z$ costs $\tau_h z$ fraction of the consumption bundle.
-    \item So that indirect utility is
-    \[
-    u(I,p_m,p_s,p_h) = \frac{(1-\tau_h z)I}{P[\Phi(p_m,p_s),p_h]}.
-    \]
-    \item Commuting is the costliest of all,
-    \[
-    \tau_h>\tau_s>\tau_m.
-    \]
-\end{itemize}
-\end{frame}
-
-\subsection{Equilibrium}
-
-\begin{frame}\frametitle{Equilibrium}
-\begin{itemize}
-    \item Firms maximize profits and choose location optimally.
-    \item Households maximize utility and choose residence optimally.
-    \item Manufacturing and service markets clear at the CBD.
-\end{itemize}
-\end{frame}
-
-\begin{frame}\frametitle{Profit maximization}
-\begin{itemize}
-    \item Land rent at location $z$: $r(z)$.
-    \item Profits for industry $i$ at location $z$:
-    \[
-    (1-\tau_i z) p_i A_i l_i(z) - r(z)l_i(z).
-    \]
-    \item Optimum requires
-    \[
-    (1-\tau_i z) p_i A_i \le r(z),
-    \]
-    with $=$ if industry $i$ produces at location $z$.
-\end{itemize}
-\end{frame}
-
-\begin{frame}\frametitle{The bid rent curve}
-\begin{itemize}
-    \item Define a bid rent curve:
-    \[
-    R_i(z) = p_iA_i(1-\tau_i z).
-    \]
-    \item Profit maximization requires
-    \[
-    r(z)\ge R_i(z)
-    \]
-    \item Industry $i$ produces at location $z$ only if $=$.
-    \item Rent $r(z)$ is the upper envelope of the bid rent curves.
-\end{itemize}
-\end{frame}
-
-%% graph of two bid rent curves
-\widefigure{bid-rent-2}{Bid rent curves of two industries}
-
-\begin{frame}\frametitle{The bid rent curve of households}
-\begin{itemize}
-    \item Housing at $z$ costs $r(z)/A_h$.
-    \item Other two prices do not depend on residence.
-    \item To achieve utility $u$ at location $z$,
-    \[
-    u = \frac{(1-\tau_h z) I}{P[\Phi(p_m,p_s),r(z)/A_h]}.
-    \]
-    \item Bid rent function
-    \[
-    R_h(z) = A_h\Phi(p_m,p_s)P_2^{-1}\left[\frac{(1-\tau_h z) I}{u\Phi(p_m,p_s)}\right].
-    \]
-\end{itemize}
-\end{frame}
-
-
-
-\begin{frame}\frametitle{Equilibrium city structure}
-\begin{itemize}
-    \item Residents live closest to CBD, $\in[0,z_1]$.
-    \item With a (weakly) declining population density.
-    \item Followed by a ring of service establishments, $\in(z_1,z_2]$.
-    \item Followed by a ring of manufacturing plants, $\in(z_2,z_3]$.
-    \item City boundary is $z_3 = 1/\tau_m$.
-%    \item The boundaries $z_1$ and $z_2$ determine the supply of housing 
-\end{itemize}
-\end{frame}
-
-%% graph of three bid rent curves
-\widefigure{bid-rent-3}{Equilibrium spatial structure}
-
-%% graph of concentric circles
-
-\begin{frame}\frametitle{Aggregate supplies}
-\begin{itemize}
-    \item All land between $z_1$ and $z_2$ is allocated to services.
-    \item A fraction $\tau_s z$ gets lost in transit.
-    \item Overall supply:
-    \begin{align*}
-    s &= \int_{z_1}^{z_2}2\pi z (1-\tau_s z) dz = s(\underset{-}{z_1},\underset{+}{z_2})\\
-    m &= \int_{z_2}^{z_3}2\pi z (1-\tau_m z) dz = m(\underset{-}{z_2})
-    \end{align*}
-\end{itemize}
-\end{frame}
-
-\begin{frame}\frametitle{The relative price of services}
-\begin{itemize}
-    \item At the manufacturing--service boundary $z_2$,
-    \[
-    p_mA_m(1-\tau_m z_2) = p_sA_s(1-\tau_s z_2).
-    \]
-    \item The relative price of services
-    \[
-    \frac{p_s}{p_m} = \frac{A_m}{A_s}\frac{1-\tau_m z_2}{1-\tau_s z_2}.
-    \]
-    \item This increases if $A_m/A_s$ does or if $z_2$ does (because $\tau_m<\tau_s$).
-\end{itemize}
-\end{frame}
-
-\subsection{Productivity growth}
-
-
-\begin{frame}\frametitle{Productivity growth}
-What happens if  $A_m$ and $A_s$ increase in parallel?\pause
-\begin{block}{Balanced growth}
-Productivity growth does not change the relative price of services if
-    \begin{enumerate}
-      \item housing productivity grows at the same rate,
-      \item \emph{or} demand for housing is Cobb--Douglas.
-    \end{enumerate}
-\end{block}
-\pause
-\begin{block}{Balassa--Samuelson and the sprawl}
-Service prices rise with development if and only if residential land rises with development.
-\end{block}
-\end{frame}
-
-%% explain C-D
-
-%% explain sprawl
-
-\begin{frame}\frametitle{Proof}
-\begin{itemize}
-    \item The relative price of services
-    \[
-    \frac{p_s}{p_m} = \frac{1-\tau_m z_2}{1-\tau_s z_2}.
-    \]
-    \item Relative demand is
-    \[
-    \frac{s}{m} = \phi\left(\frac{p_s}{p_m}\right) = \phi\left(\frac{1-\tau_m z_2}{1-\tau_s z_2}\right),
-    \]
-    decreasing in $z_2$. ($\phi$ denotes $\Phi_2/\Phi_1$.)
-    \item Relative supply is increasing in $z_2$. 
-    \item For a given $z_1$, there is a unique $z_2$ that equates relative demand and supply. 
-    \item This $z_2$ is increasing in $z_1$.
-\end{itemize}
-\end{frame}
-
-%% do this with graphs
-
-
-\begin{frame}\frametitle{Complementary housing}
-\begin{itemize}
-    \item We need to restrict preferences to increase housing demand.
-    \item Housing is complementary with $m$ and $s$ (Leontief).
-    \item Productivity growth in housing is slower (zero).
-\end{itemize}
-\end{frame}
-
-
-
-\begin{frame}\frametitle{Comparative statics}
-As productivity increases,
-\begin{enumerate}
-    \item residential land increases,
-    \item home prices increase,
-    \item the rent gradient becomes steeper,
-    \item services become more expensive.
-\end{enumerate}
-All are consistent with stylized facts.
-\end{frame}
-
-\begin{frame}\frametitle{Adding labor}
-\begin{enumerate}
-    \item Change technology to $Af(n,l)$ ($n$ denotes labor).
-    \item Workers have to commute to CBD to meet their employers.
-\end{enumerate}
-\end{frame}
-
-\begin{frame}\frametitle{Equilibrium city structure}
-\begin{itemize}
-    \item Spatial structure remains the same.
-    \item Employment density declines with distance to CBD.
-    \item Labor productivity is lower in services.
-\end{itemize}
-\end{frame}
-
-
-\begin{frame}\frametitle{Comparative statics}
-As population density increases,
-\begin{enumerate}
-    \item wages decrease,
-    \item residential land increases,
-    \item home prices increase,
-    \item the rent gradient becomes steeper,
-    \item services become more expensive.
-\end{enumerate}
-\end{frame}
-
-
-%\section{Numerical exercise}
-\section{Empirics}
-
+%\addtocounter{percek}{9}
+\section{Conclusion}
 \begin{frame}\frametitle{}
-    
-\begin{itemize}[<+->]
-    \item
-    \begin{enumerate}[<+->]
-        \item
-    \end{enumerate}
-    \item
-\end{itemize}
 \end{frame}
-
-
-
-
-\addtocounter{percek}{9}
-
-\subsection{What we do}
 
 \end{document}
