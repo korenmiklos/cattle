@@ -20,7 +20,7 @@ save `naics2bea'
 clear
 
 /* sorry, but this is over 100mb, not checking in */
-insheet using /share/data/CBP/cbp05co.csv
+insheet using ~/share/data/CBP/cbp05co.csv
 
 /* keep 3-digit naics */
 keep if substr(naics,4,3)=="///"
@@ -32,13 +32,13 @@ compress
 
 /* switch to bea codes */
 sort naics
-merge naics using `naics2bea'
+merge naics using `naics2bea', nokeep
 tab _m
 drop _m
 
 /* collapse by BEA sectors */
 drop if missing(bea)
-collapse (sum) est, by(bea county)
+collapse (sum) est, by(bea fipstate fipscty)
 
 /* calculate shares */
 egen naicsest = sum(est), by(bea)
