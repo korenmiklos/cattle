@@ -12,9 +12,12 @@ sort fips
 save `densities'
 
 /* save a tempfile of naics codes */
+
 clear
 insheet using ../data/census/naics2bea.csv
+
 sort naics
+
 save `naics2bea'
 
 clear
