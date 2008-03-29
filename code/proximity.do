@@ -1,7 +1,7 @@
 clear
 set mem 300m
 
-tempfile densities
+tempfile densities naics2bea
 
 /* save a tempfile of country densities */
 xmluse ../data/census/county_census.xml
@@ -10,6 +10,12 @@ keep fips density
 sort fips
 
 save `densities'
+
+/* save a tempfile of naics codes */
+clear
+insheet using ../data/census/naics2bea.csv
+sort naics
+save `naics2bea'
 
 clear
 
@@ -24,8 +30,18 @@ destring naics, force replace
 keep fips* naics est
 compress
 
+/* switch to bea codes */
+sort naics
+merge naics using `naics2bea'
+tab _m
+drop _m
+
+/* collapse by BEA sectors */
+drop if missing(bea)
+collapse (sum) est, by(bea county)
+
 /* calculate shares */
-egen naicsest = sum(est), by(naics)
+egen naicsest = sum(est), by(bea)
 gen countyshare = est/naicsest
 su countyshare
 
@@ -47,7 +63,7 @@ replace countyshare = . if missing(density,countyshare)
 /* weighting */
 replace density = density*countyshare
 
-collapse (sum) density countyshare, by(naics)
+collapse (sum) density countyshare, by(bea)
 su countyshare, d
 
 replace density = density/countyshare
@@ -55,5 +71,5 @@ drop countyshare
 
 label var density "Average population density of sector location"
 
-sort naics
+sort bea
 xmlsave ../data/census/proximity.xml, replace
