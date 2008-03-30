@@ -51,7 +51,7 @@
 \newcounter{kezdoperc}
 \newcounter{percek}
 \setcounter{percek}{0}
-\setcounter{kezdoora}{12} % for 1.35pm as the starting time
+\setcounter{kezdoora}{0} % for 1.35pm as the starting time
 
 \providecommand{\leadingzero}[1]{\ifthenelse{\value{#1}<10}{0\arabic{#1}}{\arabic{#1}}}
 \providecommand{\oradisplay}[1]{\ifthenelse{\value{#1}<60}{\arabic{kezdoora}:\leadingzero{#1}}{\setcounter{perc}{\value{#1}}\addtocounter{perc}{-60}\setcounter{ora}{\value{kezdoora}}\addtocounter{ora}{1}\arabic{ora}:\leadingzero{perc}}}
@@ -151,6 +151,7 @@
 \newcommand{\jumpto}[2]{\hypertarget{#1back}{\hyperlink{#1}{#2}}}
 \newcommand{\backto}[2]{\hypertarget{#1}{\hyperlink{#1back}{#2}}}
 
+\renewcommand{\time}[1]{\addtocounter{percek}{#1}}
 
 \title[Balassa--Samuelson]% (optional, use only with long paper titles)
 {A Spatial Explanation for the Balassa--Samuelson Effect}
@@ -180,7 +181,7 @@ Mikl\'os Koren (Princeton)}
 % is a graphic format that can be processed by latex or pdflatex,
 % resp., then you can add a logo as follows:
 
-\pgfdeclareimage[height=0.5cm]{university-logo}{frblogo}
+%\pgfdeclareimage[height=0.5cm]{university-logo}{frblogo}
 %\logo{\pgfuseimage{university-logo}}
 
 
@@ -190,7 +191,7 @@ Mikl\'os Koren (Princeton)}
 \AtBeginSection[]
 {
   \begin{frame}[plain]
-    \frametitle{\hfill\color{red}\insertsection}
+    \frametitle{\color{red}\insertsection}
     \addtocounter{framenumber}{-1}
     %\tableofcontents[currentsection,currentsubsection]
   \end{frame}
@@ -228,7 +229,7 @@ Mikl\'os Koren (Princeton)}
 \end{itemize}
 \end{frame}
 
-%% show 2 hsieh klenow graphs
+\time{1}
 
 \begin{frame}\frametitle{Productivity-based explanations}
 
@@ -248,7 +249,11 @@ Mikl\'os Koren (Princeton)}
 \end{itemize}
 \end{frame}
 
-%% B-S is relatively recent
+\time{2}
+
+
+%% however, both of these technology assumptions are rather ad hoc. they will never be able to explain variations in the BS effect. as we will see, there is substantial variation both across countries and over time (in particular, BS is relatively recent). our model will be able to speak to both.
+
 
 
 \subsection{Basic idea}
@@ -261,9 +266,11 @@ Mikl\'os Koren (Princeton)}
     \item Raising the relative price of non-tradables.
 \end{itemize}
 \end{frame}
+\time{2}
 
+%% give cars/parking lots example?
 
-%% talk about outline
+%% talk about outline: 1. land matters. 2. simple model. 3. some supportive evidence
 
 
 
@@ -276,6 +283,8 @@ Mikl\'os Koren (Princeton)}
     so \emph{land close to consumers} is scarce.
 \end{itemize}
 \end{frame}
+
+\time{1}
 
 \begin{frame}\frametitle{The share of land in GDP}
 \begin{itemize}
@@ -295,9 +304,12 @@ Services    & 0.32      & 0.05      & 0.15          & 0.12      \\ \hline\hline
 \end{itemize}
 \end{frame}
 
+%% 2 things: 1. true that tradables are more capital intensive, but only part of it is reproducible. in that, intensity varies little. 2. overll share is 5%
+
 \widefigure{clark-landrents}{Agricultural and urban land rents in England (Clark, 2007)}
+\time{3}
 
-
+%% clark emphasizes decline, we emphasize increase
 
 \section{Model}
 \subsection{Basic structure}
@@ -321,6 +333,7 @@ Services    & 0.32      & 0.05      & 0.15          & 0.12      \\ \hline\hline
 
 %% graph of CBD
 \widefigure{monocentric-1}{The monocentric city}
+\time{2}
 
 \begin{frame}\frametitle{Technology}
 \begin{itemize}
@@ -347,6 +360,7 @@ h&= A_hl_h
     \]
 \end{itemize}
 \end{frame}
+\time{1}
 
 
 \begin{frame}\frametitle{Transport costs}
@@ -363,6 +377,9 @@ h&= A_hl_h
     \]
 \end{itemize}
 \end{frame}
+\time{2}
+
+%% graph of D(z) here
 
 \begin{frame}\frametitle{Commuting costs}
 \begin{itemize}
@@ -378,6 +395,7 @@ h&= A_hl_h
     \]
 \end{itemize}
 \end{frame}
+\time{1}
 
 \subsection{Equilibrium}
 
@@ -403,6 +421,7 @@ h&= A_hl_h
     with equality if industry $i$ produces at location $z$.
 \end{itemize}
 \end{frame}
+\time{1}
 
 \begin{frame}\frametitle{The bid rent curve}
 \begin{itemize}
@@ -421,6 +440,7 @@ h&= A_hl_h
 
 %% graph of two bid rent curves
 \widefigure{bid-rent-2}{Bid rent curves of two industries}
+\time{3}
 
 \begin{frame}\frametitle{The bid rent curve of households}
 \begin{itemize}
@@ -440,6 +460,7 @@ R_h(z) = A_h\left[\frac{D(\tau_h z) I}{up_m^{\alpha}p_s^{\beta}}\right]^{1/\gamm
 \]
 \end{itemize}
 \end{frame}
+\time{2}
 
 
 
@@ -459,33 +480,24 @@ R_h(z) = A_h\left[\frac{D(\tau_h z) I}{up_m^{\alpha}p_s^{\beta}}\right]^{1/\gamm
 
 %% graph of concentric circles
 \widefigure{monocentric-3}{Equilibrium spatial structure}
+\time{5}
 
-%% 	we don't really need these
-\begin{frame}\frametitle{Aggregate supplies}
+\begin{frame}\frametitle{Finding the equilibrium $z_1$ and $z_2$}
 \begin{itemize}
-    \item All land between $z_1$ and $z_2$ is allocated to services.
-    \item A fraction $\tau_s z$ gets lost in transit.
-    \item Overall supply:
+    \item Cutoffs pin down supply:
     \begin{align*}
-    s &= \int_{z_1}^{z_2}2\pi z D(\tau_s z) dz = s(\underset{-}{z_1},\underset{+}{z_2})\\
-    m &= \int_{z_2}^{z_3}2\pi z D(\tau_m z) dz = m(\underset{-}{z_2})
+    s &= \int_{z_1}^{z_2}2\pi z D(\tau_s z) dz, \\
+    m &= \int_{z_2}^{z_3}2\pi z D(\tau_m z) dz .
     \end{align*}
+    \item Arbitrage at the manufacturing--service boundary $z_2$ pins down relative prices,
+    \[
+    p_mA_mD(\tau_m z_2) = p_sA_sD(\tau_s z_2),
+    \]
+	which determines demand.
+	\item Find $z_1$ and $z_2$ such that markets clear.
 \end{itemize}
 \end{frame}
-
-\begin{frame}\frametitle{The relative price of services}
-\begin{itemize}
-    \item At the manufacturing--service boundary $z_2$,
-    \[
-    p_mA_mD(\tau_m z_2) = p_sA_sD(\tau_s z_2).
-    \]
-    \item The relative price of services
-    \[
-    \frac{p_s}{p_m} = \frac{A_m}{A_s}\frac{1-\tau_m z_2}{1-\tau_s z_2}.
-    \]
-    \item This increases if $A_m/A_s$ does or if $z_2$ does (because $\tau_m<\tau_s$).
-\end{itemize}
-\end{frame}
+\time 2
 
 \subsection{Productivity growth}
 
@@ -496,7 +508,7 @@ R_h(z) = A_h\left[\frac{D(\tau_h z) I}{up_m^{\alpha}p_s^{\beta}}\right]^{1/\gamm
 \item What happens to industry location ($z_1$, $z_2$) and relative prices?
 \end{itemize}
 \end{frame}
-
+\time 1
 
 
 
@@ -514,9 +526,8 @@ Productivity growth does not change the relative price of services if
       \item \emph{or} demand for housing is Cobb--Douglas.
     \end{enumerate}
 \end{block}
-
 \end{frame}
-
+\time 3
 %% explain C-D
 
 %% explain sprawl
@@ -538,13 +549,14 @@ Productivity growth does not change the relative price of services if
     \item This $z_2$ is increasing in $z_1$.
 \end{itemize}
 \end{frame}
-
+\time 2
 %% do this with graphs
 \widefigure{bid-rent-3-prime}{Comparative statics}
+\time 3
 
 \subsection{Comparative statics}
 
-\begin{frame}\frametitle{***}
+\begin{frame}\frametitle{Functional form assumptions}
 \begin{itemize}
     \item Utility is Cobb--Douglas in goods, Leontief in housing,
 \[
@@ -558,12 +570,15 @@ D(\tau z) = \exp(-\tau z).
 \begin{align*}
 m&=A_ml_m^\beta n_m^{1-\beta}\\
 s&=A_sl_s^\beta n_s^{1-\beta}
-\end{align*}
+\end{align*}\pause
 	\item These lead to a closed-form solution.
-
+	\item Balassa--Samuelson effect:
+\[
+\frac{d\ln (p_s/p_m)}{d\ln A} = \frac{(\tau_s-\tau_m)z_1}{1+\Bar\tau z_1/\beta}
+\]
 \end{itemize}
 \end{frame}
-
+\time 3
 
 
 \begin{frame}\frametitle{Predictions}
@@ -575,18 +590,19 @@ As productivity increases,
     \item residential land increases,
     \item home prices increase,
     \item the rent gradient becomes steeper,
+	\item tradable industries move away from center,
     \item services become more expensive,
 	\item labor productivity increases faster in manufacturing.
 %	\item employment becomes more concentrated.
 \end{enumerate}
-%%All are consistent with stylized facts.
-
-%% All effects are stronger for higher population densities. 
+\begin{enumerate}
+	\item[7.] All of these effects are stronger for bigger cities. 
+\end{enumerate}
 \end{frame}
-
+\time 2
 
 %\section{Numerical exercise}
-\section{Empirics}
+\section{Empirical evidence}
 
 \subsection{Demand for residential land}
 
@@ -598,8 +614,11 @@ As productivity increases,
     \item During the same period, the share of land in the value of a home increased from 10\% to 36\%.
 \end{itemize}
 \end{frame}
+\time 2
 
-\widefigure{dh-shares}{The share of land in home value\\ (Davis and Heathcote, 2007)}
+%% correct the figure
+\widefigure{dh-shares}{Land prices and the share of land in home value\\ (Davis and Heathcote, 2007)}
+\time 1
 
 %% skip this in the interest of time
 
@@ -621,10 +640,13 @@ As productivity increases,
 \end{tabular}
 \end{table}
 \end{frame}
+\time 2
 
 \subsection{Rent gradient}
-%% rent gradient becomes steeper
-%% include davis heathcote graph on residential vs farm land
+\longfigure{dh-prices}{Rent gradient became steeper}
+\time 1
+%% comment on back-of-the-envelope
+%% relative price roughly doubled between 1987 and 05. with a 5% land share, this leads to a 4% increase in service prices
 
 \subsection{Industry location}
 \begin{frame}\frametitle{Tradable sectors move out of cities}
@@ -634,40 +656,31 @@ As productivity increases,
     \item Desmet and Fafchamps (2006): manufacturing deconcentrated between 1970 and 2000.
 \end{itemize}
 \end{frame}
+\time 1
 
 \widefigure{LQ_map}{Locational quotient of tradable sectors}
 \widefigure{LQ_scatter}{Tradables stay away from dense counties}
+\widefigure{deurbanization}{Industries move away from dense counties}
+\time 1
+
 
 \subsection{Balassa--Samuelson Effect}
 \widefigure{sc_penn}{Balassa--Samuelson is stronger in urban countries}
+\time 2
 
-\begin{frame}\frametitle{Balassa--Samuelson is stronger in urban countries}
-\begin{tabular}{c|cc}
-  \hline\hline
-  Explanatory & \multicolumn{2}{c}{Dependent variables} \\
-  variables & \multicolumn{2}{c}{$\log(P_{NT}/P_T)$} \\ \hline
-  $\log Y$ &  \textbf{0.28}   & \textbf{0.33} \\
-           &  (0.07)          & (0.05)        \\
-  urban    & 0.12            &               \\
-           & (0.34)          &               \\
-  urbanX   &  \textbf{0.43}   &              \\
-           &  (0.19)          &              \\
-  log(density)                 & -0.02        \\
-           &                 &  0.04        \\
-  densityX &                   & 0.01         \\
-           &                  & 0.02         \\
-  constant &  \textbf{-2.96}  & \textbf{-3.13}\\
-           & 0.50            & (0.41)        \\ \hline
-  No. of obs. & 113             & 113          \\
-  $R^2$    & 0.38            & 0.34  \\
-  \hline\hline
-\end{tabular}
-
-\end{frame}
+%% add industry graph
+\time 1
 
 %\addtocounter{percek}{9}
 \section{Conclusion}
-\begin{frame}\frametitle{}
+\begin{frame}\frametitle{Conclusion}
+\begin{itemize}
+\item We incorporated land and housing in a simple multi-sector model.
+\item Predictions are consistent with several stylized facts about urbanization, industry location, and relative prices.
+\item Balassa--Samuelson effect is stronger in urban countries. 
+\item Urban sectors experience higher inflation.
+
+\end{itemize}
 \end{frame}
 
 \end{document}
