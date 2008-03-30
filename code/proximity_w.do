@@ -4,9 +4,12 @@ set mem 300m
 tempfile densities naics2bea
 
 /* save a tempfile of country densities */
-xmluse ..\data\census\county_census.xml
+xmluse ../data/census/county_census.xml
 ren geo fips
 keep fips density
+
+/* worry about skewed densities */
+replace density = log(density)
 sort fips
 
 save `densities'
@@ -15,7 +18,7 @@ save `densities'
 
 clear
 
-insheet using ..\data\census\naics22bea.txt
+insheet using ../data/census/naics22bea.txt
 
 sort naics
 
@@ -24,11 +27,12 @@ save `naics2bea'
 clear
 
 /* sorry, but this is over 100mb, not checking in */
-insheet using ..\data\census\CBP\cbp05co.txt
+insheet using ~/share/data/CBP/cbp05co.csv
 
-scalar define sector_type="TNT"  /*"TNT" for traded/non-traded or 
-				   "AMS" for agriculture/manufcaturing/services*/
-scalar define weight_type="est"  /*"emp" for employment
+scalar define sector_type="BEA"  /*"TNT" for traded/non-traded or 
+				   "AMS" for agriculture/manufcaturing/services
+				   "BEA" for BEA codes */
+scalar define weight_type="emp"  /*"emp" for employment
 				   "est" for establishment*/
 
 /* keep 2-digit naics */
@@ -36,8 +40,7 @@ keep if substr(naics,3,4)=="----"
 drop if naics=="------"
 gen naics_r = real(substr(naics,1,2))
 drop naics
-gen naics=naics_r
-drop naics_r
+ren naics_r naics
 
 if weight_type=="emp" {
 	keep fips* naics emp*
@@ -81,22 +84,17 @@ drop if missing(bea)
 
 /* generating indicator variables */
 if sector_type=="TNT" {
-	gen I_T=0
-	gen I_NT=0
-	replace I_T=1 if bea<=6 | bea==12 | bea==34
-	replace I_NT=1 if I_T==0
-	gen sector=I_T+2*I_NT
+	gen sector = bea
+	recode sector min/6 12 34 = 1 * = 2
 	label define sectorname 1 "traded" 2 "non-traded"
 }
-else {
-	gen I_agricult=0
-	gen I_manuf=0
-	gen I_serv=0
-	replace I_agricult=1 if bea==3
-	replace I_manuf=1 if bea==12
-	replace I_serv=1 if bea>=34
-	gen sector=I_agricult+2*I_manuf+3*I_serv
+else if sector_type=="AMS" {
+	gen sector = bea
+	recode sector 3=1 12=2 34/max=3 *=0
 	label define sectorname 0 "others" 1 "agriculture" 2 "manufacturing" 3 "services"
+}
+else {
+	gen sector = bea
 }
 scalar drop sector_type
 label values sector sectorname
@@ -141,6 +139,9 @@ su countyshare, d
 
 replace density = density/countyshare
 drop countyshare
+
+/* go back to levels */
+replace density = exp(density)
 
 label var density "Average population density of sector location"
 
