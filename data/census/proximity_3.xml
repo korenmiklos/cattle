@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="US-ASCII" standalone="yes"?>
+<dta>
+<header>
+<ds_format>113</ds_format>
+<byteorder>LOHI</byteorder>
+<filetype>1</filetype>
+<nvar>5</nvar>
+<nobs>56</nobs>
+<data_label></data_label>
+<time_stamp>30 Mar 2008 00:49</time_stamp>
+</header>
+<descriptors>
+<typelist>
+<type varname='bea'>byte</type>
+<type varname='density'>double</type>
+<type varname='sectorname'>str68</type>
+<type varname='inflation'>float</type>
+<type varname='lndensity'>float</type>
+</typelist>
+<varlist>
+<variable varname='bea'/>
+<variable varname='density'/>
+<variable varname='sectorname'/>
+<variable varname='inflation'/>
+<variable varname='lndensity'/>
+</varlist>
+<srtlist>
+<sort varname='density'/>
+</srtlist>
+<fmtlist>
+<fmt varname='bea'>%8.0g</fmt>
+<fmt varname='density'>%12.0g</fmt>
+<fmt varname='sectorname'>%68s</fmt>
+<fmt varname='inflation'>%9.0g</fmt>
+<fmt varname='lndensity'>%9.0g</fmt>
+</fmtlist>
+<lbllist>
+<lblname varname='bea'></lblname>
+<lblname varname='density'></lblname>
+<lblname varname='sectorname'></lblname>
+<lblname varname='inflation'></lblname>
+<lblname varname='lndensity'></lblname>
+</lbllist>
+</descriptors>
+<variable_labels>
+<vlabel varname='bea'></vlabel>
+<vlabel varname='density'>Average population density of sector location</vlabel>
+<vlabel varname='sectorname'></vlabel>
+<vlabel varname='inflation'>Inflation</vlabel>
+<vlabel varname='lndensity'></vlabel>
+</variable_labels>
+<expansion>
+</expansion>
+<data>
+<o>
+<v>5</v>
+<v>404.5053772435997000000000000</v>
+<v>Forestry, fishing, and related activities</v>
+<v>0.026379689574242</v>
+<v>6.002665042877197</v>
+</o>
+<o>
+<v>7</v>
+<v>916.6061634087130900000000000</v>
+<v>Oil and gas extraction</v>
+<v>0.072858832776546</v>
+<v>6.820677757263184</v>
+</o>
+<o>
+<v>8</v>
+<v>260.8696844243715400000000000</v>
+<v>Mining, except oil and gas</v>
+<v>0.005800417158753</v>
+<v>5.564021110534668</v>
+</o>
+<o>
+<v>9</v>
+<v>537.1629616726596600000000000</v>
+<v>Support activities for mining</v>
+<v>0.094255022704601</v>
+<v>6.286301612854004</v>
+</o>
+<o>
+<v>10</v>
+<v>2282.7091443442232000000000000</v>
+<v>Utilities</v>
+<v>0.040106732398272</v>
+<v>7.733118057250977</v>
+</o>
+<o>
+<v>11</v>
+<v>1665.9454510457304000000000000</v>
+<v>Construction</v>
+<v>0.055734310299158</v>
+<v>7.418148040771484</v>
+</o>
+<o>
+<v>14</v>
+<v>393.0003119178848000000000000</v>
+<v>Wood products</v>
+<v>0.032509498298168</v>
+<v>5.973810195922852</v>
+</o>
+<o>
+<v>15</v>
+<v>768.6290856676830600000000000</v>
+<v>Nonmetallic mineral products</v>
+<v>0.033330384641886</v>
+<v>6.644608497619629</v>
+</o>
+<o>
+<v>16</v>
+<v>822.2081249757039800000000000</v>
+<v>Primary metals</v>
+<v>0.031170014292002</v>
+<v>6.711993694305420</v>
+</o>
+<o>
+<v>17</v>
+<v>1229.2820651154107000000000000</v>
+<v>Fabricated metal products</v>
+<v>0.025623546913266</v>
+<v>7.114185810089111</v>
+</o>
+<o>
+<v>18</v>
+<v>949.1378322168949400000000000</v>
+<v>Machinery</v>
+<v>0.037254270166159</v>
+<v>6.855554103851318</v>
+</o>
+<o>
+<v>19</v>
+<v>1292.6405834724296000000000000</v>
+<v>Computer and electronic products</v>
+<v>-0.123496077954769</v>
+<v>7.164442539215088</v>
+</o>
+<o>
+<v>20</v>
+<v>1067.5495947012398000000000000</v>
+<v>Electrical equipment, appliances, and components</v>
+<v>0.026590101420879</v>
+<v>6.973121166229248</v>
+</o>
+<o>
+<v>21</v>
+<v>909.5892139034034500000000000</v>
+<v>Motor vehicles, bodies and trailers, and parts</v>
+<v>0.013087676838040</v>
+<v>6.812993049621582</v>
+</o>
+<o>
+<v>23</v>
+<v>1187.8797312088886000000000000</v>
+<v>Furniture and related products</v>
+<v>0.032701067626476</v>
+<v>7.079925060272217</v>
+</o>
+<o>
+<v>24</v>
+<v>2255.5331177848561000000000000</v>
+<v>Miscellaneous manufacturing</v>
+<v>0.028276974335313</v>
+<v>7.721141815185547</v>
+</o>
+<o>
+<v>26</v>
+<v>1209.7878485957062000000000000</v>
+<v>Food and beverage and tobacco products</v>
+<v>0.028997780755162</v>
+<v>7.098200321197510</v>
+</o>
+<o>
+<v>27</v>
+<v>1186.3397288925385000000000000</v>
+<v>Textile mills and textile product mills</v>
+<v>0.009894493035972</v>
+<v>7.078628063201904</v>
+</o>
+<o>
+<v>28</v>
+<v>5886.3867576316979000000000000</v>
+<v>Apparel and leather and allied products</v>
+<v>0.015184852294624</v>
+<v>8.680397987365723</v>
+</o>
+<o>
+<v>29</v>
+<v>1059.1065999449756000000000000</v>
+<v>Paper products</v>
+<v>0.033878121525049</v>
+<v>6.965180873870850</v>
+</o>
+<o>
+<v>30</v>
+<v>2220.7695842549374000000000000</v>
+<v>Printing and related support activities</v>
+<v>0.036569729447365</v>
+<v>7.705608844757080</v>
+</o>
+<o>
+<v>31</v>
+<v>1161.1782643855897000000000000</v>
+<v>Petroleum and coal products</v>
+<v>0.040747404098511</v>
+<v>7.057190418243408</v>
+</o>
+<o>
+<v>32</v>
+<v>1434.5653191366494000000000000</v>
+<v>Chemical products</v>
+<v>0.037776190787554</v>
+<v>7.268617153167725</v>
+</o>
+<o>
+<v>33</v>
+<v>933.7485319085183200000000000</v>
+<v>Plastics and rubber products</v>
+<v>0.013069755397737</v>
+<v>6.839207172393799</v>
+</o>
+<o>
+<v>34</v>
+<v>2922.4398369177502000000000000</v>
+<v>Wholesale trade</v>
+<v>0.016273811459541</v>
+<v>7.980174064636231</v>
+</o>
+<o>
+<v>35</v>
+<v>1883.2343469129160000000000000</v>
+<v>Retail trade</v>
+<v>0.015309773385525</v>
+<v>7.540746212005615</v>
+</o>
+<o>
+<v>37</v>
+<v>3441.6456619270407000000000000</v>
+<v>Air transportation</v>
+<v>-0.010849156416953</v>
+<v>8.143705368041992</v>
+</o>
+<o>
+<v>39</v>
+<v>2202.5035965182360000000000000</v>
+<v>Water transportation</v>
+<v>0.027771517634392</v>
+<v>7.697350025177002</v>
+</o>
+<o>
+<v>40</v>
+<v>1171.8721921751110000000000000</v>
+<v>Truck transportation</v>
+<v>0.028832245618105</v>
+<v>7.066358089447022</v>
+</o>
+<o>
+<v>41</v>
+<v>3299.9451776116812000000000000</v>
+<v>Transit and ground passenger transportation</v>
+<v>0.048664629459381</v>
+<v>8.101660728454590</v>
+</o>
+<o>
+<v>42</v>
+<v>735.7799794281517100000000000</v>
+<v>Pipeline transportation</v>
+<v>0.023558638989925</v>
+<v>6.600931167602539</v>
+</o>
+<o>
+<v>43</v>
+<v>2977.9389556927085000000000000</v>
+<v>Other transportation and support activities</v>
+<v>0.031686499714851</v>
+<v>7.998986721038818</v>
+</o>
+<o>
+<v>44</v>
+<v>1415.5687544696691000000000000</v>
+<v>Warehousing and storage</v>
+<v>0.023531641811132</v>
+<v>7.255286693572998</v>
+</o>
+<o>
+<v>46</v>
+<v>5250.2796270085364000000000000</v>
+<v>Publishing industries (includes software)</v>
+<v>0.027835683897138</v>
+<v>8.566036224365234</v>
+</o>
+<o>
+<v>47</v>
+<v>6172.7549916840917000000000000</v>
+<v>Motion picture and sound recording industries</v>
+<v>0.043803963810205</v>
+<v>8.727900505065918</v>
+</o>
+<o>
+<v>48</v>
+<v>3932.7004416603795000000000000</v>
+<v>Broadcasting and telecommunications</v>
+<v>0.006635381840169</v>
+<v>8.277081489562988</v>
+</o>
+<o>
+<v>49</v>
+<v>3841.3584207934387000000000000</v>
+<v>Information and data processing services</v>
+<v>0.039856072515249</v>
+<v>8.253581047058106</v>
+</o>
+<o>
+<v>52</v>
+<v>3596.0919057214392000000000000</v>
+<v>Federal Reserve banks, credit intermediation, and related activities</v>
+<v>0.056399144232273</v>
+<v>8.187602996826172</v>
+</o>
+<o>
+<v>53</v>
+<v>14693.9208720821040000000000000</v>
+<v>Securities, commodity contracts, and investments</v>
+<v>-0.010201237164438</v>
+<v>9.595189094543457</v>
+</o>
+<o>
+<v>54</v>
+<v>3332.5809717981997000000000000</v>
+<v>Insurance carriers and related activities</v>
+<v>0.053341619670391</v>
+<v>8.111502647399902</v>
+</o>
+<o>
+<v>55</v>
+<v>6312.4187880690506000000000000</v>
+<v>Funds, trusts, and other financial vehicles</v>
+<v>0.124877624213696</v>
+<v>8.750274658203125</v>
+</o>
+<o>
+<v>57</v>
+<v>4958.0924562026266000000000000</v>
+<v>Real estate</v>
+<v>0.041884474456310</v>
+<v>8.508776664733887</v>
+</o>
+<o>
+<v>58</v>
+<v>2004.1776976208714000000000000</v>
+<v>Rental and leasing services and lessors of intangible assets</v>
+<v>0.032129857689142</v>
+<v>7.602989196777344</v>
+</o>
+<o>
+<v>60</v>
+<v>4361.7103051620061000000000000</v>
+<v>Professional, scientific, and technical services</v>
+<v>0.042945630848408</v>
+<v>8.380620002746582</v>
+</o>
+<o>
+<v>64</v>
+<v>3750.9832458875408000000000000</v>
+<v>Management of companies and enterprises</v>
+<v>0.049422618001699</v>
+<v>8.229773521423340</v>
+</o>
+<o>
+<v>66</v>
+<v>3006.9299017473695000000000000</v>
+<v>Administrative and support services</v>
+<v>0.043114926666021</v>
+<v>8.008674621582031</v>
+</o>
+<o>
+<v>67</v>
+<v>1910.0309645788814000000000000</v>
+<v>Waste management and remediation services</v>
+<v>0.042854294180870</v>
+<v>7.554874897003174</v>
+</o>
+<o>
+<v>69</v>
+<v>4957.3906804273402000000000000</v>
+<v>Educational services</v>
+<v>0.054020904004574</v>
+<v>8.508634567260742</v>
+</o>
+<o>
+<v>71</v>
+<v>2779.4584442775126000000000000</v>
+<v>Ambulatory health care services</v>
+<v>0.051301002502441</v>
+<v>7.930011272430420</v>
+</o>
+<o>
+<v>72</v>
+<v>2656.9076104215269000000000000</v>
+<v>Hospitals and nursing and residential care facilities</v>
+<v>0.061651002615690</v>
+<v>7.884918212890625</v>
+</o>
+<o>
+<v>73</v>
+<v>3498.7469650550024000000000000</v>
+<v>Social assistance</v>
+<v>0.040290892124176</v>
+<v>8.160160064697266</v>
+</o>
+<o>
+<v>76</v>
+<v>7397.6717517362349000000000000</v>
+<v>Performing arts, spectator sports, museums, and related activities</v>
+<v>0.043394897133112</v>
+<v>8.908920288085938</v>
+</o>
+<o>
+<v>77</v>
+<v>1709.3241912390729000000000000</v>
+<v>Amusements, gambling, and recreation industries</v>
+<v>0.035473145544529</v>
+<v>7.443853378295898</v>
+</o>
+<o>
+<v>79</v>
+<v>2567.1597395182457000000000000</v>
+<v>Accommodation</v>
+<v>0.055125407874584</v>
+<v>7.850555419921875</v>
+</o>
+<o>
+<v>80</v>
+<v>2266.3448437748589000000000000</v>
+<v>Food services and drinking places</v>
+<v>0.036883052438498</v>
+<v>7.725923538208008</v>
+</o>
+<o>
+<v>81</v>
+<v>2876.1587276876080000000000000</v>
+<v>Other services, except government</v>
+<v>0.051265012472868</v>
+<v>7.964210987091065</v>
+</o>
+</data>
+<value_labels>
+</value_labels>
+</dta>

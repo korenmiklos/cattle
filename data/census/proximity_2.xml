@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="US-ASCII" standalone="yes"?>
+<dta>
+<header>
+<ds_format>113</ds_format>
+<byteorder>LOHI</byteorder>
+<filetype>1</filetype>
+<nvar>5</nvar>
+<nobs>20</nobs>
+<data_label></data_label>
+<time_stamp>30 Mar 2008 00:49</time_stamp>
+</header>
+<descriptors>
+<typelist>
+<type varname='bea'>byte</type>
+<type varname='density'>double</type>
+<type varname='lndensity'>float</type>
+<type varname='sectorname'>str68</type>
+<type varname='inflation'>float</type>
+</typelist>
+<varlist>
+<variable varname='bea'/>
+<variable varname='density'/>
+<variable varname='lndensity'/>
+<variable varname='sectorname'/>
+<variable varname='inflation'/>
+</varlist>
+<srtlist>
+<sort varname='density'/>
+</srtlist>
+<fmtlist>
+<fmt varname='bea'>%8.0g</fmt>
+<fmt varname='density'>%12.0g</fmt>
+<fmt varname='lndensity'>%9.0g</fmt>
+<fmt varname='sectorname'>%68s</fmt>
+<fmt varname='inflation'>%9.0g</fmt>
+</fmtlist>
+<lbllist>
+<lblname varname='bea'></lblname>
+<lblname varname='density'></lblname>
+<lblname varname='lndensity'></lblname>
+<lblname varname='sectorname'></lblname>
+<lblname varname='inflation'></lblname>
+</lbllist>
+</descriptors>
+<variable_labels>
+<vlabel varname='bea'></vlabel>
+<vlabel varname='density'>Average population density of sector location</vlabel>
+<vlabel varname='lndensity'></vlabel>
+<vlabel varname='sectorname'></vlabel>
+<vlabel varname='inflation'>Inflation</vlabel>
+</variable_labels>
+<expansion>
+</expansion>
+<data>
+<o>
+<v>3</v>
+<v>410.9746775778938900000000000</v>
+<v>6.018531799316406</v>
+<v>Gross domestic product</v>
+<v>0.033435009419918</v>
+</o>
+<o>
+<v>6</v>
+<v>485.7237614034130500000000000</v>
+<v>6.185639858245850</v>
+<v>Private industries</v>
+<v>0.032119147479534</v>
+</o>
+<o>
+<v>10</v>
+<v>2282.7091443442255000000000000</v>
+<v>7.733118057250977</v>
+<v>Agriculture, forestry, fishing, and hunting</v>
+<v>-0.001859431038611</v>
+</o>
+<o>
+<v>11</v>
+<v>1672.6092842782659000000000000</v>
+<v>7.422140121459961</v>
+<v>Farms</v>
+<v>-0.008635558187962</v>
+</o>
+<o>
+<v>12</v>
+<v>1323.4623681371522000000000000</v>
+<v>7.188006401062012</v>
+<v>Forestry, fishing, and related activities</v>
+<v>0.026379689574242</v>
+</o>
+<o>
+<v>34</v>
+<v>2940.2661876455654000000000000</v>
+<v>7.986255168914795</v>
+<v>Mining</v>
+<v>0.057858370244503</v>
+</o>
+<o>
+<v>35</v>
+<v>1895.6786545937121000000000000</v>
+<v>7.547332286834717</v>
+<v>Oil and gas extraction</v>
+<v>0.072858832776546</v>
+</o>
+<o>
+<v>36</v>
+<v>2223.4779625786823000000000000</v>
+<v>7.706828117370606</v>
+<v>Mining, except oil and gas</v>
+<v>0.005800417158753</v>
+</o>
+<o>
+<v>45</v>
+<v>4636.0349522653014000000000000</v>
+<v>8.441615104675293</v>
+<v>Support activities for mining</v>
+<v>0.094255022704601</v>
+</o>
+<o>
+<v>51</v>
+<v>5092.2353158357482000000000000</v>
+<v>8.535471916198731</v>
+<v>Utilities</v>
+<v>0.040106732398272</v>
+</o>
+<o>
+<v>56</v>
+<v>4126.2269080800743000000000000</v>
+<v>8.325119018554688</v>
+<v>Construction</v>
+<v>0.055734310299158</v>
+</o>
+<o>
+<v>60</v>
+<v>4361.7103051620225000000000000</v>
+<v>8.380620002746582</v>
+<v>Manufacturing</v>
+<v>0.014239343814552</v>
+</o>
+<o>
+<v>64</v>
+<v>3750.9832458875362000000000000</v>
+<v>8.229773521423340</v>
+<v>Durable goods</v>
+<v>0.002805247902870</v>
+</o>
+<o>
+<v>65</v>
+<v>2967.5065780579430000000000000</v>
+<v>7.995477199554443</v>
+<v>Wood products</v>
+<v>0.032509498298168</v>
+</o>
+<o>
+<v>69</v>
+<v>4957.3906804273265000000000000</v>
+<v>8.508634567260742</v>
+<v>Nonmetallic mineral products</v>
+<v>0.033330384641886</v>
+</o>
+<o>
+<v>70</v>
+<v>2877.2603114034341000000000000</v>
+<v>7.964593887329102</v>
+<v>Primary metals</v>
+<v>0.031170014292002</v>
+</o>
+<o>
+<v>75</v>
+<v>3366.3009121507548000000000000</v>
+<v>8.121569633483887</v>
+<v>Fabricated metal products</v>
+<v>0.025623546913266</v>
+</o>
+<o>
+<v>78</v>
+<v>2322.3484278628166000000000000</v>
+<v>7.750334262847900</v>
+<v>Machinery</v>
+<v>0.037254270166159</v>
+</o>
+<o>
+<v>81</v>
+<v>2886.2814285860945000000000000</v>
+<v>7.967724323272705</v>
+<v>Computer and electronic products</v>
+<v>-0.123496077954769</v>
+</o>
+<o>
+<v>82</v>
+<v>2398.3844299639254000000000000</v>
+<v>7.782550811767578</v>
+<v>Electrical equipment, appliances, and components</v>
+<v>0.026590101420879</v>
+</o>
+</data>
+<value_labels>
+<vallab name='sectorname'>
+<label value='1'>traded</label>
+<label value='2'>non-traded</label>
+</vallab>
+</value_labels>
+</dta>
