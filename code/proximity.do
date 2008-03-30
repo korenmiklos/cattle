@@ -6,9 +6,11 @@ tempfile densities naics2bea
 /* save a tempfile of country densities */
 xmluse ../data/census/county_census.xml
 ren geo fips
-keep fips density
+keep fips density urban
+
 
 /* worry about skewed densities */
+
 replace density = log(density)
 sort fips
 
@@ -18,7 +20,7 @@ save `densities'
 
 clear
 
-insheet using ../data/census/naics22bea.txt
+insheet using ../data/census/naics2bea.csv
 
 sort naics
 
@@ -27,7 +29,8 @@ save `naics2bea'
 clear
 
 /* sorry, but this is over 100mb, not checking in */
-insheet using ~/share/data/CBP/cbp05co.csv
+/*insheet using ..\data\census\CBP\cbp05co.txt*/
+use ..\\data\census\CBP\cbp05co.dta
 
 scalar define sector_type="BEA"  /*"TNT" for traded/non-traded or 
 				   "AMS" for agriculture/manufcaturing/services
@@ -35,12 +38,19 @@ scalar define sector_type="BEA"  /*"TNT" for traded/non-traded or
 scalar define weight_type="emp"  /*"emp" for employment
 				   "est" for establishment*/
 
-/* keep 2-digit naics */
+/* keep 2-digit naics 
 keep if substr(naics,3,4)=="----"
 drop if naics=="------"
 gen naics_r = real(substr(naics,1,2))
 drop naics
-ren naics_r naics
+ren naics_r naics */ 
+
+/* keep 3-digit naics */
+keep if substr(naics,4,3)=="///"
+gen naics_r = real(substr(naics,1,3))
+drop naics
+gen naics=naics_r
+drop naics_r 
 
 if weight_type=="emp" {
 	keep fips* naics emp*
@@ -96,7 +106,6 @@ else if sector_type=="AMS" {
 else {
 	gen sector = bea
 }
-scalar drop sector_type
 label values sector sectorname
 if weight_type=="emp" collapse (sum) emp, by(sector fipstate fipscty)
 
@@ -128,22 +137,42 @@ drop _merge
 su
 
 /* to get rid of unbalanced MVs */
-replace density = . if missing(density,countyshare)
-replace countyshare = . if missing(density,countyshare)
+replace density = . if missing(urban, density,countyshare)
+replace countyshare = . if missing(urban, density,countyshare)
+replace urban = . if missing(urban, density, countyshare)
 
 /* weighting */
 replace density = density*countyshare
+replace urban =	urban*countyshare
 
-collapse (sum) density countyshare, by(sector)
+collapse (sum) urban density countyshare, by(sector)
 su countyshare, d
 
 replace density = density/countyshare
+replace urban =	urban/countyshare
 drop countyshare
 
+
 /* go back to levels */
+
 replace density = exp(density)
 
 label var density "Average population density of sector location"
+label var urban "Average urban population of sector location"
+
+if sector_type=="BEA" {
+	gen bea=sector
+	sort bea
+	merge bea using ../data/bea/inflation, nokeep
+	tabulate _merge
+	drop _merge
+} 
+scalar drop sector_type
+
+gen lndensity=ln(density)
+drop if missing(sector)
+destring infl_4706, force replace
+graph twoway (scatter infl_7706 urban) (lfit infl_7706 urban)
 
 sort sector
 xmlsave ../data/census/proximity.xml, replace
