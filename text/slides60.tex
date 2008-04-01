@@ -1,4 +1,4 @@
-\documentclass[handout,compress,mathserif]{beamer}
+\documentclass[compress,mathserif]{beamer}
 \usepackage[latin2]{inputenc}
 %\usepackage[absolute]{textpos}
 %\documentclass[handout,compress,mathserif]{beamer}
@@ -220,12 +220,13 @@ Mikl\'os Koren (Princeton)}
 
 \begin{itemize}
     \item Rich countries are more expensive than poor ones.
-    \item In Penn World Tables,
+    \item In the Penn World Table,
     \[
     \ln P = 0.25\ln Y + e.
     \]
     %% The reason I put in numbers here is that I want to be able to do back of the env calcs.
     \item This is mostly due to differences in non-tradable prices, as tradable prices vary little across countries.
+    \item Over time, as a country grows, its non-tradables become relatively more expensive.
 \end{itemize}
 \end{frame}
 
@@ -234,9 +235,9 @@ Mikl\'os Koren (Princeton)}
 \begin{frame}\frametitle{Productivity-based explanations}
 
 \begin{itemize}
-    \item Balassa--Samuelson: Productivity differences in non-tradables are smaller than in non-tradables.
+    \item Balassa--Samuelson: Productivity growth in non-tradables is slower than in tradables.
         \begin{itemize}
-            \item But why is technical progress slower for non-tradables?
+            \item Why?
         \end{itemize}
 \pause
     \item Kravis--Lipsey--Bhagwati: Non-tradables are more intensive users of the non-reproducible factor (labor).
@@ -256,7 +257,7 @@ Mikl\'os Koren (Princeton)}
 
 
 
-\subsection{Basic idea}
+\section{Basic idea}
 \begin{frame}\frametitle{Basic idea}
 \begin{itemize}
     \item Tradable sectors locate to where land is cheap.
@@ -268,7 +269,7 @@ Mikl\'os Koren (Princeton)}
 \end{frame}
 \time{2}
 
-%% give cars/parking lots example?
+%% give ferry house steak / cattle from kansas. cars/parking lots example?
 
 %% talk about outline: 1. land matters. 2. simple model. 3. some supportive evidence
 
@@ -283,14 +284,14 @@ Mikl\'os Koren (Princeton)}
     so \emph{land close to consumers} is scarce.
 \end{itemize}
 \end{frame}
+\time 2
 
-\time{1}
+%% as a comparison, NYC is 10,000
 
-\begin{frame}\frametitle{The share of land in GDP*}
-\begin{itemize}
-\item Decreased from 25\% in mid 1700s to around 5\% now --- mainly
-because of the shrinking share of agriculture in GDP (Clark, 2007)
-\item Sector income shares in various industries in the US (Herrendorf and Valentinyi, 2007)
+\widefigure{clark-landrents}{Agricultural and urban land rents in England\\ (Clark, 2007)}
+
+\begin{frame}\frametitle{The share of land in GDP$\cdot$}
+Sector income shares in various industries in the US (Herrendorf and Valentinyi, 2007)
 \begin{center}
 \begin{tabular}{l|c|ccc}
 \hline\hline
@@ -301,12 +302,10 @@ Manufacturing & 0.31    &   0.03    & 0.08          & 0.20      \\
 Services    & 0.32      & 0.05      & 0.15          & 0.12      \\ \hline\hline
 \end{tabular}
 \end{center}
-\end{itemize}
 \end{frame}
 
 %% 2 things: 1. true that tradables are more capital intensive, but only part of it is reproducible. in that, intensity varies little. 2. overll share is 5%
 
-\widefigure{clark-landrents}{Agricultural and urban land rents in England (Clark, 2007)}
 \time{3}
 
 %% clark emphasizes decline, we emphasize increase
@@ -365,7 +364,7 @@ h&= A_hl_h
 
 \begin{frame}\frametitle{Transport costs}
 \begin{itemize}
-    \item Goods are shipped to the center.
+    \item Goods are shipped to the CBD.
     \item Both manufacturing and services have iceberg transport cost.
     \item One good $i$ shipped from location $z$ melts to
     \[
@@ -379,7 +378,7 @@ h&= A_hl_h
 \end{frame}
 \time{2}
 
-%% graph of D(z) here
+\widefigure{Dz}{Iceberg transport costs and distance}
 
 \begin{frame}\frametitle{Commuting costs}
 \begin{itemize}
@@ -407,7 +406,7 @@ h&= A_hl_h
 \end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{Profit maximization}
+\begin{frame}\frametitle{Profit maximization$\cdot$}
 \begin{itemize}
     \item Land rent at location $z$: $r(z)$.
     \item Profits for industry $i$ at location $z$:
@@ -423,7 +422,7 @@ h&= A_hl_h
 \end{frame}
 \time{1}
 
-\begin{frame}\frametitle{The bid rent curve}
+\begin{frame}\frametitle{The bid rent curve$\cdot$}
 \begin{itemize}
     \item Define a bid rent curve:
     \[
@@ -442,7 +441,7 @@ h&= A_hl_h
 \widefigure{bid-rent-2}{Bid rent curves of two industries}
 \time{3}
 
-\begin{frame}\frametitle{The bid rent curve of households}
+\begin{frame}\frametitle{The bid rent curve of households$\cdot$}
 \begin{itemize}
     \item Housing at $z$ costs $r(z)/A_h$.
     \item Other two prices do not depend on residence.
@@ -464,14 +463,15 @@ R_h(z) = A_h\left[\frac{D(\tau_h z) I}{up_m^{\alpha}p_s^{\beta}}\right]^{1/\gamm
 
 
 
-\begin{frame}\frametitle{Equilibrium city structure}
+\begin{frame}\frametitle{Equilibrium spatial structure}
+There exists a unique equilibrium.
 \begin{itemize}
     \item Residents live closest to CBD, $\in[0,z_1]$.
     \item With a (weakly) declining population density.
     \item Followed by a ring of service establishments, $\in(z_1,z_2]$.
     \item Followed by a ring of manufacturing plants, $\in(z_2,z_3]$.
     \item City boundary is $z_3: D(\tau_m z_3)=0$.
-%    \item The boundaries $z_1$ and $z_2$ determine the supply of housing 
+%    \item The boundaries $z_1$ and $z_2$ determine the supply of housing
 \end{itemize}
 \end{frame}
 
@@ -482,7 +482,7 @@ R_h(z) = A_h\left[\frac{D(\tau_h z) I}{up_m^{\alpha}p_s^{\beta}}\right]^{1/\gamm
 \widefigure{monocentric-3}{Equilibrium spatial structure}
 \time{5}
 
-\begin{frame}\frametitle{Finding the equilibrium $z_1$ and $z_2$}
+\begin{frame}\frametitle{Finding the equilibrium $z_1$ and $z_2$$\cdot$}
 \begin{itemize}
     \item Cutoffs pin down supply:
     \begin{align*}
@@ -532,7 +532,7 @@ Productivity growth does not change the relative price of services if
 
 %% explain sprawl
 
-\begin{frame}\frametitle{Proof of Proposition 1}
+\begin{frame}\frametitle{Proof of Proposition 1$\cdot$}
 \begin{itemize}
     \item From rent arbitrage at boundary $z_2$, the relative price of services
     \[
@@ -544,8 +544,8 @@ Productivity growth does not change the relative price of services if
     \frac{s}{m} = \phi\left(\frac{p_s}{p_m}\right) = \phi\left(\frac{D(\tau_m z_2)}{D(\tau_s z_2)}\right),
     \]
     decreasing in $z_2$. ($\phi$ denotes $\Phi_2/\Phi_1$.)
-    \item Relative supply is increasing in $z_2$. 
-    \item For a given $z_1$, there is a unique $z_2$ that equates relative demand and supply. 
+    \item Relative supply is increasing in $z_2$.
+    \item For a given $z_1$, there is a unique $z_2$ that equates relative demand and supply.
     \item This $z_2$ is increasing in $z_1$.
 \end{itemize}
 \end{frame}
@@ -558,6 +558,7 @@ Productivity growth does not change the relative price of services if
 
 \begin{frame}\frametitle{Functional form assumptions}
 \begin{itemize}
+    \item No technical progress in housing, $A_h=$constant.
     \item Utility is Cobb--Douglas in goods, Leontief in housing,
 \[
 u(m,s,h) = \min\{m^\gamma s^{1-\gamma} ,h/H\}.
@@ -570,20 +571,32 @@ D(\tau z) = \exp(-\tau z).
 \begin{align*}
 m&=A_ml_m^\beta n_m^{1-\beta}\\
 s&=A_sl_s^\beta n_s^{1-\beta}
-\end{align*}\pause
-	\item These lead to a closed-form solution.
-	\item Balassa--Samuelson effect:
-\[
-\frac{d\ln (p_s/p_m)}{d\ln A} = \frac{(\tau_s-\tau_m)z_1}{1+\Bar\tau z_1/\beta}
-\]
+\end{align*}
 \end{itemize}
 \end{frame}
 \time 3
 
 
+\begin{frame}\frametitle{Solution}
+\begin{itemize}
+	\item These assumptions lead to a closed-form solution.
+	\item Balassa--Samuelson effect:
+\[
+\frac{d\ln (p_s/p_m)}{d\ln A} = \frac{(\tau_s-\tau_m)z_1}{1+\Bar\tau z_1/\beta}
+\]
+    \item Stronger if
+    \begin{enumerate}
+      \item trade cost differential is large,
+      \item residential land is large,
+      \item land share is large.
+    \end{enumerate}
+\end{itemize}
+\end{frame}
+\time 2
+
+
 \begin{frame}\frametitle{Predictions}
 
-%% Spatial structure
 
 As productivity increases,
 \begin{enumerate}
@@ -596,7 +609,7 @@ As productivity increases,
 %	\item employment becomes more concentrated.
 \end{enumerate}
 \begin{enumerate}
-	\item[7.] All of these effects are stronger for bigger cities. 
+	\item[7.] All of these effects are stronger for more densely populated countries.
 \end{enumerate}
 \end{frame}
 \time 2
@@ -606,7 +619,7 @@ As productivity increases,
 
 \subsection{Demand for residential land}
 
-\begin{frame}\frametitle{Demand for residential land increases with development*}
+\begin{frame}\frametitle{Demand for residential land increases with development$\cdot$}
 \begin{itemize}
     \item Between 1976 and 1992, residential land per capita increased by 25\%.
     (Burchfield, Overman, Puga and Turner, 2006; Overman, Puga and Turner, 2007)
@@ -622,13 +635,13 @@ As productivity increases,
 
 %% skip this in the interest of time
 
-\begin{frame}\frametitle{Income and the demand for housing*}
+\begin{frame}\frametitle{Income and the demand for housing$\cdot$}
 \begin{table}[h!]
-\center 
+\center
 \begin{tabular}{l|cc}
   \hline\hline
   Explanatory & \multicolumn{2}{c}{Dependent variable} \\
-  variables & Land value & Number of rooms \\ 
+  variables & Land value & Number of rooms \\
             & (log)      & per capita (log) \\
   \hline
   Income (log)   & \textbf{2.77}   & \textbf{0.26}\\
@@ -643,13 +656,13 @@ As productivity increases,
 \time 2
 
 \subsection{Rent gradient}
-\longfigure{dh-prices}{Rent gradient became steeper*}
+\longfigure{dh-prices}{Rent gradient became steeper$\cdot$}
 \time 1
 %% comment on back-of-the-envelope
 %% relative price roughly doubled between 1987 and 05. with a 5% land share, this leads to a 4% increase in service prices
 
 \subsection{Industry location}
-\begin{frame}\frametitle{Tradable sectors move out of cities*}
+\begin{frame}\frametitle{Tradable sectors move out of cities$\cdot$}
 \begin{itemize}
     \item Burchfield, Overman, Puga and Turner (2006): commercial land is more scattered than residential land, more so in 1992 than in 1976.
     \item Holmes and Stevens (2004): in 1997 manufacturing is underrepresented in large cities.
@@ -658,27 +671,41 @@ As productivity increases,
 \end{frame}
 \time 1
 
-\widefigure{LQ_map}{Locational quotient of tradable sectors*}
-\widefigure{LQ_scatter}{Tradables stay away from dense counties*}
+\widefigure{LQ_map}{Locational quotient of tradable sectors$\cdot$}
+\widefigure{LQ_scatter}{Tradables stay away from dense counties$\cdot$}
 \widefigure{deurbanization}{Industries move away from dense counties}
 \time 1
 
+\begin{frame}
+\frametitle{Proximity to population and inflation}
+\begin{center}
+\begin{tabular}{l|cc}
+\hline\hline
+& Employment share & Inflation \\
+& of the most dense counties & (1947-2006, va)\\ \hline
+GDP & 31.5\% & 3.4\% \\ \hline
+Agriculture & 3.2\% & 0.5\% \\
+Manufacturing & 23.3\% & 2.1\% \\
+Services & 33.4\% & 3.5\% \\ \hline\hline
+\end{tabular}
+\end{center}
+\end{frame}
+\time 1
 
 \subsection{Balassa--Samuelson Effect}
 \widefigure{sc_penn}{Balassa--Samuelson is stronger in urban countries}
 \time 2
 
-%% add industry graph
-\time 1
 
 %\addtocounter{percek}{9}
-\section{Conclusion}
-\begin{frame}\frametitle{Conclusion}
+\section{Conclusions}
+\begin{frame}\frametitle{Conclusions}
 \begin{itemize}
-\item We incorporated land and housing in a simple multi-sector model.
+\item The model is tractable enough to incorporate dynamics, multiple countries etc.
+%\item ***still features Balassa's and Samuelson's 
 \item Predictions are consistent with several stylized facts about urbanization, industry location, and relative prices.
-\item Balassa--Samuelson effect is stronger in urban countries. 
-\item Urban sectors experience higher inflation.
+\item Balassa--Samuelson effect is stronger in urban countries.
+%\item Urban sectors experience higher inflation.
 
 \end{itemize}
 \end{frame}
