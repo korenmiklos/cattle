@@ -1,23 +1,9 @@
-
 \documentclass[12pt]{article}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{amsmath,amsthm}
 \usepackage[latin1]{inputenc}
 \usepackage[T1]{fontenc}
 %\usepackage{minionpro}
 \usepackage{array,graphicx}
-
-\setcounter{MaxMatrixCols}{10}
-%TCIDATA{TCIstyle=LaTeX article (bright).cst}
-
-%TCIDATA{OutputFilter=LATEX.DLL}
-%TCIDATA{Version=5.00.0.2570}
-%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
-%TCIDATA{Created=Monday, January 29, 2007 11:45:31}
-%TCIDATA{LastRevised=Friday, November 30, 2007 08:35:24}
-%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
-%TCIDATA{<META NAME="DocumentShell" CONTENT="Exams and Syllabi\SW\Assignment">}
-%TCIDATA{Language=American English}
 
 \setlength{\topmargin}{-0.3in} \setlength{\textheight}{8.75in}
 \setlength{\oddsidemargin}{0.0in} \setlength{\evensidemargin}{0.0in}
@@ -50,7 +36,12 @@
 \newtheorem{moment}{Empirical regularity}
 \newtheorem{insight}{Qualitative prediction}
 
-
+\newcommand{\dofigure}[2]{\begin{figure}
+\begin{centering}
+\includegraphics[width=0.9\linewidth]{figures/#1}
+  \caption{#2\label{fig:#1}}
+\end{centering}
+\end{figure}}
 
 \begin{document}
 
@@ -95,15 +86,8 @@ First, land is scarcer than one might first think. The overall population densit
 
 Second, whether a good is tradable or not has implications not only for cross-country trade but also for within-country trade, and hence the location of production within the country. Arguably, there are many technological differences between tradable sectors such as manufacturing, and non-tradable sectors such as services. The fundamental difference, however, is that non-tradable goods or services have to be produced at the location of their consumption, whereas tradable goods and services can be produced far away from consumers, where land prices may be cheaper. Figure \ref{fig:ntcounties} shows a map of U.S.~counties, displaying the \emph{share} of employment in non-tradable sectors. Darker colors represent a higher share in non-tradable sectors. We see that non-tradable sectors locate closer to population centers than tradable sectors.\footnote{This is confirmed more formally in Section \ref{empirics}.} The implication of this observation is that non-tradable prices are more sensitive to the price of land than tradable prices.
 
-\begin{figure}[h!]
-%  \vspace*{-7em}
-\centering
-  % Requires \usepackage{graphicx}
-  \includegraphics[width=0.7\linewidth]{figures/ntcounties}
-  \vspace*{-1em}
-  \caption{The share of non-traded employment in U.S.~counties}\label{fig:ntcounties}
-  {\small\emph{Source}: 2000 U.S.~Census, Summary File 3.}
-\end{figure}
+\dofigure{ntcounties}{The share of non-traded employment in U.S.~counties\newline
+\small\emph{Source}: 2000 U.S.~Census, Summary File 3.}
 
 Third, productivity growth in the housing sector is limited by the scarcity of land. Increased productivity in construction can lead to taller and higher-quality buildings, but they cannot substitute for land. Davis and Heathcote (2007) estimate that between 1975 and 2005, the share of land in the value of a home in the U.S.~has increased from 35 percent to 45 percent. During the same period, the price of residential land has more than tripled. This suggests that land and structures are complements and that the scarcity of residential land will become more severe with development.\footnote{Also see Section \ref{empirics} for more discussion of residential land prices and development.}
 Together with the previous two observations we have that services, which locate close to their consumers in cities, face higher land rents with development. They become more labor intensive and exhibit lower labor productivity  for the same total factor productivity. Our model can hence be thought of as a \emph{microfoundation} for the assumption of Balassa and Samuelson that productivity growth is slower in services than in tradable industries.
@@ -128,7 +112,7 @@ Households own all the land in the country, and there are perfect rental markets
 \subsection{Technology}
 There are two produced goods. Both goods are produced using land and labor and they are costly to transport to the CBD. Manufactured goods are assumed to have lower transport costs than services.
 
-Both sectors use Cobb--Douglas technology with the same land share, $\beta$.\footnote{We assume identical land shares to highlight that our results do not hinge on factor share differences. Later, in our empirical application, we allow for different factor shares.}
+Both sectors use Cobb--Douglas technology with the same land share, $\beta$.\footnote{We assume identical land shares to highlight that our results do not hinge on factor share differences. Later, in our empirical application, we allow for different factor shares. The key results would also go through with any twice differentiable constant-returns-to-scale production.}
 \begin{align*}
 m&=A_ml_m^\beta n_m^{1-\beta},\\
 s&=A_sl_s^\beta n_s^{1-\beta},
@@ -161,16 +145,7 @@ P[p_m,p_s,p_h(z)] = P[\Phi(p_m,p_s),p_h],
 where $\Phi$ is a price aggregator function, and both $P$ and $\Phi$ are homogeneous of degree one.
 
 \subsection{Transport costs}
-All transport and commuting costs are of the iceberg nature. When a unit of good $i$ is shipped $z$ miles, only $D(\tau_i z)$ fraction of it remains. The function $D()$ is between 0 and 1 and is strictly decreasing in $z$.
-
-\begin{figure}[h!]
-%  \vspace*{-7em}
-\centering
-  % Requires \usepackage{graphicx}
-  \includegraphics[width=0.7\linewidth]{figures/Dz}
-  \vspace*{-1em}
-  \caption{Iceberg transport costs and distance}\label{fig:Dz}
-\end{figure}
+All transport and commuting costs are of the iceberg nature. When a unit of good $i$ is shipped $z$ miles, only $D(\tau_i z)$ fraction of it remains. The function $D()$ is between 0 and 1, continuous and is strictly decreasing in $z$.
 
 The profit of a firm in industry $i$ $z$ miles from the center is
 \[
@@ -195,65 +170,93 @@ Expenditure on the manufactured good, on services and housing has to be less tha
  \item the labor market clears at the CBD,
  \item land markets clear at each location.
 \end{enumerate}
-
 \end{definition}
-
 We first characterize the profit maximization problem. The first-order condition for profit maximum is
 \[
-p_i D(\tau_i z)A_i \le r(z),
+p_i D(\tau_i z) \le \frac{r(z)^\beta w^{1-\beta}}{A_i\beta^\beta (1-\beta)^{1-\beta}},
 \]
-with equality when there is positive production. This pins down industry $i$'s bid rent function,
+with equality when there is positive production. The left-hand side is the marginal revenue from selling one more unit of good $i$ in a market $z$ miles away. The right-hand side is the minimum unit costs of producing good $i$ at location $z$.
+
+In what follows, we normalize the wage rate to 1.
+
+This pins down industry $i$'s bid rent function,
 \[
-R_i(z,p_i) = p_i D(\tau_i z)A_i.
+R_i(z,p_i) = \beta (1-\beta)^{1/\beta-1} p_i^{1/\beta} A_i^{1/\beta} D(\tau_i z)^{1/\beta}.
 \]
-This is the maximum rent the industry is willing to pay at location $z$. It is decreasing in $z$. Note that, all else equal, the bid rent function is steeper for services because $\tau_s>\tau_m$. Figure ***
+This is the maximum rent the industry is willing to pay at location $z$. It is decreasing in $z$. Note that, all else equal, the bid rent function is steeper for services because $\tau_s>\tau_m$. Figure \ref{fig:bid-rent-2} plots two bid-rent curves with linear transport costs and $\beta=1$.
 
+\dofigure{bid-rent-2}{Two bid rent curves}
 
-
-
+\bigskip
 
 Consumer's choice can be broken down to two steps. The first step is the allocation of consumption expenditure at a given location to manufacturing, services, and housing. Once that decision is made optimally, the resulting utility at location $z$ will be characterized by the indirect utility function of income and prices.
 
-Suppose the level of utility is $u$ in all locations (this is equalized across locations, but the level $u$ is endogenous).
+Free mobility ensures that, in optimum, all inhabited locations yield the same utility. Denote this level of utility by $u$. (This is an endogenous variable that we characterize later.)
 
-To achieve utility $u$ at location $z$,
+Given prices and incomes, the utility achieved at location $z$ is
     \[
     u = \frac{D(\tau_h z) I}{P[\Phi(p_m,p_s),r(z)/A_h]}.
     \]
-    Bid rent function
+Here we substituted in the price of housing as $p_h(z) = r(z)/A_h$.
+
+This equation defines a bid rent function for the consumer
     \[
-    R_h(z) = A_h\Phi(p_m,p_s)P_2^{-1}\left[\frac{D(\tau_h z) I}{u\Phi(p_m,p_s)}\right].
+R_h(z) = A_h\Phi(p_m,p_s)P_2^{-1}\left[\frac{D(\tau_h z) I/u}{u\Phi(p_m,p_s)}\right].
     \]
-	For example, with Cobb--Douglas utility,
+For example, with Cobb--Douglas utility,
 \[
 R_h(z) = A_h\left[\frac{D(\tau_h z) I}{up_m^{\alpha}p_s^{\beta}}\right]^{1/\gamma}.
 \]
-
-
-Then the bid rent function of households is such that
-\[
-P(p_m,p_s,R_z) = \frac Iu  D(\tau_h z).
-\]
-
-For given income and good prices, the optimal location choice of households determines their bid rent function, $R_h(z,I,p_m,p_s)$. Because the indirect utility function is homogeneous of degree zero in $I$, $p_m$, $p_s$ and $r(z)$, the bid rent function is homogeneous of degree one in $I$, $p_m$ and $p_s$.
 
 \begin{proposition}
 An equilibrium exists, is unique, and exhibits the following spatial structure. Residents live closest to the center, followed by service establishments, and then by manufacturing establishment.
 \end{proposition}
 
-(It probably suffices to set $\tau_h>\tau_s>\tau_m$.) Let $z_1$ denote the boundary of the service sector, and $z_2>z_1$ the boundary of the manufacturing sector. The city boundary is denoted by $z_3 = 1/\tau_m$. It is not feasible to transport manufactured goods from outside this boundary.
+This spatial structure permits is to construct the equilibrium as follows. Let $z_1$ denote the boundary between the residential and the services zone, and $z_2$ the boundary between services and manufacturing. The boundary of the city is given by $z_3: D(\tau_m z_3)=0$.\footnote{Note that $z_3$ may be infinite.} Theses cutoffs pin down the amount of land dedicated to each industry.
+
+Because land rents are a constant fraction of revenue, we can express output per given amount of land as
+\[
+y_i(z) = (1-\beta)^{1/\beta-1} p_i^{1/\beta-1} A_i^{1/\beta} D(\tau_i z)^{1/\beta}.
+\]
+The supplies in the two industries are
+\begin{align*}
+s &= (1-\beta)^{1/\beta-1} p_s^{1/\beta-1} A_s^{1/\beta} \int_{z_1}^{z_2}D(\tau_s z) dz, \\
+m&= (1-\beta)^{1/\beta-1} p_m^{1/\beta-1} A_m^{1/\beta} \int_{z_2}^{z_3}D(\tau_m z) dz.
+\end{align*}
+The next key equation comes from location arbitrage at the manufacturing--service boundary, $z_2$. At this point, $R_s(z_2)=R_m(z_2)$, which follows from the continuity of $D(z)$. Hence a boundary $z_2$ pins down the relative price of services,
+\begin{equation}\label{eq:arbitrage}
+\frac{p_s}{p_m} = \left[\frac{D(\tau_m z_2)}{D(\tau_s z_2)}\right]^{1/\beta}.
+\end{equation}
+This relative price, in turn, determines relative demand. (Because of the nested utility structure, housing does not affect the relative demand of services and manufacturing.)
+
+We can construct the supply and demand of housing similarly. We then need to find $z_1$ and $z_2$ such that markets clear.
 
 \subsection{Productivity growth}
 We conduct the following comparative statics. We increase $A_m$ and $A_s$ proportionally (so that productivity growth is neutral), and ask what happens to industry location ($z_1$, $z_2$) and relative prices.
+
+The following proposition states that without any technological differences across the sectors, their relative price is still affected by the location choice of the sectors.
 \begin{proposition}[Balassa--Samuelson and the sprawl]
- Assume that $A_m/A_s$ is constant. The the relative price of services increases with development if and only if residential land increases with development.
+ Assume that $A_m/A_s$ is constant. The the relative price of services increases with development if and only if residential land grows with development.
 \end{proposition}
+\begin{proof}
+We can determine the relative price of services from rent arbitrage at boundary $z_2$, equation \eqref{eq:arbitrage}, which is clearly increasing in $z_2$. The relative demand for services is a decreasing function of the relative price,
+    \[
+    \frac{s}{m} = \phi\left(\frac{p_s}{p_m}\right) = \phi\left[\frac{D(\tau_m z_2)}{D(\tau_s z_2)}\right],
+    \]
+where $\phi$ denotes $\Phi_2/\Phi_1$. The relative supply of services is increasing in $z_2$ for any given $z_1$, since as $z_2$ increases, more land gets allocated to services and less to manufacturing. Hence, for a given $z_1$, there is a unique $z_2$ that equates relative demand and supply. This $z_2$ is increasing in $z_1$. Substituting $z_2$ in the relative price equation above, we get the result.
+\end{proof}
+
+The intuition behind this result is that as residential land grows, both sectors have to locate farther away from the CBD. However, this affects the service sector, which has a higher transport cost, disproportionately more, and it becomes relatively more expensive.
+
+The next question is whether residential land grows with development. The next section shows some empirical evidence that this has indeed been the case in the past decades in the U.S. In the model, we need to impose certain condition to ensure this. The following proposition introduces some necessary conditions.
 
 \begin{proposition}[Balanced growth]
 Productivity growth does not change the relative price of services if either
       (i) housing productivity grows at the same rate,
       or (ii) demand for housing is Cobb--Douglas.
 \end{proposition}
+\begin{proof}
+\end{proof}
 
 \subsection{A special case}
 To explore the properties of the model further, we make the following additional assumptions.
@@ -261,32 +264,29 @@ There is no technical progress in housing, $A_h$ is constant. Utility is Cobb--D
 \[
 u(m,s,h) = \min\{m^\gamma s^{1-\gamma} ,h/H\}.
 \]
-Transport costs are exponential,\footnote{This corresponds to a constant hazard rate. If, for example, during each mile transported there is a 1\% chance that the goods gets stolen, the iceberg shipping cost is $\exp(-0.01 z)$.}
+Transport costs are exponential,\footnote{This corresponds to a constant hazard rate. If, for example, during each mile transported there is a 1\% chance that the goods get stolen, the iceberg shipping cost is $\exp(-0.01 z)$.}
 \[
 D(\tau z) = \exp(-\tau z).
 \]
-These assumptions lead to a closed-form solution. ***
+These assumptions lead to a closed-form solution.
 
 The strength of the Balassa--Samuelson effect can be obtained by (log-)differentiating the relative price of services with respect to productivity:
 \[
-\frac{d\ln (p_s/p_m)}{d\ln A} = \frac{(\tau_s-\tau_m)z_1}{1+\Bar\tau z_1/\beta}
+\frac{d\ln (p_s/p_m)}{d\ln A} = \frac{(\tau_s-\tau_m)z_1}{1+\Bar\tau z_1/\beta},
 \]
-The Balassa--Samuelson effect is stronger if (i) trade cost differential between the two industries is large,       (ii) land occupied by residential housing is large, and (iii) the land share in production is large.
+where $\Bar\tau$ is the consumption-share-weighted average of manufacturing and services transport costs.
 
+The Balassa--Samuelson effect is stronger if (i) trade cost differential between the two industries is large, (ii) land occupied by residential housing is large, and (iii) the land share in production is large.
 
-
-As productivity increases,
+The model yields the following testable predictions. As productivity increases,
 \begin{enumerate}
-    \item residential land increases,
+    \item residential land grows,
     \item home prices increase,
     \item the rent gradient becomes steeper,
 	\item tradable industries move away from center,
     \item services become more expensive,
 	\item labor productivity increases faster in manufacturing.
-%	\item employment becomes more concentrated.
-\end{enumerate}
-\begin{enumerate}
-	\item[7.] All of these effects are stronger for more densely populated countries.
+    \item All of these effects are stronger countries with bigger cities.
 \end{enumerate}
 
 
