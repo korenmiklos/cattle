@@ -49,7 +49,8 @@
 \newtheorem{conjecture}{Conjecture}
 \newtheorem{moment}{Empirical regularity}
 \newtheorem{insight}{Qualitative prediction}
-%\input{tcilatex}
+
+
 
 \begin{document}
 
@@ -118,14 +119,14 @@ We also emphasize that our results do not overturn previous explanations propose
 Section \ref{model} describes the model of housing, development, and relative prices. Although the necessary steps are described in some detail, formal proofs are omitted in this draft. Section \ref{empirics} provides empirical evidence on both the key cross-country implication, as well as some suggestive evidence on the mechanism of the model.
 
 \section{A model of housing, development, and relative prices}\label{model}
-We wish to study how the relative price of industries is affected by their location and how industry location, in turn, is determined by development. To model the spatial structure of the economy, we use a monocentric city model. 
+We wish to study how the relative price of industries is affected by their location and how industry location, in turn, is determined by development. To model the spatial structure of the economy, we use a monocentric city model.
 
 We model each country as an interval on the real line. There is a central business district (CBD), which is a point on the line. Businesses and residences can choose their location freely within the interval. Locations will be indexed by their distance to the CBD, denoted by $z$. The CBD serves as a marketplace: all goods and services are exchanged there.\footnote{It is straightforward to extend the model to multiple cities in each country as long as these cities do not overlap.}
 
-Households own all the land in the country, and there are perfect rental markets for land. Households also earn income from wages 
+Households own all the land in the country, and there are perfect rental markets for land. Households also earn income from wages.
 
 \subsection{Technology}
-There are two produced goods, and housing. Both goods are produced using land and labor and they are costly to transport to the CBD. Manufactured goods are assumed to have lower transport costs than services.
+There are two produced goods. Both goods are produced using land and labor and they are costly to transport to the CBD. Manufactured goods are assumed to have lower transport costs than services.
 
 Both sectors use Cobb--Douglas technology with the same land share, $\beta$.\footnote{We assume identical land shares to highlight that our results do not hinge on factor share differences. Later, in our empirical application, we allow for different factor shares.}
 \begin{align*}
@@ -134,7 +135,7 @@ s&=A_sl_s^\beta n_s^{1-\beta},
 \end{align*}
 where $l_i$ is the amount of land, and $n_i$ is the number of workers allocated to sector $i$, and $A_i$ is total factor productivity in sector $i$. Technical progress will be captured as an increase in $A_i$.
 
-Housing is produced using land only,
+Housing services are produced using land only,
 \[
  h=A_hl_h,
 \]
@@ -151,23 +152,22 @@ so that indirect utility can be written as
 \[
 u[I, p_m,p_s,p_h(z)] = \frac{I}{P[p_m,p_s,p_h(z)]}.
 \]
-Here $p_m$ is the (one) price of manufacturing, $p_s$ is the price of services, and $p_h(z)$ is the rental price of housing in location $z$. 
+Here $p_m$ is the (one) price of manufacturing, $p_s$ is the price of services, and $p_h(z)$ is the rental price of housing in location $z$.
 
-We assume nested structure so that we can think of the bundle of consumption goods as one good,
+We assume a nested utility structure so that we can think of the bundle of consumption goods as one good,
     \[
-    P[\Phi(p_m,p_s),p_h],
+P[p_m,p_s,p_h(z)] = P[\Phi(p_m,p_s),p_h],
     \]
-where both $P$ and $\Phi$ are homogeneous of degree one.
+where $\Phi$ is a price aggregator function, and both $P$ and $\Phi$ are homogeneous of degree one.
 
 \subsection{Transport costs}
-All transport and commuting costs are of the iceberg nature. When a unit of good $i$ is shipped $z$ miles, only $D(\tau_i z)$ fraction of it remains. The function $D()$ is between 0 and 1 and is strictly decreasing in $z$. 
+All transport and commuting costs are of the iceberg nature. When a unit of good $i$ is shipped $z$ miles, only $D(\tau_i z)$ fraction of it remains. The function $D()$ is between 0 and 1 and is strictly decreasing in $z$.
 
 \begin{figure}[h!]
 %  \vspace*{-7em}
 \centering
   % Requires \usepackage{graphicx}
-  %\includegraphics[width=0.7\linewidth]{figures/Dz}
-%% check for figure on office computer
+  \includegraphics[width=0.7\linewidth]{figures/Dz}
   \vspace*{-1em}
   \caption{Iceberg transport costs and distance}\label{fig:Dz}
 \end{figure}
@@ -180,7 +180,7 @@ where $w$ is the wage rate, and $r(z)$ is the land rent in location $z$.\footnot
 
 To maintain the convenient iceberg nature of transport costs for residential location, we assume that commuting $z$ miles costs a $1-D(\tau_h z)$ fraction of the consumption bundle (including manufacturing, services and housing). One can think of this as time lost in commuting from enjoying the consumption goods. Then the budget constraint of a household at location $z$ is
 \[
-p_m m(z) + p_s s(z) + p_h h(z) \le (w+T)D(\tau_h z).
+p_m m(z) + p_s s(z) + p_h(z) h(z) \le (w+T)D(\tau_h z).
 \]
 Expenditure on the manufactured good, on services and housing has to be less than the total income of the household net of commuting costs. Total income is made of wages $w$ and rental income $T$. Importantly, neither source of income depends on the choice of residential location. Rental income is derived from the plot of land the household \emph{owns}, not from where it \emph{resides}. Perfect rental markets ensure that the ownership of the land is irrelevant for location decisions.
 
@@ -206,11 +206,15 @@ with equality when there is positive production. This pins down industry $i$'s b
 \[
 R_i(z,p_i) = p_i D(\tau_i z)A_i.
 \]
-This is the maximum rent the industry is willing to pay at location $z$. It is decreasing in $z$. Note that, all else equal, the bid rent function is steeper for services because $\tau_s>\tau_m$.
+This is the maximum rent the industry is willing to pay at location $z$. It is decreasing in $z$. Note that, all else equal, the bid rent function is steeper for services because $\tau_s>\tau_m$. Figure ***
+
+
+
+
 
 Consumer's choice can be broken down to two steps. The first step is the allocation of consumption expenditure at a given location to manufacturing, services, and housing. Once that decision is made optimally, the resulting utility at location $z$ will be characterized by the indirect utility function of income and prices.
 
-Suppose the level of utility is $u$ in all locations (this is equalized across locations, but the level $u$ is endogenous). 
+Suppose the level of utility is $u$ in all locations (this is equalized across locations, but the level $u$ is endogenous).
 
 To achieve utility $u$ at location $z$,
     \[
@@ -234,7 +238,7 @@ P(p_m,p_s,R_z) = \frac Iu  D(\tau_h z).
 For given income and good prices, the optimal location choice of households determines their bid rent function, $R_h(z,I,p_m,p_s)$. Because the indirect utility function is homogeneous of degree zero in $I$, $p_m$, $p_s$ and $r(z)$, the bid rent function is homogeneous of degree one in $I$, $p_m$ and $p_s$.
 
 \begin{proposition}
-An equilibrium exists, is unique, and exhibits the following spatial structure. Residents live closest to the center, followed by service establishments, and then by manufacturing establishment. 
+An equilibrium exists, is unique, and exhibits the following spatial structure. Residents live closest to the center, followed by service establishments, and then by manufacturing establishment.
 \end{proposition}
 
 (It probably suffices to set $\tau_h>\tau_s>\tau_m$.) Let $z_1$ denote the boundary of the service sector, and $z_2>z_1$ the boundary of the manufacturing sector. The city boundary is denoted by $z_3 = 1/\tau_m$. It is not feasible to transport manufactured goods from outside this boundary.
@@ -252,7 +256,7 @@ Productivity growth does not change the relative price of services if either
 \end{proposition}
 
 \subsection{A special case}
-To explore the properties of the model further, we make the following additional assumptions. 
+To explore the properties of the model further, we make the following additional assumptions.
 There is no technical progress in housing, $A_h$ is constant. Utility is Cobb--Douglas in goods, Leontief in housing,
 \[
 u(m,s,h) = \min\{m^\gamma s^{1-\gamma} ,h/H\}.
@@ -268,7 +272,7 @@ The strength of the Balassa--Samuelson effect can be obtained by (log-)different
 \frac{d\ln (p_s/p_m)}{d\ln A} = \frac{(\tau_s-\tau_m)z_1}{1+\Bar\tau z_1/\beta}
 \]
 The Balassa--Samuelson effect is stronger if (i) trade cost differential between the two industries is large,       (ii) land occupied by residential housing is large, and (iii) the land share in production is large.
-    
+
 
 
 As productivity increases,
