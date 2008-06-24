@@ -220,11 +220,11 @@ To achieve utility $u$ at location $z$,
     \[
     u = \frac{D(\tau_h z) I}{P[\Phi(p_m,p_s),r(z)/A_h]}.
     \]
-    \item Bid rent function
+    Bid rent function
     \[
     R_h(z) = A_h\Phi(p_m,p_s)P_2^{-1}\left[\frac{D(\tau_h z) I}{u\Phi(p_m,p_s)}\right].
     \]
-	\item For example, with Cobb--Douglas utility,
+	For example, with Cobb--Douglas utility,
 \[
 R_h(z) = A_h\left[\frac{D(\tau_h z) I}{up_m^{\alpha}p_s^{\beta}}\right]^{1/\gamma}.
 \]
@@ -299,11 +299,7 @@ In this section, we present some suggestive evidence supporting the
 main mechanisms of the model.
 
 \subsection{Urbanization and prices}
-Figure \ref{fig:penn_joint} shows the well known result that higher
-per capita income is related to higher aggregate price level. We also show that
-higher urbanization increases this influence of per capita income on
-the price level and has a similar effect of the relative
-non-tradable/tradable prices in standard cross-country regressions.
+Figure \ref{fig:penn_joint} shows the famous result that higher aggregate price level is closely related to higher per capita income.
 
 \begin{figure}[h!]
 \centering
@@ -312,27 +308,9 @@ non-tradable/tradable prices in standard cross-country regressions.
   \caption{Price levels and per capita GDP across countries}\label{fig:penn_joint}
 \end{figure}
 
-Two related, but distinct measures we can use to compare the
-urbanization level of a country are the proportion of urban
-population and the population density, both available for a large
-number of countries from the World Development Indicators database.
-As our main question is the difference in the 'closeness of
-residents', both measures are imperfect,\footnote{Population
-weighted population-density would be a measure which would express
-the best the scarcity of land in a country. We are about to develop
-this measure using the detailed population and land area measures of
-the LandScan database.} but we consider the proportion of urban
-population a better measure, as it can be expected to capture the
-clustering of the population better than just the average population
-density in a country. As the the definition of urban population is
-different in every country, however, the cross-country results
-should be treated with some caution.
+The standard argument of Balassa (1964) and Samuelson (1964) is that the lower aggregate labor productivity comes hand-in-hand with lower relative labor productivity in the non-tradable sectors in these countries. This results in higher non-tradable/tradable relative prices ($P_{NT}/P_T$), and with long term equalization of traded goods prices implies different aggregate price levels. The close long-term relationship between the relative labor productivity growth and the relative non-tradable/tradable inflation rates is supported by numerous studies using panel-cointegration techniques on various data sets (see Canzonieri-Cumby-Diba, 1999 for OECD data, Chinn, 2000 for East-Asian data, and Égert et.al., 2003 for CEE data.)\footnote{The empirical evidence seems weaker for the equalization of the tradable goods prices, which can be partly attributed to the substantial non-tradable component of the measured tradable prices, but recent data suggests that pricing to market can also be a factor (Alessandria, 2007).}
 
-Using the proportion of urban population to divide the sample
-equally to more rural and more urbanized countries, Figure
-\ref{fig:pennX} shows the cross-country relationships of the (log) price levels
-and the (log) per capita GDP for both groups, using data from the
-Penn World Table. The graphs shows, in line with our conjecture,
+Our model suggested a spatial explanation for the basic assumption of Balassa-Samuelson model with an important testable aggregate implication, namely, that the level of urbanization (population density) in a country strongly influences the relationship between aggregate and relative labor productivity, and thereby the development of the relative ($P_{NT}/P_T$) and aggregate price levels. Using the proportion of urban population to divide the 2000 sample of the Penn World Table equally to more rural and more urbanized countries, Figure \ref{fig:pennX} shows the cross-country relationships of the (log) price levels and the (log) per capita GDP for both groups. The graphs shows, in line with our conjecture,
 that the relationship between income and the price level is stronger
 among more urbanized countries. It also shows that the comparison is
 valid as there are reasonable variation in per capita GDP for both
@@ -346,14 +324,21 @@ the more urbanized ones.
   \caption{Development, urbanization, and price levels}\label{fig:pennX}
 \end{figure}
 
+To approach the question more formally, we can use two related, but distinct measures to compare the
+urbanization level of a country: the proportion of urban
+population or the population density, both available for a large
+number of countries from the World Development Indicators database.
+As our main question is the difference in the `closeness of
+residents,' both measures are imperfect, but we consider the proportion of urban population a better measure, as it can be expected to capture the clustering of the population better than just the average population
+density in a country. As the the definition of urban population is
+different in every country, however, the cross-country results
+should be treated with some caution.
 
-To approach the question more formally, we estimated some
-regressions in the following form
+We estimated some cross-country regressions in the following form
 \begin{equation}
 \log{P}=\alpha_1+\alpha_2\log Y+\alpha_3Z+\alpha_4(Z-\bar{Z})(\log Y-\overline{\log Y})+\varepsilon,
 \end{equation}
-where $P$ refers to the various price measures, Y is the measure of
-GDP, and $Z$-s are the different urbanization measures. Our main
+where $P$ refers to the various price measures, Y is the measure of per capita GDP, and $Z$-s are the different urbanization measures. Our main
 interest is in the (demeaned) cross-term, as it can be expected to
 capture how the level of urbanization influences the relationship
 between the output and the price measures.
@@ -368,12 +353,12 @@ countries.} To check the robustness of the results, we also
 calculated a non-tradable/tradable relative price index
 ($P_{NT}/P_{T}$) using the basic heading level price data for
 consumption for the 1996 benchmark ICP countries. This relative
-price is more in line with the Balassa-Samuelson proposition
+price is more in line with the main Balassa-Samuelson proposition
 implying that the main reason of the price level difference is the
 relatively more expensive non-tradable prices. The measure, however,
 can be expected to be less reliable than the aggregate price level
 as the non-tradable prices, like services, tend to be less
-comparable internationally than tradable prices,
+comparable internationally than tradable prices.
 
 \begin{table}[h!]
 \caption{Balassa-Samuelson regressions with urbanization (Robust
@@ -415,8 +400,7 @@ countries, but this relationship is significantly influenced by the
 level of urbanization, even after controlling for direct price
 effects of the urbanization. Looking at the first regression, we
 have found that 1 percent higher per capita output increases the price
-level by 0.25 percent for average level of urbanization (54 percent), and 1 percent
-higher urbanization has a further 0.61 percent direct effect. The cross
+level by 0.25 percent for average level of urbanization (54 percent), and 1 percent higher urbanization has a further 0.61 percent direct effect. The cross
 effect, however, implies that the effect of output on the prices
 would be close to 0 under the (extreme) case of 0 urbanization
 ($0.25-0.54\cdot0.38=0.05$) and would be over 0.4 in case of full
@@ -426,6 +410,60 @@ of different non-tradable prices. Using the population density as
 explanatory variable still supports the effect using the price
 level, though it turns out to be insignificant for our sample in
 explaining the cross country relative price differences.
+
+\subsection{Development and residential land prices}
+The effects of income on the price of residential land is a major mechanism in our model influencing the relative price of services. We are going to use results based on high quality US time-series and regional data to provide evidence on the existence and quantitative importance of this channel.
+
+Our model suggests that development leading to increasing income of consumers implies an increase in the demand for residential land, which leads to an equilibrium with higher residential land area and prices. Our model also requires that the land share in income increases with development. These characteristics are all present in the US time series data.
+
+Overman, Puga and Turner, 2006 uses the highest available resolution\footnote{The 1992 data is based on 8.7 million 30 x 30 meters cells, which are classified as developed if at least 30\% of it is covered by constructed materials.} data of the US land use based on aerial and satellite photographs to compare the details of residential land use in 1976 and 1992. They find that the per capita residential land use \emph{increased by 25.4\%}, while the US population increased by 17.8\% over the period.
+
+Davis and Heathcote, 2007
+
+To have a
+first look at the question, we use the dataset constructed by Davis and
+Palumbo (2008) who created implied residential land value data for 46
+large U.S.~metropolitan areas. To get this data, the authors use
+regional data on construction costs and decompose the value of an
+average home to replacement value and land value.
+
+\begin{figure}[h!]
+\centering
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=0.7\linewidth]{figures/sc_davis}\\
+  \caption{Land prices and income across large US cities}\label{fig:land}
+\end{figure}
+
+Figure \ref{fig:land} shows the (log) price of land as a function of
+per capita income for the U.S.~cities. It strongly supports our
+conjecture that higher income areas face more appreciated land
+prices.
+
+Table \ref{tab:land} shows the estimated effects of income on the
+land prices, the replacement values (constr) and home values
+controlling for the size of the metropolitan areas. The regressions
+show that the regional income influences all the values, but it has
+the largest effect on the land prices with an amplification factor
+of 2.8. This is consistent with our model, in which the complementarity between land and consumption leads to an amplified response of rents to income.
+
+\begin{table}[h!]
+\center \caption{Land prices and income (Robust standard errors are
+in parentheses)} \label{tab:land}
+\begin{tabular}{c|ccc}
+  \hline\hline
+  Explanatory & \multicolumn{3}{c}{Dependent variable} \\
+  variables & log(land) & log(constr) & log(home) \\ \hline
+  log(income)    & \textbf{2.77}   & \textbf{0.38}  & \textbf{1.66}\\
+                 & (0.67)          & (0.11)         &  (0.38)\\
+  log(population)& 0.13            &  0.02          &  0.05\\
+                 & (0.18)          & (0.03)         &  0.10\\
+  constant       & \textbf{-19.47} & \textbf{7.38}  &  -5.83\\
+                 & (6.35)          & (1.12)         &  (3.53)\\ \hline
+  $R^2$          & 0.42            & 0.25           &   0.52\\
+  No. of obs.    & 46              & 46             &   46   \\ \hline\hline
+\end{tabular}
+\end{table}
+
 
 \subsection{Industry location}
 An important starting point of the model is the assumption that
@@ -490,52 +528,6 @@ the level of urbanization -- measured in the proportion of urban
 population or population density -- significantly increases the
 proportion of employees working in non-tradable sectors supporting
 our spatial correlation assumption.
-
-\subsection{Land prices and income}
-The effects of development on the price of land is a major mechanism
-in our model influencing the relative price of services. To have a
-first look at the question, we use the dataset constructed by Davis and
-Palumbo (2008) who created implied residential land value data for 46
-large U.S.~metropolitan areas. To get this data, the authors use
-regional data on construction costs and decompose the value of an
-average home to replacement value and land value.
-
-\begin{figure}[h!]
-\centering
-  % Requires \usepackage{graphicx}
-  \includegraphics[width=0.7\linewidth]{figures/sc_davis}\\
-  \caption{Land prices and income across large US cities}\label{fig:land}
-\end{figure}
-
-Figure \ref{fig:land} shows the (log) price of land as a function of
-per capita income for the U.S.~cities. It strongly supports our
-conjecture that higher income areas face more appreciated land
-prices.
-
-Table \ref{tab:land} shows the estimated effects of income on the
-land prices, the replacement values (constr) and home values
-controlling for the size of the metropolitan areas. The regressions
-show that the regional income influences all the values, but it has
-the largest effect on the land prices with an amplification factor
-of 2.8. This is consistent with our model, in which the complementarity between land and consumption leads to an amplified response of rents to income.
-
-\begin{table}[h!]
-\center \caption{Land prices and income (Robust standard errors are
-in parentheses)} \label{tab:land}
-\begin{tabular}{c|ccc}
-  \hline\hline
-  Explanatory & \multicolumn{3}{c}{Dependent variable} \\
-  variables & log(land) & log(constr) & log(home) \\ \hline
-  log(income)    & \textbf{2.77}   & \textbf{0.38}  & \textbf{1.66}\\
-                 & (0.67)          & (0.11)         &  (0.38)\\
-  log(population)& 0.13            &  0.02          &  0.05\\
-                 & (0.18)          & (0.03)         &  0.10\\
-  constant       & \textbf{-19.47} & \textbf{7.38}  &  -5.83\\
-                 & (6.35)          & (1.12)         &  (3.53)\\ \hline
-  $R^2$          & 0.42            & 0.25           &   0.52\\
-  No. of obs.    & 46              & 46             &   46   \\ \hline\hline
-\end{tabular}
-\end{table}
 
 \section{Conclusion}
 [TO BE WRITTEN]
