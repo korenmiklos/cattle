@@ -110,7 +110,7 @@ We model each country as an interval on the real line. There is a central busine
 Households own all the land in the country, and there are perfect rental markets for land. Households also earn income from wages.
 
 \subsection{Technology}
-There are two produced goods. Both goods are produced using land and labor and they are costly to transport to the CBD. Manufactured goods are assumed to have lower transport costs than services.
+There are two produced goods, we call them ``manufactured goods'' and ``services.'' Both goods are produced using land and labor and they are costly to transport to the CBD. Manufactured goods are assumed to have lower transport costs than services.
 
 Both sectors use Cobb--Douglas technology with the same land share, $\beta$.\footnote{We assume identical land shares to highlight that our results do not hinge on factor share differences. Later, in our empirical application, we allow for different factor shares. The key results would also go through with any twice differentiable constant-returns-to-scale production.}
 \begin{align*}
@@ -128,7 +128,7 @@ where $l_h$ is land allocated to housing, and $A_h$ is the productivity of resid
 \subsection{Tastes}
 Consumers consume manufactured goods ($m$), services ($s$) and housing ($h$). They commute to the CBD to work and to buy the two goods.
 
-There is a continuum of consumers with a mass $N$. Utility is characterized by a homothetic utility function,
+There is a continuum of identical consumers with mass $N$. Utility is characterized by a homothetic utility function,
 \[
 u(m,s,h),
 \]
@@ -147,22 +147,24 @@ where $\Phi$ is a price aggregator function, and both $P$ and $\Phi$ are homogen
 \subsection{Transport costs}
 All transport and commuting costs are of the iceberg nature. When a unit of good $i$ is shipped $z$ miles, only $D(\tau_i z)$ fraction of it remains. The function $D()$ is between 0 and 1, continuous and is strictly decreasing in $z$.
 
-The profit of a firm in industry $i$ $z$ miles from the center is
+The profit of a firm in industry $i$, $z$ miles from the center is
 \[
 \pi_i(z,l,n) = p_iD(\tau_i z)A_il_i(z)^\beta n_i(z)^{1-\beta} - wn_i(z) - r(z)l_i(z),
 \]
-where $w$ is the wage rate, and $r(z)$ is the land rent in location $z$.\footnote{Note that the wage does not depend on the location. We assume that all employees are hired in the CBD.}
+where $w$ is the wage rate, and $r(z)$ is the land rent in location $z$.\footnote{Note that the wage does not depend on the location. We assume that all employees are hired in the CBD.} Profits are revenues net of transport cost, minus all production costs.
 
-To maintain the convenient iceberg nature of transport costs for residential location, we assume that commuting $z$ miles costs a $1-D(\tau_h z)$ fraction of the consumption bundle (including manufacturing, services and housing). One can think of this as time lost in commuting from enjoying the consumption goods. Then the budget constraint of a household at location $z$ is
+To maintain the convenient iceberg nature of transport costs for residential location, we assume that commuting $z$ miles costs a $1-D(\tau_h z)$ fraction of the consumption bundle (including manufacturing, services and housing). We can think of this as time lost in commuting from enjoying the consumption goods. Then the budget constraint of a household at location $z$ is
 \[
 p_m m(z) + p_s s(z) + p_h(z) h(z) \le (w+T)D(\tau_h z).
 \]
 Expenditure on the manufactured good, on services and housing has to be less than the total income of the household net of commuting costs. Total income is made of wages $w$ and rental income $T$. Importantly, neither source of income depends on the choice of residential location. Rental income is derived from the plot of land the household \emph{owns}, not from where it \emph{resides}. Perfect rental markets ensure that the ownership of the land is irrelevant for location decisions.
 
+We assume that $\tau_h>\tau_s>\tau_m$ so that commuting is the costlier of all transportation activities. This condition is sufficient to ensure the spatial structure we characterize below: residents live closest to the CBD, followed by service and by manufacturing establishments. We believe this assumption captures key aspects of modern urban structure. Alternatively, we could introduce non-pecuniary externalities that would make residents prefer to live near other residents and services establishments.\footnote{As a thought experiment, the reader can rank the following three neighborhoods for choice of residence: (i) a residential area, (ii) a neighborhood with high concentration of restaurants, theaters and other service establishments, (iii) a manufacturing area.} For historical comparisons, we also wish to vary the relative transport costs.
+
 
 \subsection{Equilibrium}
 \begin{definition}
- An \emph{equilibrium} in this economy is a collection of land and labor allocations and goods prodiction in each industry $i$ at each location $z$, *** such that
+ An \emph{equilibrium} in this economy is a collection of land, $\{l_i(z)\}$, and labor allocations, $\{n_i(z)\}$ and goods production, $\{y_i(z)\}$, in each industry $i$ at each location $z$; a collection of consumptions, $(m,s,\{h(z)\})$; and a list of good and factor prices, $(p_m,p_s,\{p_h(z)\},w,\{r(z)\})$ such that
 \begin{enumerate}
  \item firms maximize profits (and hence choose their location optimally),
  \item households maximize utility (and hence choose their residence optimally),
@@ -171,25 +173,25 @@ Expenditure on the manufactured good, on services and housing has to be less tha
  \item land markets clear at each location.
 \end{enumerate}
 \end{definition}
-We first characterize the profit maximization problem. The first-order condition for profit maximum is
+We first characterize the profit maximization problem. The first-order condition for profit maximum is a non-positive profit condition,
 \[
 p_i D(\tau_i z) \le \frac{r(z)^\beta w^{1-\beta}}{A_i\beta^\beta (1-\beta)^{1-\beta}},
 \]
-with equality when there is positive production. The left-hand side is the marginal revenue from selling one more unit of good $i$ in a market $z$ miles away. The right-hand side is the minimum unit costs of producing good $i$ at location $z$.
+with equality whenever there is positive production. The left-hand side is the marginal revenue from selling one more unit of good $i$ in a market $z$ miles away. The right-hand side is the minimum unit costs of producing good $i$ at location $z$.
 
-In what follows, we normalize the wage rate to 1.
+In what follows, we normalize the wage rate to 1 without loss of generality.
 
-This pins down industry $i$'s bid rent function,
-\[
+The zero-profit condition pins down industry $i$'s bid rent function,
+\begin{equation}\label{eq:bidrent:industry}
 R_i(z,p_i) = \beta (1-\beta)^{1/\beta-1} p_i^{1/\beta} A_i^{1/\beta} D(\tau_i z)^{1/\beta}.
-\]
+\end{equation}
 This is the maximum rent the industry is willing to pay at location $z$. It is decreasing in $z$. Note that, all else equal, the bid rent function is steeper for services because $\tau_s>\tau_m$. Figure \ref{fig:bid-rent-2} plots two bid-rent curves with linear transport costs and $\beta=1$.
 
 \dofigure{bid-rent-2}{Two bid rent curves}
 
 \bigskip
 
-Consumer's choice can be broken down to two steps. The first step is the allocation of consumption expenditure at a given location to manufacturing, services, and housing. Once that decision is made optimally, the resulting utility at location $z$ will be characterized by the indirect utility function of income and prices.
+Consumers' choice can be broken down to two steps. The first step is the allocation of consumption expenditure at a given location to manufacturing, services, and housing. Once that decision is made optimally, the resulting utility at location $z$ will be characterized by the indirect utility function of income and prices.
 
 Free mobility ensures that, in optimum, all inhabited locations yield the same utility. Denote this level of utility by $u$. (This is an endogenous variable that we characterize later.)
 
@@ -200,21 +202,23 @@ Given prices and incomes, the utility achieved at location $z$ is
 Here we substituted in the price of housing as $p_h(z) = r(z)/A_h$.
 
 This equation defines a bid rent function for the consumer
-    \[
-R_h(z) = A_h\Phi(p_m,p_s)P_2^{-1}\left[\frac{D(\tau_h z) I/u}{u\Phi(p_m,p_s)}\right].
-    \]
-For example, with Cobb--Douglas utility,
+\begin{equation}\label{eq:bidrent:hh}
+R_h(z,I,u,p_m,p_s) = A_h\Phi(p_m,p_s)P_2^{-1}\left[\frac{D(\tau_h z) I/u}{u\Phi(p_m,p_s)}\right].
+\end{equation}
+This is the rent that yields utility $u$ for a consumer with income $I$ at location $z$ when the two other good prices are $p_m$ and $p_s$. Since the price index $P$ is convex in its arguments, $P_2$ is monotonic. Hence the bid rent function is decreasing in $z$. Locations closer to the CBD reduce commuting costs and hence command higher rents. 
+    
+Suppose, for example, that utility is Cobb--Douglas, $u(m,s,h) = m^\alpha s^\gamma h^\delta$. In that case, the bid rent curve simplifies to
 \[
-R_h(z) = A_h\left[\frac{D(\tau_h z) I}{up_m^{\alpha}p_s^{\beta}}\right]^{1/\gamma}.
+R_h(z,I,u,p_m,p_s) = A_h\left[\frac{D(\tau_h z) I}{up_m^{\alpha}p_s^{\gamma}}\right]^{1/\delta}.
 \]
 
 \begin{proposition}
 An equilibrium exists, is unique, and exhibits the following spatial structure. Residents live closest to the center, followed by service establishments, and then by manufacturing establishment.
 \end{proposition}
 
-This spatial structure permits is to construct the equilibrium as follows. Let $z_1$ denote the boundary between the residential and the services zone, and $z_2$ the boundary between services and manufacturing. The boundary of the city is given by $z_3: D(\tau_m z_3)=0$.\footnote{Note that $z_3$ may be infinite.} Theses cutoffs pin down the amount of land dedicated to each industry.
+This spatial structure permits is to construct the equilibrium as follows. Let $z_1$ denote the boundary between the residential and the services zone, and $z_2$ the boundary between services and manufacturing. The boundary of the city is given by $z_3: D(\tau_m z_3)=0$.\footnote{Note that $z_3$ may be infinite.} These cutoffs pin down the amount of land dedicated to each industry.
 
-Because land rents are a constant fraction of revenue, we can express output per given amount of land as
+Because land rents are a constant fraction of revenue, we can use \eqref{eq:bidrent:industry} to express output per given amount of land as
 \[
 y_i(z) = (1-\beta)^{1/\beta-1} p_i^{1/\beta-1} A_i^{1/\beta} D(\tau_i z)^{1/\beta}.
 \]
@@ -227,7 +231,9 @@ The next key equation comes from location arbitrage at the manufacturing--servic
 \begin{equation}\label{eq:arbitrage}
 \frac{p_s}{p_m} = \left[\frac{D(\tau_m z_2)}{D(\tau_s z_2)}\right]^{1/\beta}.
 \end{equation}
-This relative price, in turn, determines relative demand. (Because of the nested utility structure, housing does not affect the relative demand of services and manufacturing.)
+Note that because $\tau_s>\tau_m$ and $D(z)$ is decreasing in $z$, the farther out the boundary is, the higher this relative price. Intuitively, it is equally profitable to produce services and the manufacturing at the boundary. The farther out the boundary, the higher the transport cost differential between the two industries. This has to be compensated by higher service prices.
+
+The relative price of services, in turn, determines relative demand. (Because of the nested utility structure, housing does not affect the relative demand of services and manufacturing.)
 
 We can construct the supply and demand of housing similarly. We then need to find $z_1$ and $z_2$ such that markets clear.
 
@@ -235,7 +241,7 @@ We can construct the supply and demand of housing similarly. We then need to fin
 We conduct the following comparative statics. We increase $A_m$ and $A_s$ proportionally (so that productivity growth is neutral), and ask what happens to industry location ($z_1$, $z_2$) and relative prices.
 
 The following proposition states that without any technological differences across the sectors, their relative price is still affected by the location choice of the sectors.
-\begin{proposition}[Balassa--Samuelson and the sprawl]
+\begin{proposition}[Balassa--Samuelson and the sprawl]\label{prop:sprawl}
  Assume that $A_m/A_s$ is constant. The the relative price of services increases with development if and only if residential land grows with development.
 \end{proposition}
 \begin{proof}
@@ -257,6 +263,7 @@ Productivity growth does not change the relative price of services if either
 \end{proposition}
 \begin{proof}
 \end{proof}
+If either condition (i) or condition (ii) holds, then the amount of land dedicated to housing is constant with development, which, by Proposition \ref{prop:sprawl}, implies that the relative price of services is constant.
 
 \subsection{A special case}
 To explore the properties of the model further, we make the following additional assumptions.
@@ -271,9 +278,9 @@ D(\tau z) = \exp(-\tau z).
 These assumptions lead to a closed-form solution.
 
 The strength of the Balassa--Samuelson effect can be obtained by (log-)differentiating the relative price of services with respect to productivity:
-\[
+\begin{equation}\label{eq:bscs}
 \frac{d\ln (p_s/p_m)}{d\ln A} = \frac{(\tau_s-\tau_m)z_1}{1+\Bar\tau z_1/\beta},
-\]
+\end{equation}
 where $\Bar\tau$ is the consumption-share-weighted average of manufacturing and services transport costs.
 
 The Balassa--Samuelson effect is stronger if (i) trade cost differential between the two industries is large, (ii) land occupied by residential housing is large, and (iii) the land share in production is large.
@@ -289,14 +296,14 @@ The model yields the following testable predictions. As productivity increases,
     \item All of these effects are stronger countries with bigger cities.
 \end{enumerate}
 
-
-
 %% keep tau so that we can do comparative statics
+
+%% i think if taum decreases, the BS effect becomes stronger, but will have to verify before writing up
 
 
 \section{Empirical results}\label{empirics}
 In this section, we present some suggestive evidence supporting the
-main mechanisms of the model.
+the above predictions of the model.
 
 \subsection{Urbanization and prices}
 Figure \ref{fig:penn_joint} shows the famous result that higher aggregate price level is closely related to higher per capita income.
