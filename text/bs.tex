@@ -414,18 +414,18 @@ explaining the cross country relative price differences.
 \subsection{Development and residential land prices}
 The effects of income on the price of residential land is a major mechanism in our model influencing the relative price of services. We are going to use results based on high quality US time-series and regional data to provide evidence on the existence and quantitative importance of this channel.
 
-Our model suggests that development leading to increasing income of consumers implies an increase in the demand for residential land, which leads to an equilibrium with higher residential land area and prices. Our model also requires that the land share in income increases with development. These characteristics are all present in the US time series data.
+Our model suggests that development leading to increasing income of consumers implies an increase in the demand for residential land, which leads to an equilibrium with higher residential land area and prices. Our model also requires that the land share in income increases with development. These characteristics are all present in the US time series data. Overman, Puga and Turner, 2006 finds that the per capita residential land use between 1976 and 1992 \emph{increased by 25.4\%}, based on the highest available resolution data\footnote{The 1992 data is based on 8.7 million 30 x 30 meters cells, which are classified as developed if at least 30\% of it is covered by constructed materials.} of the US land use based on aerial and satellite photographs. Davis and Heathcote, 2007 finds that the implied real price of residential land\footnote{To get this data, the authors use
+data on construction costs and decompose the value of an
+average home to replacement value and land value.} was increasing substantially during the period (see figure \ref{fig:dh_shares}) -- clearly showing increasing demand for land. The figure also shows that between 1950 and 2000 it increased nine-fold, while the share of land in the value of the aggregate housing stock increased from 10.4\% to 36.4\%.
 
-Overman, Puga and Turner, 2006 uses the highest available resolution\footnote{The 1992 data is based on 8.7 million 30 x 30 meters cells, which are classified as developed if at least 30\% of it is covered by constructed materials.} data of the US land use based on aerial and satellite photographs to compare the details of residential land use in 1976 and 1992. They find that the per capita residential land use \emph{increased by 25.4\%}, while the US population increased by 17.8\% over the period.
+\begin{figure}[h!]
+\centering
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=0.7\linewidth]{figures/dh-shares}\\
+  \caption{Land prices and the share of land in home value}\label{fig:dh_shares}
+\end{figure}
 
-Davis and Heathcote, 2007
-
-To have a
-first look at the question, we use the dataset constructed by Davis and
-Palumbo (2008) who created implied residential land value data for 46
-large U.S.~metropolitan areas. To get this data, the authors use
-regional data on construction costs and decompose the value of an
-average home to replacement value and land value.
+Our main conjecture is that these developments were closely related to the per capita income growth observable in the US during the period. Davis and Heathcote, 2007 presents supporting time-series results by regressing their implied real land prices (in logs) on per capita real disposable personal income, nominal interest rate and inflation rate using a quarterly dataset between 1975:4 and 2005:4. They have found significant coefficients with an income elasticity of 2.6. Using the cross-sectional dataset of Davis and Palumbo (2008) with implied residential land prices for 46 large U.S.~metropolitan areas, we can find very similar results (see table \ref{tab:land}, column 3.).
 
 \begin{figure}[h!]
 \centering
@@ -439,39 +439,64 @@ per capita income for the U.S.~cities. It strongly supports our
 conjecture that higher income areas face more appreciated land
 prices.
 
-Table \ref{tab:land} shows the estimated effects of income on the
-land prices, the replacement values (constr) and home values
+The first three columns of table \ref{tab:land} show the estimated effects of income on the land prices, the replacement values (constr) and home values
 controlling for the size of the metropolitan areas. The regressions
 show that the regional income influences all the values, but it has
 the largest effect on the land prices with an amplification factor
-of 2.8. This is consistent with our model, in which the complementarity between land and consumption leads to an amplified response of rents to income.
+of 2.8. This is consistent with our model, in which the complementarity between land and consumption leads to an amplified response of rents to income. The last column of table \ref{tab:land} regresses the average per capita number of rooms on income and population using county level data published by the County Business Patterns. It supports the conjecture that higher income does indeed lead to higher housing and thus land demand. 
 
 \begin{table}[h!]
-\center \caption{Land prices and income (Robust standard errors are
-in parentheses)} \label{tab:land}
-\begin{tabular}{c|ccc}
+\center \caption{Land prices, demand for housing and income (Robust standard errors are in parentheses)} \label{tab:land}
+\begin{tabular}{c|ccc|c}
   \hline\hline
-  Explanatory & \multicolumn{3}{c}{Dependent variable} \\
-  variables & log(land) & log(constr) & log(home) \\ \hline
-  log(income)    & \textbf{2.77}   & \textbf{0.38}  & \textbf{1.66}\\
-                 & (0.67)          & (0.11)         &  (0.38)\\
-  log(population)& 0.13            &  0.02          &  0.05\\
-                 & (0.18)          & (0.03)         &  0.10\\
-  constant       & \textbf{-19.47} & \textbf{7.38}  &  -5.83\\
-                 & (6.35)          & (1.12)         &  (3.53)\\ \hline
-  $R^2$          & 0.42            & 0.25           &   0.52\\
-  No. of obs.    & 46              & 46             &   46   \\ \hline\hline
+  Explanatory    & \multicolumn{4}{c}{Dependent variable} \\
+  variables      & Land price  & Constr. price & Home price&Rooms\\
+                 &  (log)      &    (log)      & (log)     & per capita \\ \hline
+  log(income)    & \textbf{2.77}   & \textbf{0.38}  & \textbf{1.66} & \textbf{0.26}\\
+                 & (0.67)          & (0.11)         &  (0.38) & (0.08)\\
+  log(population)& 0.13            &  0.02          &  0.05   & \textbf{-0.07}\\
+                 & (0.18)          & (0.03)         &  0.10   & (0.01)\\
+  constant       & \textbf{-19.47} & \textbf{7.38}  &  -5.83  & ***\\
+                 & (6.35)          & (1.12)         &  (3.53) & ***\\ \hline
+  $R^2$          & 0.42            & 0.25           &   0.52  & 0.26\\
+  No. of obs.    & 46              & 46             &   46    & 3219 \\ \hline\hline
 \end{tabular}
 \end{table}
 
+\subsection{Population density and industry co-location}
+An important starting point of our model is the assumption that
+non-tradables have to be produced close to the consumers, while tradables can more easily economize on lower land prices further away. In this section we overview evidence on US data related to the level and the development of the co-location (spatial correlation) of the population and various industries, namely, mainly manufacturing and services.\footnote{Agriculture and mining, as a result of their relatively low trade costs and high land share, are naturally located in the least densely populated counties (see Holmes and Stevens, 2003, Table 10.)}
 
-\subsection{Industry location}
-An important starting point of the model is the assumption that
-non-tradables have to be produced close to the consumers. An
-implication of this spatial assumption is that higher urbanization
-of the population in an area would imply higher relative employment
-in the non-tradable sectors than in the tradeable ones. We have
-examined this mechanism by looking at the US Census 2000
+The post war deconcentration of manufacturing has been widely documented in the literature. Holmes and Stevens, 2004 documents that the spatial distribution of manufacturing has become much more even between 1947 and 1999, and finds that they are substantially underrepresented in areas with high population density. Desmet and Fafchamps, 2006, similarly, finds that manufacturing has become more deconcentrated between 1970 and 2000.\footnote{Burchfield, Overman, Puga and Turner, 2006 also documents that US commercial land is, on average (as they do not have the data to categorize it by industries), substantially more scattered than residential land, and the probability that a commercial land is surrounded by undeveloped land is much higher in 1992 than in 1976.} Because of the very high spatial correlation of population and employment, it is not surprising that the same studies have also found that -- in line with our model -- the spatial distribution of services developed in line with those of the population. \footnote{The direction of population, and thus services, concentration in the U.S. depends on how you look at it. An average county experienced a population as services concentration, as documented by Desmet and Fafchamps, 2006, bus as there were population deconcentration in the most densely populated areas as was documented by Chatterjee and Carlino, 2001 over U.S.~metropolitan areas, an average person has observed a population, *** and services? deconcentration during the period.} 
+
+A way to measure the co-location of sectors and population is to calculate the locational quotient ($q_i$), which is measured as the ratio of an area's ($i$) share in the U.S.~sectoral employment ($s_i$) and its share in the U.S.~overall employment ($x_i$). If $q_i$ is below 1, the area is underrepresented in that sector, while substantially higher than 1 locational quotients mean the area is specialized in the certain sector. Figure \ref{fig:LQ_map} shows the locational quotient of the tradable sectors over the U.S.~counties, and it shows that these sectors are underrepresented in the most dense counties. *** We might need a map with population density to make this point more obvious!***
+
+\begin{figure}[h!]
+\centering
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=0.7\linewidth]{figures/LQ_map}\\
+  \caption{Locational quotient of tradable sectors}\label{fig:LQ_map}
+\end{figure}
+
+Figure \ref{fig:LQ_scatter} shows the strong negative relationship between the population density and the locational quotient for the 3219 U.S.~counties for 2000 (?, note: typo in the graph!***).
+
+\begin{figure}[h!]
+\centering
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=0.7\linewidth]{figures/LQ_scatter}\\
+  \caption{Locational quotient and population density}\label{fig:LQ_scatter}
+\end{figure}
+
+The time series development of the relative manufacturing employment is presented in figure \ref{fig:deurbanization}, that plots the share of the 100 most densely populated counties in total employment and in manufacturing between 1986 and 2005 using the dataset provided by the County Business Patterns. It shows that the relative share of these counties has decreased in both respects implying deconcentration, but the relative share of manufacturing has decreased faster implying increase in relative services/manufacturing employment. 
+
+\begin{figure}[h!]
+\centering
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=0.7\linewidth]{figures/deurbanization}\\
+  \caption{Share of 100 most densely populated counties}\label{fig:deurbanization}
+\end{figure}
+
+An implication of this spatial assumption is that higher urbanization and population density in an area would imply higher relative employment in the non-tradable sectors than in the tradeable ones. We have examined this mechanism by looking at the US Census 2000
 data.\footnote{The more detailed survey covering approximately 15 percent
 of the households contains detailed (NAICS 2 digit level)
 information about the industry level employment, while the general
