@@ -9,7 +9,7 @@ gen USAshare = USAtraded/USAtotal
 
 /* calculate locational quotients for traded */
 gen LQ_traded = traded/total_empl/USAshare
-label var LQ_traded "Locational quotinent (traded sectors)"
+label var LQ_traded "Locational quotient (traded sectors)"
 label var lnincome "Median income (log)"
 label var lndens "Population density (log)"
 
