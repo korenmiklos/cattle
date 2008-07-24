@@ -1,6 +1,6 @@
 pwtwdi.dat
 
-Penn World Table and the World Bank's World Development Indicators databases
+Penn World Table, World Bank's World Development Indicators and OECD Stan sectoral databases
 
 countryname: name of the country
 iso: ISO code of the country (3 letters)
