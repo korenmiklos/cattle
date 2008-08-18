@@ -1,0 +1,242 @@
+eli,eliname,sectorcode
+AA,Men's apparel,1
+AA01,"Men's suits, sport coats, and outerwear",1
+AA02,Men's furnishings,1
+AA03,Men's shirts and sweaters,1
+AA04,Men's pants and shorts,1
+AB,Boys' apparel,1
+AC,Women's apparel,1
+AC01,Women's outerwear,1
+AC02,Women's dresses,1
+AC03,Women's suits and separates,1
+AC04,"Women's underwear, nightwear, sportswear and accessories",1
+AD,Girls' apparel,1
+AE,Footwear,1
+AE01,Men's footwear,1
+AE02,Boys' and girls' footwear,1
+AE03,Women's footwear,1
+AF,Infants' and toddlers' apparel,1
+AG,Jewelry and watches,1
+AG01,Watches,1
+AG02,Jewelry,1
+EA,Educational books and supplies,1
+EB,"Tuition, other school fees, and childcare",3
+EB01,College tuition and fees,3
+EB02,Elementary and high school tuition and fees,3
+EB03,Child care and nursery school,3
+EB04,Technical and business school tuition and fees,3
+EC,Postage and delivery services,3
+EC01,Postage,3
+EC02,Delivery services,3
+ED,Telephone services,3
+ED01,"Land-line telephone services, local charges",3
+ED02,"Land-line telephone services, long distance charges",3
+ED03,Wireless telephone services,3
+EE,"Information technology, hardware and services",2
+EE01,Personal computers and peripheral equipment,2
+EE02,Computer software and accessories,3
+EE03,Internet services and electronic information providers,3
+EE04,"Telephone hardware, calculators, and other consumer information items",2
+FA,Cereals and cereal products,1
+FA01,Flour and prepared flour mixes,1
+FA02,Breakfast cereal,1
+FA03,"Rice, pasta, cornmeal",1
+FB,Bakery products,1
+FB01,Bread,1
+FB02,"Fresh biscuits, rolls, muffins",1
+FB03,"Cakes, cupcakes, and cookies",1
+FB04,Other bakery products,1
+FC,Beef and veal,1
+FC01,Uncooked ground beef,1
+FC02,Uncooked beef roasts,1
+FC03,Uncooked beef steaks,1
+FC04,Uncooked other beef and veal,1
+FD,Pork,1
+FD01,"Bacon, breakfast sausage, and related products",1
+FD02,Ham,1
+FD03,Pork chops,1
+FD04,Other pork including roasts and picnics,1
+FE,Other meats,1
+FF,Poultry,1
+FF01,Chicken,1
+FF02,Other poultry including turkey,1
+FG,Fish and seafood,1
+FG01,Fresh fish and seafood,1
+FG02,Processed fish and seafood,1
+FH,Eggs,1
+FJ,Dairy and related products,1
+FJ01,Milk,1
+FJ02,Cheese and related products,1
+FJ03,Ice cream and related products,1
+FJ04,Other dairy and related products,1
+FK,Fresh fruits,1
+FK01,Apples,1
+FK02,Bananas,1
+FK03,Citrus fruits,1
+FK04,Other fresh fruits,1
+FL,Fresh vegetables,1
+FL01,Potatoes,1
+FL02,Lettuce,1
+FL03,Tomatoes,1
+FL04,Other fresh vegetables,1
+FM,Processed fruits and vegetables,1
+FM01,Canned fruits and vegetables,1
+FM02,Frozen fruits and vegetables,1
+FM03,Other processed fruits and vegetables including dried,1
+FN,Juices and nonalcoholic drinks,1
+FN01,Carbonated drinks,1
+FN02,Frozen noncarbonated juices and drinks,1
+FN03,Nonfrozen noncarbonated juices and drinks,1
+FP,Beverage materials including coffee and tea,1
+FP01,Coffee,1
+FP02,Other beverage materials including tea,1
+FR,Sugar and sweets,1
+FR01,Sugar and artificial sweeteners,1
+FR02,Candy and chewing gum,1
+FR03,Other sweets,1
+FS,Fats and oils,1
+FS01,Butter and margarine,1
+FS02,Salad dressing,1
+FS03,Other fats and oils including peanut butter,1
+FT,Other foods,1
+FT01,Soups,1
+FT02,Frozen and freeze dried prepared foods,1
+FT03,Snacks,1
+FT04,"Spices, seasonings, condiments, sauces",1
+FT05,Baby food,1
+FT06,Other miscellaneous foods,1
+FV,Food away from home,1
+FV01,Full service meals and snacks,3
+FV02,Limited service meals and snacks,3
+FV03,Food at employee sites and schools,3
+FV04,Food from vending machines and mobile vendors,3
+FV05,Other food away from home,3
+FW,Alcoholic beverages at home,1
+FW01,"Beer, ale, and other malt beverages at home",1
+FW02,Distilled spirits at home,1
+FW03,Wine at home,1
+FX,Alcoholic beverages away from home,3
+GA,Tobacco and smoking products,1
+GA01,Cigarettes,1
+GA02,Tobacco products other than cigarettes,1
+GB,Personal care products,1
+GB01,"Hair, dental, shaving, and miscellaneous personal care products",1
+GB02,"Cosmetics, perfume, bath, nail preparations and implements",1
+GC,Personal care services,3
+GC01,Haircuts and other personal care services,3
+GD,Miscellaneous personal services,3
+GD01,Legal services,3
+GD02,Funeral expenses,3
+GD03,Laundry and dry cleaning services,3
+GD04,Apparel services other than laundry and dry cleaning,3
+GD05,Financial services,3
+GE,Miscellaneous personal goods,3
+HA,Rent of primary residence,5
+HB,Lodging away from home,3
+HB01,"Housing at school, excluding board",3
+HB02,Other lodging away from home including hotels and motels,3
+HC,Owners' equivalent rent of primary residence,3
+HD,Tenants' and household insurance,3
+HE,Fuel oil and other fuels,1
+HE01,Fuel oil,1
+HE02,"Propane, kerosene, and firewood",1
+HF,Gas (piped) and electricity,1
+HF01,Electricity,1
+HF02,Utility (piped) gas service,1
+HG,Water and sewer and trash collection services,3
+HG01,Water and sewerage maintenance,3
+HG02,Garbage and trash collection,3
+HH,Window and floor coverings and other linens,1
+HH01,Floor coverings,1
+HH02,Window coverings,1
+HH03,Other linens,1
+HJ,Furniture and bedding,2
+HJ01,Bedroom furniture,2
+HJ02,"Living room, kitchen, and dining room furniture",2
+HJ03,Other furniture,2
+HK,Appliances,2
+HK01,Major appliances,2
+HK02,Other appliances,2
+HL,Other household equipment and furnishings,2
+HL01,"Clocks, lamps, and decorator items",2
+HL02,Indoor plants and flowers,1
+HL03,Dishes and flatware,1
+HL04,Nonelectric cookware and tableware,1
+HM,"Tools, hardware, outdoor equipment and supplies",2
+HM01,"Tools, hardware and supplies",2
+HM02,Outdoor equipment and supplies,2
+HN,Housekeeping supplies,1
+HN01,Household cleaning products,1
+HN02,Household paper products,1
+HN03,Miscellaneous household products,1
+HP,Household operations,3
+HP01,Domestic services,3
+HP02,Gardening and lawncare services,3
+HP03,"Moving, storage, freight expense",3
+HP04,Repair of household items,3
+MA,Prescription drugs,1
+MB,Nonprescription drugs and medical supplies,1
+MB01,Internal and respiratory over-the-counter drugs,1
+MB02,Nonprescription medical equipment and supplies,1
+MC,Professional services,3
+MC01,Physicians' services,3
+MC02,Dental services,3
+MC03,Eyeglasses and eye care,3
+MC04,Services by other medical professionals,3
+MD,Hospital and related services,3
+MD01,Hospital services,3
+MD02,Nursing homes and adult day services,3
+MD03,Care of invalids and elderly at home,3
+ME,Health insurance,3
+RA,Video and audio,3
+RA01,Televisions,2
+RA02,Cable and satellite television and radio service,2
+RA03,Other video equipment,2
+RA04,"Video cassettes, discs, and other media including rental",2
+RA05,Audio equipment,2
+RA06,"Audio discs, tapes and other media",2
+RB,"Pets, pet products and services",3
+RB01,Pets and pet products,1
+RB02,Pet services including veterinary,3
+RC,Sporting goods,2
+RC01,Sports vehicles including bicycles,2
+RC02,Sports equipment,2
+RD,Photography,2
+RD01,Photographic equipment and supplies,2
+RD02,Photographers and film processing,2
+RE,Other recreational goods,2
+RE01,Toys,2
+RE02,"Sewing machines, fabric and supplies",2
+RE03,Music instruments and accessories,2
+RF,Recreation services,3
+RF01,Club dues and fees for participant sports and group exercises,3
+RF02,Admissions,3
+RF03,Fees for lessons or instructions,3
+RG,Recreational reading materials,2
+RG01,Newspapers and magazines,2
+RG02,Recreational books,2
+TA,New and used motor vehicles,2
+TA01,New vehicles,2
+TA02,Used cars and trucks,2
+TA03,Leased cars and trucks,5
+TA04,Car and truck rental,5
+TB,Motor fuel,1
+TB01,Gasoline (all types),1
+TB02,Other motor fuels,1
+TC,Motor vehicle parts and equipment,2
+TC01,Tires,2
+TC02,Vehicle accessories other than tires,2
+TD,Motor vehicle maintenance and repair,3
+TD01,Motor vehicle body work,3
+TD02,Motor vehicle maintenance and servicing,3
+TD03,Motor vehicle repair,3
+TE,Motor vehicle insurance,3
+TF,Motor vehicle fees,3
+TF01,State and local registration and license,3
+TF03,Parking and other fees,3
+TG,Public transportation,3
+TG01,Airline fare,3
+TG02,Other intercity transportation,3
+TG03,Intracity transportation,3
+XWA,Wages (not part of ELI),6
+XOF,Office rent (not part of ELI),5

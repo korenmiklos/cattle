@@ -1,0 +1,31 @@
+ISIC,ISICname
+105,C01T05 Agriculture Hunting Forestry and Fishing
+1014,C10T14 Mining and quarrying
+1074,C10T74X NON-AGRICULTURE BUSINESS SECTOR
+1516,C15T16 Food products beverages and tobacco
+1537,C15T37 TOTAL MANUFACTURING
+1719,C17T19 Textiles textile products leather and footwear
+2000,C20 Wood and products of wood and cork
+2122,C21T22 Pulp paper paper products printing and publishing
+2325,C23T25 Chemical rubber plastics and fuel products
+2600,C26 Other non-metallic mineral products
+2728,C27T28 Basic metals and fabricated metal products
+2933,C29T33 Machinery and equipment
+3435,C34T35 Transport equipment
+3637,C36T37 Manufacturing n.e.c
+4041,C40T41 ELECTRICITY GAS AND WATER SUPPLY
+4500,C45 CONSTRUCTION
+5052,C50T52 Wholesale and retail trade; repairs
+5074,C50T74 BUSINESS SECTOR SERVICES
+5099,C50T99 TOTAL SERVICES
+5500,C55 Hotels and restaurants
+6064,C60T64 TRANSPORT AND STORAGE AND COMMUNICATION
+6567,C65T67 Financial intermediation
+7000,C70 Real estate activities
+7100,C71 Renting of machinery and equipment
+7200,C72 Computer and related activities
+7400,C74 Other business activities
+7500,C75 Public admin. and defence; compulsory social security
+7599,C75T99 COMMUNITY SOCIAL AND PERSONAL SERVICES
+199,CTOTAL Total
+100,Wages (not in ISIC)
