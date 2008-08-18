@@ -3,7 +3,7 @@ set memory 500m
 
 local datastore ../../../data/Miklos /*~/share/data*/
 local assembla ../data
-tempfile codes eli wdi
+tempfile codes eli wdi pwt
 
 /*Reading in product eli codes*/
 insheet using `assembla'/EIU/productcodes_sectors.csv, names clear
@@ -14,6 +14,7 @@ save `codes', replace
 insheet using `assembla'/EIU/ELI_code.csv, names clear
 sort eli
 save `eli', replace
+
 
 /*Reading in wdi data*/
 insheet using `assembla'/wdi/wdi_9007.csv, names clear
@@ -53,20 +54,24 @@ label define sectors 1 "Non-durables" 2 "Durables" 3 "Personal services" 4 "Busi
 label values sectorcode sectors
 
 /*Calculating 10 year averages 1997-2006*/
-drop if year<=1996
+/*keep if year==2004*/
 drop xrat eli
+drop if year<=1996
 collapse price citypop metropop pcgdp density population urban, by(city countryname product productname sectorcode)
 
 /*Creating variables*/
 gen lny=ln(pcgdp)
 gen lndensity=ln(density)
 gen lnp=ln(price)
-drop pcgdp density price
+gen lncitypop=ln(citypop)
+/*drop pcgdp density price citypop*/
 by product, sort: egen meanlny=mean(lny)
 by product, sort: egen meanurban=mean(urban)
 by product, sort: egen meanlndensity=mean(lndensity)
+by product, sort: egen meanlncitypop=mean(lncitypop)
 gen urbanX=(urban-meanurban)*(lny-meanlny)
 gen densityX=(lndensity-meanlndensity)*(lny-meanlny)
+gen citypopX=(lncitypop-meanlncitypop)*(lny-meanlny)
 drop mean*
 
 /*Calculating panel regressions by sectors*/
