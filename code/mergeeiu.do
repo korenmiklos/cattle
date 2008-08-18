@@ -1,6 +1,6 @@
 clear
 
-local datastore ~/share/data
+local datastore ../../../data/Miklos /*~/share/data*/
 tempfile pwt
 
 use `datastore'/pwt/pwt
@@ -15,11 +15,11 @@ drop if product=="CCPI" | product=="LCHD"
 /* these are not price-related vars */
 
 sort city
-merge city using ~/share/data/wikipedia/cities/cities
+merge city using `datastore'/wikipedia/cities/cities
 tab _m
 drop _m
 
-drop country *area 
+drop country *area
 
 sort isocode year
 merge isocode year using `pwt', nokeep
@@ -27,7 +27,7 @@ merge isocode year using `pwt', nokeep
 tab _m
 drop _m
 
-/* currency conversion episodes */
+/* currency conversion episodes
 replace xrat = xrat*10000 if isocode=="ARG" & year<=1991
 
 replace xrat = xrat*2750 if isocode=="BRA" & year<=1993
@@ -69,7 +69,7 @@ replace xrat = xrat/1936.27 if isocode=="ITA" & year<=1998
 replace xrat = xrat/40.3399 if isocode=="LUX" & year<=1998
 replace xrat = xrat/2.20371 if isocode=="NLD" & year<=1998
 replace xrat = xrat/200.482 if isocode=="PRT" & year<=1998
-replace xrat = xrat/340.750 if isocode=="GRC" & year<=2000
+replace xrat = xrat/340.750 if isocode=="GRC" & year<=2000 */
 
 
 /* check relative prices */
@@ -79,4 +79,3 @@ gen usdprice = price/xrat
 gen relprice = usdprice/USAprice
 
 * collapse (mean) relprice, by(isocode year)
-
