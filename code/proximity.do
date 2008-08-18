@@ -2,6 +2,7 @@ clear
 set mem 300m
 
 tempfile densities naics2bea
+local datastore ~/share/data
 
 /* save a tempfile of country densities */
 xmluse ../data/census/county_census.xml
@@ -29,13 +30,13 @@ save `naics2bea'
 clear
 
 /* sorry, but this is over 100mb, not checking in */
-/*insheet using ..\data\census\CBP\cbp05co.txt*/
-use ..\\data\census\CBP\cbp05co.dta
+insheet using `datastore'/census/CBP/cbp05co.txt
 
-scalar define sector_type="BEA"  /*"TNT" for traded/non-traded or 
+scalar define sector_type="NC4"  /*"TNT" for traded/non-traded or 
 				   "AMS" for agriculture/manufcaturing/services
-				   "BEA" for BEA codes */
-scalar define weight_type="emp"  /*"emp" for employment
+				   "BEA" for BEA codes
+				   "NC4" for NAICS 4 */
+scalar define weight_type="est"  /*"emp" for employment
 				   "est" for establishment*/
 
 /* keep 2-digit naics 
@@ -45,9 +46,16 @@ gen naics_r = real(substr(naics,1,2))
 drop naics
 ren naics_r naics */ 
 
-/* keep 3-digit naics */
+/* keep 3-digit naics 
 keep if substr(naics,4,3)=="///"
 gen naics_r = real(substr(naics,1,3))
+drop naics
+gen naics=naics_r
+drop naics_r */
+
+/* keep 4-digit naics */
+keep if substr(naics,5,2)=="//" & substr(naics,4,3)!="///"
+gen naics_r = real(substr(naics,1,4))
 drop naics
 gen naics=naics_r
 drop naics_r 
@@ -78,18 +86,18 @@ compress
 
 
 
-/* switch to bea codes */
+/* switch to bea codes 
 
 sort naics
 merge naics using `naics2bea', nokeep
 tab _m
-drop _m
+drop _m*/
 
 
 
-/* collapse by sectors */
+/* collapse by sectors
 
-drop if missing(bea)
+drop if missing(bea) */
 
 
 /* generating indicator variables */
@@ -103,12 +111,14 @@ else if sector_type=="AMS" {
 	recode sector 3=1 12=2 34/max=3 *=0
 	label define sectorname 0 "others" 1 "agriculture" 2 "manufacturing" 3 "services"
 }
-else {
+else if sector_type=="BEA" {
 	gen sector = bea
+}
+else {
+	gen sector = naics
 }
 label values sector sectorname
 if weight_type=="emp" collapse (sum) emp, by(sector fipstate fipscty)
-
 else collapse (sum) est, by(sector fipstate fipscty)
 
 
@@ -159,20 +169,6 @@ replace density = exp(density)
 
 label var density "Average population density of sector location"
 label var urban "Average urban population of sector location"
-
-if sector_type=="BEA" {
-	gen bea=sector
-	sort bea
-	merge bea using ../data/bea/inflation, nokeep
-	tabulate _merge
-	drop _merge
-} 
-scalar drop sector_type
-
-gen lndensity=ln(density)
-drop if missing(sector)
-destring infl_4706, force replace
-graph twoway (scatter infl_7706 urban) (lfit infl_7706 urban)
 
 sort sector
 xmlsave ../data/census/proximity.xml, replace
