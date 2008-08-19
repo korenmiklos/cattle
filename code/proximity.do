@@ -7,8 +7,8 @@ local datastore ~/share/data
 /* save a tempfile of country densities */
 xmluse ../data/census/county_census.xml
 ren geo fips
-keep fips density urban
-
+keep fips density urban pop
+/* keep population for naics 9999 */
 
 /* worry about skewed densities */
 
@@ -60,8 +60,11 @@ drop naics
 gen naics=naics_r
 drop naics_r 
 
+gen fips = fipstate*1000+fipscty
+drop fipstate fipscty
+
 if weight_type=="emp" {
-	keep fips* naics emp*
+	keep fips naics emp*
 	gen empclass=0
 	replace empclass=10 	if empflag=="A"
 	replace empclass=60 	if empflag=="B"
@@ -78,9 +81,17 @@ if weight_type=="emp" {
 
 	replace emp=emp+empclass
 	drop empclass
+	/* insert mysterious naics 9999 */
+	reshape wide emp, i(fips) j(naics)
+	gen emp9999 = .
+	reshape long emp, i(fips) j(naics)
 }
 else {
-	keep fips* naics est
+	keep fips naics est
+	/* insert mysterious naics 9999 */
+	reshape wide est, i(fips) j(naics)
+	gen est9999 = .
+	reshape long est, i(fips) j(naics)
 }
 compress
 
@@ -118,8 +129,8 @@ else {
 	gen sector = naics
 }
 label values sector sectorname
-if weight_type=="emp" collapse (sum) emp, by(sector fipstate fipscty)
-else collapse (sum) est, by(sector fipstate fipscty)
+if weight_type=="emp" collapse (sum) emp, by(sector fips)
+else collapse (sum) est, by(sector fips)
 
 
 /* calculate shares */
@@ -136,8 +147,6 @@ else {
 
 su countyshare
 
-gen fips = fipstate*1000+fipscty
-drop fipstate fipscty
 
 /* now merge with densities */
 sort fips
@@ -145,6 +154,9 @@ merge fips using `densities'
 tab _merge
 drop _merge
 su
+
+/* naics 9999 is residential dwellings. 1 establishment = 1 person */
+replace countyshare = pop if sector==9999
 
 /* to get rid of unbalanced MVs */
 replace density = . if missing(urban, density,countyshare)
