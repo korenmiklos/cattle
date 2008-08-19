@@ -6,12 +6,12 @@ local assembla ../data
 tempfile codes eli wdi pwt
 
 /*Reading in product eli codes*/
-insheet using `assembla'/EIU/productcodes_sectors.csv, names clear
+insheet using `assembla'/eiu/productcodes_sectors.csv, names clear
 sort product
 save `codes', replace
 
 /*Reading in sector codes*/
-insheet using `assembla'/EIU/ELI_code.csv, names clear
+insheet using `assembla'/eiu/ELI_code.csv, names clear
 sort eli
 save `eli', replace
 
@@ -22,7 +22,7 @@ sort isocode year
 save `wdi', replace
 
 /*Opening cityprices*/
-use `datastore'/EIU/cityprices/cityprices, clear
+use `datastore'/eiu/cityprices/cityprices, clear
 
 drop if substr(product,1,2)=="SD"
 drop if product=="CCPI" | product=="LCHD"
@@ -79,4 +79,4 @@ egen prod_no=group(product)
 xtset prod_no
 xtreg lnp lny urban urbanX if sectorcode==3, fe
 
-save ../../../data/EIU/cityprices, replace
+save ../../../data/eiu/cityprices, replace
