@@ -11,10 +11,10 @@ insheet using `assembla'/eiu/productcodes_sectors.csv, names clear
 sort product
 save `codes', replace
 
-/*Reading in sector codes*/
+/*Reading in sector codes
 insheet using `assembla'/eiu/ELI_code.csv, names clear
 sort eli
-save `eli', replace
+save `eli', replace*/
 
 
 /*Reading in wdi data*/
@@ -53,25 +53,25 @@ drop _m
 /*keep if year==2004*/
 drop xrat
 drop if year<=1996
-collapse price citypop metropop pcgdp density population urban, by(city countryname product)
+collapse price citypop metropop pcgdp density population urban, by(city countryname product isocode)
 
 sort product
-merge product using `codes', keep(eli naics productname) nokeep
+merge product using `codes', keep(eli naics productname sector) nokeep
 tabulate _merge
 drop _merge
 
-sort eli
+/*sort eli
 merge eli using `eli', keep(sectorcode) nokeep
 tabulate _merge
-drop _merge
+drop _merge*/
 
 sort naics
 merge naics using `prox', nokeep
 tabulate _merge
 drop _merge
 
-label define sectors 1 "Non-durables" 2 "Durables" 3 "Personal services" 4 "Business Services" 5 "Rents"
-label values sectorcode sectors
+/*label define sectors 1 "Non-durables" 2 "Durables" 3 "Personal services" 4 "Business Services" 5 "Rents"
+label values sectorcode sectors*/
 
 /*Creating variables*/
 gen lny=ln(pcgdp)
@@ -80,6 +80,8 @@ gen lnp=ln(price)
 gen lncitypop=ln(citypop)
 gen lnprox_density=ln(prox_density)
 drop pcgdp density price citypop prox_density
+
+/*
 egen meanlny=mean(lny)
 egen meanurban=mean(urban)
 egen meanlndensity=mean(lndensity)
@@ -92,6 +94,22 @@ gen citypopX=(lncitypop-meanlncitypop)*(lny-meanlny)
 gen prox_urbanX=(prox_urban-meanprox_urban)*(lny-meanlny)
 gen prox_densityX=(lnprox_density-meanlnprox_density)*(lny-meanlny)
 drop mean*
+*/
+
+by sector, sort: egen meanlny=mean(lny)
+by sector, sort: egen meanurban=mean(urban)
+by sector, sort: egen meanlndensity=mean(lndensity)
+by sector, sort: egen meanlncitypop=mean(lncitypop)
+gen urbanX=(urban-meanurban)*(lny-meanlny)
+gen densityX=(lndensity-meanlndensity)*(lny-meanlny)
+gen citypopX=(lncitypop-meanlncitypop)* (lny-meanlny)
+gen prox_urbanX=(prox_urban-meanprox_urban)*(lny-meanlny)
+gen prox_densityX=(lnprox_density-meanlnprox_density)*(lny-meanlny)
+drop mean*
+
+egen sectorcode=group(sector)
+egen quartile=cut(lnprox_density), group(4)
+xi: regress lnp i.sector*lny i.sector*lnprox_density i.sector*prox_densityX, robust cluster
 
 /*Calculating panel regressions by sectors
 by product, sort: egen meanlny=mean(lny)
@@ -105,9 +123,10 @@ gen prox_urbanX=(prox_urban-meanprox_urban)*(lny-meanlny)
 gen prox_densityX=(lnprox_density-meanlnprox_density)*(lny-meanlny)
 egen prod_no=group(product)
 xtset prod_no
-xtreg lnp lny urban urbanX if sectorcode==3, fe*/
+xtreg lnp lny urban urbanX if sectorcode==3, fe
 
 regress lnp lny prox_urban prox_urbanX, robust
-regress lnp lny lnprox_density prox_densityX, robust
+regress lnp lny lnprox_density prox_densityX, robust*/
+
 
 save ../../../data/eiu/cityprices, replace
