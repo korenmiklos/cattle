@@ -107,7 +107,7 @@ egen prod_no=group(product)
 xtset prod_no
 xtreg lnp lny urban urbanX if sectorcode==3, fe*/
 
-regress lnp lny prox_urban, robust
+regress lnp lny prox_urban prox_urbanX, robust
 regress lnp lny lnprox_density prox_densityX, robust
 
 save ../../../data/eiu/cityprices, replace
