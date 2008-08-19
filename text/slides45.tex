@@ -1,0 +1,714 @@
+\documentclass[compress,mathserif]{beamer}
+\usepackage[latin2]{inputenc}
+%\usepackage[absolute]{textpos}
+%\documentclass[handout,compress,mathserif]{beamer}
+%\setbeameroption{show notes}
+
+% This file is a solution template for:
+
+% - Talk at a conference/colloquium.
+% - Talk length is about 20min.
+% - Style is ornate.
+
+
+
+% Copyright 2004 by Till Tantau <tantau@users.sourceforge.net>.
+%
+% In principle, this file can be redistributed and/or modified under
+% the terms of the GNU Public License, version 2.
+%
+% However, this file is supposed to be a template to be modified
+% for your own needs. For this reason, if you use this file as a
+% template and not specifically distribute it as part of a another
+% package/program, I grant the extra permission to freely copy and
+% modify this file as you see fit and even to delete this copyright
+% notice.
+
+
+\mode<presentation>
+{
+  %\usetheme{pittsburgh}
+  % or ...
+
+  \setbeamercovered{invisible}
+  % or whatever (possibly just delete it)
+}
+
+
+\usepackage[USenglish]{babel}
+%\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+%\usepackage{mathpazo}
+\usepackage{ifthen,array}
+
+\pretolerance5000 \hyphenpenalty9999
+%\setlength{\TPHorizModule}{0.5cm} \setlength{\TPVertModule}{0.5cm}
+%\textblockorigin{20mm}{20mm} % start everything near the top-left corner
+
+\newcounter{ora}
+\newcounter{perc}
+\newcounter{kezdoora}
+\newcounter{kezdoperc}
+\newcounter{percek}
+\setcounter{percek}{0}
+\setcounter{kezdoora}{0} % for 1.35pm as the starting time
+
+\providecommand{\leadingzero}[1]{\ifthenelse{\value{#1}<10}{0\arabic{#1}}{\arabic{#1}}}
+\providecommand{\oradisplay}[1]{\ifthenelse{\value{#1}<60}{\arabic{kezdoora}:\leadingzero{#1}}{\setcounter{perc}{\value{#1}}\addtocounter{perc}{-60}\setcounter{ora}{\value{kezdoora}}\addtocounter{ora}{1}\arabic{ora}:\leadingzero{perc}}}
+
+\providecommand{\notes}[1]{{\tiny\textbf{Note:} #1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Hasznos matek makrok
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\QED}{{}\hfill$\Box$}
+\newcommand{\intl}[4]{\int_{#1}^{#2} \! {#3} \, \mathrm d{#4}}
+\newcommand{\period}{\text{.}} % Ez azert kell, mert a matek . mashogy nez ki, mint a szovege.
+\newcommand{\comma}{\text{,}}  % Ez azert kell, mert a matek , mashogy nez ki, mint a szovege.
+\newcommand{\dist}{\,\mathop{\operatorname{\sim\,}}\limits}
+\newcommand{\D}{\,\mathop{\operatorname{d}}\!}
+%\newcommand{\E}{\mathop{\operatorname{E}}\nolimits}
+\newcommand{\Lag}{\mathop{\operatorname{L}}}
+\newcommand{\plim}{\mathop{\operatorname{plim}}\limits_{T\to\infty}\,}
+\newcommand{\CES}[3]{\mathop{\operatorname{CES}}\left(\left\{#1\right\},\left\{#2\right\},#3\right)}
+\newcommand{\cestwo}[5]{\left[#1^\frac1{#5}\,#2^\frac{#5-1}{#5}+#3^\frac1{#5}\,#4^\frac{#5-1}{#5}\right]^\frac{#5}{#5-1}}
+\newcommand{\cesmore}[4]{\left[\sum_{#3}#1_{#3}^\frac1{#4}\,{#2}_{#3}^\frac{#4-1}{#4}\right]^\frac{#4}{#4-1}}
+\newcommand{\cesPtwo}[5]{\left[#1\,#2^{1-#5}+#3\,#4^{1-#5}\right]^\frac{1}{1-#5}}
+\newcommand{\cesPmore}[4]{\left[\sum_{#3}#1_{#3}\,#2_{#3}^{1-#4}\right]^\frac{1}{1-#4}}
+\newcommand{\diff}[2]{\frac{\D #1}{\D #2}}
+\newcommand{\pdiff}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\convex}[2]{\lambda #1 + (1-\lambda)#2}
+\newcommand{\ABS}[1]{\left| #1 \right|}
+\newcommand{\suchthat}{:\hskip1em}
+\newcommand{\dispfrac}[2]{\frac{\displaystyle #1}{\displaystyle #2}} % Emeletes tortekhez hasznos.
+
+\newcommand{\diag}{\mathop{\mathrm{diag\mathstrut}}}
+\newcommand{\tr}{\mathop{\mathrm{tr\mathstrut}}}
+\newcommand{\E}{\mathop{\mathrm{E\mathstrut}}}
+\newcommand{\Var}{\mathop{\mathrm{Var\mathstrut}}\nolimits}
+\newcommand{\Cov}{\mathop{\mathrm{Cov\mathstrut}}}
+\newcommand{\sgn}{\mathop{\operatorname{sgn\mathstrut}}}
+
+\newcommand{\covmat}{\mathbf\Sigma}
+\newcommand{\ones}{\mathbf 1}
+\newcommand{\zeros}{\mathbf 0}
+\newcommand{\BAR}[1]{\overline{#1}}
+
+
+\newlength{\tempsep}
+
+\newenvironment{subeqs}{\setlength{\tempsep}{\arraycolsep}
+\setlength{\arraycolsep}{0.13889em} % Ez azert kell, hogy ne hagyjon tul sok helyet az = korul.
+\begin{subequations}\begin{eqnarray}}
+{\end{eqnarray}\end{subequations}
+\setlength{\arraycolsep}{\tempsep}}
+
+\newenvironment{tapad}{\setlength{\tempsep}{\arraycolsep}
+\setlength{\arraycolsep}{0.13889em}} % Ez azert kell, hogy ne hagyjon tul sok helyet az = korul.
+{\setlength{\arraycolsep}{\tempsep}}
+
+\newenvironment{eqnarr}{\setlength{\tempsep}{\arraycolsep}
+\setlength{\arraycolsep}{0.13889em} % Ez azert kell, hogy ne hagyjon tul sok helyet az = korul.
+\begin{eqnarray}}
+{\end{eqnarray} \setlength{\arraycolsep}{\tempsep}}
+
+\newenvironment{eqnarr*}{\setlength{\tempsep}{\arraycolsep}
+\setlength{\arraycolsep}{0.13889em} % Ez azert kell, hogy ne hagyjon tul sok helyet az = korul.
+\begin{eqnarray*}}
+{\end{eqnarray*} \setlength{\arraycolsep}{\tempsep}}
+
+
+%\usepackage[active]{srcltx} % SRC Specials: DVI [Inverse] Search
+% Fuzz --- -------------------------------------------------------
+\hfuzz5pt % Don't bother to report over-full boxes < 5pt
+\vfuzz5pt % Don't bother to report over-full boxes < 5pt
+% THEOREMS -------------------------------------------------------
+% MATH -----------------------------------------------------------
+\newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\Real}{\mathbb R}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\To}{\longrightarrow}
+\newcommand{\BX}{\mathbf{B}(X)}
+\newcommand{\A}{\mathcal{A}}
+
+\renewcommand{\rmdefault}{pmnr}
+\renewcommand{\sfdefault}{iwona}
+
+
+
+\newcommand{\directory}{figures}
+\newcommand*{\newtitle}{\egroup\begin{frame}\frametitle}
+
+\newcommand{\fullpagefigure}[2]{\begin{frame}\frametitle{\hyperlink{#1back}{#2}}\hypertarget{#1}{{\begin{center}\includegraphics[height=0.9\textheight]{\directory/#1}\end{center}}}\end{frame}}
+\newcommand{\widefigure}[2]{\begin{frame}\frametitle{\hyperlink{#1back}{#2}}\hypertarget{#1}{{\begin{center}\includegraphics[width=\linewidth]{\directory/#1}\end{center}}}\end{frame}}
+\newcommand{\longfigure}[2]{\begin{frame}\frametitle{\hyperlink{#1back}{#2}}\hypertarget{#1}{{\begin{center}\includegraphics[height=0.8\textheight]{\directory/#1}\end{center}}}\end{frame}}
+%\newcommand{\fullpagefigure}[2]{\begin{frame}\frametitle{\hyperlink{#1back}{#2}}\hypertarget{#1}{{\begin{centering}$#1$\end{centering}}}\end{frame}}
+\newcommand{\answer}[1]{\begin{itemize}\item #1\end{itemize}}
+
+
+\newcommand{\jumpto}[2]{\hypertarget{#1back}{\hyperlink{#1}{#2}}}
+\newcommand{\backto}[2]{\hypertarget{#1}{\hyperlink{#1back}{#2}}}
+
+\renewcommand{\time}[1]{\addtocounter{percek}{#1}}
+
+\title[Balassa--Samuelson]% (optional, use only with long paper titles)
+{A Spatial Explanation for the Balassa--Samuelson Effect}
+
+
+\author[Kar\'adi and Koren] % (optional, use only with lots of authors)
+{P\'eter Kar\'adi (NYU)\\
+Mikl\'os Koren (Princeton)}
+% - Give the names in the same order as the appear in the paper.
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+
+
+\date % (optional, should be abbreviation of conference name)
+{}
+% - Either use conference name or its abbreviation.
+% - Not really informative to the audience, more for people (including
+%   yourself) who are reading the slides online
+
+%\subject{Theoretical Computer Science}
+% This is only inserted into the PDF information catalog. Can be left
+% out.
+
+
+
+% If you have a file called "university-logo-filename.xxx", where xxx
+% is a graphic format that can be processed by latex or pdflatex,
+% resp., then you can add a logo as follows:
+
+%\pgfdeclareimage[height=0.5cm]{university-logo}{frblogo}
+%\logo{\pgfuseimage{university-logo}}
+
+
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+\AtBeginSection[]
+{
+  \begin{frame}[plain]
+    \frametitle{\color{red}\insertsection}
+    \addtocounter{framenumber}{-1}
+    %\tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command:
+
+%\beamerdefaultoverlayspecification{<+->}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{{}\hfill\insertframenumber--\oradisplay{percek}}
+
+\begin{document}
+
+\begin{frame}[plain]
+  \titlepage
+    \addtocounter{framenumber}{-1}
+\end{frame}
+
+
+\section{Introduction}
+\subsection{Motivation}
+\begin{frame}\frametitle{The Balassa--Samuelson effect}
+
+\begin{itemize}
+    \item Rich countries are more expensive than poor ones.
+    \item In the Penn World Table,
+    \[
+    \ln P = 0.25\ln Y + e.
+    \]
+    %% The reason I put in numbers here is that I want to be able to do back of the env calcs.
+    \item This is mostly due to differences in non-tradable prices, as tradable prices vary little across countries.
+    \item Over time, as a country grows, its non-tradables become relatively more expensive.
+\end{itemize}
+\end{frame}
+
+\time{1}
+
+\begin{frame}\frametitle{Productivity-based explanations}
+
+\begin{itemize}
+    \item Balassa--Samuelson: Productivity growth in non-tradables is slower than in tradables.
+        \begin{itemize}
+            \item Why?
+        \end{itemize}
+\pause
+    \item Kravis--Lipsey--Bhagwati: Non-tradables are more intensive users of the non-reproducible factor (labor).
+    \item This raises their price with capital accumulation.
+        \begin{itemize}
+            \item But the difference in labor intensity is small (Herrendorf and Valentinyi, 2007).
+        \end{itemize}
+\pause
+    \item We propose a simple spatial model in which relative price changes arise endogenously from the location choice of industries.
+\end{itemize}
+\end{frame}
+
+\time{2}
+
+
+%% however, both of these technology assumptions are rather ad hoc. they will never be able to explain variations in the BS effect. as we will see, there is substantial variation both across countries and over time (in particular, BS is relatively recent). our model will be able to speak to both.
+
+
+
+\section{Basic idea}
+\begin{frame}\frametitle{Basic idea}
+\begin{itemize}
+    \item Tradable sectors locate to where land is cheap.
+    \item Non-tradable sectors have to locate near consumers in big cities.
+    \item They compete with housing for scarce urban land.
+    \item Urban land becomes more and more scarce with development.
+    \item Raising the relative price of non-tradables.
+\end{itemize}
+\end{frame}
+\time{2}
+
+%% give ferry house steak / cattle from kansas. cars/parking lots example?
+
+%% talk about outline: 1. land matters. 2. simple model. 3. some supportive evidence
+
+
+
+\section{Land matters}
+\begin{frame}\frametitle{Land is scarce}
+\begin{itemize}
+    \item Population density of the Earth is 42$/\text{km}^2$, so land is abundant.
+    \pause
+    \item However, the average person lives in an area with a population density of 7,300$/\text{km}^2$ (LandScan 2005),
+    so \emph{land close to consumers} is scarce.
+\end{itemize}
+\end{frame}
+\time 2
+
+%% as a comparison, NYC is 10,000
+
+\widefigure{clark-landrents}{Agricultural and urban land rents in England\\ (Clark, 2007)}
+
+\begin{frame}\frametitle{The share of land in GDP$\cdot$}
+Sector income shares in various industries in the US (Herrendorf and Valentinyi, 2007)
+\begin{center}
+\begin{tabular}{l|c|ccc}
+\hline\hline
+Industry    & Capital   &   Land    & Structures    & Equipment \\ \hline
+GDP         &   0.32    &   0.05    & 0.13          & 0.14      \\ \hline
+Agriculture & 0.43      &   0.18    & 0.10          & 0.15      \\
+Manufacturing & 0.31    &   0.03    & 0.08          & 0.20      \\
+Services    & 0.32      & 0.05      & 0.15          & 0.12      \\ \hline\hline
+\end{tabular}
+\end{center}
+\end{frame}
+
+%% 2 things: 1. true that tradables are more capital intensive, but only part of it is reproducible. in that, intensity varies little. 2. overll share is 5%
+
+\time{3}
+
+%% clark emphasizes decline, we emphasize increase
+
+\section{Model}
+\subsection{Basic structure}
+\begin{frame}\frametitle{Basic structure}
+\begin{itemize}
+    \item There are three industries, manufacturing ($m$), services ($s$), and housing ($h$).
+    \item We study how the relative prices of these industries depend on their choice of location...
+    \item ...and how location varies with development.
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Spatial structure}
+\begin{itemize}
+    \item We use the monocentric city model.
+    \item All market exchange takes place in a central business district (CBD).
+    \item CBD is a point in the plain.
+    \item Residents, manufacturing and service establishments can choose their location freely in the plain.
+    \item Location is indexed by distance to the CBD, $z$.
+\end{itemize}
+\end{frame}
+
+%% graph of CBD
+\widefigure{monocentric-1}{The monocentric city}
+\time{2}
+
+\begin{frame}\frametitle{Technology}
+\begin{itemize}
+    \item Land is the only factor of production. (We add labor later.)
+    \item Production functions:
+\begin{align*}
+m&=A_ml_m\\
+s&=A_sl_s\\
+h&= A_hl_h
+\end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Tastes}
+\begin{itemize}
+    \item Consumers have homothetic utility over $m$, $s$ and $h$.
+    \item With indirect utility function
+    \[
+    u(I,p_m,p_s,p_h) = \frac{I}{P(p_m,p_s,p_h)}.
+    \]
+    \item Assume nested structure
+    \[
+    P[\Phi(p_m,p_s),p_h].
+    \]
+\end{itemize}
+\end{frame}
+\time{1}
+
+
+\begin{frame}\frametitle{Transport costs}
+\begin{itemize}
+    \item Goods are shipped to the CBD.
+    \item Both manufacturing and services have iceberg transport cost.
+    \item One good $i$ shipped from location $z$ melts to
+    \[
+    D(\tau_iz)<1,\,\,D'<0.
+    \]
+    \item Services are less tradable:
+    \[
+    \tau_s>\tau_m.
+    \]
+\end{itemize}
+\end{frame}
+\time{2}
+
+\widefigure{Dz}{Iceberg transport costs and distance}
+
+\begin{frame}\frametitle{Commuting costs}
+\begin{itemize}
+    \item People go to the CBD to shop.
+    \item Commuting costs a $1-D(\tau_h z)$ fraction of the consumption bundle.
+    \item So that indirect utility is
+    \[
+    u(I,p_m,p_s,p_h) = \frac{D(\tau_h z)I}{P[\Phi(p_m,p_s),p_h]}.
+    \]
+    \item Commuting is the costliest of all,
+    \[
+    \tau_h>\tau_s>\tau_m.
+    \]
+\end{itemize}
+\end{frame}
+\time{1}
+
+\subsection{Equilibrium}
+
+\begin{frame}\frametitle{Equilibrium}
+\begin{itemize}
+    \item Firms maximize profits and choose location optimally.
+    \item Households maximize utility and choose residence optimally.
+    \item Manufacturing and service markets clear at the CBD.
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Profit maximization$\cdot$}
+\begin{itemize}
+    \item Land rent at location $z$: $r(z)$.
+    \item Profits for industry $i$ at location $z$:
+    \[
+    D(\tau_i z) p_i A_i l_i(z) - r(z)l_i(z).
+    \]
+    \item Optimum requires
+    \[
+    D(\tau_i z) p_i A_i \le r(z),
+    \]
+    with equality if industry $i$ produces at location $z$.
+\end{itemize}
+\end{frame}
+\time{1}
+
+\begin{frame}\frametitle{The bid rent curve$\cdot$}
+\begin{itemize}
+    \item Define a bid rent curve:
+    \[
+    R_i(z) = p_iA_iD(\tau_i z).
+    \]
+    \item Profit maximization requires
+    \[
+    r(z)\ge R_i(z)
+    \]
+    \item Industry $i$ produces at location $z$ only if equal.
+    \item Rent $r(z)$ is the upper envelope of the bid rent curves.
+\end{itemize}
+\end{frame}
+
+%% graph of two bid rent curves
+\widefigure{bid-rent-2}{Bid rent curves of two industries}
+\time{3}
+
+\begin{frame}\frametitle{The bid rent curve of households$\cdot$}
+\begin{itemize}
+    \item Housing at $z$ costs $r(z)/A_h$.
+    \item Other two prices do not depend on residence.
+    \item To achieve utility $u$ at location $z$,
+    \[
+    u = \frac{D(\tau_h z) I}{P[\Phi(p_m,p_s),r(z)/A_h]}.
+    \]
+    \item Bid rent function
+    \[
+    R_h(z) = A_h\Phi(p_m,p_s)P_2^{-1}\left[\frac{D(\tau_h z) I}{u\Phi(p_m,p_s)}\right].
+    \]
+    \item For example, with Cobb--Douglas utility,
+\[
+R_h(z) = A_h\left[\frac{D(\tau_h z) I}{up_m^{\alpha}p_s^{\beta}}\right]^{1/\gamma}.
+\]
+\end{itemize}
+\end{frame}
+\time{2}
+
+
+
+\begin{frame}\frametitle{Equilibrium spatial structure}
+There exists a unique equilibrium.
+\begin{itemize}
+    \item Residents live closest to CBD, $\in[0,z_1]$.
+    \item With a (weakly) declining population density.
+    \item Followed by a ring of service establishments, $\in(z_1,z_2]$.
+    \item Followed by a ring of manufacturing plants, $\in(z_2,z_3]$.
+    \item City boundary is $z_3: D(\tau_m z_3)=0$.
+%    \item The boundaries $z_1$ and $z_2$ determine the supply of housing
+\end{itemize}
+\end{frame}
+
+%% graph of three bid rent curves
+\widefigure{bid-rent-3}{Equilibrium spatial structure}
+
+%% graph of concentric circles
+\widefigure{monocentric-3}{Equilibrium spatial structure}
+\time{5}
+
+\begin{frame}\frametitle{Finding the equilibrium $z_1$ and $z_2$$\cdot$}
+\begin{itemize}
+    \item Cutoffs pin down supply:
+    \begin{align*}
+    s &= \int_{z_1}^{z_2}2\pi z D(\tau_s z) dz, \\
+    m &= \int_{z_2}^{z_3}2\pi z D(\tau_m z) dz .
+    \end{align*}
+    \item Arbitrage at the manufacturing--service boundary $z_2$ pins down relative prices,
+    \[
+    p_mA_mD(\tau_m z_2) = p_sA_sD(\tau_s z_2),
+    \]
+    which determines demand.
+    \item Find $z_1$ and $z_2$ such that markets clear.
+\end{itemize}
+\end{frame}
+\time 2
+
+\subsection{Productivity growth}
+
+\begin{frame}\frametitle{Productivity growth}
+\begin{itemize}
+\item We conduct the following comparative statics.
+\item Increase $A_m$ and $A_s$ proportionally (so that productivity growth is neutral).
+\item What happens to industry location ($z_1$, $z_2$) and relative prices?
+\end{itemize}
+\end{frame}
+\time 1
+
+
+
+\begin{frame}\frametitle{Propositions}
+
+\begin{block}{Balassa--Samuelson and the sprawl}
+Service prices increase with development if and only if residential land increases with development.
+\end{block}
+\pause
+
+\begin{block}{Balanced growth}
+Productivity growth does not change the relative price of services if
+    \begin{enumerate}
+      \item housing productivity grows at the same rate,
+      \item \emph{or} demand for housing is Cobb--Douglas.
+    \end{enumerate}
+\end{block}
+\end{frame}
+\time 3
+%% explain C-D
+
+%% explain sprawl
+
+\begin{frame}\frametitle{Proof of Proposition 1$\cdot$}
+\begin{itemize}
+    \item From rent arbitrage at boundary $z_2$, the relative price of services
+    \[
+    \frac{p_s}{p_m} = \frac{D(\tau_m z_2)}{D(\tau_s z_2)},
+    \]
+    increasing in $z_2$.
+    \item Relative demand is
+    \[
+    \frac{s}{m} = \phi\left(\frac{p_s}{p_m}\right) = \phi\left(\frac{D(\tau_m z_2)}{D(\tau_s z_2)}\right),
+    \]
+    decreasing in $z_2$. ($\phi$ denotes $\Phi_2/\Phi_1$.)
+    \item Relative supply is increasing in $z_2$.
+    \item For a given $z_1$, there is a unique $z_2$ that equates relative demand and supply.
+    \item This $z_2$ is increasing in $z_1$.
+\end{itemize}
+\end{frame}
+\time 2
+%% do this with graphs
+\widefigure{bid-rent-3-prime}{Comparative statics}
+\time 3
+
+\subsection{Comparative statics}
+
+\begin{frame}\frametitle{Functional form assumptions}
+\begin{itemize}
+    \item No technical progress in housing, $A_h=$constant.
+    \item Utility is Cobb--Douglas in goods, Leontief in housing,
+\[
+u(m,s,h) = \min\{m^\gamma s^{1-\gamma} ,h/H\}.
+\]
+    \item Transport costs are exponential (constant hazard),
+\[
+D(\tau z) = \exp(-\tau z).
+\]
+    \item We add labor with identical intensities in both sectors,
+\begin{align*}
+m&=A_ml_m^\beta n_m^{1-\beta}\\
+s&=A_sl_s^\beta n_s^{1-\beta}
+\end{align*}
+\end{itemize}
+\end{frame}
+\time 3
+
+
+\begin{frame}\frametitle{Solution}
+\begin{itemize}
+    \item These assumptions lead to a closed-form solution.
+    \item Balassa--Samuelson effect:
+\[
+\frac{d\ln (p_s/p_m)}{d\ln A} = \frac{(\tau_s-\tau_m)z_1}{1+\Bar\tau z_1/\beta}
+\]
+    \item Stronger if
+    \begin{enumerate}
+      \item trade cost differential is large,
+      \item residential land is large,
+      \item land share is large.
+    \end{enumerate}
+\end{itemize}
+\end{frame}
+\time 2
+
+
+\begin{frame}\frametitle{Predictions}
+
+
+As productivity increases,
+\begin{enumerate}
+    \item residential land increases,
+    \item home prices increase,
+    \item the rent gradient becomes steeper,
+    \item tradable industries move away from center,
+    \item services become more expensive,
+    \item labor productivity increases faster in manufacturing.
+%   \item employment becomes more concentrated.
+\end{enumerate}
+\begin{enumerate}
+    \item[7.] All of these effects are stronger for more densely populated countries.
+\end{enumerate}
+\end{frame}
+\time 2
+
+%\section{Numerical exercise}
+\section{Empirical evidence}
+
+\subsection{Demand for residential land}
+
+\begin{frame}\frametitle{Demand for residential land increases with development$\cdot$}
+\begin{itemize}
+    \item Between 1976 and 1992, residential land per capita increased by 25\%.
+    (Burchfield, Overman, Puga and Turner, 2006; Overman, Puga and Turner, 2007)
+    \item Between 1950 and 2000,  the price of residential land increased more than nine-fold. (Davis and Heathcote, 2007)
+    \item During the same period, the share of land in the value of a home increased from 10\% to 36\%.
+\end{itemize}
+\end{frame}
+\time 2
+
+%% correct the figure
+\widefigure{dh-shares}{Land prices and the share of land in home value\\ (Davis and Heathcote, 2007)}
+\time 1
+
+%% skip this in the interest of time
+
+\begin{frame}\frametitle{Income and the demand for housing$\cdot$}
+\begin{table}[h!]
+\center
+\begin{tabular}{l|cc}
+  \hline\hline
+  Explanatory & \multicolumn{2}{c}{Dependent variable} \\
+  variables & Land value & Number of rooms \\
+            & (log)      & per capita (log) \\
+  \hline
+  Income (log)   & \textbf{2.77}   & \textbf{0.26}\\
+                 & (0.67)          & (0.08)\\
+  Population (log)    & 0.13            &  \textbf{-0.07}\\
+                 & (0.18)          & (0.01) \\ \hline
+  $R^2$          & 0.42            & 0.26\\
+  No. of obs.    & 46              & 3219\\ \hline\hline
+\end{tabular}
+\end{table}
+\end{frame}
+\time 2
+
+\subsection{Rent gradient}
+\longfigure{dh-prices}{Rent gradient became steeper$\cdot$}
+\time 1
+%% comment on back-of-the-envelope
+%% relative price roughly doubled between 1987 and 05. with a 5% land share, this leads to a 4% increase in service prices
+
+\subsection{Industry location}
+\begin{frame}\frametitle{Tradable sectors move out of cities$\cdot$}
+\begin{itemize}
+    \item Burchfield, Overman, Puga and Turner (2006): commercial land is more scattered than residential land, more so in 1992 than in 1976.
+    \item Holmes and Stevens (2004): in 1997 manufacturing is underrepresented in large cities.
+    \item Desmet and Fafchamps (2006): manufacturing deconcentrated between 1970 and 2000.
+\end{itemize}
+\end{frame}
+\time 1
+
+\widefigure{LQ_map}{Locational quotient of tradable sectors$\cdot$}
+\widefigure{LQ_scatter}{Tradables stay away from dense counties$\cdot$}
+\widefigure{deurbanization}{Industries move away from dense counties}
+\time 1
+
+\begin{frame}
+\frametitle{Proximity to population and inflation}
+\begin{center}
+\begin{tabular}{l|cc}
+\hline\hline
+& Employment share & Inflation \\
+& of the most dense counties & (1947-2006, va)\\ \hline
+GDP & 31.5\% & 3.4\% \\ \hline
+Agriculture & 3.2\% & 0.5\% \\
+Manufacturing & 23.3\% & 2.1\% \\
+Services & 33.4\% & 3.5\% \\ \hline\hline
+\end{tabular}
+\end{center}
+\end{frame}
+\time 1
+
+\subsection{Balassa--Samuelson Effect}
+\widefigure{sc_penn}{Balassa--Samuelson is stronger in urban countries}
+\time 2
+
+
+%\addtocounter{percek}{9}
+\section{Conclusions}
+\begin{frame}\frametitle{Conclusions}
+\begin{itemize}
+\item The model is tractable enough to incorporate dynamics, multiple countries etc.
+%\item ***still features Balassa's and Samuelson's
+\item Predictions are consistent with several stylized facts about urbanization, industry location, and relative prices.
+\item Balassa--Samuelson effect is stronger in urban countries.
+%\item Urban sectors experience higher inflation.
+
+\end{itemize}
+\end{frame}
+
+\end{document}
+% 
