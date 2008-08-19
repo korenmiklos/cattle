@@ -1,312 +1,312 @@
-product,productname,ISIC,ELI,NAICS
-ABLM,"Beer, local brand (1 l) (mid-priced store)",1516,FW01,3121
-ABLS,"Beer, local brand (1 l) (supermarket)",1516,FW01,3121
-ABTM,"Beer, top quality (330 ml) (mid-priced store)",1516,FW01,3121
-ABTS,"Beer, top quality (330 ml) (supermarket)",1516,FW01,3121
-ACFM,"Cognac, French VSOP (700 ml) (mid-priced store)",1516,FW02,3121
-ACFS,"Cognac, French VSOP (700 ml) (supermarket)",1516,FW02,3121
-AGGM,"Gin, Gilbey's or equivalent (700 ml) (mid-priced store)",1516,FW02,3121
-AGGS,"Gin, Gilbey's or equivalent (700 ml) (supermarket)",1516,FW02,3121
-ALCM,"Liqueur, Cointreau (700 ml) (mid-priced store)",1516,FW02,3121
-ALCS,"Liqueur, Cointreau (700 ml) (supermarket)",1516,FW02,3121
-ASWM,"Scotch whisky, six years old (700 ml) (mid-priced store)",1516,FW02,3121
-ASWS,"Scotch whisky, six years old (700 ml) (supermarket)",1516,FW02,3121
-AVMS,"Vermouth, Martini & Rossi (1 l) (supermarket)",1516,FW02,3121
-AVSM,"Vermouth, Martini & Rossi (1 l) (mid-priced store)",1516,FW02,3121
-AWCM,"Wine, common table (1 l) (mid-priced store)",1516,FW03,3121
-AWCS,"Wine, common table (1 l) (supermarket)",1516,FW03,3121
-AWFM,"Wine, fine quality (700 ml) (mid-priced store)",1516,FW03,3121
-AWFS,"Wine, fine quality (700 ml) (supermarket)",1516,FW03,3121
-AWSM,"Wine, superior quality (700 ml) (mid-priced store)",1516,FW03,3121
-AWSS,"Wine, superior quality (700 ml) (supermarket)",1516,FW03,3121
-BCOP,One good seat at cinema (average),7599,RF02,5121
-BDRB,One drink at bar of first class hotel (average),5500,FX,7224
-BFFS,"Fast food snack: hamburger, fries and drink (average)",5500,FV02,7222
-BHCL,"Hire car, weekly rate for lowest price classification (average)",6064,TA04,5321
-BHCM,"Hire car, weekly rate for moderate price classification (average)",6064,TA04,5321
-BHTH,"Hilton-type hotel, single room, one night including breakfast (average)",5500,HB02,7211
-BMHT,"Moderate hotel, single room, one night including breakfast (average)",5500,HB02,7211
-BMOP,Simple meal for one person (average),5500,FV02,7221
-BMTP,Two-course meal for two people (average),5500,FV02,7221
-BOCT,"Business trip, typical daily cost",5500,HB02,
-CBJC,"Boy's jacket, smart (chain store)",1719,AB,3151
-CBJM,"Boy's jacket, smart (mid-priced/branded store)",1719,AB,3151
-CBSC,"Business suit, two piece, medium weight (chain store)",1719,AA01,3151
-CBSM,"Business suit, two piece, medium weight (mid-priced/branded store)",1719,AA01,3151
-CBTC,Boy's dress trousers (chain store),1719,AB,3151
-CBTM,Boy's dress trousers (mid-priced/branded store),1719,AB,3151
-CCJC,Child's jeans (chain store),1719,AB,3151
-CCJM,Child's jeans (mid-priced/branded store),1719,AB,3151
-CCPI,Consumer price index (1996=100; av),199,,3151
-CCSM,"Child's shoes, dresswear (mid-priced/branded store)",1719,AE02,3161
-CCSS,"Child's shoes, dresswear (chain store)",1719,AE02,3161
-CDDC,"Dress, ready to wear, daytime (chain store)",1719,AC02,3151
-CDDM,"Dress, ready to wear, daytime (mid-priced/branded store)",1719,AC02,3151
-CGDC,Girl's dress (chain store),1719,AD,3151
-CGDM,Girl's dress (mid-priced/branded store),1719,AD,3151
-CMSC,"Men's shoes, business wear (chain store)",1719,AE01,3161
-CMSM,"Men's shoes, business wear (mid-priced/branded store)",1719,AE01,3161
-CMTC,"Business shirt, white (chain store)",1719,AA03,3151
-CMTM,"Business shirt, white (mid-priced/branded store)",1719,AA03,3151
-CRBC,"Mens raincoat, Burberry type (chain store)",1719,AA01,3151
-CRBM,"Men's raincoat, Burberry type (mid-priced/branded store)",1719,AA01,3151
-CSSC,"Child's shoes, sportswear (chain store)",1719,AE02,3162
-CSSM,"Child' s shoes, sportswear (mid-priced/branded store)",1719,AE02,3162
-CSWM,"Socks, wool mixture (mid-priced/branded store)",1719,AE,3132
-CSWS,"Socks, wool mixture (chain store)",1719,AE,3132
-CTIC,"Tights, panty hose (chain store)",1719,AE03,3151
-CTIM,"Tights, panty hose (mid-priced/branded store)",1719,AE03,3151
-CWCC,Women's cardigan sweater (chain store),1719,AC01,3151
-CWCM,Women's cardigan sweater (mid-priced/branded store),1719,AC01,3151
-CWRC,"Women's raincoat, Burberry type (chain store)",1719,AC01,3151
-CWRM,"Women's raincoat, Burberry type (mid-priced/branded store)",1719,AC01,3151
-CWSC,"Women's shoes, town (chain store)",1719,AE03,3162
-CWSM,"Women's shoes, town (mid-priced/branded store)",1719,AE03,3162
-DHBR,Babysitter's rate per hour (average),7599,HP01,8129
-DHDC,Hourly rate for domestic cleaning help (average),7599,HP01,5617
-DHMW,Maid's monthly wages (full time) (average),7599,HP01,5617
-FAPM,Apples (1 kg) (mid-priced store),1014,FK01,1113
-FAPS,Apples (1 kg) (supermarket),1014,FK01,1113
-FBAM,Bacon (1 kg) (mid-priced store),1014,FD01,3116
-FBAS,Bacon (1 kg) (supermarket),1014,FD01,3116
-FBGM,Beef: ground or minced (1 kg) (mid-priced store),1014,FC01,3116
-FBGS,Beef: ground or minced (1 kg) (supermarket),1014,FC01,3116
-FBNM,Bananas (1 kg) (mid-priced store),1014,FK02,1112
-FBNS,Bananas (1 kg) (supermarket),1014,FK02,1112
-FBRM,Beef: roast (1 kg) (mid-priced store),1014,FC02,3116
-FBRS,Beef: roast (1 kg) (supermarket),1014,FC02,3116
-FBSM,"Beef: stewing, shoulder (1 kg) (mid-priced store)",1014,FC04,3116
-FBSS,"Beef: stewing, shoulder (1 kg) (supermarket)",1014,FC04,3116
-FBUM,"Butter, 500 g (mid-priced store)",1014,FS01,3115
-FBUS,"Butter, 500 g (supermarket)",1014,FS01,3115
-FCCM,Cocoa (250 g) (mid-priced store),1014,FM03,3112
-FCCS,Cocoa (250 g) (supermarket),1014,FM03,3112
-FCFM,Cornflakes (375 g) (mid-priced store),1014,FA02,3112
-FCFS,Cornflakes (375 g) (supermarket),1014,FA02,3112
-FCHM,"Cheese, imported (500 g) (mid-priced store)",1014,FJ02,3115
-FCHS,"Cheese, imported (500 g) (supermarket)",1014,FJ02,3115
-FCOM,Coca-Cola (1 l) (mid-priced store),1014,FN01,3121
-FCOS,Coca-Cola (1 l) (supermarket),1014,FN01,3121
-FCRM,Carrots (1 kg) (mid-priced store),1014,FL04,1113
-FCRS,Carrots (1 kg) (supermarket),1014,FL04,1113
-FCWM,Chicken: fresh (1 kg) (mid-priced store),1014,FF01,1123
-FCWS,Chicken: fresh (1 kg) (supermarket),1014,FF01,1123
-FCZM,Chicken: frozen (1 kg) (mid-priced store),1014,FF01,3111
-FCZS,Chicken: frozen (1 kg) (supermarket),1014,FF01,3111
-FDCM,Drinking chocolate (500 g) (mid-priced store),1014,FP02,3121
-FDCS,Drinking chocolate (500 g) (supermarket),1014,FP02,3121
-FEGM,Eggs (12) (mid-priced store),1014,FH,1123
-FEGS,Eggs (12) (supermarket),1014,FH,1123
-FFFM,Frozen fish fingers (1 kg) (mid-priced store),1014,FG02,3117
-FFFS,Frozen fish fingers (1 kg) (supermarket),1014,FG02,3117
-FFIM,Fresh fish (1 kg) (mid-priced store),1014,FG01,1141
-FFIS,Fresh fish (1 kg) (supermarket),1014,FG01,1141
-FFLM,"Flour, white (1 kg) (mid-priced store)",1014,FA01,3112
-FFLS,"Flour, white (1 kg) (supermarket)",1014,FA01,3112
-FFMM,Beef: filet mignon (1 kg) (mid-priced store),1014,FC03,3116
-FFMS,Beef: filet mignon (1 kg) (supermarket),1014,FC03,3116
-FGCM,Ground coffee (500 g) (mid-priced store),1014,FP01,3112
-FGCS,Ground coffee (500 g) (supermarket),1014,FP01,3112
-FHAM,Ham: whole (1 kg) (mid-priced store),1014,FD02,3116
-FHAS,Ham: whole (1 kg) (supermarket),1014,FD02,3116
-FICM,Instant coffee (125 g) (mid-priced store),1014,FP01,3121
-FICS,Instant coffee (125 g) (supermarket),1014,FP01,3121
-FLCM,Lamb: chops (1 kg) (mid-priced store),1014,FC03,3116
-FLCS,Lamb: chops (1 kg) (supermarket),1014,FC03,3116
-FLEM,Lemons (1 kg) (mid-priced store),1014,FK03,1113
-FLES,Lemons (1 kg) (supermarket),1014,FK03,1113
-FLLM,Lamb: leg (1 kg) (mid-priced store),1014,FC04,3116
-FLLS,Lamb: leg (1 kg) (supermarket),1014,FC04,3116
-FLSM,Lamb: Stewing (1 kg) (mid-priced store),1014,FC04,3116
-FLSS,Lamb: Stewing (1 kg) (supermarket),1014,FC04,3116
-FLTM,Lettuce (one) (mid-priced store),1014,FL02,1112
-FLTS,Lettuce (one) (supermarket),1014,FL02,1112
-FMGM,"Margarine, 500g (mid-priced store)",1014,FS01,3115
-FMGS,"Margarine, 500g (supermarket)",1014,FS01,3115
-FMHM,Mushrooms (1 kg) (mid-priced store),1014,FL04,1112
-FMHS,Mushrooms (1 kg) (supermarket),1014,FL04,1112
-FMKM,"Milk, pasteurised (1 l) (mid-priced store)",1014,FJ01,1121
-FMKS,"Milk, pasteurised (1 l) (supermarket)",1014,FJ01,1121
-FMWM,Mineral water (1 l) (mid-priced store),1014,FP02,3121
-FMWS,Mineral water (1 l) (supermarket),1014,FP02,3121
-FOJM,Orange juice (1 l) (mid-priced store),1014,FN03,3114
-FOJS,Orange juice (1 l) (supermarket),1014,FN03,3114
-FONM,Onions (1 kg) (mid-priced store),1014,FL04,1112
-FONS,Onions (1 kg) (supermarket),1014,FL04,1112
-FOOM,Olive oil (1 l) (mid-priced store),1014,FS02,3112
-FOOS,Olive oil (1 l) (supermarket),1014,FS02,3112
-FORM,Oranges (1 kg) (mid-priced store),1014,FK03,1113
-FORS,Oranges (1 kg) (supermarket),1014,FK03,1113
-FPCM,Peanut or corn oil (1 l) (mid-priced store),1014,FS03,3112
-FPCS,Peanut or corn oil (1 l) (supermarket),1014,FS03,3112
-FPEM,"Peaches, canned (500 g) (mid-priced store)",1014,FK04,3114
-FPES,"Peaches, canned (500 g) (supermarket)",1014,FK04,3114
-FPLM,Pork: loin (1 kg) (mid-priced store),1014,FD03,3116
-FPLS,Pork: loin (1 kg) (supermarket),1014,FD03,3116
-FPOM,Pork: chops (1 kg) (mid-priced store),1014,FD03,3116
-FPOS,Pork: chops (1 kg) (supermarket),1014,FD03,3116
-FPSM,"Peas, canned (250 g) (mid-priced store)",1014,FM01,3114
-FPSS,"Peas, canned (250 g) (supermarket)",1014,FM01,3114
-FPTM,Potatoes (2 kg) (mid-priced store),1014,FL01,1112
-FPTS,Potatoes (2 kg) (supermarket),1014,FL01,1112
-FSEM,"Beef: steak, entrecote (1 kg) (mid-priced store)",1014,FC03,3111
-FSES,"Beef: steak, entrecote (1 kg) (supermarket)",1014,FC03,3111
-FSLM,"Sliced pineapples, canned (500 g) (mid-priced store)",1014,FM01,3114
-FSLS,"Sliced pineapples, canned (500 g) (supermarket)",1014,FM01,3114
-FSPM,Spaghetti (1 kg) (mid-priced store),1014,FA03,3118
-FSPS,Spaghetti (1 kg) (supermarket),1014,FA03,3118
-FSUM,"Sugar, white (1 kg) (mid-priced store)",1014,FR01,3113
-FSUS,"Sugar, white (1 kg) (supermarket)",1014,FR01,3113
-FTBM,Tea bags (25 bags) (mid-priced store),1014,FP02,3121
-FTBS,Tea bags (25 bags) (supermarket),1014,FP02,3121
-FTCM,"Tomatoes, canned (250 g) (mid-priced store)",1014,FK04,3114
-FTCS,"Tomatoes, canned (250 g) (supermarket)",1014,FK04,3114
-FTMM,Tomatoes (1 kg) (mid-priced store),1014,FL03,1112
-FTMS,Tomatoes (1 kg) (supermarket),1014,FL03,1112
-FTWM,Tonic water (200 ml) (mid-priced store),1014,FN01,3121
-FTWS,Tonic water (200 ml) (supermarket),1014,FN01,3121
-FVCM,Veal: chops (1 kg) (mid-priced store),1014,FC03,3116
-FVCS,Veal: chops (1 kg) (supermarket),1014,FC03,3116
-FVFM,Veal: fillet (1 kg) (mid-priced store),1014,FC03,3116
-FVFS,Veal: fillet (1 kg) (supermarket),1014,FC03,3116
-FVRM,Veal: roast (1 kg) (mid-priced store),1014,FC02,3116
-FVRS,Veal: roast (1 kg) (supermarket),1014,FC02,3116
-FWBM,"White bread, 1 kg (mid-priced store)",1014,FB01,3118
-FWBS,"White bread, 1 kg (supermarket)",1014,FB01,3118
-FWRM,"White rice, 1 kg (mid-priced store)",1014,FA03,1111
-FWRS,"White rice, 1 kg (supermarket)",1014,FA03,1111
-FYOM,"Yoghurt, natural (150 g) (mid-priced store)",1014,FJ04,3115
-FYOS,"Yoghurt, natural (150 g) (supermarket)",1014,FJ04,3115
-HBTM,"Batteries (two, size D/LR20) (mid-priced store)",2935,HM01,3359
-HBTS,"Batteries (two, size D/LR20) (supermarket)",2935,HM01,3359
-HDLM,Dishwashing liquid (750 ml) (mid-priced store),2325,HN01,3256
-HDLS,Dishwashing liquid (750 ml) (supermarket),2325,HN01,3256
-HDMM,"Dry cleaning, man's suit (mid-priced outlet)",7599,GD03,8123
-HDMS,"Dry cleaning, man's suit (standard high-street outlet)",7599,GD03,8123
-HDTM,"Dry cleaning, trousers (mid-priced outlet)",7599,GD03,8123
-HDTS,"Dry cleaning, trousers (standard high-street outlet)",7599,GD03,8123
-HDWM,"Dry cleaning, woman's dress (mid-priced outlet)",7599,GD03,8123
-HDWS,"Dry cleaning, woman's dress (standard high-street outlet)",7599,GD03,8123
-HETM,Electric toaster (for two slices) (mid-priced store),2935,HK02,3352
-HETS,Electric toaster (for two slices) (supermarket),2935,HK02,3352
-HFPM,Frying pan (Teflon or good equivalent) (mid-priced store),2728,HL04,3322
-HFPS,Frying pan (Teflon or good equivalent) (supermarket),2728,HL04,3322
-HIKM,Insect-killer spray (330 g) (mid-priced store),2325,GB01,3253
-HIKS,Insect-killer spray (330 g) (supermarket),2325,GB01,3253
-HLAM,Laundry (one shirt) (mid-priced outlet),7599,GD03,8123
-HLAS,Laundry (one shirt) (standard high-street outlet),7599,GD03,8123
-HLBM,"Light bulbs (two, 60 watts) (mid-priced store)",3637,HM01,3351
-HLBS,"Light bulbs (two, 60 watts) (supermarket)",3637,HM01,3351
-HLDM,Laundry detergent (3 l) (mid-priced store),2325,HN01,3256
-HLDS,Laundry detergent (3 l) (supermarket),2325,HN01,3256
-HSPM,Soap (100 g) (mid-priced store),2325,HN01,3256
-HSPS,Soap (100 g) (supermarket),2325,HN01,3256
-HTTM,Toilet tissue (two rolls) (mid-priced store),2122,HN02,3222
-HTTS,Toilet tissue (two rolls) (supermarket),2122,HN02,3222
-ICDT,Visit to dentist (one X-ray and one filling) (average),7599,MC02,6212
-ICGP,Routine checkup at family doctor (average),7599,MC02,6211
-IGFG,Green fees on a public golf course (average),7599,RF01,7139
-IPSP,Entrance fee to a public swimming pool (average),7599,RF02,7139
-ISA1,"American /English school: annual tuition, ages 5-12 (average)",7599,EB02,6111
-ISA2,"American/English school: annual tuition, ages 13-17 (average)",7599,EB02,6111
-ISA3,"American/English school: extra costs, ages 5-12 (average)",7599,EB02,6111
-ISA4,"American/English school: extra costs, ages 13-17 (average)",7599,EB02,6111
-ISA5,American/English school: kindergarten annual fees (average),7599,EB03,6231
-ISF1,"French school: annual tuition, ages 5-12 (average)",7599,EB02,6111
-ISF2,"French school: annual tuition, ages 13-17 (average)",7599,EB02,6111
-ISF3,"French school: extra costs, ages 5-12 (average)",7599,EB02,6111
-ISF4,"French school: extra costs, ages 13-17 (average)",7599,EB02,6111
-ISF5,French school: kindergarten annual fees (average),7599,EB03,6231
-ISG1,"German school: annual tuition, ages 5-12 (average)",7599,EB02,6111
-ISG2,"German school: annual tuition, ages 13-17 (average)",7599,EB02,6111
-ISG3,"German school: extra costs, ages 5-12 (average)",7599,EB02,6111
-ISG4,"German school: extra costs, ages 13-17 (average)",7599,EB02,6111
-ISG5,German school: kindergarten annual fees (average),7599,EB03,6231
-ISTB,"Cost of six tennis balls eg Dunlop, Wilson (average)",3637,RC02,3399
-ITCH,Hire of tennis court for one hour (average),7599,RF02,7139
-IXGP,One X-ray at doctor's office or hospital (average),7599,MC04,6221
-LCHD,Labour costs per hour,100,XWA,
-PCAM,Aspirins (100 tablets) (mid-priced store),2325,MB01,3254
-PCAS,Aspirins (100 tablets) (supermarket),2325,MB01,3254
-PCFM,Facial tissues (box of 100) (mid-priced store),2122,GB02,3222
-PCFS,Facial tissues (box of 100) (supermarket),2122,GB02,3222
-PCHM,Hand lotion (125 ml) (mid-priced store),2325,GB02,3256
-PCHS,Hand lotion (125 ml) (supermarket),2325,GB02,3256
-PCLM,Lipstick (deluxe type) (mid-priced store),2325,GB02,3256
-PCLS,Lipstick (deluxe type) (supermarket),2325,GB02,3256
-PCMH,Man's haircut (tips included) (average),7599,GC01,8121
-PCRM,Razor blades (five pieces) (mid-priced store),2728,GB01,3312
-PCRS,Razor blades (five pieces) (supermarket),2728,GB01,3312
-PCSM,Shampoo & conditioner in one (400 ml) (mid-priced store),2325,GB01,3256
-PCSS,Shampoo & conditioner in one (400 ml) (supermarket),2325,GB01,3256
-PCTM,Toothpaste with fluoride (120 g) (mid-priced store),2325,GB01,3256
-PCTS,Toothpaste with fluoride (120 g) (supermarket),2325,GB01,3256
-PCWH,Woman's cut & blow dry (tips included) (average),7599,GC01,8121
-RCDA,Compact disc album (average),3637,RA06,3346
-RCFP,Four best seats at cinema (average),7599,RF02,5121
-RCTV,"Television, colour (66 cm) (average)",2935,RA01,3343
-RDCP,Cost of developing 36 colour pictures (average),7599,RD02,8129
-RDFP,Three course dinner for four people (average),5500,FV01,7221
-RDLN,Daily local newspaper (average),2122,RG01,3231
-RF1H,Furnished residential apartment: 1 bedroom (high),7000,HA,
-RF1M,Furnished residential apartment: 1 bedroom (moderate),7000,HA,
-RF2H,Furnished residential apartment: 2 bedroom (high),7000,HA,
-RF2M,Furnished residential apartment: 2 bedroom (moderate),7000,HA,
-RF3H,Furnished residential house: 3 bedrooms (high),7000,HA,
-RF3M,Furnished residential house: 3 bedrooms (moderate),7000,HA,
-RFDN,International foreign daily newspaper (average),2122,RG01,3231
-RIUS,"Industrial space, per sq metre per year",7000,XWA,
-RKCF,Kodak colour film (36 exposures) (average),3637,RD01,3346
-RNFP,Personal computer (64 MB) (average),2935,EE01,3341
-ROLT,Typical lease term for office property (years),7000,XOF,
-ROUS,Office rent per sq metre per year,7000,XOF,
-RPBN,Paperback novel (at bookstore) (average),2122,RG02,3231
-RTFP,Four best seats at theatre or concert (average),7599,RF02,7111
-RU2H,Unfurnished residential apartment: 2 bedrooms (high),7000,HA,
-RU2M,Unfurnished residential apartment: 2 bedrooms (moderate),7000,HA,
-RU3H,Unfurnished residential apartment: 3 bedrooms (high),7000,HA,
-RU3M,Unfurnished residential apartment: 3 bedrooms (moderate),7000,HA,
-RU4H,Unfurnished residential apartment: 4 bedrooms (high),7000,HA,
-RU4M,Unfurnished residential apartment: 4 bedrooms (moderate),7000,HA,
-RUH3,Unfurnished residential house: 3 bedrooms (high),7000,HA,
-RUH4,Unfurnished residential house: 4 bedrooms (high),7000,HA,
-RUM3,Unfurnished residential house: 3 bedrooms (moderate),7000,HA,
-RUM4,Unfurnished residential house: 4 bedrooms (moderate),7000,HA,
-RWNM,International weekly news magazine (Time) (average),2122,RG01,3231
-SBSS,"Bilingual secretary, annual basic salary",100,XWA,
-SDA1,"Disposable income (%) on a salary equivalent to $30,000 (married person, 1 child)",,,
-SDA2,"Disposable income (%) on a salary equivalent to $60,000 (married person, 1 child)",,,
-SDA3,"Disposable income (%) on a salary equivalent to $100,000 (married person, 1 child)",,,
-SDA4,"Disposable income (%) on a salary equivalent to $150,000 (married person, 1 child)",,,
-SDA5,"Disposable income (%) on a salary equivalent to $200,000 (married person, 1 child)",,,
-SDB1,"Disposable income (%) on a salary equivalent to $30,000 (married person, 2 children)",,,
-SDB2,"Disposable income (%) on a salary equivalent to $60,000 (married person, 2 children)",,,
-SDB3,"Disposable income (%) on a salary equivalent to $100,000 (married person, 2 children)",,,
-SDB4,"Disposable income (%) on a salary equivalent to $150,000 (married person, 2 children)",,,
-SDB5,"Disposable income (%) on a salary equivalent to $200,000 (married person, 2 children)",,,
-SDM1,"Disposable income (%) on a salary equivalent to $30,000 (married person)",,,
-SDM2,"Disposable income (%) on a salary equivalent to $60,000 (married person)",,,
-SDM3,"Disposable income (%) on a salary equivalent to $100,000 (married person)",,,
-SDM4,"Disposable income (%) on a salary equivalent to $150,000 (married person)",,,
-SDM5,"Disposable income (%) on a salary equivalent to $200,000 (married person)",,,
-SDS1,"Disposable income (%) on a salary equivalent to $30,000 (single person)",,,
-SDS2,"Disposable income (%) on a salary equivalent to $60,000 (single person)",,,
-SDS3,"Disposable income (%) on a salary equivalent to $100,000 (single person)",,,
-SDS4,"Disposable income (%) on a salary equivalent to $150,000 (single person)",,,
-SDS5,"Disposable income (%) on a salary equivalent to $200,000 (single person)",,,
-SSMS,"Sales manager, annual basic salary",100,XWA,
-TCLM,"Cigarettes, local brand (pack of 20) (mid-priced store)",1516,GA01,3122
-TCLS,"Cigarettes, local brand (pack of 20) (supermarket)",1516,GA01,3122
-TCMM,"Cigarettes, Marlboro (pack of 20) (mid-priced store)",1516,GA01,3122
-TCMS,"Cigarettes, Marlboro (pack of 20) (supermarket)",1516,GA01,3122
-TPTO,Pipe tobacco (50 g) (average),1516,GA02,3122
-TRUP,Regular unleaded petrol (1 l) (average),4041,TB01,2111
-TTAC,Taxi: airport to city centre (average),6064,TG02,4853
-TTIM,Taxi: initial meter charge (average),6064,TG02,4853
-TTRK,Taxi rate per additional kilometre (average),6064,TG02,4853
-UEMB,"Electricity, monthly bill (average)",4041,HF01,2211
-UGMB,"Gas, monthly bill (average)",4041,HF02,2212
-UHTO,Heating oil (100 l) (average),4041,HE01,2111
-UTCH,"Telephone, charge per local call from home (3 mins) (average)",6064,ED01,5171
-UTLR,"Telephone and line, monthly rental (average)",6064,ED01,5171
-UWMB,"Water, monthly bill (average)",4041,HG01,2213
+product,productname,ISIC,ELI,NAICS,sector
+FWRM,"White rice, 1 kg (mid-priced store)",1014,FA03,1111,agri
+FWRS,"White rice, 1 kg (supermarket)",1014,FA03,1111,agri
+FBNM,Bananas (1 kg) (mid-priced store),1014,FK02,1112,agri
+FBNS,Bananas (1 kg) (supermarket),1014,FK02,1112,agri
+FLTM,Lettuce (one) (mid-priced store),1014,FL02,1112,agri
+FLTS,Lettuce (one) (supermarket),1014,FL02,1112,agri
+FMHM,Mushrooms (1 kg) (mid-priced store),1014,FL04,1112,agri
+FMHS,Mushrooms (1 kg) (supermarket),1014,FL04,1112,agri
+FONM,Onions (1 kg) (mid-priced store),1014,FL04,1112,agri
+FONS,Onions (1 kg) (supermarket),1014,FL04,1112,agri
+FPTM,Potatoes (2 kg) (mid-priced store),1014,FL01,1112,agri
+FPTS,Potatoes (2 kg) (supermarket),1014,FL01,1112,agri
+FTMM,Tomatoes (1 kg) (mid-priced store),1014,FL03,1112,agri
+FTMS,Tomatoes (1 kg) (supermarket),1014,FL03,1112,agri
+FAPM,Apples (1 kg) (mid-priced store),1014,FK01,1113,agri
+FAPS,Apples (1 kg) (supermarket),1014,FK01,1113,agri
+FCRM,Carrots (1 kg) (mid-priced store),1014,FL04,1113,agri
+FCRS,Carrots (1 kg) (supermarket),1014,FL04,1113,agri
+FLEM,Lemons (1 kg) (mid-priced store),1014,FK03,1113,agri
+FLES,Lemons (1 kg) (supermarket),1014,FK03,1113,agri
+FORM,Oranges (1 kg) (mid-priced store),1014,FK03,1113,agri
+FORS,Oranges (1 kg) (supermarket),1014,FK03,1113,agri
+FMKM,"Milk, pasteurised (1 l) (mid-priced store)",1014,FJ01,1121,agri
+FMKS,"Milk, pasteurised (1 l) (supermarket)",1014,FJ01,1121,agri
+FCWM,Chicken: fresh (1 kg) (mid-priced store),1014,FF01,1123,agri
+FCWS,Chicken: fresh (1 kg) (supermarket),1014,FF01,1123,agri
+FEGM,Eggs (12) (mid-priced store),1014,FH,1123,agri
+FEGS,Eggs (12) (supermarket),1014,FH,1123,agri
+FFIM,Fresh fish (1 kg) (mid-priced store),1014,FG01,1141,agri
+FFIS,Fresh fish (1 kg) (supermarket),1014,FG01,1141,agri
+TRUP,Regular unleaded petrol (1 l) (average),4041,TB01,2111,manuf
+UHTO,Heating oil (100 l) (average),4041,HE01,2111,manuf
+UEMB,"Electricity, monthly bill (average)",4041,HF01,2211,manuf
+UGMB,"Gas, monthly bill (average)",4041,HF02,2212,manuf
+UWMB,"Water, monthly bill (average)",4041,HG01,2213,manuf
+FCZM,Chicken: frozen (1 kg) (mid-priced store),1014,FF01,3111,agri
+FCZS,Chicken: frozen (1 kg) (supermarket),1014,FF01,3111,agri
+FSEM,"Beef: steak, entrecote (1 kg) (mid-priced store)",1014,FC03,3111,agri
+FSES,"Beef: steak, entrecote (1 kg) (supermarket)",1014,FC03,3111,agri
+FCCM,Cocoa (250 g) (mid-priced store),1014,FM03,3112,agri
+FCCS,Cocoa (250 g) (supermarket),1014,FM03,3112,agri
+FCFM,Cornflakes (375 g) (mid-priced store),1014,FA02,3112,manuf
+FCFS,Cornflakes (375 g) (supermarket),1014,FA02,3112,manuf
+FFLM,"Flour, white (1 kg) (mid-priced store)",1014,FA01,3112,manuf
+FFLS,"Flour, white (1 kg) (supermarket)",1014,FA01,3112,manuf
+FGCM,Ground coffee (500 g) (mid-priced store),1014,FP01,3112,agri
+FGCS,Ground coffee (500 g) (supermarket),1014,FP01,3112,agri
+FOOM,Olive oil (1 l) (mid-priced store),1014,FS02,3112,agri
+FOOS,Olive oil (1 l) (supermarket),1014,FS02,3112,agri
+FPCM,Peanut or corn oil (1 l) (mid-priced store),1014,FS03,3112,agri
+FPCS,Peanut or corn oil (1 l) (supermarket),1014,FS03,3112,agri
+FSUM,"Sugar, white (1 kg) (mid-priced store)",1014,FR01,3113,agri
+FSUS,"Sugar, white (1 kg) (supermarket)",1014,FR01,3113,agri
+FOJM,Orange juice (1 l) (mid-priced store),1014,FN03,3114,agri
+FOJS,Orange juice (1 l) (supermarket),1014,FN03,3114,agri
+FPEM,"Peaches, canned (500 g) (mid-priced store)",1014,FK04,3114,agri
+FPES,"Peaches, canned (500 g) (supermarket)",1014,FK04,3114,agri
+FPSM,"Peas, canned (250 g) (mid-priced store)",1014,FM01,3114,agri
+FPSS,"Peas, canned (250 g) (supermarket)",1014,FM01,3114,agri
+FSLM,"Sliced pineapples, canned (500 g) (mid-priced store)",1014,FM01,3114,agri
+FSLS,"Sliced pineapples, canned (500 g) (supermarket)",1014,FM01,3114,agri
+FTCM,"Tomatoes, canned (250 g) (mid-priced store)",1014,FK04,3114,agri
+FTCS,"Tomatoes, canned (250 g) (supermarket)",1014,FK04,3114,agri
+FBUM,"Butter, 500 g (mid-priced store)",1014,FS01,3115,manuf
+FBUS,"Butter, 500 g (supermarket)",1014,FS01,3115,manuf
+FCHM,"Cheese, imported (500 g) (mid-priced store)",1014,FJ02,3115,manuf
+FCHS,"Cheese, imported (500 g) (supermarket)",1014,FJ02,3115,manuf
+FMGM,"Margarine, 500g (mid-priced store)",1014,FS01,3115,manuf
+FMGS,"Margarine, 500g (supermarket)",1014,FS01,3115,manuf
+FYOM,"Yoghurt, natural (150 g) (mid-priced store)",1014,FJ04,3115,manuf
+FYOS,"Yoghurt, natural (150 g) (supermarket)",1014,FJ04,3115,manuf
+FBAM,Bacon (1 kg) (mid-priced store),1014,FD01,3116,agri
+FBAS,Bacon (1 kg) (supermarket),1014,FD01,3116,agri
+FBGM,Beef: ground or minced (1 kg) (mid-priced store),1014,FC01,3116,agri
+FBGS,Beef: ground or minced (1 kg) (supermarket),1014,FC01,3116,agri
+FBRM,Beef: roast (1 kg) (mid-priced store),1014,FC02,3116,agri
+FBRS,Beef: roast (1 kg) (supermarket),1014,FC02,3116,agri
+FBSM,"Beef: stewing, shoulder (1 kg) (mid-priced store)",1014,FC04,3116,agri
+FBSS,"Beef: stewing, shoulder (1 kg) (supermarket)",1014,FC04,3116,agri
+FFMM,Beef: filet mignon (1 kg) (mid-priced store),1014,FC03,3116,agri
+FFMS,Beef: filet mignon (1 kg) (supermarket),1014,FC03,3116,agri
+FHAM,Ham: whole (1 kg) (mid-priced store),1014,FD02,3116,agri
+FHAS,Ham: whole (1 kg) (supermarket),1014,FD02,3116,agri
+FLCM,Lamb: chops (1 kg) (mid-priced store),1014,FC03,3116,agri
+FLCS,Lamb: chops (1 kg) (supermarket),1014,FC03,3116,agri
+FLLM,Lamb: leg (1 kg) (mid-priced store),1014,FC04,3116,agri
+FLLS,Lamb: leg (1 kg) (supermarket),1014,FC04,3116,agri
+FLSM,Lamb: Stewing (1 kg) (mid-priced store),1014,FC04,3116,agri
+FLSS,Lamb: Stewing (1 kg) (supermarket),1014,FC04,3116,agri
+FPLM,Pork: loin (1 kg) (mid-priced store),1014,FD03,3116,agri
+FPLS,Pork: loin (1 kg) (supermarket),1014,FD03,3116,agri
+FPOM,Pork: chops (1 kg) (mid-priced store),1014,FD03,3116,agri
+FPOS,Pork: chops (1 kg) (supermarket),1014,FD03,3116,agri
+FVCM,Veal: chops (1 kg) (mid-priced store),1014,FC03,3116,agri
+FVCS,Veal: chops (1 kg) (supermarket),1014,FC03,3116,agri
+FVFM,Veal: fillet (1 kg) (mid-priced store),1014,FC03,3116,agri
+FVFS,Veal: fillet (1 kg) (supermarket),1014,FC03,3116,agri
+FVRM,Veal: roast (1 kg) (mid-priced store),1014,FC02,3116,agri
+FVRS,Veal: roast (1 kg) (supermarket),1014,FC02,3116,agri
+FFFM,Frozen fish fingers (1 kg) (mid-priced store),1014,FG02,3117,agri
+FFFS,Frozen fish fingers (1 kg) (supermarket),1014,FG02,3117,agri
+FSPM,Spaghetti (1 kg) (mid-priced store),1014,FA03,3118,manuf
+FSPS,Spaghetti (1 kg) (supermarket),1014,FA03,3118,manuf
+FWBM,"White bread, 1 kg (mid-priced store)",1014,FB01,3118,manuf
+FWBS,"White bread, 1 kg (supermarket)",1014,FB01,3118,manuf
+ABLM,"Beer, local brand (1 l) (mid-priced store)",1516,FW01,3121,manuf
+ABLS,"Beer, local brand (1 l) (supermarket)",1516,FW01,3121,manuf
+ABTM,"Beer, top quality (330 ml) (mid-priced store)",1516,FW01,3121,manuf
+ABTS,"Beer, top quality (330 ml) (supermarket)",1516,FW01,3121,manuf
+ACFM,"Cognac, French VSOP (700 ml) (mid-priced store)",1516,FW02,3121,manuf
+ACFS,"Cognac, French VSOP (700 ml) (supermarket)",1516,FW02,3121,manuf
+AGGM,"Gin, Gilbey's or equivalent (700 ml) (mid-priced store)",1516,FW02,3121,manuf
+AGGS,"Gin, Gilbey's or equivalent (700 ml) (supermarket)",1516,FW02,3121,manuf
+ALCM,"Liqueur, Cointreau (700 ml) (mid-priced store)",1516,FW02,3121,manuf
+ALCS,"Liqueur, Cointreau (700 ml) (supermarket)",1516,FW02,3121,manuf
+ASWM,"Scotch whisky, six years old (700 ml) (mid-priced store)",1516,FW02,3121,manuf
+ASWS,"Scotch whisky, six years old (700 ml) (supermarket)",1516,FW02,3121,manuf
+AVMS,"Vermouth, Martini & Rossi (1 l) (supermarket)",1516,FW02,3121,manuf
+AVSM,"Vermouth, Martini & Rossi (1 l) (mid-priced store)",1516,FW02,3121,manuf
+AWCM,"Wine, common table (1 l) (mid-priced store)",1516,FW03,3121,manuf
+AWCS,"Wine, common table (1 l) (supermarket)",1516,FW03,3121,manuf
+AWFM,"Wine, fine quality (700 ml) (mid-priced store)",1516,FW03,3121,manuf
+AWFS,"Wine, fine quality (700 ml) (supermarket)",1516,FW03,3121,manuf
+AWSM,"Wine, superior quality (700 ml) (mid-priced store)",1516,FW03,3121,manuf
+AWSS,"Wine, superior quality (700 ml) (supermarket)",1516,FW03,3121,manuf
+FCOM,Coca-Cola (1 l) (mid-priced store),1014,FN01,3121,manuf
+FCOS,Coca-Cola (1 l) (supermarket),1014,FN01,3121,manuf
+FDCM,Drinking chocolate (500 g) (mid-priced store),1014,FP02,3121,manuf
+FDCS,Drinking chocolate (500 g) (supermarket),1014,FP02,3121,manuf
+FICM,Instant coffee (125 g) (mid-priced store),1014,FP01,3121,manuf
+FICS,Instant coffee (125 g) (supermarket),1014,FP01,3121,manuf
+FMWM,Mineral water (1 l) (mid-priced store),1014,FP02,3121,manuf
+FMWS,Mineral water (1 l) (supermarket),1014,FP02,3121,manuf
+FTBM,Tea bags (25 bags) (mid-priced store),1014,FP02,3121,agri
+FTBS,Tea bags (25 bags) (supermarket),1014,FP02,3121,agri
+FTWM,Tonic water (200 ml) (mid-priced store),1014,FN01,3121,manuf
+FTWS,Tonic water (200 ml) (supermarket),1014,FN01,3121,manuf
+TCLM,"Cigarettes, local brand (pack of 20) (mid-priced store)",1516,GA01,3122,manuf
+TCLS,"Cigarettes, local brand (pack of 20) (supermarket)",1516,GA01,3122,manuf
+TCMM,"Cigarettes, Marlboro (pack of 20) (mid-priced store)",1516,GA01,3122,manuf
+TCMS,"Cigarettes, Marlboro (pack of 20) (supermarket)",1516,GA01,3122,manuf
+TPTO,Pipe tobacco (50 g) (average),1516,GA02,3122,manuf
+CSWM,"Socks, wool mixture (mid-priced/branded store)",1719,AE,3132,manuf
+CSWS,"Socks, wool mixture (chain store)",1719,AE,3132,manuf
+CBJC,"Boy's jacket, smart (chain store)",1719,AB,3151,manuf
+CBJM,"Boy's jacket, smart (mid-priced/branded store)",1719,AB,3151,manuf
+CBSC,"Business suit, two piece, medium weight (chain store)",1719,AA01,3151,manuf
+CBSM,"Business suit, two piece, medium weight (mid-priced/branded store)",1719,AA01,3151,manuf
+CBTC,Boy's dress trousers (chain store),1719,AB,3151,manuf
+CBTM,Boy's dress trousers (mid-priced/branded store),1719,AB,3151,manuf
+CCJC,Child's jeans (chain store),1719,AB,3151,manuf
+CCJM,Child's jeans (mid-priced/branded store),1719,AB,3151,manuf
+CCPI,Consumer price index (1996=100; av),199,,3151,manuf
+CDDC,"Dress, ready to wear, daytime (chain store)",1719,AC02,3151,manuf
+CDDM,"Dress, ready to wear, daytime (mid-priced/branded store)",1719,AC02,3151,manuf
+CGDC,Girl's dress (chain store),1719,AD,3151,manuf
+CGDM,Girl's dress (mid-priced/branded store),1719,AD,3151,manuf
+CMTC,"Business shirt, white (chain store)",1719,AA03,3151,manuf
+CMTM,"Business shirt, white (mid-priced/branded store)",1719,AA03,3151,manuf
+CRBC,"Mens raincoat, Burberry type (chain store)",1719,AA01,3151,manuf
+CRBM,"Men's raincoat, Burberry type (mid-priced/branded store)",1719,AA01,3151,manuf
+CTIC,"Tights, panty hose (chain store)",1719,AE03,3151,manuf
+CTIM,"Tights, panty hose (mid-priced/branded store)",1719,AE03,3151,manuf
+CWCC,Women's cardigan sweater (chain store),1719,AC01,3151,manuf
+CWCM,Women's cardigan sweater (mid-priced/branded store),1719,AC01,3151,manuf
+CWRC,"Women's raincoat, Burberry type (chain store)",1719,AC01,3151,manuf
+CWRM,"Women's raincoat, Burberry type (mid-priced/branded store)",1719,AC01,3151,manuf
+CCSM,"Child's shoes, dresswear (mid-priced/branded store)",1719,AE02,3161,manuf
+CCSS,"Child's shoes, dresswear (chain store)",1719,AE02,3161,manuf
+CMSC,"Men's shoes, business wear (chain store)",1719,AE01,3161,manuf
+CMSM,"Men's shoes, business wear (mid-priced/branded store)",1719,AE01,3161,manuf
+CSSC,"Child's shoes, sportswear (chain store)",1719,AE02,3162,manuf
+CSSM,"Child' s shoes, sportswear (mid-priced/branded store)",1719,AE02,3162,manuf
+CWSC,"Women's shoes, town (chain store)",1719,AE03,3162,manuf
+CWSM,"Women's shoes, town (mid-priced/branded store)",1719,AE03,3162,manuf
+HTTM,Toilet tissue (two rolls) (mid-priced store),2122,HN02,3222,manuf
+HTTS,Toilet tissue (two rolls) (supermarket),2122,HN02,3222,manuf
+PCFM,Facial tissues (box of 100) (mid-priced store),2122,GB02,3222,manuf
+PCFS,Facial tissues (box of 100) (supermarket),2122,GB02,3222,manuf
+RDLN,Daily local newspaper (average),2122,RG01,3231,manuf
+RFDN,International foreign daily newspaper (average),2122,RG01,3231,manuf
+RPBN,Paperback novel (at bookstore) (average),2122,RG02,3231,manuf
+RWNM,International weekly news magazine (Time) (average),2122,RG01,3231,manuf
+HIKM,Insect-killer spray (330 g) (mid-priced store),2325,GB01,3253,manuf
+HIKS,Insect-killer spray (330 g) (supermarket),2325,GB01,3253,manuf
+PCAM,Aspirins (100 tablets) (mid-priced store),2325,MB01,3254,manuf
+PCAS,Aspirins (100 tablets) (supermarket),2325,MB01,3254,manuf
+HDLM,Dishwashing liquid (750 ml) (mid-priced store),2325,HN01,3256,manuf
+HDLS,Dishwashing liquid (750 ml) (supermarket),2325,HN01,3256,manuf
+HLDM,Laundry detergent (3 l) (mid-priced store),2325,HN01,3256,manuf
+HLDS,Laundry detergent (3 l) (supermarket),2325,HN01,3256,manuf
+HSPM,Soap (100 g) (mid-priced store),2325,HN01,3256,manuf
+HSPS,Soap (100 g) (supermarket),2325,HN01,3256,manuf
+PCHM,Hand lotion (125 ml) (mid-priced store),2325,GB02,3256,manuf
+PCHS,Hand lotion (125 ml) (supermarket),2325,GB02,3256,manuf
+PCLM,Lipstick (deluxe type) (mid-priced store),2325,GB02,3256,manuf
+PCLS,Lipstick (deluxe type) (supermarket),2325,GB02,3256,manuf
+PCSM,Shampoo & conditioner in one (400 ml) (mid-priced store),2325,GB01,3256,manuf
+PCSS,Shampoo & conditioner in one (400 ml) (supermarket),2325,GB01,3256,manuf
+PCTM,Toothpaste with fluoride (120 g) (mid-priced store),2325,GB01,3256,manuf
+PCTS,Toothpaste with fluoride (120 g) (supermarket),2325,GB01,3256,manuf
+PCRM,Razor blades (five pieces) (mid-priced store),2728,GB01,3312,manuf
+PCRS,Razor blades (five pieces) (supermarket),2728,GB01,3312,manuf
+HFPM,Frying pan (Teflon or good equivalent) (mid-priced store),2728,HL04,3322,manuf
+HFPS,Frying pan (Teflon or good equivalent) (supermarket),2728,HL04,3322,manuf
+RNFP,Personal computer (64 MB) (average),2935,EE01,3341,manuf
+RCTV,"Television, colour (66 cm) (average)",2935,RA01,3343,manuf
+RCDA,Compact disc album (average),3637,RA06,3346,manuf
+RKCF,Kodak colour film (36 exposures) (average),3637,RD01,3346,manuf
+HLBM,"Light bulbs (two, 60 watts) (mid-priced store)",3637,HM01,3351,manuf
+HLBS,"Light bulbs (two, 60 watts) (supermarket)",3637,HM01,3351,manuf
+HETM,Electric toaster (for two slices) (mid-priced store),2935,HK02,3352,manuf
+HETS,Electric toaster (for two slices) (supermarket),2935,HK02,3352,manuf
+HBTM,"Batteries (two, size D/LR20) (mid-priced store)",2935,HM01,3359,manuf
+HBTS,"Batteries (two, size D/LR20) (supermarket)",2935,HM01,3359,manuf
+ISTB,"Cost of six tennis balls eg Dunlop, Wilson (average)",3637,RC02,3399,manuf
+TTAC,Taxi: airport to city centre (average),6064,TG02,4853,serv
+TTIM,Taxi: initial meter charge (average),6064,TG02,4853,serv
+TTRK,Taxi rate per additional kilometre (average),6064,TG02,4853,serv
+BCOP,One good seat at cinema (average),7599,RF02,5121,serv
+RCFP,Four best seats at cinema (average),7599,RF02,5121,serv
+UTCH,"Telephone, charge per local call from home (3 mins) (average)",6064,ED01,5171,serv
+UTLR,"Telephone and line, monthly rental (average)",6064,ED01,5171,serv
+BHCL,"Hire car, weekly rate for lowest price classification (average)",6064,TA04,5321,serv
+BHCM,"Hire car, weekly rate for moderate price classification (average)",6064,TA04,5321,serv
+DHDC,Hourly rate for domestic cleaning help (average),7599,HP01,5617,serv
+DHMW,Maid's monthly wages (full time) (average),7599,HP01,5617,serv
+ISA1,"American /English school: annual tuition, ages 5-12 (average)",7599,EB02,6111,serv
+ISA2,"American/English school: annual tuition, ages 13-17 (average)",7599,EB02,6111,serv
+ISA3,"American/English school: extra costs, ages 5-12 (average)",7599,EB02,6111,serv
+ISA4,"American/English school: extra costs, ages 13-17 (average)",7599,EB02,6111,serv
+ISF1,"French school: annual tuition, ages 5-12 (average)",7599,EB02,6111,serv
+ISF2,"French school: annual tuition, ages 13-17 (average)",7599,EB02,6111,serv
+ISF3,"French school: extra costs, ages 5-12 (average)",7599,EB02,6111,serv
+ISF4,"French school: extra costs, ages 13-17 (average)",7599,EB02,6111,serv
+ISG1,"German school: annual tuition, ages 5-12 (average)",7599,EB02,6111,serv
+ISG2,"German school: annual tuition, ages 13-17 (average)",7599,EB02,6111,serv
+ISG3,"German school: extra costs, ages 5-12 (average)",7599,EB02,6111,serv
+ISG4,"German school: extra costs, ages 13-17 (average)",7599,EB02,6111,serv
+ICGP,Routine checkup at family doctor (average),7599,MC02,6211,serv
+ICDT,Visit to dentist (one X-ray and one filling) (average),7599,MC02,6212,serv
+IXGP,One X-ray at doctor's office or hospital (average),7599,MC04,6221,serv
+ISA5,American/English school: kindergarten annual fees (average),7599,EB03,6231,serv
+ISF5,French school: kindergarten annual fees (average),7599,EB03,6231,serv
+ISG5,German school: kindergarten annual fees (average),7599,EB03,6231,serv
+RTFP,Four best seats at theatre or concert (average),7599,RF02,7111,serv
+IGFG,Green fees on a public golf course (average),7599,RF01,7139,serv
+IPSP,Entrance fee to a public swimming pool (average),7599,RF02,7139,serv
+ITCH,Hire of tennis court for one hour (average),7599,RF02,7139,serv
+BHTH,"Hilton-type hotel, single room, one night including breakfast (average)",5500,HB02,7211,serv
+BMHT,"Moderate hotel, single room, one night including breakfast (average)",5500,HB02,7211,serv
+BMOP,Simple meal for one person (average),5500,FV02,7221,serv
+BMTP,Two-course meal for two people (average),5500,FV02,7221,serv
+RDFP,Three course dinner for four people (average),5500,FV01,7221,serv
+BFFS,"Fast food snack: hamburger, fries and drink (average)",5500,FV02,7222,serv
+BDRB,One drink at bar of first class hotel (average),5500,FX,7224,serv
+PCMH,Man's haircut (tips included) (average),7599,GC01,8121,serv
+PCWH,Woman's cut & blow dry (tips included) (average),7599,GC01,8121,serv
+HDMM,"Dry cleaning, man's suit (mid-priced outlet)",7599,GD03,8123,serv
+HDMS,"Dry cleaning, man's suit (standard high-street outlet)",7599,GD03,8123,serv
+HDTM,"Dry cleaning, trousers (mid-priced outlet)",7599,GD03,8123,serv
+HDTS,"Dry cleaning, trousers (standard high-street outlet)",7599,GD03,8123,serv
+HDWM,"Dry cleaning, woman's dress (mid-priced outlet)",7599,GD03,8123,serv
+HDWS,"Dry cleaning, woman's dress (standard high-street outlet)",7599,GD03,8123,serv
+HLAM,Laundry (one shirt) (mid-priced outlet),7599,GD03,8123,serv
+HLAS,Laundry (one shirt) (standard high-street outlet),7599,GD03,8123,serv
+DHBR,Babysitter's rate per hour (average),7599,HP01,8129,serv
+RDCP,Cost of developing 36 colour pictures (average),7599,RD02,8129,serv
+BOCT,"Business trip, typical daily cost",5500,HB02,7211,serv
+LCHD,Labour costs per hour,100,XWA,5614,serv
+RF1H,Furnished residential apartment: 1 bedroom (high),7000,HA,9999,serv
+RF1M,Furnished residential apartment: 1 bedroom (moderate),7000,HA,9999,serv
+RF2H,Furnished residential apartment: 2 bedroom (high),7000,HA,9999,serv
+RF2M,Furnished residential apartment: 2 bedroom (moderate),7000,HA,9999,serv
+RF3H,Furnished residential house: 3 bedrooms (high),7000,HA,9999,serv
+RF3M,Furnished residential house: 3 bedrooms (moderate),7000,HA,9999,serv
+RIUS,"Industrial space, per sq metre per year",7000,XWA,4931,serv
+ROLT,Typical lease term for office property (years),7000,XOF,,serv
+ROUS,Office rent per sq metre per year,7000,XOF,5511,serv
+RU2H,Unfurnished residential apartment: 2 bedrooms (high),7000,HA,9999,serv
+RU2M,Unfurnished residential apartment: 2 bedrooms (moderate),7000,HA,9999,serv
+RU3H,Unfurnished residential apartment: 3 bedrooms (high),7000,HA,9999,serv
+RU3M,Unfurnished residential apartment: 3 bedrooms (moderate),7000,HA,9999,serv
+RU4H,Unfurnished residential apartment: 4 bedrooms (high),7000,HA,9999,serv
+RU4M,Unfurnished residential apartment: 4 bedrooms (moderate),7000,HA,9999,serv
+RUH3,Unfurnished residential house: 3 bedrooms (high),7000,HA,9999,serv
+RUH4,Unfurnished residential house: 4 bedrooms (high),7000,HA,9999,serv
+RUM3,Unfurnished residential house: 3 bedrooms (moderate),7000,HA,9999,serv
+RUM4,Unfurnished residential house: 4 bedrooms (moderate),7000,HA,9999,serv
+SBSS,"Bilingual secretary, annual basic salary",100,XWA,5611,serv
+SDA1,"Disposable income (%) on a salary equivalent to $30,000 (married person, 1 child)",,,,serv
+SDA2,"Disposable income (%) on a salary equivalent to $60,000 (married person, 1 child)",,,,serv
+SDA3,"Disposable income (%) on a salary equivalent to $100,000 (married person, 1 child)",,,,serv
+SDA4,"Disposable income (%) on a salary equivalent to $150,000 (married person, 1 child)",,,,serv
+SDA5,"Disposable income (%) on a salary equivalent to $200,000 (married person, 1 child)",,,,serv
+SDB1,"Disposable income (%) on a salary equivalent to $30,000 (married person, 2 children)",,,,serv
+SDB2,"Disposable income (%) on a salary equivalent to $60,000 (married person, 2 children)",,,,serv
+SDB3,"Disposable income (%) on a salary equivalent to $100,000 (married person, 2 children)",,,,serv
+SDB4,"Disposable income (%) on a salary equivalent to $150,000 (married person, 2 children)",,,,serv
+SDB5,"Disposable income (%) on a salary equivalent to $200,000 (married person, 2 children)",,,,serv
+SDM1,"Disposable income (%) on a salary equivalent to $30,000 (married person)",,,,serv
+SDM2,"Disposable income (%) on a salary equivalent to $60,000 (married person)",,,,serv
+SDM3,"Disposable income (%) on a salary equivalent to $100,000 (married person)",,,,serv
+SDM4,"Disposable income (%) on a salary equivalent to $150,000 (married person)",,,,serv
+SDM5,"Disposable income (%) on a salary equivalent to $200,000 (married person)",,,,serv
+SDS1,"Disposable income (%) on a salary equivalent to $30,000 (single person)",,,,serv
+SDS2,"Disposable income (%) on a salary equivalent to $60,000 (single person)",,,,serv
+SDS3,"Disposable income (%) on a salary equivalent to $100,000 (single person)",,,,serv
+SDS4,"Disposable income (%) on a salary equivalent to $150,000 (single person)",,,,serv
+SDS5,"Disposable income (%) on a salary equivalent to $200,000 (single person)",,,,serv
+SSMS,"Sales manager, annual basic salary",100,XWA,5511,serv
