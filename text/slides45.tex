@@ -133,8 +133,8 @@
 \newcommand{\BX}{\mathbf{B}(X)}
 \newcommand{\A}{\mathcal{A}}
 
-\renewcommand{\rmdefault}{pmnr}
-\renewcommand{\sfdefault}{iwona}
+%\renewcommand{\rmdefault}{pmnr}
+%\renewcommand{\sfdefault}{iwona}
 
 
 
@@ -159,7 +159,7 @@
 
 \author[Kar\'adi and Koren] % (optional, use only with lots of authors)
 {P\'eter Kar\'adi (NYU)\\
-Mikl\'os Koren (Princeton)}
+Mikl\'os Koren (CEU)}
 % - Give the names in the same order as the appear in the paper.
 % - Use the \inst{?} command only if the authors have different
 %   affiliation.
@@ -215,6 +215,7 @@ Mikl\'os Koren (Princeton)}
 
 
 \section{Introduction}
+
 \subsection{Motivation}
 \begin{frame}\frametitle{The Balassa--Samuelson effect}
 
@@ -231,6 +232,27 @@ Mikl\'os Koren (Princeton)}
 \end{frame}
 
 \time{1}
+
+%% shampoo - haircut regression here
+\begin{frame}\frametitle{Shampoo and haircut}
+\begin{center}
+\begin{tabular}{lm{5em}m{5em}}
+  \hline
+  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+   & Shampoo and conditioner & Women's haircut\\
+   \hline
+  Real GDP per capita & $-$0.024   (0.026) & 0.354***   (0.037)\\
+\hline
+  Observations &  134 & 134
+\\
+  $R^2$ &  0.01& 0.45
+\\
+  \hline
+\end{tabular}\\
+{\small EIU price data 1997--2006}
+\end{center}
+\end{frame}
+
 
 \begin{frame}\frametitle{Productivity-based explanations}
 
@@ -252,9 +274,45 @@ Mikl\'os Koren (Princeton)}
 
 \time{2}
 
+%% the frozen chicken puzzle
+\begin{frame}\frametitle{The frozen chicken puzzle}
+\begin{center}
+\begin{tabular}{lm{5em}m{5em}}
+  \hline
+  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+   & Frozen chicken & Fresh chicken\\
+   \hline
+  Real GDP per capita & 0.111***   (0.033) & 0.198***   (0.031)\\
+\hline
+  Observations &  126 & 134
+\\
+  $R^2$ &  0.09& 0.22
+\\
+  \hline
+\end{tabular}\\
+{\small EIU price data 1997--2006}
+\end{center}
+\end{frame}
+
 
 %% however, both of these technology assumptions are rather ad hoc. they will never be able to explain variations in the BS effect. as we will see, there is substantial variation both across countries and over time (in particular, BS is relatively recent). our model will be able to speak to both.
 
+\widefigure{sc_penn}{Balassa--Samuelson is stronger in urban countries}
+\section{Land matters}
+
+\widefigure{clark-landrents}{Where has all the land gone?\\ (Clark, 2007)}
+
+\begin{frame}\frametitle{Land is scarce}
+\begin{itemize}
+    \item Population density of the Earth is 42$/\text{km}^2$, so land is abundant.
+    \pause
+    \item However, the average person lives in an area with a population density of 7,300$/\text{km}^2$ (LandScan 2005),
+    so \emph{land close to consumers} is scarce.
+\end{itemize}
+\end{frame}
+\time 2
+
+%% as a comparison, NYC is 10,000
 
 
 \section{Basic idea}
@@ -274,41 +332,10 @@ Mikl\'os Koren (Princeton)}
 %% talk about outline: 1. land matters. 2. simple model. 3. some supportive evidence
 
 
-
-\section{Land matters}
-\begin{frame}\frametitle{Land is scarce}
-\begin{itemize}
-    \item Population density of the Earth is 42$/\text{km}^2$, so land is abundant.
-    \pause
-    \item However, the average person lives in an area with a population density of 7,300$/\text{km}^2$ (LandScan 2005),
-    so \emph{land close to consumers} is scarce.
-\end{itemize}
-\end{frame}
-\time 2
-
-%% as a comparison, NYC is 10,000
-
-\widefigure{clark-landrents}{Agricultural and urban land rents in England\\ (Clark, 2007)}
-
-\begin{frame}\frametitle{The share of land in GDP$\cdot$}
-Sector income shares in various industries in the US (Herrendorf and Valentinyi, 2007)
-\begin{center}
-\begin{tabular}{l|c|ccc}
-\hline\hline
-Industry    & Capital   &   Land    & Structures    & Equipment \\ \hline
-GDP         &   0.32    &   0.05    & 0.13          & 0.14      \\ \hline
-Agriculture & 0.43      &   0.18    & 0.10          & 0.15      \\
-Manufacturing & 0.31    &   0.03    & 0.08          & 0.20      \\
-Services    & 0.32      & 0.05      & 0.15          & 0.12      \\ \hline\hline
-\end{tabular}
-\end{center}
-\end{frame}
-
 %% 2 things: 1. true that tradables are more capital intensive, but only part of it is reproducible. in that, intensity varies little. 2. overll share is 5%
 
 \time{3}
 
-%% clark emphasizes decline, we emphasize increase
 
 \section{Model}
 \subsection{Basic structure}
@@ -324,14 +351,14 @@ Services    & 0.32      & 0.05      & 0.15          & 0.12      \\ \hline\hline
 \begin{itemize}
     \item We use the monocentric city model.
     \item All market exchange takes place in a central business district (CBD).
-    \item CBD is a point in the plain.
-    \item Residents, manufacturing and service establishments can choose their location freely in the plain.
+    \item CBD is a point on the real line.
+    \item Residents, manufacturing and service establishments can choose their location freely on the real line.
     \item Location is indexed by distance to the CBD, $z$.
 \end{itemize}
 \end{frame}
 
 %% graph of CBD
-\widefigure{monocentric-1}{The monocentric city}
+%%\widefigure{monocentric-1}{The monocentric city}
 \time{2}
 
 \begin{frame}\frametitle{Technology}
@@ -345,6 +372,8 @@ h&= A_hl_h
 \end{align*}
 \end{itemize}
 \end{frame}
+
+%% this is deadly
 
 \begin{frame}\frametitle{Tastes}
 \begin{itemize}
@@ -396,6 +425,8 @@ h&= A_hl_h
 \end{frame}
 \time{1}
 
+
+%%% compress this into one bullet list
 \subsection{Equilibrium}
 
 \begin{frame}\frametitle{Equilibrium}
@@ -468,8 +499,8 @@ There exists a unique equilibrium.
 \begin{itemize}
     \item Residents live closest to CBD, $\in[0,z_1]$.
     \item With a (weakly) declining population density.
-    \item Followed by a ring of service establishments, $\in(z_1,z_2]$.
-    \item Followed by a ring of manufacturing plants, $\in(z_2,z_3]$.
+    \item Followed by an interval of service establishments, $\in(z_1,z_2]$.
+    \item Followed by an interval of manufacturing plants, $\in(z_2,z_3]$.
     \item City boundary is $z_3: D(\tau_m z_3)=0$.
 %    \item The boundaries $z_1$ and $z_2$ determine the supply of housing
 \end{itemize}
@@ -532,31 +563,9 @@ Productivity growth does not change the relative price of services if
 
 %% explain sprawl
 
-\begin{frame}\frametitle{Proof of Proposition 1$\cdot$}
-\begin{itemize}
-    \item From rent arbitrage at boundary $z_2$, the relative price of services
-    \[
-    \frac{p_s}{p_m} = \frac{D(\tau_m z_2)}{D(\tau_s z_2)},
-    \]
-    increasing in $z_2$.
-    \item Relative demand is
-    \[
-    \frac{s}{m} = \phi\left(\frac{p_s}{p_m}\right) = \phi\left(\frac{D(\tau_m z_2)}{D(\tau_s z_2)}\right),
-    \]
-    decreasing in $z_2$. ($\phi$ denotes $\Phi_2/\Phi_1$.)
-    \item Relative supply is increasing in $z_2$.
-    \item For a given $z_1$, there is a unique $z_2$ that equates relative demand and supply.
-    \item This $z_2$ is increasing in $z_1$.
-\end{itemize}
-\end{frame}
-\time 2
-%% do this with graphs
-\widefigure{bid-rent-3-prime}{Comparative statics}
-\time 3
-
 \subsection{Comparative statics}
 
-\begin{frame}\frametitle{Functional form assumptions}
+\begin{frame}\frametitle{A special case}
 \begin{itemize}
     \item No technical progress in housing, $A_h=$constant.
     \item Utility is Cobb--Douglas in goods, Leontief in housing,
@@ -614,87 +623,96 @@ As productivity increases,
 \end{frame}
 \time 2
 
-%\section{Numerical exercise}
 \section{Empirical evidence}
 
-\subsection{Demand for residential land}
-
-\begin{frame}\frametitle{Demand for residential land increases with development$\cdot$}
+\begin{frame}\frametitle{Data}
 \begin{itemize}
-    \item Between 1976 and 1992, residential land per capita increased by 25\%.
-    (Burchfield, Overman, Puga and Turner, 2006; Overman, Puga and Turner, 2007)
-    \item Between 1950 and 2000,  the price of residential land increased more than nine-fold. (Davis and Heathcote, 2007)
-    \item During the same period, the share of land in the value of a home increased from 10\% to 36\%.
+\item We use product- and city-level price data from the Economist Intelligence Unit.
+\item We construct measures of industry location from U.S.~Census data.
+\item Development measures are from WDI.
 \end{itemize}
 \end{frame}
-\time 2
 
-%% correct the figure
-\widefigure{dh-shares}{Land prices and the share of land in home value\\ (Davis and Heathcote, 2007)}
-\time 1
-
-%% skip this in the interest of time
-
-\begin{frame}\frametitle{Income and the demand for housing$\cdot$}
-\begin{table}[h!]
-\center
-\begin{tabular}{l|cc}
-  \hline\hline
-  Explanatory & \multicolumn{2}{c}{Dependent variable} \\
-  variables & Land value & Number of rooms \\
-            & (log)      & per capita (log) \\
-  \hline
-  Income (log)   & \textbf{2.77}   & \textbf{0.26}\\
-                 & (0.67)          & (0.08)\\
-  Population (log)    & 0.13            &  \textbf{-0.07}\\
-                 & (0.18)          & (0.01) \\ \hline
-  $R^2$          & 0.42            & 0.26\\
-  No. of obs.    & 46              & 3219\\ \hline\hline
-\end{tabular}
-\end{table}
+\begin{frame}\frametitle{EIU data}
+\begin{itemize}
+\item Collected for cost-of-living comparisons.
+\item 140 cities in 89 countries
+\item 150 products
+\item For each product--city pair, we take average USD price between 1997 and 2006.
+\end{itemize}
 \end{frame}
-\time 2
+%% describe EIU data
 
-\subsection{Rent gradient}
-\longfigure{dh-prices}{Rent gradient became steeper$\cdot$}
-\time 1
-%% comment on back-of-the-envelope
-%% relative price roughly doubled between 1987 and 05. with a 5% land share, this leads to a 4% increase in service prices
+%% describe location data
 
 \subsection{Industry location}
-\begin{frame}\frametitle{Tradable sectors move out of cities$\cdot$}
+\begin{frame}\frametitle{Industry location}
 \begin{itemize}
-    \item Burchfield, Overman, Puga and Turner (2006): commercial land is more scattered than residential land, more so in 1992 than in 1976.
-    \item Holmes and Stevens (2004): in 1997 manufacturing is underrepresented in large cities.
-    \item Desmet and Fafchamps (2006): manufacturing deconcentrated between 1970 and 2000.
+\item ``County Business Patterns'' records the number of plants by county (3,200) and NAICS industries (2,100): $n_{ic}$.
+\item Decennial Census has population density for each county, $d_c$.
+\item For each industry $i$, we calculate the population density of its \emph{average plant}:
+\[
+\rho_i = \frac{\sum_c n_{ic} d_c}{\sum_c n_{ic} }
+\]
+\item Sectors with high $\rho_i$ locate closer to residents.
 \end{itemize}
 \end{frame}
-\time 1
 
-\widefigure{LQ_map}{Locational quotient of tradable sectors$\cdot$}
-\widefigure{LQ_scatter}{Tradables stay away from dense counties$\cdot$}
-\widefigure{deurbanization}{Industries move away from dense counties}
-\time 1
-
-\begin{frame}
-\frametitle{Proximity to population and inflation}
+%% put sector names here
+\begin{frame}\frametitle{Sectors close to residents}
 \begin{center}
-\begin{tabular}{l|cc}
-\hline\hline
-& Employment share & Inflation \\
-& of the most dense counties & (1947-2006, va)\\ \hline
-GDP & 31.5\% & 3.4\% \\ \hline
-Agriculture & 3.2\% & 0.5\% \\
-Manufacturing & 23.3\% & 2.1\% \\
-Services & 33.4\% & 3.5\% \\ \hline\hline
+\begin{tabular}{lc}
+  \hline
+  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+  Product/Sector & Population density \\
+  \hline
+  Taxi: initial meter charge\\
+  \hspace*{1em}Taxi and Limousine Service & 1316\\
+  Compact disc album\\
+  \hspace*{1em}Manufacturing Magnetic and Optical Media&1268\\
+  One good seat at cinema\\
+  \hspace*{1em}Motion Picture and Video Industries & 1197\\
+  Four best seats at theatre\\
+  \hspace*{1em}Performing Arts Companies & 1127\\
+  Babysitter's rate per hour\\
+  \hspace*{1em}Other Personal Services & 966\\
+  Laundry (one shirt)\\
+  \hspace*{1em}Drycleaning and Laundry Services & 832\\
+  \hline
 \end{tabular}
 \end{center}
 \end{frame}
+
+\begin{frame}\frametitle{Sectors far from residents}
+\begin{center}
+\begin{tabular}{lc}
+  \hline
+  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+  Product/Sector & Population density\\
+  \hline
+  Frozen fish fingers (1 kg)\\
+  \hspace*{1em}Seafood Product Preparation and Packaging &115\\
+  Electricity, monthly bill\\
+  \hspace*{1em}Electric Power Generation and Distribution & 147\\
+  Chicken: frozen (1 kg)\\
+  \hspace*{1em}Animal Slaughtering and Processing & 161\\
+  Lamb: chops (1 kg)\\
+  \hspace*{1em}Animal Slaughtering and Processing & 161\\
+  Insect killer spray (330 g)\\
+  \hspace*{1em}Pesticide and Fertilizer Manufacturing & 168\\
+  Regular unleaded petrol (1 l)\\
+  \hspace*{1em}Oil and Gas Extraction & 172\\
+  \hline
+\end{tabular}
+\end{center}
+\end{frame}
+
+
 \time 1
 
+%% key proximity regression
+
 \subsection{Balassa--Samuelson Effect}
-\widefigure{sc_penn}{Balassa--Samuelson is stronger in urban countries}
-\time 2
 
 
 %\addtocounter{percek}{9}
