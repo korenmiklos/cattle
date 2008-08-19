@@ -38,7 +38,7 @@
 \usepackage[USenglish]{babel}
 %\usepackage[latin1]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{mathpazo}
+%\usepackage{mathpazo}
 \usepackage{ifthen,array}
 
 \pretolerance5000 \hyphenpenalty9999
@@ -133,7 +133,7 @@
 \newcommand{\BX}{\mathbf{B}(X)}
 \newcommand{\A}{\mathcal{A}}
 
-%\renewcommand{\rmdefault}{pmnr}
+\renewcommand{\rmdefault}{pmnr}
 \renewcommand{\sfdefault}{iwona}
 
 
@@ -316,17 +316,17 @@ Services    & 0.32      & 0.05      & 0.15          & 0.12      \\ \hline\hline
 \begin{itemize}
     \item There are three industries, manufacturing ($m$), services ($s$), and housing ($h$).
     \item We study how the relative prices of these industries depend on their choice of location...
-	\item ...and how location varies with development.
+    \item ...and how location varies with development.
 \end{itemize}
 \end{frame}
 
 \begin{frame}\frametitle{Spatial structure}
 \begin{itemize}
     \item We use the monocentric city model.
-	\item All market exchange takes place in a central business district (CBD).
-	\item CBD is a point in the plain.
-	\item Residents, manufacturing and service establishments can choose their location freely in the plain.
-	\item Location is indexed by distance to the CBD, $z$.
+    \item All market exchange takes place in a central business district (CBD).
+    \item CBD is a point in the plain.
+    \item Residents, manufacturing and service establishments can choose their location freely in the plain.
+    \item Location is indexed by distance to the CBD, $z$.
 \end{itemize}
 \end{frame}
 
@@ -337,7 +337,7 @@ Services    & 0.32      & 0.05      & 0.15          & 0.12      \\ \hline\hline
 \begin{frame}\frametitle{Technology}
 \begin{itemize}
     \item Land is the only factor of production. (We add labor later.)
-	\item Production functions:
+    \item Production functions:
 \begin{align*}
 m&=A_ml_m\\
 s&=A_sl_s\\
@@ -453,7 +453,7 @@ h&= A_hl_h
     \[
     R_h(z) = A_h\Phi(p_m,p_s)P_2^{-1}\left[\frac{D(\tau_h z) I}{u\Phi(p_m,p_s)}\right].
     \]
-	\item For example, with Cobb--Douglas utility,
+    \item For example, with Cobb--Douglas utility,
 \[
 R_h(z) = A_h\left[\frac{D(\tau_h z) I}{up_m^{\alpha}p_s^{\beta}}\right]^{1/\gamma}.
 \]
@@ -493,8 +493,8 @@ There exists a unique equilibrium.
     \[
     p_mA_mD(\tau_m z_2) = p_sA_sD(\tau_s z_2),
     \]
-	which determines demand.
-	\item Find $z_1$ and $z_2$ such that markets clear.
+    which determines demand.
+    \item Find $z_1$ and $z_2$ such that markets clear.
 \end{itemize}
 \end{frame}
 \time 2
@@ -538,7 +538,7 @@ Productivity growth does not change the relative price of services if
     \[
     \frac{p_s}{p_m} = \frac{D(\tau_m z_2)}{D(\tau_s z_2)},
     \]
-	increasing in $z_2$.
+    increasing in $z_2$.
     \item Relative demand is
     \[
     \frac{s}{m} = \phi\left(\frac{p_s}{p_m}\right) = \phi\left(\frac{D(\tau_m z_2)}{D(\tau_s z_2)}\right),
@@ -567,7 +567,7 @@ u(m,s,h) = \min\{m^\gamma s^{1-\gamma} ,h/H\}.
 \[
 D(\tau z) = \exp(-\tau z).
 \]
-	\item We add labor with identical intensities in both sectors,
+    \item We add labor with identical intensities in both sectors,
 \begin{align*}
 m&=A_ml_m^\beta n_m^{1-\beta}\\
 s&=A_sl_s^\beta n_s^{1-\beta}
@@ -579,8 +579,8 @@ s&=A_sl_s^\beta n_s^{1-\beta}
 
 \begin{frame}\frametitle{Solution}
 \begin{itemize}
-	\item These assumptions lead to a closed-form solution.
-	\item Balassa--Samuelson effect:
+    \item These assumptions lead to a closed-form solution.
+    \item Balassa--Samuelson effect:
 \[
 \frac{d\ln (p_s/p_m)}{d\ln A} = \frac{(\tau_s-\tau_m)z_1}{1+\Bar\tau z_1/\beta}
 \]
@@ -603,13 +603,13 @@ As productivity increases,
     \item residential land increases,
     \item home prices increase,
     \item the rent gradient becomes steeper,
-	\item tradable industries move away from center,
+    \item tradable industries move away from center,
     \item services become more expensive,
-	\item labor productivity increases faster in manufacturing.
-%	\item employment becomes more concentrated.
+    \item labor productivity increases faster in manufacturing.
+%   \item employment becomes more concentrated.
 \end{enumerate}
 \begin{enumerate}
-	\item[7.] All of these effects are stronger for more densely populated countries.
+    \item[7.] All of these effects are stronger for more densely populated countries.
 \end{enumerate}
 \end{frame}
 \time 2
@@ -702,7 +702,7 @@ Services & 33.4\% & 3.5\% \\ \hline\hline
 \begin{frame}\frametitle{Conclusions}
 \begin{itemize}
 \item The model is tractable enough to incorporate dynamics, multiple countries etc.
-%\item ***still features Balassa's and Samuelson's 
+%\item ***still features Balassa's and Samuelson's
 \item Predictions are consistent with several stylized facts about urbanization, industry location, and relative prices.
 \item Balassa--Samuelson effect is stronger in urban countries.
 %\item Urban sectors experience higher inflation.
@@ -711,3 +711,4 @@ Services & 33.4\% & 3.5\% \\ \hline\hline
 \end{frame}
 
 \end{document}
+% 
