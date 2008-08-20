@@ -1,0 +1,19 @@
+	(1)	(2)	(3)	(4)
+VARIABLES	lnprice	lnprice	lnprice	lnprice
+				
+gdpXagri			0.183***	0.192***
+			[0.029]	[0.034]
+gdpXmanuf			0.099***	0.094***
+			[0.024]	[0.024]
+gdpXserv			0.201***	0.182***
+			[0.037]	[0.038]
+lngdp	0.148***	0.139***		
+	[0.027]	[0.027]		
+gdpXproximity		0.034***		0.051***
+		[0.009]		[0.014]
+Constant	1.102***	1.436***	1.099***	1.431***
+	[0.269]	[0.274]	[0.270]	[0.274]
+Observations	37552	33593	37552	33593
+R-squared	0.954	0.954	0.955	0.955
+Robust standard errors in brackets				
+*** p<0.01, ** p<0.05, * p<0.1				
