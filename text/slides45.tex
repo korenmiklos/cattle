@@ -231,21 +231,21 @@ Mikl\'os Koren (CEU)}
 \end{itemize}
 \end{frame}
 
-\time{1}
+\time{2}
 
 %% shampoo - haircut regression here
-\begin{frame}\frametitle{Shampoo and haircut}
+\begin{frame}\frametitle{Tradable and non-tradable prices}
 \begin{center}
-\begin{tabular}{lm{5em}m{5em}}
+\begin{tabular}{lm{5em}m{5em}m{5em}}
   \hline
   % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
-   & Shampoo and conditioner & Women's haircut\\
+   & Shampoo & Women's haircut & Relative price\\
    \hline
-  Real GDP per capita & $-$0.024   (0.026) & 0.354***   (0.037)\\
+  Real GDP per capita & $-$0.018   (0.027) & 0.387***   (0.038) & 0.405***   (0.041)\\
 \hline
-  Observations &  134 & 134
+  Observations &  135 & 135 & 135 
 \\
-  $R^2$ &  0.01& 0.45
+  $R^2$ &  0.00& 0.47 & 0.49
 \\
   \hline
 \end{tabular}\\
@@ -253,40 +253,39 @@ Mikl\'os Koren (CEU)}
 \end{center}
 \end{frame}
 
+\time 2
 
-\begin{frame}\frametitle{Productivity-based explanations}
+\begin{frame}\frametitle{Technology-based explanations}
 
 \begin{itemize}
     \item Balassa--Samuelson: Productivity growth in non-tradables is slower than in tradables.
-        \begin{itemize}
-            \item Why?
-        \end{itemize}
-\pause
     \item Kravis--Lipsey--Bhagwati: Non-tradables are more intensive users of the non-reproducible factor (labor).
     \item This raises their price with capital accumulation.
-        \begin{itemize}
-            \item But the difference in labor intensity is small (Herrendorf and Valentinyi, 2007).
-        \end{itemize}
-\pause
-    \item We propose a simple spatial model in which relative price changes arise endogenously from the location choice of industries.
+    \pause
+    \begin{itemize}
+        \item Where do these technology differences come from?
+        \item Why does Balassa--Samuelson work in some cases and not in others?
+    \end{itemize}
 \end{itemize}
 \end{frame}
+
+\widefigure{sc_penn}{Balassa--Samuelson is stronger in urban countries}
 
 \time{2}
 
 %% the frozen chicken puzzle
-\begin{frame}\frametitle{The frozen chicken puzzle}
+\begin{frame}\frametitle{Not everything is technology}
 \begin{center}
-\begin{tabular}{lm{5em}m{5em}}
+\begin{tabular}{lm{5em}m{5em}m{5em}}
   \hline
   % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
-   & Frozen chicken & Fresh chicken\\
+   & Frozen chicken & Fresh chicken & Relative price\\
    \hline
-  Real GDP per capita & 0.111***   (0.033) & 0.198***   (0.031)\\
+  Real GDP per capita & 0.072**   (0.029) & 0.158***   (0.030) & 0.086***   (0.021)\\
 \hline
-  Observations &  126 & 134
+  Observations &  125 & 125 & 125 
 \\
-  $R^2$ &  0.09& 0.22
+  $R^2$ &  0.05& 0.21 & 0.13
 \\
   \hline
 \end{tabular}\\
@@ -294,28 +293,19 @@ Mikl\'os Koren (CEU)}
 \end{center}
 \end{frame}
 
+\time 2
 
 %% however, both of these technology assumptions are rather ad hoc. they will never be able to explain variations in the BS effect. as we will see, there is substantial variation both across countries and over time (in particular, BS is relatively recent). our model will be able to speak to both.
 
-\widefigure{sc_penn}{Balassa--Samuelson is stronger in urban countries}
-\section{Land matters}
+\section{What we do}
+\begin{frame}\frametitle{What we do}
 
-\widefigure{clark-landrents}{Where has all the land gone?\\ (Clark, 2007)}
-
-\begin{frame}\frametitle{Land is scarce}
-\begin{itemize}
-    \item Population density of the Earth is 42$/\text{km}^2$, so land is abundant.
-    \pause
-    \item However, the average person lives in an area with a population density of 7,300$/\text{km}^2$ (LandScan 2005),
-    so \emph{land close to consumers} is scarce.
-\end{itemize}
+%\begin{itemize}
+%    \item 
+We propose a simple spatial model in which relative price changes arise endogenously from the location choice of industries.
+%\end{itemize}
 \end{frame}
-\time 2
 
-%% as a comparison, NYC is 10,000
-
-
-\section{Basic idea}
 \begin{frame}\frametitle{Basic idea}
 \begin{itemize}
     \item Tradable sectors locate to where land is cheap.
@@ -334,7 +324,24 @@ Mikl\'os Koren (CEU)}
 
 %% 2 things: 1. true that tradables are more capital intensive, but only part of it is reproducible. in that, intensity varies little. 2. overll share is 5%
 
-\time{3}
+
+\section{Land and location matter}
+
+\widefigure{clark-landrents}{Why has land disappeared from macro?\\ (Clark, 2007)}
+
+\begin{frame}\frametitle{Land is scarce}
+\begin{itemize}
+    \item Population density of the Earth is 42$/\text{km}^2$, so land is abundant.
+    \pause
+    \item However, the average person lives in an area with a population density of 7,300$/\text{km}^2$ (LandScan 2005),
+    so \emph{land close to consumers} is scarce.
+\end{itemize}
+\end{frame}
+\time 2
+
+%% as a comparison, NYC is 10,000
+
+
 
 
 \section{Model}
@@ -357,8 +364,6 @@ Mikl\'os Koren (CEU)}
 \end{itemize}
 \end{frame}
 
-%% graph of CBD
-%%\widefigure{monocentric-1}{The monocentric city}
 \time{2}
 
 \begin{frame}\frametitle{Technology}
@@ -372,8 +377,6 @@ h&= A_hl_h
 \end{align*}
 \end{itemize}
 \end{frame}
-
-%% this is deadly
 
 \begin{frame}\frametitle{Tastes}
 \begin{itemize}
@@ -472,6 +475,7 @@ h&= A_hl_h
 \widefigure{bid-rent-2}{Bid rent curves of two industries}
 \time{3}
 
+%% skip this
 \begin{frame}\frametitle{The bid rent curve of households$\cdot$}
 \begin{itemize}
     \item Housing at $z$ costs $r(z)/A_h$.
@@ -490,7 +494,7 @@ R_h(z) = A_h\left[\frac{D(\tau_h z) I}{up_m^{\alpha}p_s^{\beta}}\right]^{1/\gamm
 \]
 \end{itemize}
 \end{frame}
-\time{2}
+%\time{2}
 
 
 
@@ -511,14 +515,14 @@ There exists a unique equilibrium.
 
 %% graph of concentric circles
 \widefigure{monocentric-3}{Equilibrium spatial structure}
-\time{5}
+\time{3}
 
 \begin{frame}\frametitle{Finding the equilibrium $z_1$ and $z_2$$\cdot$}
 \begin{itemize}
     \item Cutoffs pin down supply:
     \begin{align*}
-    s &= \int_{z_1}^{z_2}2\pi z D(\tau_s z) dz, \\
-    m &= \int_{z_2}^{z_3}2\pi z D(\tau_m z) dz .
+    s &= A_s\int_{z_1}^{z_2}D(\tau_s z) dz, \\
+    m &= A_m\int_{z_2}^{z_3}D(\tau_m z) dz .
     \end{align*}
     \item Arbitrage at the manufacturing--service boundary $z_2$ pins down relative prices,
     \[
@@ -625,36 +629,39 @@ As productivity increases,
 
 \section{Empirical evidence}
 
+\begin{frame}\frametitle{Question}
+Does sector location affect relative prices?
+\end{frame}
+
 \begin{frame}\frametitle{Data}
 \begin{itemize}
-\item We use product- and city-level price data from the Economist Intelligence Unit.
+\item We use city-level product price data from the Economist Intelligence Unit.
 \item We construct measures of industry location from U.S.~Census data.
-\item Development measures are from WDI.
+\item GDP per capita comes from WDI.
 \end{itemize}
 \end{frame}
 
 \begin{frame}\frametitle{EIU data}
 \begin{itemize}
 \item Collected for cost-of-living comparisons.
-\item 140 cities in 89 countries
-\item 150 products
+\item 150 products are surveyed.
+\item 140 cities in 89 countries.
 \item For each product--city pair, we take average USD price between 1997 and 2006.
 \end{itemize}
 \end{frame}
-%% describe EIU data
-
-%% describe location data
+\time 4
 
 \subsection{Industry location}
 \begin{frame}\frametitle{Industry location}
 \begin{itemize}
-\item ``County Business Patterns'' records the number of plants by county (3,200) and NAICS industries (2,100): $n_{ic}$.
+\item ``County Business Patterns'' records the number of plants by county and NAICS sector: $n_{ic}$.
 \item Decennial Census has population density for each county, $d_c$.
-\item For each industry $i$, we calculate the population density of its \emph{average plant}:
+\item For each sector $i$, we calculate the population density of its \emph{average plant}:
 \[
 \rho_i = \frac{\sum_c n_{ic} d_c}{\sum_c n_{ic} }
 \]
 \item Sectors with high $\rho_i$ locate closer to residents.
+\item We match EIU products to sectors in which they are \emph{produced}.
 \end{itemize}
 \end{frame}
 
@@ -706,25 +713,18 @@ As productivity increases,
 \end{tabular}
 \end{center}
 \end{frame}
-
-
-\time 1
+\time 4
 
 %% key proximity regression
+\widefigure{eiureg}{Industry location and the Balassa--Samuelson effect}
+\time 3
 
-\subsection{Balassa--Samuelson Effect}
-
-
-%\addtocounter{percek}{9}
 \section{Conclusions}
 \begin{frame}\frametitle{Conclusions}
 \begin{itemize}
-\item The model is tractable enough to incorporate dynamics, multiple countries etc.
-%\item ***still features Balassa's and Samuelson's
-\item Predictions are consistent with several stylized facts about urbanization, industry location, and relative prices.
-\item Balassa--Samuelson effect is stronger in urban countries.
-%\item Urban sectors experience higher inflation.
-
+\item We developed a tractable model of industry location,
+\item which is consistent with regional patterns in the U.S.
+\item The Balassa--Samuelson effect is stronger for sectors that locate close to consumers.
 \end{itemize}
 \end{frame}
 
