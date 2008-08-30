@@ -1,7 +1,7 @@
 clear
 set memory 500m
 
-local datastore ~/share/data
+local datastore ../../../data/Miklos /*~/share/data*/
 local assembla ../data
 local proxmeasure density
 tempfile codes wdi prox
@@ -81,6 +81,3 @@ foreach X of var lngdp urban lndensity lncitypop proximity {
 drop mean*
 
 saveold ../data/cityprices_prepared, replace
-
-
-
