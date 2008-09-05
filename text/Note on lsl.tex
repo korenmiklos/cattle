@@ -1,0 +1,114 @@
+\documentclass[10pt]{article}
+
+\usepackage{amsmath,amssymb}
+\usepackage{multirow}
+\usepackage{graphicx}
+
+\usepackage{fancyhdr}
+
+\setlength{\parindent}{0em} \setlength{\parskip}{1ex}
+\addtolength{\hoffset}{-1cm} \addtolength{\textwidth}{2cm}
+
+\pagestyle{fancy} \lhead{} \chead{Location specific labor}
+\rhead{}
+
+\begin{document}
+\title{Spatial model with location specific labor}
+\subtitle{Work in progress}
+\maketitle
+
+\begin{enumerate}
+\item New assumption: Workers have to work where they live ($z$), so the new variable is $w(z)$, and the equilibrium (Def. 1.4) requires that labor market clears at each location.
+\item Variables:
+\begin{table}[h!] 
+\center
+\begin{tabular}{ll}
+$l_i(z)$ & land used for production, $i=m,s$ \\
+$l_h(z)$ & land used for living \\
+$n(z)$ & labor employed\\
+$m(z)$ & manufacturing product bought at $z$ \\
+$s(z)$ & services bought at $z$ \\
+$h(z)$ & housing demanded at $z$ \\
+$r(z)$ & rents \\
+$w(z)$ & wages \\
+$p_m$ & price of the manufacturing product at the CBD \\
+$p_s$ & price of services at the CBD \\
+$p_h(z)$ & price of housing at $z$ bought at the CBD \\
+$u$ & utility of the consumers\\
+$z_1$ & boundary between manufacturing and services production \\
+$z_2$ & production boundary \\
+\end{tabular}
+\end{table}
+
+\item \textbf{Firms}
+Firms take the prices ($p_m,p_s$) and wages ($w(z)$) and rents ($r(z)$) as given and at each location $z$ choose what to produce ($m,s$), how much labor to employ ($n^d(z)$) and how much land to use ($l^d(z)$). In equilibrium land goes to the highest bidder, and firms have zero profits, so the first order condition for a profit maximum is 
+\begin{equation*}
+p_iD(\tau_iz)\leq \frac{r(z)^\beta w(z)^{1-\beta}}{A_i\beta^\beta(1-\beta)^{1-\beta}},
+\end{equation*}
+from which for $i=m,s$ we get
+\begin{equation}\label{eq:bidrent:industry}
+R_i(z,p_i,w(z)) = \beta (1-\beta)^{1/\beta-1} p_i^{1/\beta} A_i^{1/\beta} D(\tau_i z)^{1/\beta}w(z)^{1-1/\beta}.
+\end{equation}
+As under the same wages ($w(z)$) and $\beta$ and $A_i$, it is still only the transportation costs ($\tau_i$) and the prices ($p_i$) which will determine the difference in rent-bids of the industries, the spatial structure will presumably stay the same: services closer to the center, manufacturing further out, with $z_1$ in between.
+
+From the first order conditions we also know that $\forall z$
+\begin{equation}
+\frac{l^d(z)}{n^d(z)}=\frac{\beta}{1-\beta}\frac{w(z)}{r(z)}
+\end{equation} 
+
+Zero profit condition in the housing sector means that 
+\begin{equation}
+p_h(z)=\frac{r(z)}{A_h}
+\end{equation}
+
+\item \textbf{Consumers}
+The consumers maximize $u(m,s,h)$ subject to $\forall z$
+\begin{equation*}
+p_mm(z)+p_ss(z)+p_h(z)h(z)=(w(z)+T)D(\tau_hz).
+\end{equation*}
+The free mobility assumption of consumers ensure that $\forall z$
+\begin{equation}
+u=\frac{D(\tau_hz)(w(z)+T)}{P\left[\phi(p_s,p_m),r(z)/A_h\right]},
+\end{equation}
+where we used the fact that rents paid by the consumers at location $z$ needs to be the same as the rents paid by the firms at the same location. This equation here is not the rent bid function of the consumers, but rather an equation determining equilibrium $w(z)$ as a function of $r(z)$ and other variables ($u, p_s, p_m,T$):
+\begin{equation*}
+w(z)=\frac{uP\left[\phi(p_s,p_m),r(z)/A_h\right]}{D(\tau_hz)}-T.
+\end{equation*}
+Assuming decreasing equilibrium rents $r(z)$ this is decreasing with distance. Note: there can be a $\bar{z}$ such that $w(\bar{z})=0$ after which individuals will not want to work just live from their rent income $T$.
+
+I will need solutions for $m(z),s(z),h(z)$ $\forall z$, especially I am not sure how we can go around having an expression for $h(z)$ (see later).
+
+Producing $h(z)$ housing needs $l_h(z)=h(z)/A_h$ land. The amount of workers at $z$ is given by 
+\begin{equation*}
+n^s(z)=\frac{l_h(z)}{h(z)/A_h}.
+\end{equation*}
+At each location $z$ we have unit land available, so $l_h(z)=1-l(z)$, from which
+\begin{equation}
+n^s(z)=\frac{1-l(z)}{h(z)/A_h}
+\end{equation}  
+
+\item \textbf{Market clearing}
+Output at location ($z$) is given by 
+\begin{equation*}
+y_i(z)=(1-\beta)^{1/\beta-1}p_i^{1/\beta-1}A_i^{1/\beta}D(\tau_iz)^{1/\beta}w(z)^{1/\beta-1}l(z),
+\end{equation*}
+implying that the supplies of the two industries are
+\begin{equation*}
+s=(1-\beta)^{1/\beta-1}p_s^{1/\beta-1}A_s^{1/\beta}\int_0^{z_1}D(\tau_iz)^{1/\beta}w(z)^{1/\beta-1}l(z)dz,
+\end{equation*}
+\begin{equation*}
+m=(1-\beta)^{1/\beta-1}p_m^{1/\beta-1}A_m^{1/\beta}\int_{z_1}^{z_2}D(\tau_iz)^{1/\beta}w(z)^{1/\beta-1}l(z)dz,
+\end{equation*}
+
+The location arbitrage at $z_1$ implies $R_s(z_1)=R_m(z_2)$ and as a result of the free mobility equation, we also know that the wage $w(z_1)$ does not depend on which industry is operating on the location. So, similarly to previous case, we have that
+\begin{equation}
+\frac{p_s}{p_m}=\left[\frac{D(\tau_mz_2)}{D(\tau_sz_2)}\right]^{1/\beta}.
+\end{equation}
+Relative prices determine relative demand for manufacturing ($m$) and services ($s$).
+ 
+The boundaries $z_1$ and $z_2$ are determined such that product markets clear. The city boundary $z_2$ is the smaller of $\bar{z}$ and $\hat{z}$ such that $D(\tau_m\hat{z})=0$. 
+\end{enumerate}
+
+
+
+\end{document}
