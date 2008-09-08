@@ -19,7 +19,7 @@
 \begin{enumerate}
 \item New assumption: Workers have to work where they live ($z$), so the new variable is $w(z)$, and the equilibrium (Def. 1.4) requires that labor market clears at each location.
 \item Variables:
-\begin{table}[h!] 
+\begin{table}[h!]
 \center
 \begin{tabular}{ll}
 $l_i(z)$ & land used for production, $i=m,s$ \\
@@ -40,7 +40,7 @@ $z_2$ & production boundary \\
 \end{table}
 
 \item \textbf{Firms}
-Firms take the prices ($p_m,p_s$) and wages ($w(z)$) and rents ($r(z)$) as given and at each location $z$ choose what to produce ($m,s$), how much labor to employ ($n^d(z)$) and how much land to use ($l^d(z)$). In equilibrium land goes to the highest bidder, and firms have zero profits, so the first order condition for a profit maximum is 
+Firms take the prices ($p_m,p_s$) and wages ($w(z)$) and rents ($r(z)$) as given and at each location $z$ choose what to produce ($m,s$), how much labor to employ ($n^d(z)$) and how much land to use ($l^d(z)$). In equilibrium land goes to the highest bidder, and firms have zero profits, so the first order condition for a profit maximum is
 \begin{equation*}
 p_iD(\tau_iz)\leq \frac{r(z)^\beta w(z)^{1-\beta}}{A_i\beta^\beta(1-\beta)^{1-\beta}},
 \end{equation*}
@@ -52,10 +52,14 @@ As under the same wages ($w(z)$) and $\beta$ and $A_i$, it is still only the tra
 
 From the first order conditions we also know that $\forall z$
 \begin{equation}
-\frac{l^d(z)}{n^d(z)}=\frac{\beta}{1-\beta}\frac{w(z)}{r(z)}
-\end{equation} 
+\frac{l^d(z)}{n^d(z)}=\frac{\beta}{1-\beta}\frac{w(z)}{r(z)},
+\end{equation}
+and
+\begin{equation}
+r(z)=p_ie^{-\tau_iz}A_i\beta\left(\frac{l(z)}{n_z}\right)^{\beta-1}.
+\end{equation}
 
-Zero profit condition in the housing sector means that 
+Zero profit condition in the housing sector means that
 \begin{equation}
 p_h(z)=\frac{r(z)}{A_h}
 \end{equation}
@@ -77,17 +81,17 @@ Assuming decreasing equilibrium rents $r(z)$ this is decreasing with distance. N
 
 I will need solutions for $m(z),s(z),h(z)$ $\forall z$, especially I am not sure how we can go around having an expression for $h(z)$ (see later).
 
-Producing $h(z)$ housing needs $l_h(z)=h(z)/A_h$ land. The amount of workers at $z$ is given by 
+Producing $h(z)$ housing needs $l_h(z)=h(z)/A_h$ land. The amount of workers at $z$ is given by
 \begin{equation*}
 n^s(z)=\frac{l_h(z)}{h(z)/A_h}.
 \end{equation*}
 At each location $z$ we have unit land available, so $l_h(z)=1-l(z)$, from which
 \begin{equation}
 n^s(z)=\frac{1-l(z)}{h(z)/A_h}
-\end{equation}  
+\end{equation}
 
 \item \textbf{Market clearing}
-Output at location ($z$) is given by 
+Output at location ($z$) is given by
 \begin{equation*}
 y_i(z)=(1-\beta)^{1/\beta-1}p_i^{1/\beta-1}A_i^{1/\beta}D(\tau_iz)^{1/\beta}w(z)^{1/\beta-1}l(z),
 \end{equation*}
@@ -104,13 +108,12 @@ The location arbitrage at $z_1$ implies $R_s(z_1)=R_m(z_2)$ and as a result of t
 \frac{p_s}{p_m}=\left[\frac{D(\tau_mz_2)}{D(\tau_sz_2)}\right]^{1/\beta}.
 \end{equation}
 Relative prices determine relative demand for manufacturing ($m$) and services ($s$).
- 
-The boundaries $z_1$ and $z_2$ are determined such that product markets clear. The city boundary $z_2$ is the smaller of $\bar{z}$ and $\hat{z}$ such that $D(\tau_m\hat{z})=0$. 
+
+The boundaries $z_1$ and $z_2$ are determined such that product markets clear. The city boundary $z_2$ is the smaller of $\bar{z}$ and $\hat{z}$ such that $D(\tau_m\hat{z})=0$.
 \end{enumerate}
 
-
 \subsection{Cobb--Douglas, exponential case}
-Write the firms' bid rent curve as 
+Write the firms' bid rent curve as
 \begin{equation*}
 R_i(z,p_i,w(z)) = \beta (1-\beta)^{1/\beta-1} p_i^{1/\beta} A_i^{1/\beta} D(\tau_i z)^{1/\beta}w(z)^{1-1/\beta}.
 \end{equation*}
@@ -120,7 +123,7 @@ Similary, we can write the bid rent curve of households as a function of the wag
 \[
 R_h(z,P,w(z)) \propto D(\tau_h z)^{1/\gamma}w(z)^{1/\gamma},
 \]
-where $\gamma$ is the CD share of housing in consumption expenditure. This assumes $T=0$ (absentee landlord), but is also valid for rents redistributed in proportion to wage income. 
+where $\gamma$ is the CD share of housing in consumption expenditure. This assumes $T=0$ (absentee landlord), but is also valid for rents redistributed in proportion to wage income.
 
 In mixed-used equilibrium it has to be the case that over some interval $Z$, $R_i(z)=R_h(z)$. For this to be true, the wage schedule has to satisfy a functional equation,
 \[
