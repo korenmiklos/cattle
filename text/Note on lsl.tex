@@ -4,13 +4,8 @@
 \usepackage{multirow}
 \usepackage{graphicx}
 
-\usepackage{fancyhdr}
-
-\setlength{\parindent}{0em} \setlength{\parskip}{1ex}
 \addtolength{\hoffset}{-1cm} \addtolength{\textwidth}{2cm}
 
-\pagestyle{fancy} \lhead{} \chead{Location specific labor}
-\rhead{}
 
 \begin{document}
 \title{Spatial model with location specific labor\thanks{Work in progress}}
@@ -123,18 +118,36 @@ Similary, we can write the bid rent curve of households as a function of the wag
 \[
 R_h(z,P,w(z)) \propto D(\tau_h z)^{1/\gamma}w(z)^{1/\gamma},
 \]
-where $\gamma$ is the CD share of housing in consumption expenditure. This assumes $T=0$ (absentee landlord), but is also valid for rents redistributed in proportion to wage income.
+where $\gamma$ is the CD share of housing in consumption expenditure. This increases in wages. This assumes $T=0$ (absentee landlord), but is also valid for rents redistributed in proportion to wage income. 
 
 In mixed-used equilibrium it has to be the case that over some interval $Z$, $R_i(z)=R_h(z)$. For this to be true, the wage schedule has to satisfy a functional equation,
 \[
-w(z) \propto \left(\frac{D(\tau_hz)^{1/\gamma}}{D(\tau_iz)^{1/\beta}}\right)^{1/(1-1/\beta-1/\gamma)}.
+w(z) \propto \left[\frac{D(\tau_hz)^{1/\gamma}}{D(\tau_iz)^{1/\beta}}\right]^{1/(1-1/\beta-1/\gamma)}.
 \]
 With exponential transport costs this simplifies to
 \[
-\ln w(z) = c + z\frac{\tau_i/\beta - \tau_h/\gamma}{1-1/\beta-1/\gamma},
+\ln w(z) = c - z\frac{\tau_i/\beta-\tau_h/\gamma}{1/\beta+1/\gamma-1},
 \]
-which decreases in $z$ if and only if $\tau_i/\beta > \tau_h/\gamma$.
+which decreases in $z$ if and only if $\tau_i/\beta > \tau_h/\gamma$. (This, by the way, is the condition that the service bid rent curve is steeper than the residential. Intuitively, if residents wanted to live in the center so much, they would be happy with a lower wage.)
+
+The rent gradient is
+\[
+\ln r(z) = c - z\left[\frac{1/\gamma}{1/\beta+1/\gamma-1}\tau_i/\beta+
+\frac{1/\beta-1}{1/\beta+1/\gamma-1}\tau_h/\gamma\right],
+\]
+always decreasing in $z$. If $\gamma\to 0$, the first term converges to $\tau_i/\beta$, the rent gradient without LSL. 
+
+The relative wage is
+\[
+\ln w(z) - \ln r(z) = c + z\left[\frac{1/\gamma-1}{1/\beta+1/\gamma-1}\tau_i/\beta+
+\frac{1/\beta}{1/\beta+1/\gamma-1}\tau_h/\gamma\right],
+\]
+increasing in $z$. Because of this, commercial land per employment increases with $z$. 
+
+Also, by the Cobb--Douglas demand for housing, residential land per employment also increases with $z$. These two imply that population density declines with $z$. Notice that we don't even need $\tau_h$, we can zero it out for simplicity. Cities are more dense because service establishments like to be close to markets, bid up the rent, and increase the relative demand for labor.
+
+TODO: Solve for equilibrium land use at location $z$. Integrate out to obtain the supply of services and manufacturing. Given the Cobb--Douglas assumption about housing, try the following alternative comparative statics: increase $\gamma$, increase everyone's income exogenously (in proportion to wages so as not to mess up the current spatial equilibrium).
 
 
 
-\end{document}
+\end{document} 
