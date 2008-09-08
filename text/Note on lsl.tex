@@ -109,5 +109,29 @@ The boundaries $z_1$ and $z_2$ are determined such that product markets clear. T
 \end{enumerate}
 
 
+\subsection{Cobb--Douglas, exponential case}
+Write the firms' bid rent curve as 
+\begin{equation*}
+R_i(z,p_i,w(z)) = \beta (1-\beta)^{1/\beta-1} p_i^{1/\beta} A_i^{1/\beta} D(\tau_i z)^{1/\beta}w(z)^{1-1/\beta}.
+\end{equation*}
+This is decreasing in wages.
+
+Similary, we can write the bid rent curve of households as a function of the wage schedule.
+\[
+R_h(z,P,w(z)) \propto D(\tau_h z)^{1/\gamma}w(z)^{1/\gamma},
+\]
+where $\gamma$ is the CD share of housing in consumption expenditure. This assumes $T=0$ (absentee landlord), but is also valid for rents redistributed in proportion to wage income. 
+
+In mixed-used equilibrium it has to be the case that over some interval $Z$, $R_i(z)=R_h(z)$. For this to be true, the wage schedule has to satisfy a functional equation,
+\[
+w(z) \propto \left(\frac{D(\tau_hz)^{1/\gamma}}{D(\tau_iz)^{1/\beta}}\right)^{1/(1-1/\beta-1/\gamma)}.
+\]
+With exponential transport costs this simplifies to
+\[
+\ln w(z) = c + z\frac{\tau_i/\beta - \tau_h/\gamma}{1-1/\beta-1/\gamma},
+\]
+which decreases in $z$ if and only if $\tau_i/\beta > \tau_h/\gamma$.
+
+
 
 \end{document}
