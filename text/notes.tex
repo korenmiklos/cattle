@@ -326,5 +326,30 @@ From these we can determine the equilibrium $z_1$:
 \end{equation}
 Clearly, if $A_s$ and $A_m$ grow in proportion, then $z_1$ increases if and only if $x>0$. 
 
+Totally differentiating
+\[
+\gamma \frac{A_s/A_m}{\tau_s/\tau_m}\tau_s e^{\tau_s z_1} dz_1 = 
+(1-\gamma) \left[\frac{x}{A_m}\tau_me^{\tau_m z_1}dA_m/A_m-\frac{x}{A_m}\tau_m^2e^{\tau_m z_1}dz_1\right]
+\]
+\[
+\left[\gamma {A_s}e^{\tau_s z_1}+(1-\gamma)x\tau_me^{\tau_m z_1}\right]  dz_1 = 
+(1-\gamma) {x}e^{\tau_m z_1}dA_s/A_s
+\]
+\[
+\left[\frac{\gamma}{1-\gamma} \frac{A_s}{x}e^{(\tau_s-\tau_m) z_1}+\tau_m\right]  dz_1 = 
+dA_s/A_s
+\]
+\[
+\frac{dz_1}{dA_s/A_s} = \frac{1}{\frac{\gamma}{1-\gamma} \frac{A_s}{x}e^{(\tau_s-\tau_m) z_1}+\tau_m}
+\]
+\[
+\frac{d\ln p_s}{d\ln A_s} = \frac{(\tau_s-\tau_m)x}{\frac{\gamma}{1-\gamma} {A_s}e^{(\tau_s-\tau_m) z_1}+\tau_m x}
+\]
+For comparison, what is the strength of the non-homothetic effect? 
+\[
+\frac{d\ln p_ss}{d\ln A_s} = 1 + \frac{(\tau_s-\tau_m)e^{\tau_s z_1} +\tau_m e^{-\tau_m z_1}}{e^{(\tau_s-\tau_m) z_1} - e^{-\tau_m z_1}}\frac{dz_1}{d\ln A_s}
+\]
+
+
 \end{document}
 % ----------------------------------------------------------------
