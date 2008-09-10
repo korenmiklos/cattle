@@ -283,5 +283,48 @@ p_s = \left(\frac{1-\tau_m z_2}{1-\tau_s z_2}\right)^{1/\beta}.
 So there are very few modifications to the two conditions without labor.
 
 The comparative static with respect to population density is that $w$ becomes lower, which enters the supply of $m$ symmetrically with $A$. So rents increase, housing increases, service prices increase.
+
+\section{Structural change}
+Here we introduce non-homothetic Stone--Geary preferences as a source of structural change. Services become larger with development, they spread further out, making manufacturing relatively cheaper.
+
+Utility is
+\[
+u(m,s) = (m-x)^\gamma s^{1-\gamma},
+\]
+where $x$ is the subsistence level of manufactured goods. Because the marginal utility of $m$ goes to infinity as $m$ approaches $x$ from above, the consumer will always consume at least $x$ units of manufactured good, irrespective of prices and income. (If income is not sufficient, the consumer starves to death and there is no equilibrium.)
+
+Define $\tilde m=m-x$ as the \emph{surplus} manufactured good. We can rewrite the consumer's problem in two steps. First, the consumer buys the subsistence level $x$, leaving a disposable income $I-p_m x$. The rest of the manufactured good is the surplus good, but notice that utility is Cobb--Douglas in $\tilde m$ and $s$. Hence in the second stage, the consumer behaves as a Cobb--Douglas consumer, spending $\gamma$ share of $I-p_m x$ on $\tilde m$, and $1-\gamma$ share on $s$.
+
+Let us now put this demand system in a spatial economy. Notice that we do not need housing, as structural change provides an alternative reason for why manufacturing moves away from the center. We only take land as an input, everything should follow through with labor.
+
+Services are produced between 0 and $z_1$, manufacturing beyond $z_1$. The supply of services is 
+\[
+s = \int_{0}^{z_1}A_s e^{-\tau_s z} dz = \frac{A_s}{\tau_s}\left(1-e^{-\tau_s z_1}\right),
+\]
+that of manufacturing is
+\[
+m = \int_{z_1}^\infty A_m e^{-\tau_m z} dz = \frac{A_m}{\tau_m}e^{-\tau_m z_1},
+\]
+so that surplus manufacturing is
+\[
+\tilde m = \frac{A_m}{\tau_m}e^{-\tau_m z_1} - x.
+\]
+(By the way, this formulation also shows how a reduction in $\tau$ is almost equivalent to an increase in $A$.)
+
+Let $p_m\equiv 1$. Because of the Cobb--Douglas demand for surplus manufacturing,
+\[
+\frac{p_s s}{\tilde m} = \frac{1-\gamma}{\gamma}.
+\]
+We also know from spatial arbitrage (which will hold in all versions of this model) that
+\[
+p_s = e^{(\tau_s-\tau_m)z_1}.
+\]
+From these we can determine the equilibrium $z_1$:
+\begin{equation}\label{eq:equ}
+    \gamma \frac{A_s}{\tau_s}\left(e^{\tau_s z_1}-1\right) = 
+    (1-\gamma) \frac{A_m}{\tau_m}\left(1-\frac{x}{A_m}\tau_me^{\tau_m z_1}\right).
+\end{equation}
+Clearly, if $A_s$ and $A_m$ grow in proportion, then $z_1$ increases if and only if $x>0$. 
+
 \end{document}
 % ----------------------------------------------------------------
