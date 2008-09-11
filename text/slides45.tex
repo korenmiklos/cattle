@@ -262,11 +262,6 @@ Mikl\'os Koren (CEU and CEPR)}
     \item Balassa--Samuelson: Productivity growth in non-tradables is slower than in tradables.
     \item Bhagwati--Kravis--Lipsey: Non-tradables are more intensive users of the non-reproducible factor (labor).
     \item This raises their price with capital accumulation.
-    \pause
-    \begin{itemize}
-        \item Where do these technology differences come from?
-        \item Why does Balassa--Samuelson work in some cases and not in others?
-    \end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -274,16 +269,27 @@ Mikl\'os Koren (CEU and CEPR)}
 \begin{frame}\frametitle{The supply side}
 
 \begin{block}{Technology}
-Product $i$ is produced using $A_if_i(K,N)$.
+Product $i$ is produced using $A_ik_i^{\alpha_i}n_i^{1-\alpha_i}$.
 \end{block}
 
-\begin{block}{Production possibilities frontier}
-$s$ and $m$
+\begin{block}{Production possibilities set}
+Feasible $(m,s)$ such that $k_m+k_s = K$ and $n_m+n_s = N$.
 \end{block}
 
 \begin{block}{Marginal rate of transformation}
 
 \end{block}
+\end{frame}
+
+\widefigure{PPF-balassa}{The Balassa--Samuelson explanation}
+\widefigure{PPF-bhagwati}{The Bhagwati explanation}
+
+\begin{frame}\frametitle{Issues with technology-based explanations}
+
+\begin{itemize}
+    \item Where do technology differences come from?
+    \item Why does Balassa--Samuelson work in some cases and not in others?
+\end{itemize}
 \end{frame}
 
 \widefigure{sc_penn}{Balassa--Samuelson is stronger in urban countries}
@@ -317,10 +323,9 @@ $s$ and $m$
 \section{What we do}
 \begin{frame}\frametitle{What we do}
 
-%\begin{itemize}
-%    \item 
 We propose a simple spatial model in which relative price changes arise endogenously from the location choice of industries.
-%\end{itemize}
+
+%% emphasize that this conforms to our notion of tradability
 \end{frame}
 
 \begin{frame}\frametitle{Basic idea}
@@ -333,8 +338,6 @@ We propose a simple spatial model in which relative price changes arise endogeno
 \end{itemize}
 \end{frame}
 \time{2}
-
-%% give ferry house steak / cattle from kansas. cars/parking lots example?
 
 %% talk about outline: 1. land matters. 2. simple model. 3. some supportive evidence
 
@@ -399,7 +402,7 @@ s&=A_sl_s
     \item Both manufacturing and services have iceberg transport cost.
     \item One good $i$ shipped from location $z$ melts to
     \[
-    D(\tau_iz)<1,\,\,D'<0.
+    \exp(-\tau_iz).
     \]
     \item Services are less tradable:
     \[
@@ -409,7 +412,7 @@ s&=A_sl_s
 \end{frame}
 \time{2}
 
-\widefigure{Dz}{Iceberg transport costs and distance}
+\widefigure{Dz-exp}{Iceberg transport costs and distance}
 
 %%% compress this into one bullet list
 \subsection{Equilibrium}
@@ -419,11 +422,11 @@ s&=A_sl_s
     \item Land rent at location $z$: $r(z)$.
     \item Profits for industry $i$ at location $z$:
     \[
-    D(\tau_i z) p_i A_i l_i(z) - r(z)l_i(z).
+    \exp(-\tau_i z) p_i A_i l_i(z) - r(z)l_i(z).
     \]
     \item Optimum requires
     \[
-    D(\tau_i z) p_i A_i \le r(z),
+    \exp(-\tau_i z) p_i A_i \le r(z),
     \]
     with equality if industry $i$ produces at location $z$.
 \end{itemize}
@@ -434,7 +437,7 @@ s&=A_sl_s
 \begin{itemize}
     \item Define a bid rent curve:
     \[
-    R_i(z) = p_iA_iD(\tau_i z).
+    R_i(z) = p_iA_i\exp(-\tau_i z).
     \]
     \item Profit maximization requires
     \[
@@ -446,7 +449,7 @@ s&=A_sl_s
 \end{frame}
 
 %% graph of two bid rent curves
-\widefigure{bid-rent-2}{Bid rent curves of two industries}
+\widefigure{bid-rent-2-exp}{Bid rent curves of two industries}
 \time{3}
 
 %% production possibilities frontier here
@@ -456,7 +459,7 @@ s&=A_sl_s
 \[
 s = \int_0^{\Bar z}A_se^{-\tau_s z}dz.
 \]
-\item Manufacturing takes place between $Bar z$ and $\infty$.
+\item Manufacturing takes place between $\Bar z$ and $\infty$.
 \[
 m = \int_{\Bar z}^\infty A_me^{-\tau_m z}dz.
 \]
@@ -471,101 +474,35 @@ MRT = \frac{A_m}{A_s}\left(\frac{m}{A_m/\tau_m}\right)^{-(\tau_s-\tau_m)/\tau_m}
 \end{itemize}
 \end{frame}
 
+%% PPF if location does not matter
+\widefigure{PPF-location}{The production possibilities frontier with optimal location choice}
+
 %% graph of PPF. analogy to bhagwati story
 
-%% next step: why does manufacturing shrink with development?
-\subsection{Productivity growth}
-
-\begin{frame}\frametitle{Productivity growth}
+\begin{frame}\frametitle{Balassa--Samuelson with location-specific land}
 \begin{itemize}
-\item We conduct the following comparative statics.
-\item Increase $A_m$ and $A_s$ proportionally (so that productivity growth is neutral).
-\item What happens to industry location ($z_1$, $z_2$) and relative prices?
+\item Trade costs make land location specific: ``urban'' land is different from ``rural'' land.
+\item Services are more intensive users of ``urban'' land.
+\item With only trade cost differences across sectors, service price increases if and only if land devoted to manufacturing decreases.
+\item Why does manufacturing shrink with development?
 \end{itemize}
+\end{frame}
+%% 2-fctor wording may be misleading
+
+%% next step: why does manufacturing shrink with development?
+\subsection{Manufacturing and development}
+
+\begin{frame}\frametitle{Manufacturing and development}
+Land devoted to manufacturing may shrink for a number of reasons.
+\begin{enumerate}
+\item Structural change shifts resources towards services.
+\item Development increases the demand for residential land.
+\item Urbanization???
+\item Manufacturing shipping costs decline disproportionately.
+\end{enumerate}
 \end{frame}
 \time 1
 
-
-
-\begin{frame}\frametitle{Propositions}
-
-\begin{block}{Balassa--Samuelson and the sprawl}
-Service prices increase with development if and only if residential land increases with development.
-\end{block}
-\pause
-
-\begin{block}{Balanced growth}
-Productivity growth does not change the relative price of services if
-    \begin{enumerate}
-      \item housing productivity grows at the same rate,
-      \item \emph{or} demand for housing is Cobb--Douglas.
-    \end{enumerate}
-\end{block}
-\end{frame}
-\time 3
-%% explain C-D
-
-%% explain sprawl
-
-\subsection{Comparative statics}
-
-\begin{frame}\frametitle{A special case}
-\begin{itemize}
-    \item No technical progress in housing, $A_h=$constant.
-    \item Utility is Cobb--Douglas in goods, Leontief in housing,
-\[
-u(m,s,h) = \min\{m^\gamma s^{1-\gamma} ,h/H\}.
-\]
-    \item Transport costs are exponential (constant hazard),
-\[
-D(\tau z) = \exp(-\tau z).
-\]
-    \item We add labor with identical intensities in both sectors,
-\begin{align*}
-m&=A_ml_m^\beta n_m^{1-\beta}\\
-s&=A_sl_s^\beta n_s^{1-\beta}
-\end{align*}
-\end{itemize}
-\end{frame}
-\time 3
-
-
-\begin{frame}\frametitle{Solution}
-\begin{itemize}
-    \item These assumptions lead to a closed-form solution.
-    \item Balassa--Samuelson effect:
-\[
-\frac{d\ln (p_s/p_m)}{d\ln A} = \frac{(\tau_s-\tau_m)z_1}{1+\Bar\tau z_1/\beta}
-\]
-    \item Stronger if
-    \begin{enumerate}
-      \item trade cost differential is large,
-      \item residential land is large,
-      \item land share is large.
-    \end{enumerate}
-\end{itemize}
-\end{frame}
-\time 2
-
-
-\begin{frame}\frametitle{Predictions}
-
-
-As productivity increases,
-\begin{enumerate}
-    \item residential land increases,
-    \item home prices increase,
-    \item the rent gradient becomes steeper,
-    \item tradable industries move away from center,
-    \item services become more expensive,
-    \item labor productivity increases faster in manufacturing.
-%   \item employment becomes more concentrated.
-\end{enumerate}
-\begin{enumerate}
-    \item[7.] All of these effects are stronger for more densely populated countries.
-\end{enumerate}
-\end{frame}
-\time 2
 
 \section{Empirical evidence}
 
@@ -688,10 +625,10 @@ Does sector location affect relative prices?
 \begin{frame}\frametitle{Commuting costs}
 \begin{itemize}
     \item People go to the CBD to shop.
-    \item Commuting costs a $1-D(\tau_h z)$ fraction of the consumption bundle.
+    \item Commuting costs a $1-\exp(-\tau_h z)$ fraction of the consumption bundle.
     \item So that indirect utility is
     \[
-    u(I,p_m,p_s,p_h) = \frac{D(\tau_h z)I}{P[\Phi(p_m,p_s),p_h]}.
+    u(I,p_m,p_s,p_h) = \frac{\exp(-\tau_h z)I}{P[\Phi(p_m,p_s),p_h]}.
     \]
     \item Commuting is the costliest of all,
     \[
@@ -717,15 +654,15 @@ Does sector location affect relative prices?
     \item Other two prices do not depend on residence.
     \item To achieve utility $u$ at location $z$,
     \[
-    u = \frac{D(\tau_h z) I}{P[\Phi(p_m,p_s),r(z)/A_h]}.
+    u = \frac{\exp(-\tau_h z) I}{P[\Phi(p_m,p_s),r(z)/A_h]}.
     \]
     \item Bid rent function
     \[
-    R_h(z) = A_h\Phi(p_m,p_s)P_2^{-1}\left[\frac{D(\tau_h z) I}{u\Phi(p_m,p_s)}\right].
+    R_h(z) = A_h\Phi(p_m,p_s)P_2^{-1}\left[\frac{\exp(-\tau_h z) I}{u\Phi(p_m,p_s)}\right].
     \]
     \item For example, with Cobb--Douglas utility,
 \[
-R_h(z) = A_h\left[\frac{D(\tau_h z) I}{up_m^{\alpha}p_s^{\beta}}\right]^{1/\gamma}.
+R_h(z) = A_h\left[\frac{\exp(-\tau_h z) I}{up_m^{\alpha}p_s^{\beta}}\right]^{1/\gamma}.
 \]
 \end{itemize}
 \end{frame}
@@ -747,15 +684,89 @@ There exists a unique equilibrium.
 \begin{itemize}
     \item Cutoffs pin down supply:
     \begin{align*}
-    s &= A_s\int_{z_1}^{z_2}D(\tau_s z) dz, \\
-    m &= A_m\int_{z_2}^{z_3}D(\tau_m z) dz .
+    s &= A_s\int_{z_1}^{z_2}\exp(-\tau_s z) dz, \\
+    m &= A_m\int_{z_2}^{z_3}\exp(-\tau_m z) dz .
     \end{align*}
     \item Arbitrage at the manufacturing--service boundary $z_2$ pins down relative prices,
     \[
-    p_mA_mD(\tau_m z_2) = p_sA_sD(\tau_s z_2),
+    p_mA_m\exp(-\tau_m z_2) = p_sA_s\exp(-\tau_s z_2),
     \]
     which determines demand.
     \item Find $z_1$ and $z_2$ such that markets clear.
 \end{itemize}
+\end{frame}
+\time 2
+
+\subsection{Housing}
+
+\begin{frame}\frametitle{Productivity growth}
+\begin{itemize}
+\item We conduct the following comparative statics.
+\item Increase $A_m$ and $A_s$ proportionally (so that productivity growth is neutral).
+\item What happens to industry location ($z_1$, $z_2$) and relative prices?
+\end{itemize}
+\end{frame}
+\time 1
+
+
+
+
+\subsection{Comparative statics}
+
+\begin{frame}\frametitle{A special case}
+\begin{itemize}
+    \item No technical progress in housing, $A_h=$constant.
+    \item Utility is Cobb--Douglas in goods, Leontief in housing,
+\[
+u(m,s,h) = \min\{m^\gamma s^{1-\gamma} ,h/H\}.
+\]
+    \item Transport costs are exponential (constant hazard),
+\[
+D(\tau z) = \exp(-\tau z).
+\]
+    \item We add labor with identical intensities in both sectors,
+\begin{align*}
+m&=A_ml_m^\beta n_m^{1-\beta}\\
+s&=A_sl_s^\beta n_s^{1-\beta}
+\end{align*}
+\end{itemize}
+\end{frame}
+\time 3
+
+
+\begin{frame}\frametitle{Solution}
+\begin{itemize}
+    \item These assumptions lead to a closed-form solution.
+    \item Balassa--Samuelson effect:
+\[
+\frac{d\ln (p_s/p_m)}{d\ln A} = \frac{(\tau_s-\tau_m)z_1}{1+\Bar\tau z_1/\beta}
+\]
+    \item Stronger if
+    \begin{enumerate}
+      \item trade cost differential is large,
+      \item residential land is large,
+      \item land share is large.
+    \end{enumerate}
+\end{itemize}
+\end{frame}
+\time 2
+
+
+\begin{frame}\frametitle{Predictions}
+
+
+As productivity increases,
+\begin{enumerate}
+    \item residential land increases,
+    \item home prices increase,
+    \item the rent gradient becomes steeper,
+    \item tradable industries move away from center,
+    \item services become more expensive,
+    \item labor productivity increases faster in manufacturing.
+%   \item employment becomes more concentrated.
+\end{enumerate}
+\begin{enumerate}
+    \item[7.] All of these effects are stronger for more densely populated countries.
+\end{enumerate}
 \end{frame}
 \time 2
