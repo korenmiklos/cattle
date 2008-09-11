@@ -159,7 +159,7 @@
 
 \author[Kar\'adi and Koren] % (optional, use only with lots of authors)
 {P\'eter Kar\'adi (NYU)\\
-Mikl\'os Koren (CEU)}
+Mikl\'os Koren (CEU and CEPR)}
 % - Give the names in the same order as the appear in the paper.
 % - Use the \inst{?} command only if the authors have different
 %   affiliation.
@@ -225,6 +225,7 @@ Mikl\'os Koren (CEU)}
     \[
     \ln P = 0.25\ln Y + e.
     \]
+    \pause
     %% The reason I put in numbers here is that I want to be able to do back of the env calcs.
     \item This is mostly due to differences in non-tradable prices, as tradable prices vary little across countries.
     \item Over time, as a country grows, its non-tradables become relatively more expensive.
@@ -259,7 +260,7 @@ Mikl\'os Koren (CEU)}
 
 \begin{itemize}
     \item Balassa--Samuelson: Productivity growth in non-tradables is slower than in tradables.
-    \item Kravis--Lipsey--Bhagwati: Non-tradables are more intensive users of the non-reproducible factor (labor).
+    \item Bhagwati--Kravis--Lipsey: Non-tradables are more intensive users of the non-reproducible factor (labor).
     \item This raises their price with capital accumulation.
     \pause
     \begin{itemize}
@@ -267,6 +268,22 @@ Mikl\'os Koren (CEU)}
         \item Why does Balassa--Samuelson work in some cases and not in others?
     \end{itemize}
 \end{itemize}
+\end{frame}
+
+%% insert some formal MRT slides here
+\begin{frame}\frametitle{The supply side}
+
+\begin{block}{Technology}
+Product $i$ is produced using $A_if_i(K,N)$.
+\end{block}
+
+\begin{block}{Production possibilities frontier}
+$s$ and $m$
+\end{block}
+
+\begin{block}{Marginal rate of transformation}
+
+\end{block}
 \end{frame}
 
 \widefigure{sc_penn}{Balassa--Samuelson is stronger in urban countries}
@@ -310,7 +327,7 @@ We propose a simple spatial model in which relative price changes arise endogeno
 \begin{itemize}
     \item Tradable sectors locate to where land is cheap.
     \item Non-tradable sectors have to locate near consumers in big cities.
-    \item They compete with housing for scarce urban land.
+%    \item They compete with housing for scarce urban land.
     \item Urban land becomes more and more scarce with development.
     \item Raising the relative price of non-tradables.
 \end{itemize}
@@ -322,11 +339,8 @@ We propose a simple spatial model in which relative price changes arise endogeno
 %% talk about outline: 1. land matters. 2. simple model. 3. some supportive evidence
 
 
-%% 2 things: 1. true that tradables are more capital intensive, but only part of it is reproducible. in that, intensity varies little. 2. overll share is 5%
-
-
 \section{Land and location matter}
-
+%% do we need this for the madrid audience?
 \widefigure{clark-landrents}{Why has land disappeared from macro?\\ (Clark, 2007)}
 
 \begin{frame}\frametitle{Land is scarce}
@@ -340,15 +354,14 @@ We propose a simple spatial model in which relative price changes arise endogeno
 \time 2
 
 %% as a comparison, NYC is 10,000
-
-
+%% Madrid is 5,300
 
 
 \section{Model}
 \subsection{Basic structure}
 \begin{frame}\frametitle{Basic structure}
 \begin{itemize}
-    \item There are three industries, manufacturing ($m$), services ($s$), and housing ($h$).
+    \item There are two sectors, manufacturing ($m$) and services ($s$).
     \item We study how the relative prices of these industries depend on their choice of location...
     \item ...and how location varies with development.
 \end{itemize}
@@ -359,7 +372,7 @@ We propose a simple spatial model in which relative price changes arise endogeno
     \item We use the monocentric city model.
     \item All market exchange takes place in a central business district (CBD).
     \item CBD is a point on the real line.
-    \item Residents, manufacturing and service establishments can choose their location freely on the real line.
+    \item Manufacturing and service establishments can choose their location freely on the real line.
     \item Location is indexed by distance to the CBD, $z$.
 \end{itemize}
 \end{frame}
@@ -372,28 +385,14 @@ We propose a simple spatial model in which relative price changes arise endogeno
     \item Production functions:
 \begin{align*}
 m&=A_ml_m\\
-s&=A_sl_s\\
-h&= A_hl_h
+s&=A_sl_s
 \end{align*}
 \end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{Tastes}
-\begin{itemize}
-    \item Consumers have homothetic utility over $m$, $s$ and $h$.
-    \item With indirect utility function
-    \[
-    u(I,p_m,p_s,p_h) = \frac{I}{P(p_m,p_s,p_h)}.
-    \]
-    \item Assume nested structure
-    \[
-    P[\Phi(p_m,p_s),p_h].
-    \]
-\end{itemize}
-\end{frame}
 \time{1}
 
-
+%% we may want to introduce exponential right away
 \begin{frame}\frametitle{Transport costs}
 \begin{itemize}
     \item Goods are shipped to the CBD.
@@ -412,33 +411,8 @@ h&= A_hl_h
 
 \widefigure{Dz}{Iceberg transport costs and distance}
 
-\begin{frame}\frametitle{Commuting costs}
-\begin{itemize}
-    \item People go to the CBD to shop.
-    \item Commuting costs a $1-D(\tau_h z)$ fraction of the consumption bundle.
-    \item So that indirect utility is
-    \[
-    u(I,p_m,p_s,p_h) = \frac{D(\tau_h z)I}{P[\Phi(p_m,p_s),p_h]}.
-    \]
-    \item Commuting is the costliest of all,
-    \[
-    \tau_h>\tau_s>\tau_m.
-    \]
-\end{itemize}
-\end{frame}
-\time{1}
-
-
 %%% compress this into one bullet list
 \subsection{Equilibrium}
-
-\begin{frame}\frametitle{Equilibrium}
-\begin{itemize}
-    \item Firms maximize profits and choose location optimally.
-    \item Households maximize utility and choose residence optimally.
-    \item Manufacturing and service markets clear at the CBD.
-\end{itemize}
-\end{frame}
 
 \begin{frame}\frametitle{Profit maximization$\cdot$}
 \begin{itemize}
@@ -475,65 +449,17 @@ h&= A_hl_h
 \widefigure{bid-rent-2}{Bid rent curves of two industries}
 \time{3}
 
-%% skip this
-\begin{frame}\frametitle{The bid rent curve of households$\cdot$}
+%% production possibilities frontier here
+\begin{frame}\frametitle{The production possibilities frontier}
 \begin{itemize}
-    \item Housing at $z$ costs $r(z)/A_h$.
-    \item Other two prices do not depend on residence.
-    \item To achieve utility $u$ at location $z$,
-    \[
-    u = \frac{D(\tau_h z) I}{P[\Phi(p_m,p_s),r(z)/A_h]}.
-    \]
-    \item Bid rent function
-    \[
-    R_h(z) = A_h\Phi(p_m,p_s)P_2^{-1}\left[\frac{D(\tau_h z) I}{u\Phi(p_m,p_s)}\right].
-    \]
-    \item For example, with Cobb--Douglas utility,
-\[
-R_h(z) = A_h\left[\frac{D(\tau_h z) I}{up_m^{\alpha}p_s^{\beta}}\right]^{1/\gamma}.
-\]
-\end{itemize}
-\end{frame}
-%\time{2}
-
-
-
-\begin{frame}\frametitle{Equilibrium spatial structure}
-There exists a unique equilibrium.
-\begin{itemize}
-    \item Residents live closest to CBD, $\in[0,z_1]$.
-    \item With a (weakly) declining population density.
-    \item Followed by an interval of service establishments, $\in(z_1,z_2]$.
-    \item Followed by an interval of manufacturing plants, $\in(z_2,z_3]$.
-    \item City boundary is $z_3: D(\tau_m z_3)=0$.
-%    \item The boundaries $z_1$ and $z_2$ determine the supply of housing
+\item Services are produced between $0$ and $\Bar z$.
+\item Manufacturing takes place between $Bar z$ and $\infty$.
 \end{itemize}
 \end{frame}
 
-%% graph of three bid rent curves
-\widefigure{bid-rent-3}{Equilibrium spatial structure}
+%% graph of PPF. analogy to bhagwati story
 
-%% graph of concentric circles
-\widefigure{monocentric-3}{Equilibrium spatial structure}
-\time{3}
-
-\begin{frame}\frametitle{Finding the equilibrium $z_1$ and $z_2$$\cdot$}
-\begin{itemize}
-    \item Cutoffs pin down supply:
-    \begin{align*}
-    s &= A_s\int_{z_1}^{z_2}D(\tau_s z) dz, \\
-    m &= A_m\int_{z_2}^{z_3}D(\tau_m z) dz .
-    \end{align*}
-    \item Arbitrage at the manufacturing--service boundary $z_2$ pins down relative prices,
-    \[
-    p_mA_mD(\tau_m z_2) = p_sA_sD(\tau_s z_2),
-    \]
-    which determines demand.
-    \item Find $z_1$ and $z_2$ such that markets clear.
-\end{itemize}
-\end{frame}
-\time 2
-
+%% next step: why does manufacturing shrink with development?
 \subsection{Productivity growth}
 
 \begin{frame}\frametitle{Productivity growth}
@@ -730,3 +656,92 @@ Does sector location affect relative prices?
 
 \end{document}
 % 
+
+\begin{frame}\frametitle{Tastes}
+\begin{itemize}
+    \item Consumers have homothetic utility over $m$, $s$ and $h$.
+    \item With indirect utility function
+    \[
+    u(I,p_m,p_s,p_h) = \frac{I}{P(p_m,p_s,p_h)}.
+    \]
+    \item Assume nested structure
+    \[
+    P[\Phi(p_m,p_s),p_h].
+    \]
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Commuting costs}
+\begin{itemize}
+    \item People go to the CBD to shop.
+    \item Commuting costs a $1-D(\tau_h z)$ fraction of the consumption bundle.
+    \item So that indirect utility is
+    \[
+    u(I,p_m,p_s,p_h) = \frac{D(\tau_h z)I}{P[\Phi(p_m,p_s),p_h]}.
+    \]
+    \item Commuting is the costliest of all,
+    \[
+    \tau_h>\tau_s>\tau_m.
+    \]
+\end{itemize}
+\end{frame}
+\time{1}
+
+\begin{frame}\frametitle{Equilibrium}
+\begin{itemize}
+    \item Firms maximize profits and choose location optimally.
+    \item Households maximize utility and choose residence optimally.
+    \item Manufacturing and service markets clear at the CBD.
+\end{itemize}
+\end{frame}
+
+
+%% skip this
+\begin{frame}\frametitle{The bid rent curve of households$\cdot$}
+\begin{itemize}
+    \item Housing at $z$ costs $r(z)/A_h$.
+    \item Other two prices do not depend on residence.
+    \item To achieve utility $u$ at location $z$,
+    \[
+    u = \frac{D(\tau_h z) I}{P[\Phi(p_m,p_s),r(z)/A_h]}.
+    \]
+    \item Bid rent function
+    \[
+    R_h(z) = A_h\Phi(p_m,p_s)P_2^{-1}\left[\frac{D(\tau_h z) I}{u\Phi(p_m,p_s)}\right].
+    \]
+    \item For example, with Cobb--Douglas utility,
+\[
+R_h(z) = A_h\left[\frac{D(\tau_h z) I}{up_m^{\alpha}p_s^{\beta}}\right]^{1/\gamma}.
+\]
+\end{itemize}
+\end{frame}
+%\time{2}
+
+\begin{frame}\frametitle{Equilibrium spatial structure}
+There exists a unique equilibrium.
+\begin{itemize}
+    \item Residents live closest to CBD, $\in[0,z_1]$.
+    \item With a (weakly) declining population density.
+    \item Followed by an interval of service establishments, $\in(z_1,z_2]$.
+    \item Followed by an interval of manufacturing plants, $\in(z_2,z_3]$.
+    \item City boundary is $z_3: D(\tau_m z_3)=0$.
+%    \item The boundaries $z_1$ and $z_2$ determine the supply of housing
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Finding the equilibrium $z_1$ and $z_2$$\cdot$}
+\begin{itemize}
+    \item Cutoffs pin down supply:
+    \begin{align*}
+    s &= A_s\int_{z_1}^{z_2}D(\tau_s z) dz, \\
+    m &= A_m\int_{z_2}^{z_3}D(\tau_m z) dz .
+    \end{align*}
+    \item Arbitrage at the manufacturing--service boundary $z_2$ pins down relative prices,
+    \[
+    p_mA_mD(\tau_m z_2) = p_sA_sD(\tau_s z_2),
+    \]
+    which determines demand.
+    \item Find $z_1$ and $z_2$ such that markets clear.
+\end{itemize}
+\end{frame}
+\time 2
