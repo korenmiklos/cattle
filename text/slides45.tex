@@ -452,8 +452,22 @@ s&=A_sl_s
 %% production possibilities frontier here
 \begin{frame}\frametitle{The production possibilities frontier}
 \begin{itemize}
-\item Services are produced between $0$ and $\Bar z$.
+\item Services are produced between $0$ and $\Bar z$:
+\[
+s = \int_0^{\Bar z}A_se^{-\tau_s z}dz.
+\]
 \item Manufacturing takes place between $Bar z$ and $\infty$.
+\[
+m = \int_{\Bar z}^\infty A_me^{-\tau_m z}dz.
+\]
+\item Production possibilities frontier:
+\[
+s = \frac{A_s}{\tau_s}\left[1-\left(\frac{m}{A_m/\tau_m}\right)^{\tau_s/\tau_m}\right]
+\]
+\item Marginal rate of transformation:
+\[
+MRT = \frac{A_m}{A_s}\left(\frac{m}{A_m/\tau_m}\right)^{-(\tau_s-\tau_m)/\tau_m}
+\]
 \end{itemize}
 \end{frame}
 
