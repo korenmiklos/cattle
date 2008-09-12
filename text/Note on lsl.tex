@@ -159,27 +159,46 @@ The residential land per population depends on $h(z)$, so we will have
 \end{equation*}
 and the relative factor prices also determine the equilibrium development of commercial land per population
 \begin{equation*}
-\frac{l(z)}{n(z)}=\frac{\beta}{1-\beta}\frac{w(z)}{r(z)}. 
+\frac{l(z)}{n(z)}=\frac{\beta}{1-\beta}\frac{w(z)}{r(z)}.
 \end{equation*}
 Adding the two equation together, using the land constraint of $l_h(z)+l(z)=1$ and solving for $n(z)$ implies
 \begin{equation}
 n(z)=\frac{1-\beta}{\gamma(1-\beta)+\beta}\frac{r(z)}{w(z)},
 \end{equation}
-implying that the population density ($n(z)$) decreasing in the same rate as the relative $w(z)/r(z)$ rate. 
+implying that the population density ($n(z)$) decreasing in the same rate as the relative $w(z)/r(z)$ rate.
 
-Using the equation for commercial land we get that 
+Using the equation for commercial land we get that
 \begin{equation}
 l(z)=\frac{\beta}{\gamma(1-\beta)+\beta}
 \end{equation}
-constant. Commercial land used is given by $l_h(z)=1-l(z)=\frac{\gamma(1-\beta)}{(\gamma(1-\beta)+\beta)}$. 
+constant. Commercial land used is given by $l_h(z)=1-l(z)=\frac{\gamma(1-\beta)}{(\gamma(1-\beta)+\beta)}$.
 
-*** This is going to be a problem, since services is no more ``exposed'' to residential land than manufacturing. Even though they have higher population density, everyone buys a smaller house because of the high city rents. This is the spatial equivalent of the C--D curse we had before. My guess is that if/when we go back to the Leontief case, people close to the CBD will have \emph{relatively} bigger homes (because they do not substitute out of housing one to one) and the center will be more residential. In that variant, however, the wage schedule is messy. 
+*** This is going to be a problem, since services is no more ``exposed'' to residential land than manufacturing. Even though they have higher population density, everyone buys a smaller house because of the high city rents. This is the spatial equivalent of the C--D curse we had before. My guess is that if/when we go back to the Leontief case, people close to the CBD will have \emph{relatively} bigger homes (because they do not substitute out of housing one to one) and the center will be more residential. In that variant, however, the wage schedule is messy.
+
+\subsection{Reintroducing $\tau_h$}
+The constant land share result can be broken by reintroducing $\tau_h>0$, but the residential land distribution will still be independent of any income related variables, so it will not directly help will the B-S effect.
+
+Just in case, here are the results:
+The housing demand changes to 
+\begin{equation*}
+h(z)=\gamma A_h \frac{w(z)}{r(z)}e^{-\tau_hz},
+\end{equation*}
+so its growth rate will be slower than earlier: the individuals will have an extra incentive to live close to the CBD. The equilibrium commercial land usage is
+\begin{equation*}
+l(z)=\frac{\beta}{(1-\beta)\gamma e^{-\tau_hz}+\beta},
+\end{equation*}
+and the residential land is
+\begin{equation*}
+l_h(z)=\frac{(1-\beta)\gamma e^{-\tau_hz}}{(1-\beta)\gamma e^{-\tau_hz}+\beta},
+\end{equation*}
+which are both independent of the $w(z)/r(z)$ curve. 
+
 \subsection{Solving for the equilibrium}
 In order to obtain the equilibrium, we need to solve for the variables $p_m,p_s,z_1,s,m$ and the wage and rent functions ($w_s(z),w_m(z),r_s(z),r_m(z)$), where the subscripts refer to the industry offering the factor prices. The wage and rent functions are loglinear and to obtain a solution we need to solve for the constants for the (log) wage functions ($c^w_s,c^w_m$) and for the (log) rent functions ($c^r_s, c^r_m$). We can set the wages at the center as a numeraire $w_s(0)=1$ implying $c^w_s=0$. The facts that the rents and the wages offered at $z_1$ needs to be equal in equilibrium implies furthermore that
 \begin{equation*}
 w_m(z_1)=w_s(z_1) \Leftrightarrow c^w_m=-\frac{(\tau_s-\tau_m)/\beta}{1/\beta+1/\gamma-1}z_1,
 \end{equation*}
-and 
+and
 \begin{equation*}
 r_m(z_1)=r_s(z_1) \Leftrightarrow c^r_m-c^r_s=\frac{(\tau_s-\tau_m)/(\gamma\beta)}{1/\beta+1/\gamma-1}{z_1}.
 \end{equation*}
@@ -189,6 +208,7 @@ The value of $c_r^s$ is determined implicitly by the equation
 \end{equation*}
 where $N$ is a parameter determining the overall population in the city. Note: under exponential transportation costs $z_2=\infty$, so the available land is also $\infty$, meaning that average population density is 0.
 
+$z1=\left( \ln  \left(  \left( \Gamma  \right) \,{\it taus}\,{{\it Am}}^{{\beta}^{-1}}{{\it wm}}^{-{\frac {-1+\beta}{\beta}}}{{\it As}}^{-{\beta}^{-1}}{\alpha}^{-1}{{\it taum}}^{-1} \right) \beta-\ln  \left( {\it ws} \right) +\ln  \left( {\it ws} \right) \beta-{\it taum}\,z+{\it taus}\,z \right)  \left( {\it taus}-{\it taum} \right) ^{-1}$
 
 
 TODO: Integrate out to obtain the supply of services and manufacturing. Given the Cobb--Douglas assumption about housing, try the following alternative comparative statics: increase $\gamma$, increase everyone's income exogenously (in proportion to wages so as not to mess up the current spatial equilibrium).
