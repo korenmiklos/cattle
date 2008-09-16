@@ -5,7 +5,7 @@ set memory 500m
 local datastores ../../../data/Miklos ~/share/data /share/datastore
 local assembla ../data
 local proxmeasure density
-tempfile codes wdi prox
+tempfile codes wdi prox nber
 
 /* handle different paths */
 local currentdir `c(pwd)'
@@ -22,6 +22,14 @@ insheet using `assembla'/eiu/productcodes_sectors.csv, names clear
 sort product
 save `codes', replace
 
+/* filter nber data */
+clear
+use `datastore'/nber/industry/bbg96_87
+keep if year==96
+keep sic emp prode cap equip plant
+ren sic sic87
+sort sic87
+save `nber', replace
 
 /*Reading in wdi data*/
 insheet using `assembla'/wdi/WDI_9007.csv, names clear
@@ -61,12 +69,18 @@ drop if year<=1996
 collapse price citypop metropop pcgdp density population urban, by(city countryname product isocode)
 
 sort product
-merge product using `codes', keep(eli naics productname sector) nokeep
+merge product using `codes', keep(eli naics productname sector sic87) nokeep
 tabulate _merge
 drop _merge
 
 sort naics
 merge naics using `prox', nokeep
+tabulate _merge
+drop _merge
+
+/* merge with nber */
+sort sic87
+merge sic87 using `nber', nokeep
 tabulate _merge
 drop _merge
 
@@ -79,13 +93,17 @@ gen lncitypop=ln(citypop)
 if "`proxmeasure'"=="density" {
     replace proximity=ln(proximity)
 }
+gen lnKL = ln(cap)-ln(emp)
+gen nonprod = (emp-prode)/emp
 
-foreach X of var lngdp urban lndensity lncitypop proximity {
+local vars lngdp urban lndensity lncitypop proximity lnKL nonprod
+
+foreach X of var `vars' {
     egen mean`X' = mean(`X')
 }
-foreach X of var lngdp urban lndensity lncitypop proximity {
+foreach X of var `vars' {
     gen gdpX`X' = (lngdp-meanlngdp)*(`X'-mean`X')
-    gen cityX`X' = (lncitypop-meanlncitypop)*(`X'-mean`X')
+*    gen cityX`X' = (lncitypop-meanlncitypop)*(`X'-mean`X')
 }
 
 drop mean*
