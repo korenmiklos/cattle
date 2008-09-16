@@ -26,9 +26,9 @@ save `codes', replace
 clear
 use `datastore'/nber/industry/bbg96_87
 keep if year==96
+gen labor = pay/vadd
 gen unskilled = prodw/vadd
-gen skilled = (pay-prodw)/vadd
-keep sic *skilled
+keep sic labor *skilled
 ren sic sic87
 sort sic87
 save `nber', replace
@@ -96,7 +96,7 @@ if "`proxmeasure'"=="density" {
     replace proximity=ln(proximity)
 }
 
-local vars lngdp urban lndensity lncitypop proximity skilled unskilled
+local vars lngdp urban lndensity lncitypop proximity labor unskilled
 
 foreach X of var `vars' {
     egen mean`X' = mean(`X')
