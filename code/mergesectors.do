@@ -1,11 +1,21 @@
 clear
 set memory 500m
 
-local datastore ../../../data/Miklos /*~/share/data*/
+/* all potential datastores here */
+local datastores ../../../data/Miklos ~/share/data /share/datastore
 local assembla ../data
 local proxmeasure density
 tempfile codes wdi prox
 
+/* handle different paths */
+local currentdir `c(pwd)'
+foreach X of any `datastores' {
+    capture chdir "`X'"
+    if _rc==0 {
+        local datastore `X'
+    }
+}
+chdir `currentdir'
 
 /*Reading in product eli codes*/
 insheet using `assembla'/eiu/productcodes_sectors.csv, names clear
@@ -67,15 +77,15 @@ gen lndensity=ln(density)
 gen lnprice=ln(price)
 gen lncitypop=ln(citypop)
 if "`proxmeasure'"=="density" {
-	replace proximity=ln(proximity)
+    replace proximity=ln(proximity)
 }
 
 foreach X of var lngdp urban lndensity lncitypop proximity {
-	egen mean`X' = mean(`X')
+    egen mean`X' = mean(`X')
 }
 foreach X of var lngdp urban lndensity lncitypop proximity {
-	gen gdpX`X' = (lngdp-meanlngdp)*(`X'-mean`X')
-	gen cityX`X' = (lncitypop-meanlncitypop)*(`X'-mean`X')
+    gen gdpX`X' = (lngdp-meanlngdp)*(`X'-mean`X')
+    gen cityX`X' = (lncitypop-meanlncitypop)*(`X'-mean`X')
 }
 
 drop mean*
