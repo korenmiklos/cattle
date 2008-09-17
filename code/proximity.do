@@ -2,7 +2,17 @@ clear
 set mem 300m
 
 tempfile densities naics2bea
-local datastore ~/share/data
+local datastores ~/share/data ../../../data/Miklos
+
+/* handle different paths */
+local currentdir `c(pwd)'
+foreach X of any `datastores' {
+    capture chdir "`X'"
+    if _rc==0 {
+        local datastore `X'
+    }
+}
+chdir `currentdir'
 
 /* save a tempfile of country densities */
 xmluse ../data/census/county_census.xml
@@ -32,21 +42,21 @@ clear
 /* sorry, but this is over 100mb, not checking in */
 insheet using `datastore'/census/CBP/cbp05co.txt
 
-scalar define sector_type="NC4"  /*"TNT" for traded/non-traded or 
+scalar define sector_type="NC4"  /*"TNT" for traded/non-traded or
 				   "AMS" for agriculture/manufcaturing/services
 				   "BEA" for BEA codes
 				   "NC4" for NAICS 4 */
 scalar define weight_type="est"  /*"emp" for employment
 				   "est" for establishment*/
 
-/* keep 2-digit naics 
+/* keep 2-digit naics
 keep if substr(naics,3,4)=="----"
 drop if naics=="------"
 gen naics_r = real(substr(naics,1,2))
 drop naics
-ren naics_r naics */ 
+ren naics_r naics */
 
-/* keep 3-digit naics 
+/* keep 3-digit naics
 keep if substr(naics,4,3)=="///"
 gen naics_r = real(substr(naics,1,3))
 drop naics
@@ -58,7 +68,7 @@ keep if substr(naics,5,2)=="//" & substr(naics,4,3)!="///"
 gen naics_r = real(substr(naics,1,4))
 drop naics
 gen naics=naics_r
-drop naics_r 
+drop naics_r
 
 gen fips = fipstate*1000+fipscty
 drop fipstate fipscty
@@ -97,7 +107,7 @@ compress
 
 
 
-/* switch to bea codes 
+/* switch to bea codes
 
 sort naics
 merge naics using `naics2bea', nokeep
@@ -166,6 +176,8 @@ replace urban = . if missing(urban, density, countyshare)
 /* weighting */
 replace density = density*countyshare
 replace urban =	urban*countyshare
+
+break
 
 collapse (sum) urban density countyshare, by(sector)
 su countyshare, d

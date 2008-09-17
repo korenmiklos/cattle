@@ -160,7 +160,7 @@
 
 \author[Karadi and Koren] % (optional, use only with lots of authors)
 {Peter Karadi (NYU)\\
-Miklos Koren (CEU and CEPR)}
+Miklos Koren (Central European University and CEPR)}
 % - Give the names in the same order as the appear in the paper.
 % - Use the \inst{?} command only if the authors have different
 %   affiliation.
@@ -236,51 +236,6 @@ Miklos Koren (CEU and CEPR)}
 
 \time{2}
 
-%% insert some formal MRT slides here
-\begin{frame}\frametitle{Technology based explanations I.}
-
-\begin{block}{Technology}
-Product $i$ is produced using $A_iF_i(k_i,n_i)$.
-\end{block}
-
-\begin{block}{Production possibilities set}
-Feasible $(m,s)$ such that $k_m+k_s = K$ and $n_m+n_s = N$.
-\end{block}
-
-\begin{block}{Marginal rate of transformation}
-Number of $m$s sacrificed for a unit of $s$:
-\[
-MRT=\frac{A_mF_{mk}(k_m,n_m)}{A_sF_{sk}(k_s,n_s)}
-\]
-\end{block}
-
-\begin{block}{Relative price}
-In equilibrium, the relative price is pinned down by the MRT.
-\end{block}
-
-\end{frame}
-
-\begin{frame}\frametitle{Technology-based explanations II.}
-
-\begin{itemize}
-    \item<1-> Balassa--Samuelson: Productivity growth in non-tradables is slower than in tradables. \hyperlink{PPF-balassa}{\beamerbutton{Balassa}}
-    \item<2-> Bhagwati--Kravis--Lipsey: Non-tradables are more intensive users of the non-reproducible factor (labor).
-    \item<2-> This raises their price with capital accumulation.\hyperlink{PPF-bhagwati}{\beamerbutton{Bhagwati}}
-\end{itemize}
-\end{frame}
-
-\begin{frame}\frametitle{Issues with technology-based explanations}
-
-\begin{itemize}
-    \item<1-> Where do technology differences come from?
-    \item<2-> Factor intensity differences seem to be small. \hyperlink{Valentinyi}{\beamerbutton{Income shares}}
-    \item<3-> Why does Balassa--Samuelson work in some cases and not in others? \hyperlink{sc_penn}{\beamerbutton{Urban}} \hyperlink{chicken}{\beamerbutton{Chicken}}
-\end{itemize}
-\end{frame}
-
-%% however, both of these technology assumptions are rather ad hoc. they will never be able to explain variations in the BS effect. as we will see, there is substantial variation both across countries and over time (in particular, BS is relatively recent). our model will be able to speak to both.
-
-%\section{What we do}
 \subsection{}
 
 \begin{frame}\frametitle{What we do}
@@ -303,6 +258,28 @@ In equilibrium, the relative price is pinned down by the MRT.
 \end{itemize}
 \end{frame}
 \time{2}
+
+\begin{frame}\frametitle{Alternative explanations}
+
+\begin{itemize}
+    \item<1-> Balassa--Samuelson: Productivity growth in non-tradables is slower than in tradables. \hyperlink{PPF-balassa}{\beamerbutton{Balassa}}
+    \item<2-> Bhagwati--Kravis--Lipsey: Non-tradables are more intensive users of the non-reproducible factor (labor).
+    \item<2-> This raises their price with capital accumulation.\hyperlink{PPF-bhagwati}{\beamerbutton{Bhagwati}}
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Issues with the alternative explanations}
+
+\begin{itemize}
+    \item<1-> Where do technology differences come from?
+    \item<2-> Factor intensity differences seem to be small. \hyperlink{Valentinyi}{\beamerbutton{Income shares}}
+    \item<3-> Why does Balassa--Samuelson work in some cases and not in others? \hyperlink{sc_penn}{\beamerbutton{Urban}} \hyperlink{chicken}{\beamerbutton{Chicken}}
+\end{itemize}
+\end{frame}
+
+%% however, both of these technology assumptions are rather ad hoc. they will never be able to explain variations in the BS effect. as we will see, there is substantial variation both across countries and over time (in particular, BS is relatively recent). our model will be able to speak to both.
+
+%\section{What we do}
 
 %% talk about outline: 1. land matters. 2. simple model. 3. some supportive evidence
 
@@ -430,10 +407,10 @@ m = \int_{\Bar z}^\infty A_me^{-\tau_m z}dz.
 \[
 s = \frac{A_s}{\tau_s}\left[1-\left(\frac{m}{A_m/\tau_m}\right)^{\tau_s/\tau_m}\right]
 \]
-\item Marginal rate of transformation:
-\[
-MRT = \frac{A_m}{A_s}\left(\frac{m}{A_m/\tau_m}\right)^{-(\tau_s-\tau_m)/\tau_m}
-\]
+%\item Marginal rate of transformation:
+%\[
+%MRT = %\frac{A_m}{A_s}\left(\frac{m}{A_m/\tau_m}\right)^{-(\tau_s-\tau_m)/\tau_m}
+%\]
 \end{itemize}
 \end{frame}
 
@@ -450,11 +427,12 @@ MRT = \frac{A_m}{A_s}\left(\frac{m}{A_m/\tau_m}\right)^{-(\tau_s-\tau_m)/\tau_m}
 \subsection{Manufacturing and development}
 
 \begin{frame}\frametitle{Manufacturing and development}
-Urban land may become relatively scarce for a number of reasons. 
+\label{development}
+Urban land may become relatively scarce for a number of reasons.
 \begin{enumerate}
-\item<1-> Manufacturing shipping costs decline disproportionately \hyperlink{PPF-location}{\beamerbutton{PPF}}.
-\item<1-> Structural change shifts resources towards services.
-\item<2-> Development increases the demand for residential land.
+\item<1-> Manufacturing shipping costs decline disproportionately. \hyperlink{transport}{\beamerbutton{Transport cost}}
+\item<1-> Structural change shifts resources towards services. \hyperlink{Structchange}{\beamerbutton{Structural change}}
+\item<2-> Development increases the demand for residential land. \hyperlink{housing}{\beamerbutton{Housing}}
 \end{enumerate}
 \end{frame}
 \time 1
@@ -785,8 +763,54 @@ Services    & 0.32      & 0.05      & 0.15          & 0.12      \\ \hline\hline
 \widefigure{bid-rent-2-exp}{Bid rent curves of two industries}
 \time{3}
 
-%% PPF if location does not matter
 \widefigure{PPF-location}{The production possibilities frontier}
+
+%% PPF if location does not matter
+\begin{frame} \frametitle{Structural change}
+\hyperlink{development}{\beamerreturnbutton{return}}
+\label{Structchange}
+\temporal<2>{
+    \begin{center}
+    \includegraphics[width=\linewidth]{\directory/PPF-location-nonhomothetic-1.pdf}
+    \end{center}}{
+    \begin{center}
+    \includegraphics[width=\linewidth]{\directory/PPF-location-nonhomothetic-2.pdf}
+    \end{center}}{
+    \begin{center}
+    \includegraphics[width=\linewidth]{\directory/PPF-location-nonhomothetic-2.pdf}
+    \end{center}}
+\end{frame}
+
+\begin{frame} \frametitle{Change in relative transport costs}
+\hyperlink{development}{\beamerreturnbutton{return}}
+\label{transport}
+\temporal<2>{
+    \begin{center}
+    \includegraphics[width=\linewidth]{\directory/PPF-location-transport-1.pdf}
+    \end{center}}{
+    \begin{center}
+    \includegraphics[width=\linewidth]{\directory/PPF-location-transport-2.pdf}
+    \end{center}}{
+    \begin{center}
+    \includegraphics[width=\linewidth]{\directory/PPF-location-transport-2.pdf}
+    \end{center}}
+\end{frame}
+
+\begin{frame} \frametitle{Housing} \hyperlink{development}{\beamerreturnbutton{return}}
+\label{housing}
+\temporal<2>{
+    \begin{center}
+    \includegraphics[width=\linewidth]{\directory/PPF-location-housing-1.pdf}
+    \end{center}}{
+    \begin{center}
+    \includegraphics[width=\linewidth]{\directory/PPF-location-housing-2.pdf}
+    \end{center}}{
+    \begin{center}
+    \includegraphics[width=\linewidth]{\directory/PPF-location-housing-2.pdf}
+    \end{center}}
+\end{frame}
+
+
 
 %% explain flat line first. then explain why the other line is curved. this starts to look like the bhagwati story. will need something that makes rural land abundant relative to urban land
 
@@ -797,6 +821,29 @@ Services    & 0.32      & 0.05      & 0.15          & 0.12      \\ \hline\hline
 
 
 
+%% insert some formal MRT slides here
+\begin{frame}\frametitle{Technology based explanations I.}
+
+\begin{block}{Technology}
+Product $i$ is produced using $A_iF_i(k_i,n_i)$.
+\end{block}
+
+\begin{block}{Production possibilities set}
+Feasible $(m,s)$ such that $k_m+k_s = K$ and $n_m+n_s = N$.
+\end{block}
+
+\begin{block}{Marginal rate of transformation}
+Number of $m$s sacrificed for a unit of $s$:
+\[
+MRT=\frac{A_mF_{mk}(k_m,n_m)}{A_sF_{sk}(k_s,n_s)}
+\]
+\end{block}
+
+\begin{block}{Relative price}
+In equilibrium, the relative price is pinned down by the MRT.
+\end{block}
+
+\end{frame}
 
 
 
