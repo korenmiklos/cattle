@@ -264,8 +264,6 @@ Mikl\'os Koren (CEU and CEPR)}
     \item We propose a simple spatial model in which relative price changes arise endogenously from the location choice of industries.
     \item Industries share the exact same technology, they only differ in \emph{tradability}.
 \end{itemize}
-
-%% emphasize that this conforms to our notion of tradability
 \end{frame}
 
 \begin{frame}\frametitle{Basic idea}
@@ -273,7 +271,7 @@ Mikl\'os Koren (CEU and CEPR)}
     \item Non-tradable sectors have to locate near consumers in big cities.
     \item Tradable sectors locate to where land is cheap.
     \item Urban land becomes more and more scarce with development.
-    \item Raising the relative price of non-tradables.
+    \item This raises urban rents, raising the relative price of non-tradables.
 \end{itemize}
 \end{frame}
 \time{2}
@@ -289,10 +287,12 @@ Mikl\'os Koren (CEU and CEPR)}
 \end{itemize}
 \end{frame}
 
+\time 2
 
 \widefigure{PPF-balassa}{The Balassa--Samuelson explanation}
 \widefigure{PPF-bhagwati}{The Bhagwati explanation}
 
+\time 3
 %% however, both of these technology assumptions are rather ad hoc. they will never be able to explain variations in the BS effect. as we will see, there is substantial variation both across countries and over time (in particular, BS is relatively recent). our model will be able to speak to both.
 
 
@@ -335,7 +335,7 @@ Mikl\'os Koren (CEU and CEPR)}
 
 
 \section{Model}
-\subsection{Basic structure}
+\section{Environment}
 \begin{frame}\frametitle{Basic structure}
 \begin{itemize}
     \item There are two sectors, manufacturing ($m$) and services ($s$).
@@ -383,9 +383,9 @@ s&=A_sl_s
     \]
 \end{itemize}
 \end{frame}
-\time{2}
+\time{1}
 
-\subsection{Equilibrium}
+\section{Characterizing the supply side}
 
 \begin{frame}\frametitle{Profit maximization$\cdot$}
 \begin{itemize}
@@ -443,6 +443,7 @@ s = \frac{A_s}{\tau_s}\left[1-\left(\frac{m}{A_m/\tau_m}\right)^{\tau_s/\tau_m}\
 \]
 \end{itemize}
 \end{frame}
+\time 2
 
 %% PPF if location does not matter
 \widefigure{PPF-location}{The production possibilities frontier}
@@ -451,28 +452,33 @@ s = \frac{A_s}{\tau_s}\left[1-\left(\frac{m}{A_m/\tau_m}\right)^{\tau_s/\tau_m}\
 
 %% graph of PPF. analogy to bhagwati story
 
+\time 3
+
 \begin{frame}\frametitle{Balassa--Samuelson with location-specific land}
 \begin{itemize}
 \item Trade costs make land location specific: ``urban'' land is different from ``rural'' land.
 \item Services are more intensive users of ``urban'' land.
 \end{itemize}
 
+\pause
 \begin{block}{Proposition}
-Assume $A_m/A_s$ is constant. Service price increases if and only if ``urban'' land becomes \emph{scarce} relative to ``rural'' land.
+Assume $A_m/A_s$ is constant. Service price increases if and only if demand for ``urban'' land ($\Bar z$) increases relative to ``rural'' land.
 \end{block}
 \end{frame}
 
-\subsection{Manufacturing and development}
+\time 1
 
-\begin{frame}\frametitle{Manufacturing and development}
-Urban land may become relatively scarce for a number of reasons.
+\section{Closing the model}
+
+\begin{frame}\frametitle{Development and urban land}
+Demand for urban land may increase for a number of reasons.
 \begin{enumerate}
 \item \jumpto{PPF-location-nonhomothetic-1}{Structural change shifts demand towards services}.
 \item \jumpto{PPF-location-housing-1}{Development increases the demand for residential land}.
 \item \jumpto{PPF-location-transport-1}{Manufacturing shipping costs decline disproportionately}.
 \end{enumerate}
 \end{frame}
-\time 1
+\time 4
 
 
 \section{Empirical evidence}
@@ -498,7 +504,7 @@ Does sector location affect the relationship between prices and income?
 \item For each product--city pair, we take average USD price between 1997 and 2006.
 \end{itemize}
 \end{frame}
-\time 4
+\time 3
 
 \subsection{Industry location}
 \begin{frame}\frametitle{Industry location}
@@ -513,7 +519,7 @@ Does sector location affect the relationship between prices and income?
 \item We match EIU products to sectors in which they are \emph{produced}.
 \end{itemize}
 \end{frame}
-
+\time 2
 %% put sector names here
 \begin{frame}\frametitle{Sectors close to residents}
 \begin{center}
@@ -562,7 +568,7 @@ Does sector location affect the relationship between prices and income?
 \end{tabular}
 \end{center}
 \end{frame}
-\time 4
+\time 2
 
 %% key proximity regression
 \widefigure{eiureg}{Industry location and the Balassa--Samuelson effect}
@@ -577,7 +583,7 @@ Does sector location affect the relationship between prices and income?
 \item This effect is robust to controlling for major sectoral groupings and labor shares.
 \end{itemize}
 \end{frame}
-
+\time 1
 
 \section{Conclusions}
 \begin{frame}\frametitle{Conclusions}
