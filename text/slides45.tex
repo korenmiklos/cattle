@@ -256,6 +256,30 @@ Mikl\'os Koren (CEU and CEPR)}
 
 \time 2
 
+
+\subsection{What we do}
+\begin{frame}\frametitle{What we do}
+
+\begin{itemize}
+    \item We propose a simple spatial model in which relative price changes arise endogenously from the location choice of industries.
+    \item Industries share the exact same technology, they only differ in \emph{tradability}.
+\end{itemize}
+
+%% emphasize that this conforms to our notion of tradability
+\end{frame}
+
+\begin{frame}\frametitle{Basic idea}
+\begin{itemize}
+    \item Non-tradable sectors have to locate near consumers in big cities.
+    \item Tradable sectors locate to where land is cheap.
+    \item Urban land becomes more and more scarce with development.
+    \item Raising the relative price of non-tradables.
+\end{itemize}
+\end{frame}
+\time{2}
+
+
+\subsection{Traditional explanations}
 \begin{frame}\frametitle{Technology-based explanations}
 
 \begin{itemize}
@@ -265,58 +289,21 @@ Mikl\'os Koren (CEU and CEPR)}
 \end{itemize}
 \end{frame}
 
-%% insert some formal MRT slides here
-\begin{frame}\frametitle{Technology and relative prices}
-
-\begin{block}{Technology}
-Product $i$ is produced using $A_iF_i(k_i,n_i)$.
-\end{block}
-
-\begin{block}{Production possibilities set}
-Feasible $(m,s)$ such that $k_m+k_s = K$ and $n_m+n_s = N$.
-\end{block}
-
-\begin{block}{Marginal rate of transformation}
-Number of $m$s sacrificed for a unit of $s$: 
-\[
-MRT=\frac{A_mF_{mk}(k_m,n_m)}{A_sF_{sk}(k_s,n_s)}
-\]
-\end{block}
-
-\begin{block}{Relative price}
-In equilibrium, the relative price is pinned down by the MRT.
-\end{block}
-
-\end{frame}
 
 \widefigure{PPF-balassa}{The Balassa--Samuelson explanation}
 \widefigure{PPF-bhagwati}{The Bhagwati explanation}
+
+%% however, both of these technology assumptions are rather ad hoc. they will never be able to explain variations in the BS effect. as we will see, there is substantial variation both across countries and over time (in particular, BS is relatively recent). our model will be able to speak to both.
 
 
 \begin{frame}\frametitle{Issues with technology-based explanations}
 
 \begin{itemize}
-    \item Where do technology differences come from?
-    \item Factor intensity differences seem to be small.
+    \item Is it just a coincidence that technology is correlated with tradability?
     \item Why does Balassa--Samuelson work in some cases and not in others?
 \end{itemize}
 \end{frame}
 
-
-\begin{frame}\frametitle{The share of land in GDP$\cdot$}
-Sector income shares in various industries in the US (Herrendorf and Valentinyi, 2007)
-\begin{center}
-\begin{tabular}{l|c|ccc}
-\hline\hline
-Industry    & Capital   &   Land    & Structures    & Equipment \\ \hline
-GDP         &   0.32    &   0.05    & 0.13          & 0.14      \\ \hline
-Agriculture & 0.43      &   0.18    & 0.10          & 0.15      \\
-Manufacturing & 0.31    &   0.03    & 0.08          & 0.20      \\
-Services    & 0.32      & 0.05      & 0.15          & 0.12      \\ \hline\hline
-\end{tabular}
-\end{center}
-\end{frame}
-%% 2 things: 1. true that tradables are more capital intensive, but only part of it is reproducible. in that, intensity varies little. 2. overll share is 5%
 
 \widefigure{sc_penn}{Balassa--Samuelson is stronger in urban countries}
 
@@ -344,49 +331,7 @@ Services    & 0.32      & 0.05      & 0.15          & 0.12      \\ \hline\hline
 
 \time 2
 
-%% however, both of these technology assumptions are rather ad hoc. they will never be able to explain variations in the BS effect. as we will see, there is substantial variation both across countries and over time (in particular, BS is relatively recent). our model will be able to speak to both.
 
-\section{What we do}
-\begin{frame}\frametitle{What we do}
-
-\begin{itemize}
-    \item We propose a simple spatial model in which relative price changes arise endogenously from the location choice of industries.
-    \item Industries share the exact same technology, they only differ in \emph{tradability}.
-\end{itemize}
-
-%% emphasize that this conforms to our notion of tradability
-\end{frame}
-
-\begin{frame}\frametitle{Basic idea}
-\begin{itemize}
-    \item Tradable sectors locate to where land is cheap.
-    \item Non-tradable sectors have to locate near consumers in big cities.
-%    \item They compete with housing for scarce urban land.
-    \item Urban land becomes more and more scarce with development.
-    \item Raising the relative price of non-tradables.
-\end{itemize}
-\end{frame}
-\time{2}
-
-%% talk about outline: 1. land matters. 2. simple model. 3. some supportive evidence
-
-
-\section{Land and location matter}
-%% do we need this for the madrid audience?
-\widefigure{clark-landrents}{Why has land disappeared from macro?\\ (Clark, 2007)}
-
-\begin{frame}\frametitle{Land is scarce}
-\begin{itemize}
-    \item Population density of the Earth is 42$/\text{km}^2$, so land is abundant.
-    \pause
-    \item However, the average person lives in an area with a population density of 7,300$/\text{km}^2$ (LandScan 2005),
-    so \emph{land close to consumers} is scarce.
-\end{itemize}
-\end{frame}
-\time 2
-
-%% as a comparison, NYC is 10,000
-%% Madrid is 5,300
 
 
 \section{Model}
@@ -402,8 +347,7 @@ Services    & 0.32      & 0.05      & 0.15          & 0.12      \\ \hline\hline
 \begin{frame}\frametitle{Spatial structure}
 \begin{itemize}
     \item We use the monocentric city model.
-    \item All market exchange takes place in a central business district (CBD).
-    \item CBD is a point on the real line.
+    \item All market exchange takes place in a central business district (CBD), which is a point on the real line.
     \item Manufacturing and service establishments can choose their location freely on the real line.
     \item Location is indexed by distance to the CBD, $z$.
 \end{itemize}
@@ -441,9 +385,6 @@ s&=A_sl_s
 \end{frame}
 \time{2}
 
-\widefigure{Dz-exp}{Iceberg transport costs and distance}
-
-%%% compress this into one bullet list
 \subsection{Equilibrium}
 
 \begin{frame}\frametitle{Profit maximization$\cdot$}
@@ -496,9 +437,9 @@ m = \int_{\Bar z}^\infty A_me^{-\tau_m z}dz.
 \[
 s = \frac{A_s}{\tau_s}\left[1-\left(\frac{m}{A_m/\tau_m}\right)^{\tau_s/\tau_m}\right]
 \]
-\item Marginal rate of transformation:
+\item Relative price is pinned down by MRT:
 \[
-MRT = \frac{A_m}{A_s}\left(\frac{m}{A_m/\tau_m}\right)^{-(\tau_s-\tau_m)/\tau_m}
+\frac{p_s}{p_m} = \frac{A_m}{A_s}e^{(\tau_s-\tau_m)\Bar z}.
 \]
 \end{itemize}
 \end{frame}
@@ -514,21 +455,21 @@ MRT = \frac{A_m}{A_s}\left(\frac{m}{A_m/\tau_m}\right)^{-(\tau_s-\tau_m)/\tau_m}
 \begin{itemize}
 \item Trade costs make land location specific: ``urban'' land is different from ``rural'' land.
 \item Services are more intensive users of ``urban'' land.
-\item With only trade cost differences across sectors, service price increases if and only if ``urban'' land becomes \emph{scarce} relative to ``rural'' land.
 \end{itemize}
-\end{frame}
-%% 2-fctor wording may be misleading
 
-%% next step: why does manufacturing shrink with development?
+\begin{block}{Proposition}
+Assume $A_m/A_s$ is constant. Service price increases if and only if ``urban'' land becomes \emph{scarce} relative to ``rural'' land.
+\end{block}
+\end{frame}
+
 \subsection{Manufacturing and development}
 
 \begin{frame}\frametitle{Manufacturing and development}
 Urban land may become relatively scarce for a number of reasons.
 \begin{enumerate}
-\item Structural change shifts resources towards services.
-\item Development increases the demand for residential land.
-\item Urbanization???
-\item Manufacturing shipping costs decline disproportionately.
+\item \jumpto{PPF-location-nonhomothetic-1}{Structural change shifts demand towards services}.
+\item \jumpto{PPF-location-housing-1}{Development increases the demand for residential land}.
+\item \jumpto{PPF-location-transport-1}{Manufacturing shipping costs decline disproportionately}.
 \end{enumerate}
 \end{frame}
 \time 1
@@ -537,14 +478,15 @@ Urban land may become relatively scarce for a number of reasons.
 \section{Empirical evidence}
 
 \begin{frame}\frametitle{Question}
-Does sector location affect relative prices?
+Does sector location affect the relationship between prices and income?
 \end{frame}
 
 \begin{frame}\frametitle{Data}
 \begin{itemize}
 \item We use city-level product price data from the Economist Intelligence Unit.
 \item We construct measures of industry location from U.S.~Census data.
-\item GDP per capita comes from WDI.
+(Assuming that tradability differences are similar for all countries.)
+\item GDP per capita comes from WDI, other sector-level measures from the NBER productivity database.
 \end{itemize}
 \end{frame}
 
@@ -625,18 +567,107 @@ Does sector location affect relative prices?
 %% key proximity regression
 \widefigure{eiureg}{Industry location and the Balassa--Samuelson effect}
 \time 3
+\widefigure{eiuman}{Industry location and labor intensity}
+\time 2
+
+\begin{frame}\frametitle{Results}
+\begin{itemize}
+\item Prices of goods produced closer to residents are more sensitive to income.
+\item ``Urban'' goods have a B--S elasticity of $0.18-0.20$, ``rural'' goods $-0.04-0.09$.
+\item This effect is robust to controlling for major sectoral groupings and labor shares.
+\end{itemize}
+\end{frame}
+
 
 \section{Conclusions}
 \begin{frame}\frametitle{Conclusions}
 \begin{itemize}
-\item We developed a tractable model of industry location,
-\item which is consistent with regional patterns in the U.S.
+\item We incorporated a tractable model of industry location into a macro model.
+\item If sectors differ in their tradability, this spatial model yields interesting sectoral shifts with development.
 \item The Balassa--Samuelson effect is stronger for sectors that locate close to consumers.
 \end{itemize}
 \end{frame}
 
+
+\appendix
+\section{Appendix}
+\section{Land and location matter}
+%% do we need this for the madrid audience?
+\widefigure{clark-landrents}{Why has land disappeared from macro?\\ (Clark, 2007)}
+
+\begin{frame}\frametitle{Land is scarce}
+\begin{itemize}
+    \item Population density of the Earth is 42$/\text{km}^2$, so land is abundant.
+    \pause
+    \item However, the average person lives in an area with a population density of 7,300$/\text{km}^2$ (LandScan 2005),
+    so \emph{land close to consumers} is scarce.
+\end{itemize}
+\end{frame}
+\time 2
+\begin{frame}\frametitle{The share of land in GDP$\cdot$}
+Sector income shares in various industries in the US (Herrendorf and Valentinyi, 2007)
+\begin{center}
+\begin{tabular}{l|c|cc}
+\hline\hline
+Industry    & Capital   &   Land    & Structures+Equipment \\ \hline
+GDP         &   0.32    &   0.05    & 0.27 \\ \hline
+Agriculture & 0.43      &   0.18    & 0.25      \\
+Manufacturing & 0.31    &   0.03    & 0.28      \\
+Services    & 0.32      & 0.05      & 0.27      \\ \hline\hline
+\end{tabular}
+\end{center}
+\end{frame}
+%% 2 things: 1. true that tradables are more capital intensive, but only part of it is reproducible. in that, intensity varies little. 2. overll share is 5%
+
+
+%% as a comparison, NYC is 10,000
+%% Madrid is 5,300
+
+\subsection{Closing the model}
+
+\widefigure{PPF-location-nonhomothetic-1}{Structural change}
+\widefigure{PPF-location-nonhomothetic-2}{Structural change}
+
+\widefigure{PPF-location-housing-1}{Housing demand increases}
+\widefigure{PPF-location-housing-2}{Housing demand increases}
+
+\widefigure{PPF-location-transport-1}{Transportation becomes cheaper}
+\widefigure{PPF-location-transport-2}{Transportation becomes cheaper}
+
 \end{document}
-%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \begin{frame}\frametitle{Tastes}
 \begin{itemize}
@@ -800,3 +831,5 @@ As productivity increases,
 \end{enumerate}
 \end{frame}
 \time 2
+
+
