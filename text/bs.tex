@@ -45,7 +45,7 @@
 
 \begin{document}
 
-\title{A Spatial Explanation for the Balassa--Samuelson Effect\thanks{\textsc{Preliminary. Please do not circulate.} We thank G\'abor B\'ek\'es, Jonathan Eaton, Nobu Kiyotaki, Esteban Rossi--Hansberg and seminar participants at Princeton and IE--HAS for useful comments.}}
+\title{A Spatial Explanation for the Balassa--Samuelson Effect\thanks{\textsc{Preliminary. Please do not circulate.} We thank G\'abor B\'ek\'es, Jonathan Eaton, Nobu Kiyotaki, Esteban Rossi--Hansberg and seminar participants at Princeton, IE--HAS, NYU and the 3rd International Conference in Macroeconomics (Madrid) for useful comments.}}
 \author{P\'eter Kar\'adi\thanks{New York University. E-mail: peter.karadi@nyu.edu}~ and Mikl\'os Koren\thanks{Central European University, IE--HAS and CEPR. E-mail: korenm@ceu.hu.}}
 \maketitle
 
@@ -223,8 +223,8 @@ y_i(z) = (1-\beta)^{1/\beta-1} p_i^{1/\beta-1} A_i^{1/\beta} D(\tau_i z)^{1/\bet
 \]
 The supplies in the two industries are
 \begin{align*}
-s &= (1-\beta)^{1/\beta-1} p_s^{1/\beta-1} A_s^{1/\beta} \int_{z_1}^{z_2}D(\tau_s z) dz, \\
-m&= (1-\beta)^{1/\beta-1} p_m^{1/\beta-1} A_m^{1/\beta} \int_{z_2}^{z_3}D(\tau_m z) dz.
+s &= (1-\beta)^{1/\beta-1} p_s^{1/\beta-1} A_s^{1/\beta} \int_{z_1}^{z_2}D(\tau_s z)^{1/beta} dz, \\
+m&= (1-\beta)^{1/\beta-1} p_m^{1/\beta-1} A_m^{1/\beta} \int_{z_2}^{z_3}D(\tau_m z)^{1/beta} dz.
 \end{align*}
 The next key equation comes from location arbitrage at the manufacturing--service boundary, $z_2$. At this point, $R_s(z_2)=R_m(z_2)$, which follows from the continuity of $D(z)$. Hence a boundary $z_2$ pins down the relative price of services,
 \begin{equation}\label{eq:arbitrage}
@@ -246,7 +246,7 @@ The following proposition states that without any technological differences acro
 \begin{proof}
 We can determine the relative price of services from rent arbitrage at boundary $z_2$, equation \eqref{eq:arbitrage}, which is clearly increasing in $z_2$. The relative demand for services is a decreasing function of the relative price,
     \[
-    \frac{s}{m} = \phi\left(\frac{p_s}{p_m}\right) = \phi\left[\frac{D(\tau_m z_2)}{D(\tau_s z_2)}\right],
+    \frac{s}{m} = \phi\left(\frac{p_s}{p_m}\right) = \phi\left[\frac{D(\tau_m z_2)^{1/beta}}{D(\tau_s z_2)^{1/beta}}\right],
     \]
 where $\phi$ denotes $\Phi_2/\Phi_1$. The relative supply of services is increasing in $z_2$ for any given $z_1$, since as $z_2$ increases, more land gets allocated to services and less to manufacturing. Hence, for a given $z_1$, there is a unique $z_2$ that equates relative demand and supply. This $z_2$ is increasing in $z_1$. Substituting $z_2$ in the relative price equation above, we get the result.
 \end{proof}
