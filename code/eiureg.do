@@ -11,6 +11,18 @@ use ../data/cityprices_prepared
 `before' lngdp `after'
 outreg2 using `whereto', `format' replace
 
+/*`before' lngdp lncitypop `after'
+`before' lngdp lncitypop gdpXlncitypop `after'
+`before' lngdp lncitypop gdpXlncitypop gdpXprox `after'
+
+`before' lngdp urban `after'
+`before' lngdp urban gdpXurban `after'
+`before' lngdp urban gdpXurban gdpXprox `after'
+
+`before' lngdp lndensity `after'
+`before' lngdp lndensity gdpXlndensity `after'
+`before' lngdp lndensity gdpXlndensity gdpXprox `after'*/
+
 `before' lngdp lncitypop `after'
 `before' lngdp gdpXprox `after'
 outreg2 using `whereto', `format' append

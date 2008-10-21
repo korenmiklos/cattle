@@ -5,6 +5,7 @@ set memory 500m
 local datastores ../../../data/Miklos ~/share/data /share/datastore
 local assembla ../data
 local proxmeasure density
+local fixedeffectstransformation no
 tempfile codes wdi prox nber
 
 /* handle different paths */
@@ -94,6 +95,17 @@ gen lnprice=ln(price)
 gen lncitypop=ln(citypop)
 if "`proxmeasure'"=="density" {
     replace proximity=ln(proximity)
+}
+
+if "`fixedeffectstransformation'"=="yes" {
+    local vars_demean lnprice lngdp urban lndensity lncitypop
+    foreach X of var `vars_demean' {
+        by product, sort: egen meanbyp`X' = mean(`X')
+    }
+    foreach X of var `vars_demean' {
+        replace `X' = `X'-meanbyp`X'
+    }
+drop meanbyp*
 }
 
 local vars lngdp urban lndensity lncitypop proximity labor unskilled
