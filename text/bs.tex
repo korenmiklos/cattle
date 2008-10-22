@@ -43,6 +43,13 @@
 \end{centering}
 \end{figure}}
 
+\newcommand{\dotable}[2]{\begin{table}[h!]
+\begin{centering}
+\caption{#2\label{tab:#1}}
+\includegraphics[width=0.75\linewidth]{figures/#1}  
+\end{centering}
+\end{table}}
+
 \begin{document}
 
 \title{A Spatial Explanation for the Balassa--Samuelson Effect\thanks{\textsc{Preliminary. Please do not circulate.} We thank G\'abor B\'ek\'es, Jonathan Eaton, Nobu Kiyotaki, Esteban Rossi--Hansberg and seminar participants at Princeton, IE--HAS, NYU and the 3rd International Conference in Macroeconomics (Madrid) for useful comments.}}
@@ -89,7 +96,7 @@ Second, whether a good is tradable or not has implications not only for cross-co
 \small\emph{Source}: 2000 U.S.~Census, Summary File 3.}
 
 Third, productivity growth in the housing sector is limited by the scarcity of land. Increased productivity in construction can lead to taller and higher-quality buildings, but they cannot substitute for land. Davis and Heathcote (2007) estimate that between 1975 and 2005, the share of land in the value of a home in the U.S.~has increased from 35 percent to 45 percent. During the same period, the price of residential land has more than tripled. This suggests that land and structures are complements and that the scarcity of residential land will become more severe with development.\footnote{Also see Section \ref{empirics} for more discussion of residential land prices and development.}
-Together with the previous two observations we have that services, which locate close to their consumers in cities, face higher land rents with development. They become more labor intensive and exhibit lower labor productivity  for the same total factor productivity. Our model can hence be thought of as a \emph{microfoundation} for the assumption of Balassa and Samuelson that productivity growth is slower in services than in tradable industries. 
+Together with the previous two observations we have that services, which locate close to their consumers in cities, face higher land rents with development. They become more labor intensive and exhibit lower labor productivity  for the same total factor productivity. Our model can hence be thought of as a \emph{microfoundation} for the assumption of Balassa and Samuelson that productivity growth is slower in services than in tradable industries.
 
 These empirical observations discipline our modeling choices. We model the spatial distribution of economic activity in a country. Space is represented by a line. As an equilibrium outcome, a section of this line is populated by residents. Services are produced in a section directly adjacent to the residential area, but manufactured products are produced farther away, where rents are lower. Because land complements other consumption goods in final utility, the demand for residential land increases with development. This crowds out other users of land, especially services. That is what leads to an increase in service prices.
 
@@ -282,7 +289,7 @@ where $\Bar\tau$ is the consumption-share-weighted average of manufacturing and 
 
 The Balassa--Samuelson effect is stronger if (i) trade cost differential between the two industries is large, (ii) land occupied by residential housing is large, and (iii) the land share in production is large.
 
-The model yields the following testable predictions. 
+The model yields the following testable predictions.
 \begin{proposition}\label{prop:compstat}
 As productivity increases,
 \begin{enumerate}
@@ -303,10 +310,208 @@ All of the effects discussed in proposition \ref{prop:compstat} are stronger (in
 
 
 \section{Empirical results}\label{empirics}
-In this section, we present some suggestive time-series and cross-section evidence based on high-quality U.S.~data supporting the main predictions of our model formulated in Proposition \ref{prop:compstat}.
+The section presents some new international and U.S. facts on the relationship of development and prices that are not well explained by the standard Balassa-Samuelson framework, but are in line with the main predictions of our model formulated in Proposition \ref{prop:compstat}.
+
+\subsection{Urbanization and prices}
+It is a well known fact that higher per capita GDP is correlated with higher price levels and the Balassa-Samuelson (BS) hypothesis gives a generally accepted explanation for it. We argue, however, that this relationship is also influenced by the level of urbanization in a country, which is unexplained by the BS framework. Figure \ref{fig:sc_penn} shows the cross-country relationships of the (log) price levels and the (log) per capita GDP -- both measured in purchasing power parity terms -- for more rural and more urban countries.\footnote{We use the 2000 sample of the Penn World Table, and the groupings are according to the proportion of urban population obtained from the World Bank's World Development Indicators.} The graphs shows, in line with Proposition \ref{prop:compstat}, that the relationship between income and the price level is stronger among more urbanized countries. The comparison is valid as there are reasonable variation in per capita GDP for both groups, even if there are clearly more high-income countries among the more urbanized ones.
+
+\dofigure{sc_penn}{Development, urbanization, and the price level}
+
+To approach the question more formally, we use two measures for of urbanization: the proportion of urban population and the population density, both available for a large number of countries from the World Development Indicators database.\footnote{As our main question is the difference in the `closeness of residents,' both measures are imperfect, but we consider the proportion of urban population a better measure, as it can be expected to capture the clustering of the population better than just the average population density in a country. As the the definition of urban population is somewhat different in every country, the cross-country results should be treated with some caution.}
+
+The cross-country regressions are estimated as
+\begin{equation}
+\log{P}=\alpha_1+\alpha_2\log Y+\alpha_3Z+\alpha_4(Z-\bar{Z})(\log Y-\overline{\log Y})+\varepsilon,
+\end{equation}
+where $P$ is the price level, $Y$ is per capita GDP, and $Z$-s are the different urbanization measures. Our main interest is in the (demeaned) cross-term, as it can be expected to capture how the level of urbanization influences the relationship between the output and the price measures.
+
+Our main price measure is the comparable price level available for
+over 180 countries from the Penn World Table.\footnote{The sample
+extends the 115 benchmark countries, that directly participated the
+1996 round of the International Comparison Project(ICP), by using
+somewhat less reliable price data and other observable variables.
+Our results are robust to restricting the sample to the benchmark
+countries.} 
+
+\begin{table}[h!]
+\caption{Balassa-Samuelson regressions with urbanization (Robust
+standard errors are in parentheses)} \center \label{tab:BS}
+\begin{tabular}{c|cc}
+  \hline\hline
+  Explanatory & \multicolumn{2}{c}{Dependent variables} \\
+  variables &\multicolumn{2}{c}{$\log P$} \\ \hline
+  $\log Y$ & \textbf{0.25} & \textbf{0.34} \\
+           & (0.05)        & (0.03)        \\
+  urban    & \textbf{0.61} &               \\
+           & (0.21)        &               \\
+  urbanX   & \textbf{0.38} &               \\
+           & (0.11)        &               \\
+  log(density) &           & -0.02         \\
+             &             & (0.02)        \\
+  densityX &               & \textbf{0.05} \\
+           &               & (0.02)        \\
+  constant & \textbf{1.13} & \textbf{0.82} \\
+           & (0.31)        & (0.26)        \\ \hline
+  No. of obs. & 186        & 183           \\
+  $R^2$    & 0.50          & 0.46          \\
+  \hline\hline
+\end{tabular}
+\end{table}
+
+The regressions reported in Table \ref{tab:BS} are consistent with our predictions. We present two regressions with the two urbanization measures. 'Urban' is the proportion of urban population, and 'density' is the population density; and 'urbanX' and 'densityX' are the demeaned
+output-urbanization cross terms.
+
+In line with well known previous results, higher per capita output
+increases the price level across countries, but this \emph{relationship} is significantly influenced by the level of urbanization, even after controlling for direct price effects of the urbanization. Looking at the first regression, we have found that 1 percent higher per capita output increases the price level by 0.25 percent for average level of urbanization (54 percent), and 1 percent higher urbanization has a further 0.61 percent direct effect. The cross effect, however, implies that the effect of output on the prices would be close to 0 under the (extreme) case of 0 urbanization ($0.25-0.54\cdot0.38=0.05$) and would be over 0.4 in case of full urbanization.
+
+This effect of urbanization on prices remains unexplained by the standard BS argument, but it is fully in line with our model, where higher population density -- similarly to income growth -- increases the scarcity of land close to consumers and drives up prices. 
+
+\subsection{Tradability, industry location and prices}
+
+The main assumption of the Balassa-Samuelson framework is the differential productivity growth between the tradable and non-tradable products. This assumes substantially different production technologies for these product groups, which is not always the case. As a motivational example, we have taken two fairly similar products: `frozen' and `fresh chicken' and run standard Balassa-Samuelson regressions on them.\footnote{The price data we use here is collected by the Economist Intelligence Unit for over 150 products in 140 cities of 89 countries (see later). The GDP data is from the WDI.}
+
+\begin{table}[h!]
+\center
+\caption{Balassa-Samuelson regressions, EIU price data, 1997-2006}
+\begin{tabular}{lm{5em}m{5em}m{5em}}
+  \hline\hline
+  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+   & Frozen chicken & Fresh chicken & Relative price\\
+   \hline
+  Real GDP per capita & 0.072**   (0.029) & 0.158***   (0.030) & 0.086***   (0.021)\\
+\hline
+  Observations &  125 & 125 & 125
+\\
+  $R^2$ &  0.05& 0.21 & 0.13
+\\
+  \hline\hline
+\end{tabular}
+\end{table}
+
+The main difference between these products is their tradability -- it is arguably easier to transport frozen chicken -- and clearly not their production technology. The Balassa-Samuelson regressions show that in line with our model, the local per capita GDP has stronger influence on the less-tradable fresh chicken than the more tradable frozen version. Our argument is that because of the tradability differences, fresh chicken needs to be produced closer to the consumer and needs to compete with them for land that is getting scarcer with development. 
+
+We now turn to analyze more formally how tradability, or which is equivalent in our model: industry location, influences the effects of development on prices. The international price data we use for this is collected by the Economist Intelligence Unit for cost of living calculations. The data is a panel of more than 150 prices collected in 140 cities of 89 countries all around the world. The products are sampled from all of the main categories of standard consumer price indices and are defined to be relatively comparable internationally.\footnote{Controlling for quality differences across countries is extremely difficult, but the quality differences do not bias our main results as long as they influence \emph{all} products similarly across countries.} For each product-city pair, we take 10 year averages of USD prices between 1997 and 2006.
+
+The analysis also requires a measure for tradability. As we do not have direct data on trade costs, we are constructing an indirect measure that calculates the industries' proximity to the consumers. This industry location measure is clearly influenced by the transport costs, as it is the case in our equilibrium, and its advantage is that it more directly tests the spatial argument of our model. 
+
+We use good quality US Census data to calculate this measure, and assume that the relative tradability differences across industries are similar across countries. We measure proximity of industry $i$ ($\rho_i$) by the population density of an industry $i$'s \emph{average plant}:
+\begin{equation*}
+\rho_i=\frac{\sum_cn_{ic}d_c}{\sum_cn_{ic}},
+\end{equation*}
+where $n_{ic}$ is the number of plants by county $c$ and industry $i$,\footnote{The US Census County Business Patterns database records the number of plants and employment groups by counties and 6 digit NAICS sectors. We used 4 digit NAICS sectors, which were more in line with the level of detail of our price data. The employment data is reported only in discrete categories, but using center-of-the-bin approximations would result in a very similar ranking of sectors with a regression coefficient of 0.98.} and $d_c$ is the population density of county $c$ provided by the US Decennial Census. Industries with high $\rho_i$ are `closer' to the residents: their average plant is in a more dense county. For the analysis, we match the products in the EIU survey to 4 digit NAICS sectors in which they are produced.
+
+Tables \ref{tab:closest} and \ref{tab:furthest} lists products and the sectors which are the closest and the furthest from the consumers, respectively. The results are in line with the standard intuitions: personal services are the ones located closest to the residents, while manufacturing and utility plants are those located furthest. The only outlier is probably the 'Manufacturing Magnetic and Optical Media' industry that, against our priors, seems to be located in high population density areas.
+
+\begin{table}[t]
+\center
+\caption{Industries close to the residents}
+\label{tab:closest}
+\begin{tabular}{lc}
+  \hline
+  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+  Product/Sector & Population density \\
+  \hline
+  Taxi: initial meter charge\\
+  \hspace*{1em}Taxi and Limousine Service & 1316\\
+  Compact disc album\\
+  \hspace*{1em}Manufacturing Magnetic and Optical Media&1268\\
+  One good seat at cinema\\
+  \hspace*{1em}Motion Picture and Video Industries & 1197\\
+  Four best seats at theatre\\
+  \hspace*{1em}Performing Arts Companies & 1127\\
+  Babysitter's rate per hour\\
+  \hspace*{1em}Other Personal Services & 966\\
+  Laundry (one shirt)\\
+  \hspace*{1em}Drycleaning and Laundry Services & 832\\
+  \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\center
+\caption{Industries far from residents}
+\label{tab:furthest}
+\begin{tabular}{lc}
+  \hline
+  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+  Product/Sector & Population density\\
+  \hline
+  Frozen fish fingers (1 kg)\\
+  \hspace*{1em}Seafood Product Preparation and Packaging &115\\
+  Electricity, monthly bill\\
+  \hspace*{1em}Electric Power Generation and Distribution & 147\\
+  Chicken: frozen (1 kg)\\
+  \hspace*{1em}Animal Slaughtering and Processing & 161\\
+  Lamb: chops (1 kg)\\
+  \hspace*{1em}Animal Slaughtering and Processing & 161\\
+  Insect killer spray (330 g)\\
+  \hspace*{1em}Pesticide and Fertilizer Manufacturing & 168\\
+  Regular unleaded petrol (1 l)\\
+  \hspace*{1em}Oil and Gas Extraction & 172\\
+  \hline
+\end{tabular}
+\end{table}
+
+
+
+Table \ref{tab:eiureg} presents our main regression results. The basic regression equation is
+\begin{equation*}
+\ln p_{ij}=\alpha_i+\beta(\ln Y_{j}-\bar{\ln Y_j})+\gamma(\ln Y_j-\bar{\ln Y_j})\times(\ln\rho_i-\bar{\ln\rho_i}),
+\end{equation*}
+where $p_{ij}$ denotes prices of product $i$ in city $j$, $Y_j$ is per capita GDP of the country of city $j$, and $\rho_i$ is the proximity measure of the industry product $i$ is produced. Our main interest is the coefficient of the (demeaned) cross product measuring how the industry location influences the relationship between the income and prices. The regressions contain product fixed effects ($\alpha_i$), and the standard errors are clustered by countries.
+
+\dotable{eiureg}{Industry location and the Balassa--Samuelson effect}
+
+The first column of table \ref{tab:eiureg} presents a standard Balassa-Samuelson regression and shows that our sample reproduces the standard result that richer countries tend to have higher prices. The significant coefficient $\gamma$ of the cross-term in the second regression shows not only that more tradable prices increases more with development -- as Balassa-Samuelson argument would suggest -- but also that this relationship is closely related to the spatial location of these industries, as our model suggests. The third and the fourth regressions introduce sectoral dummies (agriculture, manufacturing and services) to the regressions. They show that while the average price effect of the country's GDP per capita is different for different sectors -- with presumably different production technologies --, controlling for them do not change our main result, namely, the significant effect of the industry location on the price effect of development.
+
+The Bhagwati-Kravis-Lipsey hypothesis argued that differences in labor intensity explains the differential effects of development on tradable and non-tradable prices. To test this hypothesis, we use the NBER productivity database, available for manufacturing sectors, to include a labor share measure in our regressions. Regression [5] in table \ref{tab:eiuman} shows that our results are robust to the subsample of manufacturing sectors, and regression [6] shows that labor share by itself has some marginally significant influence on the price effect of income. Regression [7], however, shows that if proximity is included in the regression, labor share loses its significance.
+
+\dotable{eiuman}{Industry location and labor intensity}
+
+\section{Conclusion}
+[TO BE WRITTEN]
+
+\begin{thebibliography}{99}
+\bibitem{Alessandria07} Alessandria, G., 2007, ``Pricing-to-Market and the Failure of Absolute PPP,'' \emph{Federal Reserve Bank of Philadelphia Working Paper}, 07-29.
+\bibitem{Balassa64} Balassa, B., 1964, ``The Purchasing-Power Parity Doctrine: A Reappraisal,'' \emph{Journal of Political Economy}, 584-596.
+\bibitem{Burchfield06} Burchfield, M., Overman, H.G., Puga, D. and Turner, M.A., 2006, ``Causes of Sprawl: A Portrait from Space," \emph{Quarterly Journal of Economics}, 587-633.
+\bibitem{Canzoneri99} Canzoneri, M.B., Cumby, R.E., Diba, B., 1999, ``Relative Labor Productivity and the Real Exchange Rate in the Long Run: Evidence for a Panel of OECD Countries,'' \emph{Journal of International Economics}, 245-266.
+\bibitem{Chaterjee01} Chatterjee, S. and Carlino, G. A., 2001, ``Aggregate Metropolitan Employment Growth and the Deconcentration of Metropolitan Employment," \emph{Journal of Monetary Economics}, 549-583.
+\bibitem{Chinn00} Chinn, M.D., 2000, ``The Usual Suspects? Productivity and Demand Shocks and Asia-Pacific Real Exchange Rates,'' \emph{Review of International Economics}, 20-43.
+\bibitem{Davis07} Davis, M. A. and Heathcote, J., 2007, ``The Price and Quantity of Residential Land in the United States,'' \emph{Journal of Monetary Economics} 54:2595-2620.
+\bibitem{Davis07} Davis, M. A. and Palumbo, M. G., 2008, ``The Price
+of Residential Land in Large U.S.~Cities,'' \emph{Journal of Urban Economics}, 63:352--384.
+\bibitem{} Davis, M. A. and Ortalo-Magne, F., 2007, ``Household Expenditures, Wages, Rents,'' working paper.
+\bibitem{Desmet06} Desmet, K. and Fafchamps, M., 2006, ``Employment Concentration across U.S.~Counties,'' \emph{Regional Science and Urban Economics}, 482-509.
+\bibitem{Egert03} Egert, B., Drine, I., Lommatzsch, K. and Rault, Ch., 2003, ``The Balassa-Samuelson Effect in Central and Eastern Europe: Myth or Reality?,'' \emph{Journal of Comparative Economics}, 552-572.
+\bibitem{} Halpern, L. and Wyplosz, Ch., 2001, ``Economic Transformation and Real Exchange Rates in the 2000s: The Balassa-Samuelson Connection,'' \emph{United Nations Economic Commission for Europe Discussion Paper}, 2001.1
+\bibitem{Heston06} Heston, A., R. Summers and B. Aten, 2006, Penn World Table Version 6.2, \emph{Center for International Comparisons of Production, Income and Prices at the University of
+Pennsylvania}
+\bibitem{Holmes03} Holmes, Th.J. and Stevens, J.J., 2004, ``Spatial Distribution of Economic Activities in North America,'' in: J. V. Henderson and J. F. Thisse (ed.) \emph{Handbook of Regional and Urban Economics}, chapter 63, 2797-2843
+\bibitem{Klenow07} Hsieh, C.T and Klenow, P.J, ``Relative Prices and
+Relative Prosperity,'' \emph{The American Economic Review}, 562-585.
+\bibitem{Obstfeld99} Obstfeld, M. and Rogoff, K., 1996, \emph{Foundations of International Macroeconomics}, The MIT Press, Cambridge MA
+\bibitem{Overman06} Overman, H.G., Puga, D., Turner, M.A., 2006, ``Decomposing the Growth in Residential Land in the United States,'' working paper.
+\bibitem{Samuelson64} Samuelson, P. A. , 1964, ``Theoretical Notes on Trade Problems,'' \emph{The Review of Economics and Statistics}, 145-154.
+\bibitem{} Tang, X., 2007, ``The Rich Neighborhood Effect versus the Balassa-Samuelson Effect: An Income-Based Explanation of International Price Level Differences,'' working paper.
+\bibitem{Valentinyi07} Valentinyi, A., Herrendorf, B., 2007, ``Measuring Factor Income Shares at the Sector Level,'' working paper.
+\end{thebibliography}
+
+\end{document}
+
+To check the robustness of the results, we also
+calculated a non-tradable/tradable relative price index
+($P_{NT}/P_{T}$) using the basic heading level price data for
+consumption for the 1996 benchmark ICP countries. This relative
+price is more in line with the main Balassa-Samuelson proposition
+implying that the main reason of the price level difference is the
+relatively more expensive non-tradable prices. The measure, however,
+can be expected to be less reliable than the aggregate price level
+as the non-tradable prices, like services, tend to be less
+comparable internationally than tradable prices.
 
 \subsection{Land and development}
-In this section, we first present U.S.~time-series evidence showing that over the past decades both residential land area and residental land prices have increased. Because both quantities and prices have gone up, this is consitent with an increase in (per capita) housing demand. Then, using mainly cross-sectional evidence, we show that income is a major factor influencing residential demand as implied by Proposition \ref{prop:compstat}. The trend increases in housing demand can then be thought of as the by-product of U.S.~growth.
+In this section, we first present U.S.~time-series evidence showing that over the past decades both residential land area and residental land prices have increased. Because both quantities and prices have gone up, this is consistent with an increase in (per capita) housing demand. Then, using mainly cross-sectional evidence, we show that income is a major factor influencing residential demand as implied by Proposition \ref{prop:compstat}. The trend increases in housing demand can then be thought of as the by-product of U.S.~growth.
 
 Looking at U.S.~time-series data, Overman, Puga and Turner, 2006 find that the per capita residential land use between 1976 and 1992 \emph{increased by 25.4\%}, based on the highest available resolution data\footnote{The 1992 data is based on 8.7 million 30 x 30 meters cells.} of the US land use based on aerial and satellite photographs. Davis and Heathcote, 2007 find that the implied real price of residential land\footnote{To get this data, the authors use
 data on construction costs and decompose the value of an
@@ -382,7 +587,7 @@ the level of urbanization -- measured in the proportion of urban
 population or population density -- significantly increases the
 proportion of employees working in non-tradable sectors. This is consistent with the spatial equilibrium in our model, where services are located closer to residents than manufacturing is.
 
-To see how development affects the location of industries, we turn to the time-series evidence. The post-war deconcentration of manufacturing has been widely documented in the literature. Holmes and Stevens, 2004 document that the spatial distribution of manufacturing has become much more even between 1947 and 1999, and -- in line our previously presented results -- became substantially underrepresented in areas with high population density. Desmet and Fafchamps, 2006, similarly, find that manufacturing has become more deconcentrated between 1970 and 2000. Because of the very high spatial correlation of population and employment, it is not surprising that the same studies have also found that the spatial distribution of services developed in line with those of the population. 
+To see how development affects the location of industries, we turn to the time-series evidence. The post-war deconcentration of manufacturing has been widely documented in the literature. Holmes and Stevens, 2004 document that the spatial distribution of manufacturing has become much more even between 1947 and 1999, and -- in line our previously presented results -- became substantially underrepresented in areas with high population density. Desmet and Fafchamps, 2006, similarly, find that manufacturing has become more deconcentrated between 1970 and 2000. Because of the very high spatial correlation of population and employment, it is not surprising that the same studies have also found that the spatial distribution of services developed in line with those of the population.
 
 %% kitoroltem a labjegyzetet - tul bonyolult volt nekem
 
@@ -391,93 +596,7 @@ The time series development of the relative manufacturing employment is presente
 \dofigure{deurbanization}{Share of 100 most densely populated counties\newline
 \small Source: County Business Patterns}
 
-\subsection{Urbanization and prices}
-In this section, we present some international and U.S.~evidence suggesting that the level of urbanization influences the relationship between income and price level developments in line with the predictions of our model.
 
-Our model suggests a spatial explanation for the basic assumption of Balassa-Samuelson model with an important testable aggregate implication, namely, that the level of urbanization (population density) in a country strongly influences the relationship between aggregate and relative labor productivity, and thereby the development of the relative price ($P_{NT}/P_T$) and the aggregate price level. Using the proportion of urban population to divide the 2000 sample of the Penn World Table equally to more rural and more urbanized countries, Figure \ref{fig:sc_penn} shows the cross-country relationships of the (log) price levels and the (log) per capita GDP for both groups. The graphs shows, in line with Proposition 5,
-that the relationship between income and the price level is stronger
-among more urbanized countries. It also shows that the comparison is
-valid as there are reasonable variation in per capita GDP for both
-groups, even if there are clearly more high-income countries among
-the more urbanized ones.
-
-\dofigure{sc_penn}{Development, urbanization, and the price level}
-
-To approach the question more formally, we use two measures for the urbanization level of a country: the proportion of urban population and the population density, both available for a large number of countries from the World Development Indicators database.\footnote{As our main question is the difference in the `closeness of residents,' both measures are imperfect, but we consider the proportion of urban population a better measure, as it can be expected to capture the clustering of the population better than just the average population density in a country. As the the definition of urban population is different in every country, however, the cross-country results should be treated with some caution.}
-
-We estimated cross-country regressions in the following form
-\begin{equation}
-\log{P}=\alpha_1+\alpha_2\log Y+\alpha_3Z+\alpha_4(Z-\bar{Z})(\log Y-\overline{\log Y})+\varepsilon,
-\end{equation}
-where $P$ refers to the various price measures, Y is the measure of per capita GDP, and $Z$-s are the different urbanization measures. Our main
-interest is in the (demeaned) cross-term, as it can be expected to
-capture how the level of urbanization influences the relationship
-between the output and the price measures.
-
-Our main price measure is the comparable price level available for
-over 180 countries from the Penn World Table.\footnote{The sample
-extends the 115 benchmark countries, that directly participated the
-1996 round of the International Comparison Project(ICP), by using
-somewhat less reliable price data and other observable variables.
-Our results are robust to restricting the sample to the benchmark
-countries.} To check the robustness of the results, we also
-calculated a non-tradable/tradable relative price index
-($P_{NT}/P_{T}$) using the basic heading level price data for
-consumption for the 1996 benchmark ICP countries. This relative
-price is more in line with the main Balassa-Samuelson proposition
-implying that the main reason of the price level difference is the
-relatively more expensive non-tradable prices. The measure, however,
-can be expected to be less reliable than the aggregate price level
-as the non-tradable prices, like services, tend to be less
-comparable internationally than tradable prices.
-
-\begin{table}[h!]
-\caption{Balassa-Samuelson regressions with urbanization (Robust
-standard errors are in parentheses)} \center \label{tab:BS}
-\begin{tabular}{c|cc|cc}
-  \hline\hline
-  Explanatory & \multicolumn{4}{c}{Dependent variables} \\
-  variables &\multicolumn{2}{c}{$\log P$} & \multicolumn{2}{c}{$\log(P_{NT}/P_T)$} \\ \hline
-  $\log Y$ & \textbf{0.25} & \textbf{0.34} & \textbf{0.28}   & \textbf{0.33} \\
-           & (0.05)        & (0.03)        & (0.07)          & (0.05)        \\
-  urban    & \textbf{0.61} &               & 0.12            &               \\
-           & (0.21)        &               & (0.34)          &               \\
-  urbanX   & \textbf{0.38} &               & \textbf{0.43}   &              \\
-           & (0.11)        &               & (0.19)          &              \\
-  log(density) &           & -0.02         &                 & -0.02        \\
-             &             & (0.02)        &                 &  0.04        \\
-  densityX &               & \textbf{0.05} &                  & 0.01         \\
-           &               & (0.02)        &                 & 0.02         \\
-  constant & \textbf{1.13} & \textbf{0.82} & \textbf{-2.96}  & \textbf{-3.13}\\
-           & (0.31)        & (0.26)        & 0.50            & (0.41)        \\ \hline
-  No. of obs. & 186        & 183           & 113             & 113          \\
-  $R^2$    & 0.50          & 0.46          & 0.38            & 0.34  \\
-  \hline\hline
-\end{tabular}
-\end{table}
-
-The regressions reported in Table \ref{tab:BS} are consistent with our predictions. The first two columns use the (log) price levels as
-dependent variables, while the last two uses the (log) relative
-non-tradable/tradable prices. For both dependent variables, we
-present two regressions with the two urbanization measures. 'Urban'
-is the proportion of urban population, and 'density' is the
-population density; and 'urbanX' and 'densityX' are the demeaned
-output-urbanization cross terms.
-
-In line with well known previous results, higher per capita output
-increases both the price level and the relative prices across
-countries, but this relationship is significantly influenced by the
-level of urbanization, even after controlling for direct price
-effects of the urbanization. Looking at the first regression, we
-have found that 1 percent higher per capita output increases the price
-level by 0.25 percent for average level of urbanization (54 percent), and 1 percent higher urbanization has a further 0.61 percent direct effect. The cross effect, however, implies that the effect of output on the prices would be close to 0 under the (extreme) case of 0 urbanization
-($0.25-0.54\cdot0.38=0.05$) and would be over 0.4 in case of full
-urbanization. The effects using the relative prices are similar
-supporting the conjecture that the price differences are the result
-of different non-tradable prices. Using the population density as
-explanatory variable still supports the effect using the price
-level, though it turns out to be insignificant for our sample in
-explaining the cross country relative price differences.
 
 Turning to sector-level U.S.~data, table \ref{tab:infl} gives some suggestive evidence on the relationship between proximity to the population (measured here as the employment share in the 100 most dense counties) and the long term inflation rates (average value-added inflation rates between 1947-2006) across the three major sectors. These results also support the pricing predictions of our model formulated in Proposition 4.
 
@@ -494,36 +613,4 @@ Manufacturing & 23.3\% & 2.1\% \\
 Services & 33.4\% & 3.5\% \\ \hline\hline
 \end{tabular}
 \end{table}
-
-
-\section{Conclusion}
-[TO BE WRITTEN]
-
-\begin{thebibliography}{99}
-\bibitem{Alessandria07} Alessandria, G., 2007, ``Pricing-to-Market and the Failure of Absolute PPP,'' \emph{Federal Reserve Bank of Philadelphia Working Paper}, 07-29.
-\bibitem{Balassa64} Balassa, B., 1964, ``The Purchasing-Power Parity Doctrine: A Reappraisal,'' \emph{Journal of Political Economy}, 584-596.
-\bibitem{Burchfield06} Burchfield, M., Overman, H.G., Puga, D. and Turner, M.A., 2006, ``Causes of Sprawl: A Portrait from Space," \emph{Quarterly Journal of Economics}, 587-633.
-\bibitem{Canzoneri99} Canzoneri, M.B., Cumby, R.E., Diba, B., 1999, ``Relative Labor Productivity and the Real Exchange Rate in the Long Run: Evidence for a Panel of OECD Countries,'' \emph{Journal of International Economics}, 245-266.
-\bibitem{Chaterjee01} Chatterjee, S. and Carlino, G. A., 2001, ``Aggregate Metropolitan Employment Growth and the Deconcentration of Metropolitan Employment," \emph{Journal of Monetary Economics}, 549-583.
-\bibitem{Chinn00} Chinn, M.D., 2000, ``The Usual Suspects? Productivity and Demand Shocks and Asia-Pacific Real Exchange Rates,'' \emph{Review of International Economics}, 20-43.
-\bibitem{Davis07} Davis, M. A. and Heathcote, J., 2007, ``The Price and Quantity of Residential Land in the United States,'' \emph{Journal of Monetary Economics} 54:2595-2620.
-\bibitem{Davis07} Davis, M. A. and Palumbo, M. G., 2008, ``The Price
-of Residential Land in Large U.S.~Cities,'' \emph{Journal of Urban Economics}, 63:352--384.
-\bibitem{} Davis, M. A. and Ortalo-Magne, F., 2007, ``Household Expenditures, Wages, Rents,'' working paper.
-\bibitem{Desmet06} Desmet, K. and Fafchamps, M., 2006, ``Employment Concentration across U.S.~Counties,'' \emph{Regional Science and Urban Economics}, 482-509.
-\bibitem{Egert03} Egert, B., Drine, I., Lommatzsch, K. and Rault, Ch., 2003, ``The Balassa-Samuelson Effect in Central and Eastern Europe: Myth or Reality?,'' \emph{Journal of Comparative Economics}, 552-572.
-\bibitem{} Halpern, L. and Wyplosz, Ch., 2001, ``Economic Transformation and Real Exchange Rates in the 2000s: The Balassa-Samuelson Connection,'' \emph{United Nations Economic Commission for Europe Discussion Paper}, 2001.1
-\bibitem{Heston06} Heston, A., R. Summers and B. Aten, 2006, Penn World Table Version 6.2, \emph{Center for International Comparisons of Production, Income and Prices at the University of
-Pennsylvania}
-\bibitem{Holmes03} Holmes, Th.J. and Stevens, J.J., 2004, ``Spatial Distribution of Economic Activities in North America,'' in: J. V. Henderson and J. F. Thisse (ed.) \emph{Handbook of Regional and Urban Economics}, chapter 63, 2797-2843
-\bibitem{Klenow07} Hsieh, C.T and Klenow, P.J, ``Relative Prices and
-Relative Prosperity,'' \emph{The American Economic Review}, 562-585.
-\bibitem{Obstfeld99} Obstfeld, M. and Rogoff, K., 1996, \emph{Foundations of International Macroeconomics}, The MIT Press, Cambridge MA
-\bibitem{Overman06} Overman, H.G., Puga, D., Turner, M.A., 2006, ``Decomposing the Growth in Residential Land in the United States,'' working paper.
-\bibitem{Samuelson64} Samuelson, P. A. , 1964, ``Theoretical Notes on Trade Problems,'' \emph{The Review of Economics and Statistics}, 145-154.
-\bibitem{} Tang, X., 2007, ``The Rich Neighborhood Effect versus the Balassa-Samuelson Effect: An Income-Based Explanation of International Price Level Differences,'' working paper.
-\bibitem{Valentinyi07} Valentinyi, A., Herrendorf, B., 2007, ``Measuring Factor Income Shares at the Sector Level,'' working paper.
-\end{thebibliography}
-
-\end{document}
 
