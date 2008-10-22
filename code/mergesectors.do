@@ -121,3 +121,8 @@ foreach X of var `vars' {
 drop mean*
 
 saveold ../data/cityprices_prepared, replace
+
+graph twoway (scatter labor proximity) (lfitci labor proximity) if city=="NEW YORK" & labor!=.
+graph twoway (scatter unskilled proximity) (lfitci unskilled proximity) if city=="NEW YORK" & unskilled!=.
+regress labor proximity if city=="NEW YORK" & labor!=.
+regress unskilled proximity if city=="NEW YORK" & unskilled!=.

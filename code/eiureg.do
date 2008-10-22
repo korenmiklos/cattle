@@ -48,3 +48,9 @@ outreg2 using `whereto', `format' append
 outreg2 using `whereto', `format' append
 `before' lngdp gdpXprox gdpXunskilled `after'
 outreg2 using `whereto', `format' append
+
+/*proximity and labor share*/
+graph twoway (scatter labor proximity) (lfitci labor proximity) if city=="NEW YORK" & labor!=.
+graph twoway (scatter unskilled proximity) (lfitci unskilled proximity) if city=="NEW YORK" & unskilled!=.
+regress labor proximity if city=="NEW YORK" & labor!=.
+regress unskilled proximity if city=="NEW YORK" & unskilled!=.
