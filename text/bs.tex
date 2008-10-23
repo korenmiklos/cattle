@@ -113,7 +113,7 @@ We wish to study how the relative price of industries is affected by their locat
 
 We model each country as an interval on the real line. There is a central business district (CBD), which is a point on the line. Businesses and residences can choose their location freely within the interval. Locations will be indexed by their distance to the CBD, denoted by $z$. The CBD serves as a marketplace: all goods and services are exchanged there.\footnote{It is straightforward to extend the model to multiple cities in each country as long as these cities do not overlap.}
 
-Households own all the land in the country, and there are perfect rental markets for land. Households also earn income from wages.
+Households own all the land in the country, and there are perfect rental markets for land. Households also earn income from wages. There is a measure $N$ of workers, each supplying one unit of labor inelastically.
 
 \subsection{Technology}
 There are two produced goods, we call them ``manufactured goods'' and ``services.'' Both goods are produced using land and labor and they are costly to transport to the CBD. Manufactured goods are assumed to have lower transport costs than services.
@@ -166,7 +166,6 @@ p_m m(z) + p_s s(z) + p_h(z) h(z) \le (w+T)D(\tau_h z).
 Expenditure on the manufactured good, on services and housing has to be less than the total income of the household net of commuting costs. Total income is made of wages $w$ and rental income $T$. Importantly, neither source of income depends on the choice of residential location. Rental income is derived from the plot of land the household \emph{owns}, not from where it \emph{resides}. Perfect rental markets ensure that the ownership of the land is irrelevant for location decisions.
 
 We assume that $\tau_h>\tau_s>\tau_m$ so that commuting is the costliest of all transportation activities. This condition is sufficient to ensure the spatial structure we characterize below: residents live closest to the CBD, followed by service and by manufacturing establishments. We believe this assumption captures key aspects of modern urban structure. Alternatively, we could introduce non-pecuniary externalities that would make residents prefer to live near other residents and services establishments.\footnote{As a thought experiment, the reader can rank the following three neighborhoods for choice of residence: (i) a residential area, (ii) a neighborhood with high concentration of restaurants, theaters and other service establishments, (iii) a manufacturing area.} For historical comparisons, we also wish to vary the relative transport costs.
-
 
 \subsection{Equilibrium}
 \begin{definition}
@@ -245,10 +244,12 @@ The supply of housing is simply determined by the land allocated to residential 
 \[
 h(z) = A_h\text{ for all }z\le z_1.
 \]
-*** DISCUSS WAGES AND LABOR SUPPLY HERE
-
-We can construct the supply and demand of housing similarly. We then need to find $z_1$ and $z_2$ such that markets clear.
-
+The remaining equilibrium condition is labor market clearing. Because both sectors share the same Cobb--Douglas technology, the ratio of the aggregate wagebill to aggregate industrial rents is constant at $(1-\beta)/\beta$. The total wagebill is simply $N$, because we have normalized the wage rate to one. 
+\begin{equation}\label{eq:labormarket}
+N = 
+(1-\beta)^{1/\beta} p_s^{1/\beta} A_s^{1/\beta} \int_{z=z_1}^{z_2}D(\tau_s z)^{1/\beta}dz
+(1-\beta)^{1/\beta} p_m^{1/\beta} A_m^{1/\beta} \int_{z=z_2}^{z_3}D(\tau_m z)^{1/\beta}dz
+\end{equation}
 \subsection{Productivity growth}
 We conduct the following comparative statics. We increase $A_m$ and $A_s$ proportionally (so that productivity growth is neutral), and ask what happens to industry location ($z_1$, $z_2$) and relative prices.
 
@@ -306,13 +307,13 @@ Combining these three equations,
 \begin{equation}
 \exp\left[\tau_s(z_2-z_1)/\beta\right] = 1+\frac{1-\gamma}{\gamma}\left(\frac{A_m}{A_s}\right)^{1/\beta}\frac{\tau_s}{\tau_m}
 \end{equation}
-The amount of land dedicated to services, $z_2-z_1$ is independent of the overall level of development. It is increasing in the relative productivity of manufacturing, decreasing in the expenditure share of manufacturing, and decreasing in manufacturing transport costs. We denote $z_2-z_1$ bz $\Delta z$.
-
+The amount of land dedicated to services, $z_2-z_1$ is independent of the overall level of development. It is increasing in the relative productivity of manufacturing, decreasing in the expenditure share of manufacturing, and decreasing in manufacturing transport costs. We denote $z_2-z_1$ by $\Delta z$.
+\[
+\Delta z = \frac{\beta}{\tau_s}\ln\left[1+\frac{1-\gamma}{\gamma}\left(\frac{A_m}{A_s}\right)^{1/\beta}\frac{\tau_s}{\tau_m}\right] 
+\]
+Substituting into the rent arbitrage condition, we find that the relative price of services increases in residential land, just as stated in Proposition \ref{prop:sprawl},
 \begin{equation}
- \frac{p_s}{p_m} = \exp\left[(\tau_s-\tau_m)(z_1+\Delta z)\right]
-\end{equation}
-\begin{equation}
- \frac{s}{m} = \frac{1-\gamma}{\gamma}\exp\left[-(\tau_s-\tau_m)(z_1+\Delta z)\right]
+ \frac{p_s}{p_m} = \exp\left[(\tau_s-\tau_m)(z_1+\Delta z)\right].
 \end{equation}
 
 To determine the residential--services boundary $z_1$, we now turn to the relative demand for housing. Because the demand for housing is Leontief, the relative demand for housing does not depend on home rents. Take a household $i$. For each unit of their composite consumption of manufacturing and services, $m_i^\gamma s_i^{1-\gamma}$, they will demand $H$ units if housing, irrespective of prices, their income, or where they live.
@@ -339,7 +340,7 @@ We need to calculate the total supply of the composite of produced goods, $m^\ga
 \right\}\\
 &= A_hz_1/H
 \end{align}
-*** the second equation follows from the wage equation
+The second equation follows from the labor market clearing condition, \eqref{eq:labormarket}.
 
 Taking logs and ignoring constants that depend only on parameters,
 \begin{equation}\label{eq:z1}
@@ -350,29 +351,33 @@ c+\ln A_m-\beta\ln\tau_m+(1-\beta)\ln N
 where we introduced the notation $\Bar\tau = \gamma\tau_m+(1-\gamma)\tau_s$ for the expenditure-weighted average transport cost.
 
 Totally differentiating \eqref{eq:z1}, we can determine how residential area $z_1$ varies with key variables.
-\begin{proposition}
+\begin{proposition}\label{prop:residential}
  The demand for residential land increases with (i) the productivity of manufacturing relative to housing and (ii) the number of people living in the city.
 \end{proposition}
 The first comparative static is crucial because it tells us how residential land varies with development. We will derive its exact form below. Note that the impact of higher population on residential land is not purely demand driven: when there are more people in a city, the city can produce more consumption goods, thereby increasing the demand for housing, which is complement with consumption goods. As a special case, if labor is not used in production, $\beta=1$, then population does not have any impact land demand.\footnote{This counterintuitive result follows from the homotheticity of the utility function. There is no subsistence level of housing, so twice as many people can easily live in homes half the size.}
 
-\[
- \frac{d z_1}{d\ln(A_m/A_h)} = \frac{z_1}{1+\Bar\tau z_1}
-\]
+\begin{align*}
+ \frac{d z_1}{d\ln(A_m/A_h)} &= \frac{z_1}{1+\Bar\tau z_1}>0\\
+\frac{d^2 z_1}{d\ln(A_m/A_h) d \ln N} &= \frac{(1-\beta)z_1}{(1+\Bar\tau z_1)^3}>0
+\end{align*}
 
-***
+Because $\Delta z$ does not vary with development, we can now characterize the behavior of the service--manufacturing relative price,
+\begin{align*}
+ \frac{d \ln(p_s/p_m)}{d\ln(A_m/A_h)} &= \frac{(\tau_s-\tau_m)z_1}{1+\Bar\tau z_1}>0\\
+\frac{d^2 d \ln(p_s/p_m)}{d\ln(A_m/A_h) d \ln N} &= \frac{(1-\beta)z_1}{(1+\Bar\tau z_1)^3}>0
+\end{align*}
 
 
-
-The strength of the Balassa--Samuelson effect can be obtained by (log-)differentiating the relative price of services with respect to productivity:
+\begin{proposition}
+Suppose that housing productivity $A_h$ is constant and $A_m$ and $A_s$ grow in parallel. Then the relative price of services increases with $A_m$ -- the Balassa--Samuelson effect. The strength of the Balassa--Samuelson effect is
 \begin{equation}\label{eq:bscs}
-\frac{d\ln (p_s/p_m)}{d\ln A} = \frac{(\tau_s-\tau_m)z_1}{1+\Bar\tau z_1/\beta},
+\frac{d \ln(p_s/p_m)}{d\ln A_m} = \frac{(\tau_s-\tau_m)z_1}{1+\Bar\tau z_1}>0.
 \end{equation}
-where $\Bar\tau$ is the consumption-share-weighted average of manufacturing and services transport costs.
-
-The Balassa--Samuelson effect is stronger if (i) trade cost differential between the two industries is large, (ii) land occupied by residential housing is large, and (iii) the land share in production is large.
+The Balassa--Samuelson effect is stronger if (i) trade cost differential between the two industries is large, (ii) land occupied by residential housing is large, and (iii) the average transport cost is low.
+\end{proposition}
+Intuitively, the bigger the tradability difference between the two sectors, the bigger impact an additional mile of transportation has on their relative price. By Proposition \ref{prop:residential}, we know that residential area increases with development, which also move the service--manufacturing boundary further away from the center. 
 
 The model yields the following testable predictions.
-\begin{proposition}\label{prop:compstat}
 As productivity increases,
 \begin{enumerate}
     \item residential land grows,
@@ -382,17 +387,15 @@ As productivity increases,
     \item services become more expensive,
     \item labor productivity increases faster in manufacturing.
 \end{enumerate}
-\end{proposition}
-\begin{proposition}
-All of the effects discussed in proposition \ref{prop:compstat} are stronger (in absolute value) in countries with higher population per CBD (``urban'' countries).
-\end{proposition}
-%% keep tau so that we can do comparative statics
 
-%% i think if taum decreases, the BS effect becomes stronger, but will have to verify before writing up
+To see how the strength of the Balassa--Samuelson effect is related to population density, we differentiate \eqref{eq:bscs} with respect to $N$.\footnote{Our concept of population density is the number of people living in a city, $N$. In the empirical analysis, we map this into the population density of country area as well as urbanization rates.} From Proposition \ref{prop:residential}, we know that $z_1$ increases in $N$, so we have that
+\begin{proposition}
+The Balassa--Samuelson effect is stronger in countries with higher population per CBD (``urban'' countries).
+\end{proposition}
 
 
 \section{Empirical results}\label{empirics}
-The section presents some new international and U.S. facts on the relationship of development and prices that are not well explained by the standard Balassa-Samuelson framework, but are in line with the main predictions of our model formulated in Proposition \ref{prop:compstat}.
+The section presents some new international and U.S. facts on the relationship of development and prices that are not well explained by the standard Balassa-Samuelson framework, but are in line with the main predictions of our model formulated above.
 
 \subsection{Urbanization and prices}
 It is a well known fact that higher per capita GDP is correlated with higher price levels and the Balassa-Samuelson (BS) hypothesis gives a generally accepted explanation for it. We argue, however, that this relationship is also influenced by the level of urbanization in a country, which is unexplained by the BS framework. Figure \ref{fig:sc_penn} shows the cross-country relationships of the (log) price levels and the (log) per capita GDP -- both measured in purchasing power parity terms -- for more rural and more urban countries.\footnote{We use the 2000 sample of the Penn World Table, and the groupings are according to the proportion of urban population obtained from the World Bank's World Development Indicators.} The graphs shows, in line with Proposition \ref{prop:compstat}, that the relationship between income and the price level is stronger among more urbanized countries. The comparison is valid as there are reasonable variation in per capita GDP for both groups, even if there are clearly more high-income countries among the more urbanized ones.
