@@ -120,6 +120,9 @@ foreach X of var `vars' {
 
 drop mean*
 
+/*Sectoral proximity averages*/
+by sector city, sort: egen prox_sector=mean(exp(proximity))
+
 saveold ../data/cityprices_prepared, replace
 
 graph twoway (scatter labor proximity) (lfitci labor proximity) if city=="NEW YORK" & labor!=.

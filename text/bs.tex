@@ -46,7 +46,7 @@
 \newcommand{\dotable}[2]{\begin{table}[h!]
 \begin{centering}
 \caption{#2\label{tab:#1}}
-\includegraphics[width=0.75\linewidth]{figures/#1}  
+\includegraphics[width=0.75\linewidth]{figures/#1}
 \end{centering}
 \end{table}}
 
@@ -290,7 +290,7 @@ These assumptions lead to a closed-form solution.
 First we derive the relative supply of services and manufacturing as a function of $z_1$ and $z_2$. From equations \eqref{eq:supply:s} and \eqref{eq:supply:m},
 \begin{equation}
  \frac{s}{m} = \left(\frac{p_s}{p_m}\right)^{1/\beta-1}
-\left(\frac{A_s}{A_m}\right)^{1/\beta} 
+\left(\frac{A_s}{A_m}\right)^{1/\beta}
 \frac{\tau_m}{\tau_s}
 \frac{\exp(-\tau_s z_1/\beta)-\exp(-\tau_s z_2/\beta)}{\exp(-\tau_m z_2/\beta)}
 \end{equation}
@@ -304,7 +304,7 @@ We also have the rent arbitrage at the boundary $z_2$,
 \end{equation}
 Combining these three equations,
 \begin{equation}
-\exp\left[\tau_s(z_2-z_1)/\beta\right] = 1+\frac{1-\gamma}{\gamma}\left(\frac{A_m}{A_s}\right)^{1/\beta}\frac{\tau_s}{\tau_m} 
+\exp\left[\tau_s(z_2-z_1)/\beta\right] = 1+\frac{1-\gamma}{\gamma}\left(\frac{A_m}{A_s}\right)^{1/\beta}\frac{\tau_s}{\tau_m}
 \end{equation}
 The amount of land dedicated to services, $z_2-z_1$ is independent of the overall level of development. It is increasing in the relative productivity of manufacturing, decreasing in the expenditure share of manufacturing, and decreasing in manufacturing transport costs. We denote $z_2-z_1$ bz $\Delta z$.
 
@@ -314,7 +314,7 @@ The amount of land dedicated to services, $z_2-z_1$ is independent of the overal
 \begin{equation}
  \frac{s}{m} = \frac{1-\gamma}{\gamma}\exp\left[-(\tau_s-\tau_m)(z_1+\Delta z)\right]
 \end{equation}
- 
+
 To determine the residential--services boundary $z_1$, we now turn to the relative demand for housing. Because the demand for housing is Leontief, the relative demand for housing does not depend on home rents. Take a household $i$. For each unit of their composite consumption of manufacturing and services, $m_i^\gamma s_i^{1-\gamma}$, they will demand $H$ units if housing, irrespective of prices, their income, or where they live.
 \[
  \frac{h_i}{m_i^\gamma s_i^{1-\gamma}} = H.
@@ -327,7 +327,7 @@ The aggregate stock of housing is easily determined as
 \[
  h = A_h z_1.
 \]
-We need to calculate the total supply of the composite of produced goods, $m^\gamma s^{1-\gamma}$. 
+We need to calculate the total supply of the composite of produced goods, $m^\gamma s^{1-\gamma}$.
 \begin{align}
  m^\gamma s^{1-\gamma} &= (1-\beta)^{1/\beta-1} p_m^{1/\beta-1} A_m^{1/\beta} \frac{1-\gamma}{\gamma\tau_m}
 \exp\left\{
@@ -347,7 +347,7 @@ Taking logs and ignoring constants that depend only on parameters,
 c+\ln A_m-\beta\ln\tau_m+(1-\beta)\ln N
 -\Bar\tau(z_1+\Delta z),
 \end{equation}
-where we introduced the notation $\Bar\tau = \gamma\tau_m+(1-\gamma)\tau_s$ for the expenditure-weighted average transport cost. 
+where we introduced the notation $\Bar\tau = \gamma\tau_m+(1-\gamma)\tau_s$ for the expenditure-weighted average transport cost.
 
 Totally differentiating \eqref{eq:z1}, we can determine how residential area $z_1$ varies with key variables.
 \begin{proposition}
@@ -413,7 +413,7 @@ extends the 115 benchmark countries, that directly participated the
 1996 round of the International Comparison Project(ICP), by using
 somewhat less reliable price data and other observable variables.
 Our results are robust to restricting the sample to the benchmark
-countries.} 
+countries.}
 
 \begin{table}[h!]
 \caption{Balassa-Samuelson regressions with urbanization (Robust
@@ -470,11 +470,11 @@ The main assumption of the Balassa-Samuelson framework is the differential produ
 \end{tabular}
 \end{table}
 
-The main difference between these products is their tradability -- it is arguably easier to transport frozen chicken -- and clearly not their production technology. The Balassa-Samuelson regressions show that in line with our model, the local per capita GDP has stronger influence on the less-tradable fresh chicken than the more tradable frozen version. Our argument is that because of the tradability differences, fresh chicken needs to be produced closer to the consumer and needs to compete with them for land that is getting scarcer with development. 
+The main difference between these products is their tradability -- it is arguably easier to transport frozen chicken -- and clearly not their production technology. The Balassa-Samuelson regressions show that in line with our model, the local per capita GDP has stronger influence on the less-tradable fresh chicken than the more tradable frozen version. Our argument is that because of the tradability differences, fresh chicken needs to be produced closer to the consumer and needs to compete with them for land that is getting scarcer with development.
 
 We now turn to analyze more formally how tradability, or which is equivalent in our model: industry location, influences the effects of development on prices. The international price data we use for this is collected by the Economist Intelligence Unit for cost of living calculations. The data is a panel of more than 150 prices collected in 140 cities of 89 countries all around the world. The products are sampled from all of the main categories of standard consumer price indices and are defined to be relatively comparable internationally.\footnote{Controlling for quality differences across countries is extremely difficult, but the quality differences do not bias our main results as long as they influence \emph{all} products similarly across countries.} For each product-city pair, we take 10 year averages of USD prices between 1997 and 2006.
 
-The analysis also requires a measure for tradability. As we do not have direct data on trade costs, we are constructing an indirect measure that calculates the industries' proximity to the consumers. This industry location measure is clearly influenced by the transport costs, as it is the case in our equilibrium, and its advantage is that it more directly tests the spatial argument of our model. 
+The analysis also requires a measure for tradability. As we do not have direct data on trade costs, we are constructing an indirect measure that calculates the industries' proximity to the consumers. This industry location measure is clearly influenced by the transport costs, as it is the case in our equilibrium, and its advantage is that it more directly tests the spatial argument of our model.
 
 We use good quality US Census data to calculate this measure, and assume that the relative tradability differences across industries are similar across countries. We measure proximity of industry $i$ ($\rho_i$) by the population density of an industry $i$'s \emph{average plant}:
 \begin{equation*}
@@ -536,7 +536,7 @@ Tables \ref{tab:closest} and \ref{tab:furthest} lists products and the sectors w
 
 \bigskip
 
-Having measured the tradability of the various industries, we then turn to the question of how the price of these industries vary across cities and countries with different income per capita. More specifically, we hypothesize that the prices of less tradable (``urban'') goods are more sensitive to income per capita than prices of more tradable (``rural'') goods. 
+Having measured the tradability of the various industries, we then turn to the question of how the price of these industries vary across cities and countries with different income per capita. More specifically, we hypothesize that the prices of less tradable (``urban'') goods are more sensitive to income per capita than prices of more tradable (``rural'') goods.
 
 Because we measure tradability in the U.S.~only, the key assumption is that tradability is a technological trait of the sector that is fairly consistent across countries. Note that we do not need the actual location of industries, which may be very different in a small country that in the large, low-density U.S. We only use the ranking of industries when we compare urban to rural goods.\footnote{Even so, some outlier sectors are bound to violate the cross-country homogeneity assumption. For example, ``Manufacturing Magnetic and Optical Media'' is a highly urban industry in the U.S., being located almost exclusively in Los Angeles and neighboring countries. We suspect that this reflects more the market structure of the industry than its transportation technology.}
 
@@ -587,19 +587,10 @@ Relative Prosperity,'' \emph{The American Economic Review}, 562-585.
 
 *** ADD DATA REFERENCES: EIU, NBER PROD, WDI, CENSUS
 
-\end{document}
+\section{Appendix}
 
-To check the robustness of the results, we also
-calculated a non-tradable/tradable relative price index
-($P_{NT}/P_{T}$) using the basic heading level price data for
-consumption for the 1996 benchmark ICP countries. This relative
-price is more in line with the main Balassa-Samuelson proposition
-implying that the main reason of the price level difference is the
-relatively more expensive non-tradable prices. The measure, however,
-can be expected to be less reliable than the aggregate price level
-as the non-tradable prices, like services, tend to be less
-comparable internationally than tradable prices.
-
+The appendix presents some empirical evidence in the literature supporting essential assumptions and mechanisms of our results.
+ 
 \subsection{Land and development}
 In this section, we first present U.S.~time-series evidence showing that over the past decades both residential land area and residental land prices have increased. Because both quantities and prices have gone up, this is consistent with an increase in (per capita) housing demand. Then, using mainly cross-sectional evidence, we show that income is a major factor influencing residential demand as implied by Proposition \ref{prop:compstat}. The trend increases in housing demand can then be thought of as the by-product of U.S.~growth.
 
@@ -643,7 +634,7 @@ More formally, the first three columns of Table \ref{tab:land} show the estimate
 \end{table}
 
 \subsection{Industry location}
-In this section, we first overview U.S.~cross-sectional evidence supporting the spatial equilibrium predicted by Proposition \ref{prop:spatial} that non-tradable goods (services) are produced closer to the consumers than tradables (manufacturing).\footnote{Agriculture and mining, as a result of their relatively low trade costs and high land share, are naturally located in the least densely populated counties (see Holmes and Stevens, 2003, Table 10.)} Second, we present post-war U.S.~time-series data showing that this relative spatial position of the two sectors were reinforced by development as stated in Proposition 4.
+In this section, we first overview U.S.~cross-sectional evidence supporting the spatial equilibrium predicted by Proposition \ref{prop:spatial} that non-tradable goods (services) are produced closer to the consumers than tradables (manufacturing).\footnote{Our previously used proximity measures support the standard groups: the population density in a county with an average agricultural plant is 195, with an average manufacturing plant: 474 and with an average service plant: 606.} \footnote{Agriculture and mining, as a result of their relatively low trade costs and high land share, are naturally located in the least densely populated counties (see Holmes and Stevens, 2003, Table 10.)} Second, we present post-war U.S.~time-series data showing that this relative spatial position of the two sectors were reinforced by development as stated in Proposition \ref{prop:compstat}.
 
 A way to measure the co-location of population and sectors is to calculate the sector's locational quotient ($q_i$), which is measured as the ratio of an area's ($i$) share in the U.S.~sectoral employment ($s_i$) and its share in the U.S.~overall employment ($x_i$, $q_i=s_i/x_i$). If $q_i$ is below 1, the area is underrepresented in that sector, while a locational quotient substantially higher than 1 means the area is specialized in the certain sector. Figure \ref{fig:LQ_scatter} plots the locational quotient in manufacturing for 3219 U.S.~counties obtained from the County Business Patters dataset of the Census Bureau\footnote{The advantage of using counties is that they cover the whole country and capture population clustering better than state level data. A potential problem arises if a large number of the employees live and work in different counties. Metropolitan statistical areas, that are defined to take commuting habits into consideration, are a potential alternative. However, naturally, they do not cover the whole country. Our results are robust to using MSAs.} as a function of the population density of the county. The figure strongly supports our claim that manufacturing is underrepresented in the dense counties, and implies the opposite relationship (not shown) for services.
 
@@ -688,7 +679,7 @@ The time series development of the relative manufacturing employment is presente
 
 
 
-Turning to sector-level U.S.~data, table \ref{tab:infl} gives some suggestive evidence on the relationship between proximity to the population (measured here as the employment share in the 100 most dense counties) and the long term inflation rates (average value-added inflation rates between 1947-2006) across the three major sectors. These results also support the pricing predictions of our model formulated in Proposition 4.
+Turning to sector-level U.S.~data, table \ref{tab:infl} gives some suggestive evidence on the relationship between proximity to the population (measured here as the employment share in the 100 most dense counties) and the long term inflation rates (average value-added inflation rates between 1947-2006) across the three major sectors. These results also support the pricing predictions of our model formulated in Proposition \ref{prop:compstat}.
 
 \begin{table}[h!]
 \center
@@ -703,4 +694,6 @@ Manufacturing & 23.3\% & 2.1\% \\
 Services & 33.4\% & 3.5\% \\ \hline\hline
 \end{tabular}
 \end{table}
+
+\end{document}
 
