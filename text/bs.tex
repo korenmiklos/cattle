@@ -364,7 +364,7 @@ output-urbanization cross terms.
 In line with well known previous results, higher per capita output
 increases the price level across countries, but this \emph{relationship} is significantly influenced by the level of urbanization, even after controlling for direct price effects of the urbanization. Looking at the first regression, we have found that 1 percent higher per capita output increases the price level by 0.25 percent for average level of urbanization (54 percent), and 1 percent higher urbanization has a further 0.61 percent direct effect. The cross effect, however, implies that the effect of output on the prices would be close to 0 under the (extreme) case of 0 urbanization ($0.25-0.54\cdot0.38=0.05$) and would be over 0.4 in case of full urbanization.
 
-This effect of urbanization on prices remains unexplained by the standard BS argument, but it is fully in line with our model, where higher population density -- similarly to income growth -- increases the scarcity of land close to consumers and drives up prices. 
+This effect of urbanization on prices remains unexplained by the standard BS argument, but it is fully in line with our model, where higher population density -- similarly to income growth -- increases the scarcity of land close to consumers and drives up prices. ***
 
 \subsection{Tradability, industry location and prices}
 
@@ -400,9 +400,9 @@ We use good quality US Census data to calculate this measure, and assume that th
 \end{equation*}
 where $n_{ic}$ is the number of plants by county $c$ and industry $i$,\footnote{The US Census County Business Patterns database records the number of plants and employment groups by counties and 6 digit NAICS sectors. We used 4 digit NAICS sectors, which were more in line with the level of detail of our price data. The employment data is reported only in discrete categories, but using center-of-the-bin approximations would result in a very similar ranking of sectors with a regression coefficient of 0.98.} and $d_c$ is the population density of county $c$ provided by the US Decennial Census. Industries with high $\rho_i$ are `closer' to the residents: their average plant is in a more dense county. For the analysis, we match the products in the EIU survey to 4 digit NAICS sectors in which they are produced.
 
-Tables \ref{tab:closest} and \ref{tab:furthest} lists products and the sectors which are the closest and the furthest from the consumers, respectively. The results are in line with the standard intuitions: personal services are the ones located closest to the residents, while manufacturing and utility plants are those located furthest. The only outlier is probably the 'Manufacturing Magnetic and Optical Media' industry that, against our priors, seems to be located in high population density areas.
+Tables \ref{tab:closest} and \ref{tab:furthest} lists products and the sectors which are the closest and the furthest from the consumers, respectively. The results are in line with the standard intuitions: personal services are the ones located closest to the residents, while manufacturing and utility plants are those located furthest. The only outlier is probably the ``Manufacturing Magnetic and Optical Media'' industry that, against our priors, seems to be located in high population density areas.
 
-\begin{table}[t]
+\begin{table}[ht!]
 \center
 \caption{Industries close to the residents}
 \label{tab:closest}
@@ -427,7 +427,7 @@ Tables \ref{tab:closest} and \ref{tab:furthest} lists products and the sectors w
 \end{tabular}
 \end{table}
 
-\begin{table}[t]
+\begin{table}[ht!]
 \center
 \caption{Industries far from residents}
 \label{tab:furthest}
@@ -452,19 +452,25 @@ Tables \ref{tab:closest} and \ref{tab:furthest} lists products and the sectors w
 \end{tabular}
 \end{table}
 
+\bigskip
 
+Having measured the tradability of the various industries, we then turn to the question of how the price of these industries vary across cities and countries with different income per capita. More specifically, we hypothesize that the prices of less tradable (``urban'') goods are more sensitive to income per capita than prices of more tradable (``rural'') goods. 
+
+Because we measure tradability in the U.S.~only, the key assumption is that tradability is a technological trait of the sector that is fairly consistent across countries. Note that we do not need the actual location of industries, which may be very different in a small country that in the large, low-density U.S. We only use the ranking of industries when we compare urban to rural goods.\footnote{Even so, some outlier sectors are bound to violate the cross-country homogeneity assumption. For example, ``Manufacturing Magnetic and Optical Media'' is a highly urban industry in the U.S., being located almost exclusively in Los Angeles and neighboring countries. We suspect that this reflects more the market structure of the industry than its transportation technology.}
 
 Table \ref{tab:eiureg} presents our main regression results. The basic regression equation is
 \begin{equation*}
 \ln p_{ij}=\alpha_i+\beta(\ln Y_{j}-\bar{\ln Y_j})+\gamma(\ln Y_j-\bar{\ln Y_j})\times(\ln\rho_i-\bar{\ln\rho_i}),
 \end{equation*}
-where $p_{ij}$ denotes prices of product $i$ in city $j$, $Y_j$ is per capita GDP of the country of city $j$, and $\rho_i$ is the proximity measure of the industry product $i$ is produced. Our main interest is the coefficient of the (demeaned) cross product measuring how the industry location influences the relationship between the income and prices. The regressions contain product fixed effects ($\alpha_i$), and the standard errors are clustered by countries.
+where $p_{ij}$ denotes prices of product $i$ in city $j$, $Y_j$ is per capita GDP of the country of city $j$, and $\rho_i$ is the proximity measure of the industry product $i$ is produced. Our main interest is the coefficient of the (demeaned) cross product measuring how the industry location influences the relationship between the income and prices. The regressions contain product fixed effects ($\alpha_i$), and the standard errors are clustered by countries.\footnote{Note that the direct effect of proximity on price is suppressed into the product fixed effect.}
 
 \dotable{eiureg}{Industry location and the Balassa--Samuelson effect}
 
-The first column of table \ref{tab:eiureg} presents a standard Balassa-Samuelson regression and shows that our sample reproduces the standard result that richer countries tend to have higher prices. The significant coefficient $\gamma$ of the cross-term in the second regression shows not only that more tradable prices increases more with development -- as Balassa-Samuelson argument would suggest -- but also that this relationship is closely related to the spatial location of these industries, as our model suggests. The third and the fourth regressions introduce sectoral dummies (agriculture, manufacturing and services) to the regressions. They show that while the average price effect of the country's GDP per capita is different for different sectors -- with presumably different production technologies --, controlling for them do not change our main result, namely, the significant effect of the industry location on the price effect of development.
+The first column of table \ref{tab:eiureg} presents a standard Balassa-Samuelson regression and shows that our sample reproduces the standard result that richer countries tend to have higher prices. The significant coefficient $\gamma$ of the cross-term in the second regression shows not only that more tradable prices increases more with development -- as Balassa-Samuelson argument would suggest -- but also that this relationship is closely related to the spatial location of these industries, as our model suggests. In particular, the prices of sectors that locate closer to consumers are more sensitive to income.
 
-The Bhagwati-Kravis-Lipsey hypothesis argued that differences in labor intensity explains the differential effects of development on tradable and non-tradable prices. To test this hypothesis, we use the NBER productivity database, available for manufacturing sectors, to include a labor share measure in our regressions. Regression [5] in table \ref{tab:eiuman} shows that our results are robust to the subsample of manufacturing sectors, and regression [6] shows that labor share by itself has some marginally significant influence on the price effect of income. Regression [7], however, shows that if proximity is included in the regression, labor share loses its significance.
+Given that most urban sectors are service sectors and many of the rural sectors are agricultural, one may wonder whether our results are only driven by this broad difference. In order to test for that, we separate out agricultural, manufacturing and service goods. The third and the fourth regressions introduce sectoral dummies (agriculture, manufacturing and services) interacted with income per capita. They show that while the average price effect of the country's GDP per capita is different for different sectors -- with presumably different production technologies --, controlling for them do not change our main result, namely, the significant effect of the industry location on the price effect of development.\footnote{Note that the prices of agricultural products seem to be as income-sensitive as service prices. This may be due to the big role of land in agriculture, a channel we pursue further in our next specification.}
+
+The Bhagwati-Kravis-Lipsey hypothesis argued that differences in labor intensity explains the differential effects of development on tradable and non-tradable prices. To test this hypothesis, we use the NBER Productivity Database (***), available for manufacturing sectors, to include a labor share measure in our regressions. Regression [5] in table \ref{tab:eiuman} shows that our results are robust to the subsample of manufacturing sectors, and regression [6] shows that labor share by itself has some marginally significant influence on the price effect of income. In particular, the prices of more labor intensive products are more sensitive to income. Regression [7], however, shows that if proximity is included in the regression, labor share loses its significance, whereas proximity retains its strong positive effect.
 
 \dotable{eiuman}{Industry location and labor intensity}
 
@@ -496,6 +502,8 @@ Relative Prosperity,'' \emph{The American Economic Review}, 562-585.
 \bibitem{} Tang, X., 2007, ``The Rich Neighborhood Effect versus the Balassa-Samuelson Effect: An Income-Based Explanation of International Price Level Differences,'' working paper.
 \bibitem{Valentinyi07} Valentinyi, A., Herrendorf, B., 2007, ``Measuring Factor Income Shares at the Sector Level,'' working paper.
 \end{thebibliography}
+
+*** ADD DATA REFERENCES: EIU, NBER PROD, WDI, CENSUS
 
 \end{document}
 
