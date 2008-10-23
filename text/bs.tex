@@ -104,7 +104,7 @@ An implication of the model is that the relationship between income and the pric
 
 Note  that the above effect is distinct from the direct effect of development on urbanization. Richer countries tend to be more urban; more urban countries, in turn, tend to have higher prices. Even though this effect is also fully consistent with our model, we would like to test the robustness of the \emph{interaction} effect of urbanization and development. In future work, we plan to instrument urbanization rates with the geographic features within the country, such as elevation, the slope of the terrain, distance to coastline and rivers, and latitude.
 
-To obtain more direct evidence on the role of sector location in relative prices, we look at detailed product-level price data published for a wide range of countries by the Economist Intelligence Unit. We then measure the location where each product is produced in county-level U.S.~data. We classify products that are produced close to consumers (residents) urban products, those that are produced far from consumers are rural products. Our results show that the prices of urban products are more sensitive to income than those of rural products. 
+To obtain more direct evidence on the role of sector location in relative prices, we look at detailed product-level price data published for a wide range of countries by the Economist Intelligence Unit. We then measure the location where each product is produced in county-level U.S.~data. We classify products that are produced close to consumers (residents) urban products, those that are produced far from consumers are rural products. Our results show that the prices of urban products are more sensitive to income than those of rural products.
 
 We emphasize that our results do not overturn previous explanations proposed in international macroeconomics or the regional economics literature. Instead, we view them as complementing both types of explanations and potentially bridging the gap between the two. The non-reproducible nature of residential land, together with the optimal location of industries, provides a microfoundation for the {assumption} made by Balassa and Samuelson that non-tradable industries face slower productivity growth. We believe this microfoundation is important because models that assume exogenous differences in productivity growth have no predictions about when and why the Balassa--Samuelson effect is stronger in one country than in another. Our model links the strength of the Balassa--Samuelson effect to the regional patterns of countries.
 
@@ -246,10 +246,10 @@ The supply of housing is simply determined by the land allocated to residential 
 \[
 h(z) = A_h\text{ for all }z\le z_1.
 \]
-The remaining equilibrium condition is labor market clearing. Because both sectors share the same Cobb--Douglas technology, the ratio of the aggregate wagebill to aggregate industrial rents is constant at $(1-\beta)/\beta$. The total wagebill is simply $N$, because we have normalized the wage rate to one. 
+The remaining equilibrium condition is labor market clearing. Because both sectors share the same Cobb--Douglas technology, the ratio of the aggregate wagebill to aggregate industrial rents is constant at $(1-\beta)/\beta$. The total wagebill is simply $N$, because we have normalized the wage rate to one.
 \begin{equation}\label{eq:labormarket}
-N = 
-(1-\beta)^{1/\beta} p_s^{1/\beta} A_s^{1/\beta} \int_{z=z_1}^{z_2}D(\tau_s z)^{1/\beta}dz
+N =
+(1-\beta)^{1/\beta} p_s^{1/\beta} A_s^{1/\beta} \int_{z=z_1}^{z_2}D(\tau_s z)^{1/\beta}dz+
 (1-\beta)^{1/\beta} p_m^{1/\beta} A_m^{1/\beta} \int_{z=z_2}^{z_3}D(\tau_m z)^{1/\beta}dz
 \end{equation}
 \subsection{Productivity growth}
@@ -311,7 +311,7 @@ Combining these three equations,
 \end{equation}
 The amount of land dedicated to services, $z_2-z_1$ is independent of the overall level of development. It is increasing in the relative productivity of manufacturing, decreasing in the expenditure share of manufacturing, and decreasing in manufacturing transport costs. We denote $z_2-z_1$ by $\Delta z$.
 \[
-\Delta z = \frac{\beta}{\tau_s}\ln\left[1+\frac{1-\gamma}{\gamma}\left(\frac{A_m}{A_s}\right)^{1/\beta}\frac{\tau_s}{\tau_m}\right] 
+\Delta z = \frac{\beta}{\tau_s}\ln\left[1+\frac{1-\gamma}{\gamma}\left(\frac{A_m}{A_s}\right)^{1/\beta}\frac{\tau_s}{\tau_m}\right]
 \]
 Substituting into the rent arbitrage condition, we find that the relative price of services increases in residential land, just as stated in Proposition \ref{prop:sprawl},
 \begin{equation}
@@ -366,7 +366,7 @@ The first comparative static is crucial because it tells us how residential land
 Because $\Delta z$ does not vary with development, we can now characterize the behavior of the service--manufacturing relative price,
 \begin{align*}
  \frac{d \ln(p_s/p_m)}{d\ln(A_m/A_h)} &= \frac{(\tau_s-\tau_m)z_1}{1+\Bar\tau z_1}>0\\
-\frac{d^2 d \ln(p_s/p_m)}{d\ln(A_m/A_h) d \ln N} &= \frac{(1-\beta)z_1}{(1+\Bar\tau z_1)^3}>0
+\frac{d^2 \ln(p_s/p_m)}{d\ln(A_m/A_h) d \ln N} &= \frac{(1-\beta)z_1}{(1+\Bar\tau z_1)^3}>0
 \end{align*}
 
 
@@ -377,7 +377,7 @@ Suppose that housing productivity $A_h$ is constant and $A_m$ and $A_s$ grow in 
 \end{equation}
 The Balassa--Samuelson effect is stronger if (i) trade cost differential between the two industries is large, (ii) land occupied by residential housing is large, and (iii) the average transport cost is low.
 \end{proposition}
-Intuitively, the bigger the tradability difference between the two sectors, the bigger impact an additional mile of transportation has on their relative price. By Proposition \ref{prop:residential}, we know that residential area increases with development, which also move the service--manufacturing boundary further away from the center. 
+Intuitively, the bigger the tradability difference between the two sectors, the bigger impact an additional mile of transportation has on their relative price. By Proposition \ref{prop:residential}, we know that residential area increases with development, which also move the service--manufacturing boundary further away from the center.
 
 The model yields the following testable predictions.
 As productivity increases,
@@ -595,7 +595,7 @@ Relative Prosperity,'' \emph{The American Economic Review}, 562-585.
 \section{Appendix}
 
 The appendix presents some empirical evidence in the literature supporting essential assumptions and mechanisms of our results.
- 
+
 \subsection{Land and development}
 In this section, we first present U.S.~time-series evidence showing that over the past decades both residential land area and residental land prices have increased. Because both quantities and prices have gone up, this is consistent with an increase in (per capita) housing demand. Then, using mainly cross-sectional evidence, we show that income is a major factor influencing residential demand as implied by Proposition \ref{prop:compstat}. The trend increases in housing demand can then be thought of as the by-product of U.S.~growth.
 
