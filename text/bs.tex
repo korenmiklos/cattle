@@ -229,17 +229,23 @@ Because land rents are a constant fraction of revenue, we can use \eqref{eq:bidr
 y_i(z) = (1-\beta)^{1/\beta-1} p_i^{1/\beta-1} A_i^{1/\beta} D(\tau_i z)^{1/\beta}.
 \]
 The supplies in the two industries are
-\begin{align*}
-s &= (1-\beta)^{1/\beta-1} p_s^{1/\beta-1} A_s^{1/\beta} \int_{z_1}^{z_2}D(\tau_s z)^{1/beta} dz, \\
-m&= (1-\beta)^{1/\beta-1} p_m^{1/\beta-1} A_m^{1/\beta} \int_{z_2}^{z_3}D(\tau_m z)^{1/beta} dz.
-\end{align*}
+\begin{align}
+s &= (1-\beta)^{1/\beta-1} p_s^{1/\beta-1} A_s^{1/\beta} \int_{z_1}^{z_2}D(\tau_s z)^{1/\beta} dz,\label{eq:supply:s} \\
+m&= (1-\beta)^{1/\beta-1} p_m^{1/\beta-1} A_m^{1/\beta} \int_{z_2}^{z_3}D(\tau_m z)^{1/\beta} dz.\label{eq:supply:m}
+\end{align}
 The next key equation comes from location arbitrage at the manufacturing--service boundary, $z_2$. At this point, $R_s(z_2)=R_m(z_2)$, which follows from the continuity of $D(z)$. Hence a boundary $z_2$ pins down the relative price of services,
 \begin{equation}\label{eq:arbitrage}
-\frac{p_s}{p_m} = \left[\frac{D(\tau_m z_2)}{D(\tau_s z_2)}\right]^{1/\beta}.
+\frac{p_s}{p_m} = \frac{D(\tau_m z_2)}{D(\tau_s z_2)}.
 \end{equation}
 Note that because $\tau_s>\tau_m$ and $D(z)$ is decreasing in $z$, the farther out the boundary is, the higher this relative price. Intuitively, it is equally profitable to produce services and the manufactured good at the boundary. The farther out the boundary, the higher the transport cost differential between the two industries. This has to be compensated by higher service prices.
 
 The relative price of services, in turn, determines relative demand. (Because of the nested utility structure, housing does not affect the relative demand of services and manufacturing.)
+
+The supply of housing is simply determined by the land allocated to residential use,
+\[
+h(z) = A_h\text{ for all }z\le z_1.
+\]
+*** DISCUSS WAGES AND LABOR SUPPLY HERE
 
 We can construct the supply and demand of housing similarly. We then need to find $z_1$ and $z_2$ such that markets clear.
 
@@ -253,7 +259,7 @@ The following proposition states that without any technological differences acro
 \begin{proof}
 We can determine the relative price of services from rent arbitrage at boundary $z_2$, equation \eqref{eq:arbitrage}, which is clearly increasing in $z_2$. The relative demand for services is a decreasing function of the relative price,
     \[
-    \frac{s}{m} = \phi\left(\frac{p_s}{p_m}\right) = \phi\left[\frac{D(\tau_m z_2)^{1/beta}}{D(\tau_s z_2)^{1/beta}}\right],
+    \frac{s}{m} = \phi\left(\frac{p_s}{p_m}\right) = \phi\left[\frac{D(\tau_m z_2)}{D(\tau_s z_2)}\right],
     \]
 where $\phi$ denotes $\Phi_2/\Phi_1$. The relative supply of services is increasing in $z_2$ for any given $z_1$, since as $z_2$ increases, more land gets allocated to services and less to manufacturing. Hence, for a given $z_1$, there is a unique $z_2$ that equates relative demand and supply. This $z_2$ is increasing in $z_1$. Substituting $z_2$ in the relative price equation above, we get the result.
 \end{proof}
@@ -271,7 +277,7 @@ If either condition (i) or condition (ii) holds, then the amount of land dedicat
 
 \subsection{A special case}
 To explore the properties of the model further, we make the following additional assumptions.
-There is no technical progress in housing, $A_h$ is constant. Utility is Cobb--Douglas in goods, Leontief in housing,
+There is no technical progress in housing, $A_h$ is constant. Technical progress is parallel in services and manufacturing, $A_m=A_s=A$. Utility is Cobb--Douglas in goods, Leontief in housing,
 \[
 u(m,s,h) = \min\{m^\gamma s^{1-\gamma} ,h/H\}.
 \]
@@ -280,6 +286,82 @@ Transport costs are exponential,\footnote{This corresponds to a constant hazard 
 D(\tau z) = \exp(-\tau z).
 \]
 These assumptions lead to a closed-form solution.
+
+First we derive the relative supply of services and manufacturing as a function of $z_1$ and $z_2$. From equations \eqref{eq:supply:s} and \eqref{eq:supply:m},
+\begin{equation}
+ \frac{s}{m} = \left(\frac{p_s}{p_m}\right)^{1/\beta-1}
+\left(\frac{A_s}{A_m}\right)^{1/\beta} 
+\frac{\tau_m}{\tau_s}
+\frac{\exp(-\tau_s z_1/\beta)-\exp(-\tau_s z_2/\beta)}{\exp(-\tau_m z_2/\beta)}
+\end{equation}
+Because of the Cobb--Douglas preferences, the ratio of expenditure on the two goods is constant,
+\begin{equation}
+ \frac{s}{m} = \frac{1-\gamma}{\gamma}\frac{p_m}{p_s}.
+\end{equation}
+We also have the rent arbitrage at the boundary $z_2$,
+\begin{equation}
+ \frac{p_s}{p_m}  = \frac{\exp(-\tau_m z_2)}{\exp(-\tau_s z_2)}.
+\end{equation}
+Combining these three equations,
+\begin{equation}
+\exp\left[\tau_s(z_2-z_1)/\beta\right] = 1+\frac{1-\gamma}{\gamma}\left(\frac{A_m}{A_s}\right)^{1/\beta}\frac{\tau_s}{\tau_m} 
+\end{equation}
+The amount of land dedicated to services, $z_2-z_1$ is independent of the overall level of development. It is increasing in the relative productivity of manufacturing, decreasing in the expenditure share of manufacturing, and decreasing in manufacturing transport costs. We denote $z_2-z_1$ bz $\Delta z$.
+
+\begin{equation}
+ \frac{p_s}{p_m} = \exp\left[(\tau_s-\tau_m)(z_1+\Delta z)\right]
+\end{equation}
+\begin{equation}
+ \frac{s}{m} = \frac{1-\gamma}{\gamma}\exp\left[-(\tau_s-\tau_m)(z_1+\Delta z)\right]
+\end{equation}
+ 
+To determine the residential--services boundary $z_1$, we now turn to the relative demand for housing. Because the demand for housing is Leontief, the relative demand for housing does not depend on home rents. Take a household $i$. For each unit of their composite consumption of manufacturing and services, $m_i^\gamma s_i^{1-\gamma}$, they will demand $H$ units if housing, irrespective of prices, their income, or where they live.
+\[
+ \frac{h_i}{m_i^\gamma s_i^{1-\gamma}} = H.
+\]
+Because this is true for all households, it is also true for the aggregate, representative household:
+\[
+ \frac{\sum_{i}h_i}{\sum_i m_i^\gamma s_i^{1-\gamma}} =\frac{h}{m^\gamma s^{1-\gamma}}= H.
+\]
+The aggregate stock of housing is easily determined as
+\[
+ h = A_h z_1.
+\]
+We need to calculate the total supply of the composite of produced goods, $m^\gamma s^{1-\gamma}$. 
+\begin{align}
+ m^\gamma s^{1-\gamma} &= (1-\beta)^{1/\beta-1} p_m^{1/\beta-1} A_m^{1/\beta} \frac{1-\gamma}{\gamma\tau_m}
+\exp\left\{
+-[(\tau_s-\tau_m)(1-\gamma)+\tau_m/\beta](z_1+\Delta z)
+\right\}\\
+&=\beta^{\beta-1}\frac{1-\gamma}{\gamma}A_m\tau_m^{-\beta} N^{1-\beta}
+\exp\left\{
+-[\gamma\tau_m+(1-\gamma)\tau_s](z_1+\Delta z)
+\right\}\\
+&= A_hz_1/H
+\end{align}
+*** the second equation follows from the wage equation
+
+Taking logs and ignoring constants that depend only on parameters,
+\begin{equation}\label{eq:z1}
+ \ln A_h +\ln z_1 - \ln H =
+c+\ln A_m-\beta\ln\tau_m+(1-\beta)\ln N
+-\Bar\tau(z_1+\Delta z),
+\end{equation}
+where we introduced the notation $\Bar\tau = \gamma\tau_m+(1-\gamma)\tau_s$ for the expenditure-weighted average transport cost. 
+
+Totally differentiating \eqref{eq:z1}, we can determine how residential area $z_1$ varies with key variables.
+\begin{proposition}
+ The demand for residential land increases with (i) the productivity of manufacturing relative to housing and (ii) the number of people living in the city.
+\end{proposition}
+The first comparative static is crucial because it tells us how residential land varies with development. We will derive its exact form below. Note that the impact of higher population on residential land is not purely demand driven: when there are more people in a city, the city can produce more consumption goods, thereby increasing the demand for housing, which is complement with consumption goods. As a special case, if labor is not used in production, $\beta=1$, then population does not have any impact land demand.\footnote{This counterintuitive result follows from the homotheticity of the utility function. There is no subsistence level of housing, so twice as many people can easily live in homes half the size.}
+
+\[
+ \frac{d z_1}{d\ln(A_m/A_h)} = \frac{z_1}{1+\Bar\tau z_1}
+\]
+
+***
+
+
 
 The strength of the Balassa--Samuelson effect can be obtained by (log-)differentiating the relative price of services with respect to productivity:
 \begin{equation}\label{eq:bscs}
