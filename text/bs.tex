@@ -280,7 +280,7 @@ If either condition (i) or condition (ii) holds, then the amount of land dedicat
 
 \subsection{A special case}
 To explore the properties of the model further, we make the following additional assumptions.
-There is no technical progress in housing, $A_h$ is constant. Technical progress is parallel in services and manufacturing, $A_m=A_s=A$. Utility is Cobb--Douglas in goods, Leontief in housing,
+Utility is Cobb--Douglas in goods, Leontief in housing,
 \[
 u(m,s,h) = \min\{m^\gamma s^{1-\gamma} ,h/H\}.
 \]
@@ -309,7 +309,7 @@ Combining these three equations,
 \begin{equation}
 \exp\left[\tau_s(z_2-z_1)/\beta\right] = 1+\frac{1-\gamma}{\gamma}\left(\frac{A_m}{A_s}\right)^{1/\beta}\frac{\tau_s}{\tau_m}
 \end{equation}
-The amount of land dedicated to services, $z_2-z_1$ is independent of the overall level of development. It is increasing in the relative productivity of manufacturing, decreasing in the expenditure share of manufacturing, and decreasing in manufacturing transport costs. We denote $z_2-z_1$ by $\Delta z$.
+As long as $A_m$ and $A_s$ grow in parallel, the amount of land dedicated to services, $z_2-z_1$ is independent of the overall level of development. It is increasing in the relative productivity of manufacturing, decreasing in the expenditure share of manufacturing, and decreasing in manufacturing transport costs. We denote $z_2-z_1$ by $\Delta z$.
 \[
 \Delta z = \frac{\beta}{\tau_s}\ln\left[1+\frac{1-\gamma}{\gamma}\left(\frac{A_m}{A_s}\right)^{1/\beta}\frac{\tau_s}{\tau_m}\right]
 \]
@@ -331,20 +331,22 @@ The aggregate stock of housing is easily determined as
  h = A_h z_1.
 \]
 We need to calculate the total supply of the composite of produced goods, $m^\gamma s^{1-\gamma}$.
-\begin{align}
- m^\gamma s^{1-\gamma} &= (1-\beta)^{1/\beta-1} p_m^{1/\beta-1} A_m^{1/\beta} \frac{1-\gamma}{\gamma\tau_m}
+\begin{align}\notag
+ m^\gamma s^{1-\gamma} &= (1-\beta)^{1/\beta-1} p_m^{1/\beta-1} A_m^{1/\beta} \tau_m^{-1}
+\left(\frac{1-\gamma}{\gamma}\right)^{1-\gamma}
 \exp\left\{
 -[(\tau_s-\tau_m)(1-\gamma)+\tau_m/\beta](z_1+\Delta z)
 \right\}\\
-&=\beta^{\beta-1}\frac{1-\gamma}{\gamma}A_m\tau_m^{-\beta} N^{1-\beta}
+&=\left(\frac{1-\gamma}{\gamma}\right)^{1-\gamma}
+A_m\tau_m^{-\beta} N^{1-\beta}
 \exp\left\{
 -[\gamma\tau_m+(1-\gamma)\tau_s](z_1+\Delta z)
 \right\}\\
-&= A_hz_1/H
+&= A_hz_1/H \notag
 \end{align}
 The second equation follows from the labor market clearing condition, \eqref{eq:labormarket}.
 
-Taking logs and ignoring constants that depend only on parameters,
+Taking logs and ignoring constants that depend only on $\gamma$,
 \begin{equation}\label{eq:z1}
  \ln A_h +\ln z_1 - \ln H =
 c+\ln A_m-\beta\ln\tau_m+(1-\beta)\ln N
@@ -357,12 +359,10 @@ Totally differentiating \eqref{eq:z1}, we can determine how residential area $z_
  The demand for residential land increases with (i) the productivity of manufacturing relative to housing and (ii) the number of people living in the city.
 \end{proposition}
 The first comparative static is crucial because it tells us how residential land varies with development. We will derive its exact form below. Note that the impact of higher population on residential land is not purely demand driven: when there are more people in a city, the city can produce more consumption goods, thereby increasing the demand for housing, which is complement with consumption goods. As a special case, if labor is not used in production, $\beta=1$, then population does not have any impact land demand.\footnote{This counterintuitive result follows from the homotheticity of the utility function. There is no subsistence level of housing, so twice as many people can easily live in homes half the size.}
-
 \begin{align*}
  \frac{d z_1}{d\ln(A_m/A_h)} &= \frac{z_1}{1+\Bar\tau z_1}>0\\
 \frac{d^2 z_1}{d\ln(A_m/A_h) d \ln N} &= \frac{(1-\beta)z_1}{(1+\Bar\tau z_1)^3}>0
 \end{align*}
-
 Because $\Delta z$ does not vary with development, we can now characterize the behavior of the service--manufacturing relative price,
 \begin{align*}
  \frac{d \ln(p_s/p_m)}{d\ln(A_m/A_h)} &= \frac{(\tau_s-\tau_m)z_1}{1+\Bar\tau z_1}>0\\
@@ -391,7 +391,7 @@ As productivity increases,
 \end{enumerate}
 
 To see how the strength of the Balassa--Samuelson effect is related to population density, we differentiate \eqref{eq:bscs} with respect to $N$.\footnote{Our concept of population density is the number of people living in a city, $N$. In the empirical analysis, we map this into the population density of country area as well as urbanization rates.} From Proposition \ref{prop:residential}, we know that $z_1$ increases in $N$, so we have that
-\begin{proposition}
+\begin{proposition}\label{prop:cross}
 The Balassa--Samuelson effect is stronger in countries with higher population per CBD (``urban'' countries).
 \end{proposition}
 
@@ -400,7 +400,7 @@ The Balassa--Samuelson effect is stronger in countries with higher population pe
 The section presents some new international and U.S. facts on the relationship of development and prices that are not well explained by the standard Balassa-Samuelson framework, but are in line with the main predictions of our model formulated above.
 
 \subsection{Urbanization and prices}
-It is a well known fact that higher per capita GDP is correlated with higher price levels and the Balassa-Samuelson (BS) hypothesis gives a generally accepted explanation for it. We argue, however, that this relationship is also influenced by the level of urbanization in a country, which is unexplained by the BS framework. Figure \ref{fig:sc_penn} shows the cross-country relationships of the (log) price levels and the (log) per capita GDP -- both measured in purchasing power parity terms -- for more rural and more urban countries.\footnote{We use the 2000 sample of the Penn World Table, and the groupings are according to the proportion of urban population obtained from the World Bank's World Development Indicators.} The graphs shows, in line with Proposition \ref{prop:compstat}, that the relationship between income and the price level is stronger among more urbanized countries. The comparison is valid as there are reasonable variation in per capita GDP for both groups, even if there are clearly more high-income countries among the more urbanized ones.
+It is a well known fact that higher per capita GDP is correlated with higher price levels and the Balassa-Samuelson (BS) hypothesis gives a generally accepted explanation for it. We argue, however, that this relationship is also influenced by the level of urbanization in a country, which is unexplained by the BS framework. Figure \ref{fig:sc_penn} shows the cross-country relationships of the (log) price levels and the (log) per capita GDP -- both measured in purchasing power parity terms -- for more rural and more urban countries.\footnote{We use the 2000 sample of the Penn World Table, and the groupings are according to the proportion of urban population obtained from the World Bank's World Development Indicators.} The graphs shows, in line with Proposition \ref{prop:cross}, that the relationship between income and the price level is stronger among more urbanized countries. The comparison is valid as there are reasonable variation in per capita GDP for both groups, even if there are clearly more high-income countries among the more urbanized ones.
 
 \dofigure{sc_penn}{Development, urbanization, and the price level}
 
@@ -485,7 +485,7 @@ We use good quality US Census data to calculate this measure, and assume that th
 \begin{equation*}
 \rho_i=\frac{\sum_cn_{ic}d_c}{\sum_cn_{ic}},
 \end{equation*}
-where $n_{ic}$ is the number of plants by county $c$ and industry $i$,\footnote{The US Census County Business Patterns database records the number of plants and employment groups by counties and 6 digit NAICS sectors. We used 4 digit NAICS sectors, which were more in line with the level of detail of our price data. The employment data is reported only in discrete categories, but using center-of-the-bin approximations would result in a very similar ranking of sectors with a regression coefficient of 0.98.} and $d_c$ is the population density of county $c$ provided by the US Decennial Census. Industries with high $\rho_i$ are `closer' to the residents: their average plant is in a more dense county. For the analysis, we match the products in the EIU survey to 4 digit NAICS sectors in which they are produced.
+where $n_{ic}$ is the number of plants by county $c$ and industry $i$,\footnote{The US Census County Business Patterns database records the number of plants and employment groups by counties and 6-digit NAICS sectors. We used 4-digit NAICS sectors, which were more in line with the level of detail of our price data. The employment data is reported only in discrete categories, but using center-of-the-bin approximations would result in a very similar ranking of sectors with a regression coefficient of 0.98.} and $d_c$ is the population density of county $c$ provided by the US Decennial Census. Industries with high $\rho_i$ are `closer' to the residents: their average plant is in a more dense county. For the analysis, we match the products in the EIU survey to 4-digit NAICS sectors in which they are produced.
 
 Tables \ref{tab:closest} and \ref{tab:furthest} lists products and the sectors which are the closest and the furthest from the consumers, respectively. The results are in line with the standard intuitions: personal services are the ones located closest to the residents, while manufacturing and utility plants are those located furthest. The only outlier is probably the ``Manufacturing Magnetic and Optical Media'' industry that, against our priors, seems to be located in high population density areas.
 
@@ -557,12 +557,12 @@ The first column of table \ref{tab:eiureg} presents a standard Balassa-Samuelson
 
 Given that most urban sectors are service sectors and many of the rural sectors are agricultural, one may wonder whether our results are only driven by this broad difference. In order to test for that, we separate out agricultural, manufacturing and service goods. The third and the fourth regressions introduce sectoral dummies (agriculture, manufacturing and services) interacted with income per capita. They show that while the average price effect of the country's GDP per capita is different for different sectors -- with presumably different production technologies --, controlling for them do not change our main result, namely, the significant effect of the industry location on the price effect of development.\footnote{Note that the prices of agricultural products seem to be as income-sensitive as service prices. This may be due to the big role of land in agriculture, a channel we pursue further in our next specification.}
 
-The Bhagwati-Kravis-Lipsey hypothesis argued that differences in labor intensity explains the differential effects of development on tradable and non-tradable prices. To test this hypothesis, we use the NBER Productivity Database (***), available for manufacturing sectors, to include a labor share measure in our regressions. Regression [5] in table \ref{tab:eiuman} shows that our results are robust to the subsample of manufacturing sectors, and regression [6] shows that labor share by itself has some marginally significant influence on the price effect of income. In particular, the prices of more labor intensive products are more sensitive to income. Regression [7], however, shows that if proximity is included in the regression, labor share loses its significance, whereas proximity retains its strong positive effect.
+The Bhagwati-Kravis-Lipsey hypothesis argued that differences in labor intensity explains the differential effects of development on tradable and non-tradable prices. To test this hypothesis, we use the NBER Productivity Database (Bartelsman, Becker and Gray, 2000), available for manufacturing sectors, to include a labor share measure in our regressions. Regression [5] in table \ref{tab:eiuman} shows that our results are robust to the subsample of manufacturing sectors, and regression [6] shows that labor share by itself has some marginally significant influence on the price effect of income. In particular, the prices of more labor intensive products are more sensitive to income. Regression [7], however, shows that if proximity is included in the regression, labor share loses its significance, whereas proximity retains its strong positive effect.
 
 \dotable{eiuman}{Industry location and labor intensity}
 
 \section{Conclusion}
-[TO BE WRITTEN]
+In this paper we introduced a simple spatial model to explain why the price level is higher in rich countries.  Empirical results confirmed two key implications of the theory. First, we compared countries where land is scarce (densely populated, highly urban countries) to rural countries. The Balassa--Samuelson effect is stronger among urban countries. Second, we compared sectors that locate at different distance to consumers. The Balassa--Samuelson effect is stronger within sectors that locate closer to consumers.
 
 \begin{thebibliography}{99}
 \bibitem{Alessandria07} Alessandria, G., 2007, ``Pricing-to-Market and the Failure of Absolute PPP,'' \emph{Federal Reserve Bank of Philadelphia Working Paper}, 07-29.
@@ -578,8 +578,6 @@ of Residential Land in Large U.S.~Cities,'' \emph{Journal of Urban Economics}, 6
 \bibitem{Desmet06} Desmet, K. and Fafchamps, M., 2006, ``Employment Concentration across U.S.~Counties,'' \emph{Regional Science and Urban Economics}, 482-509.
 \bibitem{Egert03} Egert, B., Drine, I., Lommatzsch, K. and Rault, Ch., 2003, ``The Balassa-Samuelson Effect in Central and Eastern Europe: Myth or Reality?,'' \emph{Journal of Comparative Economics}, 552-572.
 \bibitem{} Halpern, L. and Wyplosz, Ch., 2001, ``Economic Transformation and Real Exchange Rates in the 2000s: The Balassa-Samuelson Connection,'' \emph{United Nations Economic Commission for Europe Discussion Paper}, 2001.1
-\bibitem{Heston06} Heston, A., R. Summers and B. Aten, 2006, Penn World Table Version 6.2, \emph{Center for International Comparisons of Production, Income and Prices at the University of
-Pennsylvania}
 \bibitem{Holmes03} Holmes, Th.J. and Stevens, J.J., 2004, ``Spatial Distribution of Economic Activities in North America,'' in: J. V. Henderson and J. F. Thisse (ed.) \emph{Handbook of Regional and Urban Economics}, chapter 63, 2797-2843
 \bibitem{Klenow07} Hsieh, C.T and Klenow, P.J, ``Relative Prices and
 Relative Prosperity,'' \emph{The American Economic Review}, 562-585.
@@ -590,14 +588,24 @@ Relative Prosperity,'' \emph{The American Economic Review}, 562-585.
 \bibitem{Valentinyi07} Valentinyi, A., Herrendorf, B., 2007, ``Measuring Factor Income Shares at the Sector Level,'' working paper.
 \end{thebibliography}
 
-*** ADD DATA REFERENCES: EIU, NBER PROD, WDI, CENSUS
+\section*{Data References}
+\begin{enumerate}
+\item Bartelsman, E. J., R. A. Becker and W. B. Gray, 2000, NBER-CES Manufacturing Industry Database, \emph{NBER}.
+\item County Business Patterns, 2000, U.S.~Bureau of the Census.
+\item Decennial Census of the United States, 2000, U.S.~Bureau of the Census.
+\item  ``EIU City Data,'' 2008, Economist Intelligence Unit.
+\item Heston, A., R. Summers and B. Aten, 2006, Penn World Table Version 6.2, \emph{Center for International Comparisons of Production, Income and Prices at the University of
+Pennsylvania}
+\item World Development Indicators, 2007, The World Bank.
+\end{enumerate}
 
+\appendix
 \section{Appendix}
 
 The appendix presents some empirical evidence in the literature supporting essential assumptions and mechanisms of our results.
 
 \subsection{Land and development}
-In this section, we first present U.S.~time-series evidence showing that over the past decades both residential land area and residental land prices have increased. Because both quantities and prices have gone up, this is consistent with an increase in (per capita) housing demand. Then, using mainly cross-sectional evidence, we show that income is a major factor influencing residential demand as implied by Proposition \ref{prop:compstat}. The trend increases in housing demand can then be thought of as the by-product of U.S.~growth.
+In this section, we first present U.S.~time-series evidence showing that over the past decades both residential land area and residental land prices have increased. Because both quantities and prices have gone up, this is consistent with an increase in (per capita) housing demand. Then, using mainly cross-sectional evidence, we show that income is a major factor influencing residential demand as implied by our model. The trend increases in housing demand can then be thought of as the by-product of U.S.~growth.
 
 Looking at U.S.~time-series data, Overman, Puga and Turner, 2006 find that the per capita residential land use between 1976 and 1992 \emph{increased by 25.4\%}, based on the highest available resolution data\footnote{The 1992 data is based on 8.7 million 30 x 30 meters cells.} of the US land use based on aerial and satellite photographs. Davis and Heathcote, 2007 find that the implied real price of residential land\footnote{To get this data, the authors use
 data on construction costs and decompose the value of an
@@ -639,14 +647,14 @@ More formally, the first three columns of Table \ref{tab:land} show the estimate
 \end{table}
 
 \subsection{Industry location}
-In this section, we first overview U.S.~cross-sectional evidence supporting the spatial equilibrium predicted by Proposition \ref{prop:spatial} that non-tradable goods (services) are produced closer to the consumers than tradables (manufacturing).\footnote{Our previously used proximity measures support the standard groups: the population density in a county with an average agricultural plant is 195, with an average manufacturing plant: 474 and with an average service plant: 606.} \footnote{Agriculture and mining, as a result of their relatively low trade costs and high land share, are naturally located in the least densely populated counties (see Holmes and Stevens, 2003, Table 10.)} Second, we present post-war U.S.~time-series data showing that this relative spatial position of the two sectors were reinforced by development as stated in Proposition \ref{prop:compstat}.
+In this section, we first overview U.S.~cross-sectional evidence supporting the spatial equilibrium predicted by Proposition \ref{prop:spatial} that non-tradable goods (services) are produced closer to the consumers than tradables (manufacturing).\footnote{Our previously used proximity measures support the standard groups: the population density in a county with an average agricultural plant is 195, with an average manufacturing plant: 474 and with an average service plant: 606.} \footnote{Agriculture and mining, as a result of their relatively low trade costs and high land share, are naturally located in the least densely populated counties (see Holmes and Stevens, 2003, Table 10.)} Second, we present post-war U.S.~time-series data showing that this relative spatial position of the two sectors were reinforced by development.
 
 A way to measure the co-location of population and sectors is to calculate the sector's locational quotient ($q_i$), which is measured as the ratio of an area's ($i$) share in the U.S.~sectoral employment ($s_i$) and its share in the U.S.~overall employment ($x_i$, $q_i=s_i/x_i$). If $q_i$ is below 1, the area is underrepresented in that sector, while a locational quotient substantially higher than 1 means the area is specialized in the certain sector. Figure \ref{fig:LQ_scatter} plots the locational quotient in manufacturing for 3219 U.S.~counties obtained from the County Business Patters dataset of the Census Bureau\footnote{The advantage of using counties is that they cover the whole country and capture population clustering better than state level data. A potential problem arises if a large number of the employees live and work in different counties. Metropolitan statistical areas, that are defined to take commuting habits into consideration, are a potential alternative. However, naturally, they do not cover the whole country. Our results are robust to using MSAs.} as a function of the population density of the county. The figure strongly supports our claim that manufacturing is underrepresented in the dense counties, and implies the opposite relationship (not shown) for services.
 
 \dofigure{LQ_scatter}{Locational quotient and population density\newline
  \small Source: 2000 U.S.~Census}
 
-To examine the effects more formally, we regressed the county level relative non-tradable/tradable employment on different measures of urbanization and also included the (log) per capita median income.
+To examine the effects more formally, we regressed the county level ratio of non-tradable to tradable employment on different measures of urbanization and also included the (log) per capita median income.
 
 \begin{table}[h!]
 \center \caption{Urbanization and relative NT/T employment (Robust
@@ -681,24 +689,6 @@ The time series development of the relative manufacturing employment is presente
 
 \dofigure{deurbanization}{Share of 100 most densely populated counties\newline
 \small Source: County Business Patterns}
-
-
-
-Turning to sector-level U.S.~data, table \ref{tab:infl} gives some suggestive evidence on the relationship between proximity to the population (measured here as the employment share in the 100 most dense counties) and the long term inflation rates (average value-added inflation rates between 1947-2006) across the three major sectors. These results also support the pricing predictions of our model formulated in Proposition \ref{prop:compstat}.
-
-\begin{table}[h!]
-\center
-\caption{Proximity to population and inflation} \label{tab:infl}
-\begin{tabular}{l|cc}
-\hline\hline
-& Employment share & Inflation \\
-& of the most dense counties & (1947-2006, va)\\ \hline
-GDP & 31.5\% & 3.4\% \\ \hline
-Agriculture & 3.2\% & 0.5\% \\
-Manufacturing & 23.3\% & 2.1\% \\
-Services & 33.4\% & 3.5\% \\ \hline\hline
-\end{tabular}
-\end{table}
 
 \end{document}
 
