@@ -629,7 +629,7 @@ Services    & 0.32      & 0.05      & 0.27      \\ \hline\hline
 %% as a comparison, NYC is 10,000
 %% Madrid is 5,300
 
-\subsection{Closing the model}
+\section{Closing the model}
 
 \widefigure{PPF-location-nonhomothetic-1}{Structural change}
 \widefigure{PPF-location-nonhomothetic-2}{Structural change}
@@ -640,202 +640,21 @@ Services    & 0.32      & 0.05      & 0.27      \\ \hline\hline
 \widefigure{PPF-location-transport-1}{Transportation becomes cheaper}
 \widefigure{PPF-location-transport-2}{Transportation becomes cheaper}
 
+
+\section{Related empirical evidence}
+\widefigure{ntcounties}{The share of non-traded employment in U.S.~counties\\
+\small {Source}: 2000 U.S.~Census, Summary File 3.}
+\widefigure{dh-shares}{Land prices and the share of land in home value\\
+\small Source: Davis and Heathcote (2007)}
+\longfigure{dh-prices}{Real residential and farm land prices (log scale)\\
+\small Source: Davis and Heathcote (2007).}
+\widefigure{sc_davis}{Land prices and income across large U.S.~cities}
+\widefigure{LQ_scatter}{Locational quotient and population density\newline
+ \small Source: 2000 U.S.~Census}
+\widefigure{deurbanization}{Share of 100 most densely populated counties\newline
+\small Source: County Business Patterns}
+
+
 \end{document}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\begin{frame}\frametitle{Tastes}
-\begin{itemize}
-    \item Consumers have homothetic utility over $m$, $s$ and $h$.
-    \item With indirect utility function
-    \[
-    u(I,p_m,p_s,p_h) = \frac{I}{P(p_m,p_s,p_h)}.
-    \]
-    \item Assume nested structure
-    \[
-    P[\Phi(p_m,p_s),p_h].
-    \]
-\end{itemize}
-\end{frame}
-
-\begin{frame}\frametitle{Commuting costs}
-\begin{itemize}
-    \item People go to the CBD to shop.
-    \item Commuting costs a $1-{e}^{-\tau_h z}$ fraction of the consumption bundle.
-    \item So that indirect utility is
-    \[
-    u(I,p_m,p_s,p_h) = \frac{{e}^{-\tau_h z}I}{P[\Phi(p_m,p_s),p_h]}.
-    \]
-    \item Commuting is the costliest of all,
-    \[
-    \tau_h>\tau_s>\tau_m.
-    \]
-\end{itemize}
-\end{frame}
-\time{1}
-
-\begin{frame}\frametitle{Equilibrium}
-\begin{itemize}
-    \item Firms maximize profits and choose location optimally.
-    \item Households maximize utility and choose residence optimally.
-    \item Manufacturing and service markets clear at the CBD.
-\end{itemize}
-\end{frame}
-
-
-%% skip this
-\begin{frame}\frametitle{The bid rent curve of households$\cdot$}
-\begin{itemize}
-    \item Housing at $z$ costs $r(z)/A_h$.
-    \item Other two prices do not depend on residence.
-    \item To achieve utility $u$ at location $z$,
-    \[
-    u = \frac{{e}^{-\tau_h z} I}{P[\Phi(p_m,p_s),r(z)/A_h]}.
-    \]
-    \item Bid rent function
-    \[
-    R_h(z) = A_h\Phi(p_m,p_s)P_2^{-1}\left[\frac{{e}^{-\tau_h z} I}{u\Phi(p_m,p_s)}\right].
-    \]
-    \item For example, with Cobb--Douglas utility,
-\[
-R_h(z) = A_h\left[\frac{{e}^{-\tau_h z} I}{up_m^{\alpha}p_s^{\beta}}\right]^{1/\gamma}.
-\]
-\end{itemize}
-\end{frame}
-%\time{2}
-
-\begin{frame}\frametitle{Equilibrium spatial structure}
-There exists a unique equilibrium.
-\begin{itemize}
-    \item Residents live closest to CBD, $\in[0,z_1]$.
-    \item With a (weakly) declining population density.
-    \item Followed by an interval of service establishments, $\in(z_1,z_2]$.
-    \item Followed by an interval of manufacturing plants, $\in(z_2,z_3]$.
-    \item City boundary is $z_3: D(\tau_m z_3)=0$.
-%    \item The boundaries $z_1$ and $z_2$ determine the supply of housing
-\end{itemize}
-\end{frame}
-
-\begin{frame}\frametitle{Finding the equilibrium $z_1$ and $z_2$$\cdot$}
-\begin{itemize}
-    \item Cutoffs pin down supply:
-    \begin{align*}
-    s &= A_s\int_{z_1}^{z_2}{e}^{-\tau_s z} dz, \\
-    m &= A_m\int_{z_2}^{z_3}{e}^{-\tau_m z} dz .
-    \end{align*}
-    \item Arbitrage at the manufacturing--service boundary $z_2$ pins down relative prices,
-    \[
-    p_mA_m{e}^{-\tau_m z_2} = p_sA_s{e}^{-\tau_s z_2},
-    \]
-    which determines demand.
-    \item Find $z_1$ and $z_2$ such that markets clear.
-\end{itemize}
-\end{frame}
-\time 2
-
-\subsection{Housing}
-
-\begin{frame}\frametitle{Productivity growth}
-\begin{itemize}
-\item We conduct the following comparative statics.
-\item Increase $A_m$ and $A_s$ proportionally (so that productivity growth is neutral).
-\item What happens to industry location ($z_1$, $z_2$) and relative prices?
-\end{itemize}
-\end{frame}
-\time 1
-
-
-
-
-\subsection{Comparative statics}
-
-\begin{frame}\frametitle{A special case}
-\begin{itemize}
-    \item No technical progress in housing, $A_h=$constant.
-    \item Utility is Cobb--Douglas in goods, Leontief in housing,
-\[
-u(m,s,h) = \min\{m^\gamma s^{1-\gamma} ,h/H\}.
-\]
-    \item Transport costs are exponential (constant hazard),
-\[
-D(\tau z) = {e}^{-\tau z}.
-\]
-    \item We add labor with identical intensities in both sectors,
-\begin{align*}
-m&=A_ml_m^\beta n_m^{1-\beta}\\
-s&=A_sl_s^\beta n_s^{1-\beta}
-\end{align*}
-\end{itemize}
-\end{frame}
-\time 3
-
-
-\begin{frame}\frametitle{Solution}
-\begin{itemize}
-    \item These assumptions lead to a closed-form solution.
-    \item Balassa--Samuelson effect:
-\[
-\frac{d\ln (p_s/p_m)}{d\ln A} = \frac{(\tau_s-\tau_m)z_1}{1+\Bar\tau z_1/\beta}
-\]
-    \item Stronger if
-    \begin{enumerate}
-      \item trade cost differential is large,
-      \item residential land is large,
-      \item land share is large.
-    \end{enumerate}
-\end{itemize}
-\end{frame}
-\time 2
-
-
-\begin{frame}\frametitle{Predictions}
-
-
-As productivity increases,
-\begin{enumerate}
-    \item residential land increases,
-    \item home prices increase,
-    \item the rent gradient becomes steeper,
-    \item tradable industries move away from center,
-    \item services become more expensive,
-    \item labor productivity increases faster in manufacturing.
-%   \item employment becomes more concentrated.
-\end{enumerate}
-\begin{enumerate}
-    \item[7.] All of these effects are stronger for more densely populated countries.
-\end{enumerate}
-\end{frame}
-\time 2
 
 
