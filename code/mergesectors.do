@@ -6,7 +6,7 @@ local datastores ../../../data/Miklos ~/share/data /share/datastore
 local assembla ../data
 local proxmeasure density
 local fixedeffectstransformation no
-tempfile codes wdi prox nber
+tempfile codes wdi prox nber susb
 
 /* handle different paths */
 local currentdir `c(pwd)'
@@ -17,6 +17,15 @@ foreach X of any `datastores' {
     }
 }
 chdir `currentdir'
+
+/* read census business statistics */
+insheet using http://www2.census.gov/csd/susb/2002/02us_6digitnaics.txt, clear
+keep if length(naics) == 4 & entrsize == 1
+destring naics, force replace
+gen lbrshr = payr/rcpt
+keep naics lbrshr
+sort naics
+save `susb', replace
 
 /*Reading in product eli codes*/
 insheet using `assembla'/eiu/productcodes_sectors.csv, names clear
@@ -87,6 +96,11 @@ merge sic87 using `nber', nokeep
 tabulate _merge
 drop _merge
 
+/* merge with census susb */
+sort naics
+merge naics using `susb', nokeep
+tabulate _merge
+drop _merge
 
 /*Creating variables*/
 gen lngdp=ln(pcgdp)
@@ -109,7 +123,6 @@ drop meanbyp*
 }
 
 local vars lngdp urban lndensity lncitypop proximity labor unskilled
-
 foreach X of var `vars' {
     egen mean`X' = mean(`X')
 }
@@ -124,8 +137,9 @@ drop mean*
 by sector city, sort: egen prox_sector=mean(exp(proximity))
 
 saveold ../data/cityprices_prepared, replace
-
+/*
 graph twoway (scatter labor proximity) (lfitci labor proximity) if city=="NEW YORK" & labor!=.
 graph twoway (scatter unskilled proximity) (lfitci unskilled proximity) if city=="NEW YORK" & unskilled!=.
 regress labor proximity if city=="NEW YORK" & labor!=.
 regress unskilled proximity if city=="NEW YORK" & unskilled!=.
+*/
