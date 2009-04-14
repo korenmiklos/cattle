@@ -19,9 +19,9 @@ chdir `currentdir'
 
 local cepii http://cepii.fr/distance/dist_cepii.dta
 /* closeness threshold in kms */
-local threshold 300
+local threshold 400
 /* which closeness measure we use*/
-local closeness close
+local closeness contig
 
 use `datastore'/pwt/pwt
 keep isocode year `pwtkeep'
@@ -42,18 +42,26 @@ merge isocode year using `pwt', nokeep
 tab _m
 drop _m
 
-/* weighted average GDP */
-replace pop = 0 if missing(pop,rgdpch)
-replace rgdpch = rgdpch*pop
+/* weighted average variables */
+foreach X of var `pwtkeep' {
+    drop if missing(`X')
+    if "`X'"!="pop" {
+        replace `X' = `X'*pop
+    }
+}
 
 /* drop irrelevant countries */
 drop if isocode==iso_o
-keep if `closeness'
+replace pop=0 if !`closeness'
 
-collapse (sum) pop rgdpch, by(iso_o)
-replace rgdpch=rgdpch/pop
-gen lngdpngb = ln(rgdpch)
-drop rgdpch pop
+collapse (sum) `pwtkeep', by(iso_o)
+foreach X of var `pwtkeep' {
+    if "`X'"!="pop" {
+        replace `X' = `X'/pop
+    }
+    gen ln`X'ngb = ln(`X')
+}
+drop `pwtkeep'
 
 /* now for local variables */
 ren iso_o isocode
@@ -63,7 +71,10 @@ merge isocode year using `pwt', nokeep
 tab _m
 drop _m
 
-gen lngdp = ln(rgdpch)
-gen lnpc = ln(pc)
+foreach X of var `pwtkeep' {
+    gen ln`X' = ln(`X')
+}
+drop `pwtkeep'
 
-reg lnpc lngdp lngdpngb, r
+reg lnpc lnrgdpch lnrgdpchngb, r
+reg lnpc lnrgdpch lnrgdpchngb lnpcngb, r
