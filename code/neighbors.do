@@ -6,6 +6,7 @@ set more off
 local datastores ../../../data/Miklos ~/share/data /share/datastore
 tempfile pwt
 local pwtkeep "pop p pc rgdpch"
+local destination ../data/neighbors
 
 /* handle different paths */
 local currentdir `c(pwd)'
@@ -78,6 +79,9 @@ foreach X of var `pwtkeep' {
     gen ln`X' = ln(`X')
 }
 drop `pwtkeep'
+
+sort isocode
+saveold `destination', replace
 
 reg lnpc lnrgdpch lnrgdpchngb, r
 reg lnpc lnrgdpch lnrgdpchngb lnpcngb, r

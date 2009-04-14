@@ -26,6 +26,12 @@ outreg2 using `whereto', `format' replace
 `before' lngdp lncitypop `after'
 `before' lngdp gdpXprox `after'
 outreg2 using `whereto', `format' append
+`before' lngdp1 gdp1Xprox `after'
+outreg2 using `whereto', `format' append
+`before' lngdp2 gdp2Xprox `after'
+outreg2 using `whereto', `format' append
+
+BREAK
 
 /* add sector splits */
 gen gdpXagri = (lngdp)*(sector=="agri")
@@ -37,6 +43,14 @@ outreg2 using `whereto', `format' append
 
 `before' gdpXprox gdpXagri gdpXmanuf gdpXserv `after'
 outreg2 using `whereto', `format' append
+
+/*
+`before' lngdp gdpXprox if !missing(lbrshr) `after'
+`before' lngdp gdpXlbrshr if !missing(lbrshr) `after'
+`before' lngdp gdpXprox gdpXlbrshr if !missing(lbrshr) `after'
+`before' lngdp gdpXprox gdpXlbrshr gdpXagri gdpXmanuf gdpXserv if !missing(lbrshr) `after'
+
+BREAK*/
 
 `before' lngdp gdpXprox if !missing(labor,gdpXunskilled) `after'
 outreg2 using `whereto', `format' append

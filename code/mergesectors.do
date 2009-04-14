@@ -80,6 +80,12 @@ drop xrat
 drop if year<=1996
 collapse price citypop metropop pcgdp density population urban, by(city countryname product isocode)
 
+/* merge neighborhood PWT data */
+sort isocode
+merge isocode using ../data/neighbors, keep(lnrgdpch lnrgdpchngb lnpngb) nokeep
+tabulate _merge
+drop _merge
+
 sort product
 merge product using `codes', keep(eli naics productname sector sic87) nokeep
 tabulate _merge
@@ -107,12 +113,15 @@ gen lngdp=ln(pcgdp)
 gen lndensity=ln(density)
 gen lnprice=ln(price)
 gen lncitypop=ln(citypop)
+ren lnrgdpch lngdp1
+ren lnrgdpchngb lngdp2
+
 if "`proxmeasure'"=="density" {
     replace proximity=ln(proximity)
 }
 
 if "`fixedeffectstransformation'"=="yes" {
-    local vars_demean lnprice lngdp urban lndensity lncitypop
+    local vars_demean lnprice lngdp lngdp1 lngdp2 urban lndensity lncitypop
     foreach X of var `vars_demean' {
         by product, sort: egen meanbyp`X' = mean(`X')
     }
@@ -122,13 +131,14 @@ if "`fixedeffectstransformation'"=="yes" {
 drop meanbyp*
 }
 
-local vars lngdp urban lndensity lncitypop proximity labor unskilled
+local vars lngdp lngdp1 lngdp2 urban lndensity lncitypop proximity labor unskilled
 foreach X of var `vars' {
     egen mean`X' = mean(`X')
 }
 foreach X of var `vars' {
     gen gdpX`X' = (lngdp-meanlngdp)*(`X'-mean`X')
-*    gen cityX`X' = (lncitypop-meanlncitypop)*(`X'-mean`X')
+    gen gdp1X`X' = (lngdp1-meanlngdp1)*(`X'-mean`X')
+    gen gdp2X`X' = (lngdp2-meanlngdp2)*(`X'-mean`X')
 }
 
 drop mean*
