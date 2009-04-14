@@ -32,7 +32,6 @@ use `cepii', clear
 keep iso_o iso_d contig distw
 
 gen byte close = (distw<`threshold')
-drop distw
 
 /* merge with PWT */
 ren iso_d isocode
@@ -42,39 +41,32 @@ merge isocode year using `pwt', nokeep
 tab _m
 drop _m
 
-/* weighted average variables */
 foreach X of var `pwtkeep' {
     drop if missing(`X')
-    if "`X'"!="pop" {
-        replace `X' = `X'*pop
-    }
-}
-
-/* drop irrelevant countries */
-drop if isocode==iso_o
-replace pop=0 if !`closeness'
-
-collapse (sum) `pwtkeep', by(iso_o)
-foreach X of var `pwtkeep' {
-    if "`X'"!="pop" {
-        replace `X' = `X'/pop
-    }
-    gen ln`X'ngb = ln(`X')
+    gen ln`X'1 = ln(`X')
 }
 drop `pwtkeep'
 
+/* drop irrelevant countries */
+drop if isocode==iso_o
+
+ren isocode iso1
+
 /* now for local variables */
 ren iso_o isocode
-gen int year=2000
 sort isocode year
 merge isocode year using `pwt', nokeep
 tab _m
 drop _m
 
 foreach X of var `pwtkeep' {
-    gen ln`X' = ln(`X')
+    drop if missing(`X')
+    gen ln`X'2 = ln(`X')
 }
 drop `pwtkeep'
+ren isocode iso2
 
-reg lnpc lnrgdpch lnrgdpchngb, r
-reg lnpc lnrgdpch lnrgdpchngb lnpcngb, r
+gen distance = distw
+recode distance min/200=200 200/400=400 400/600=600 600/1000=1000 1000/max=9999
+
+xi: reg  lnp1 lnrgdpch1 i.distance*lnrgdpch2, cluster(iso1)
