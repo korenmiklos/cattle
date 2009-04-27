@@ -1,4 +1,4 @@
-\documentclass[handout,compress,mathserif]{beamer}
+\documentclass[compress,mathserif]{beamer}
 \usepackage[latin2]{inputenc}
 %\usepackage[absolute]{textpos}
 %\documentclass[handout,compress,mathserif]{beamer}
@@ -474,7 +474,7 @@ Assume $A_m/A_s$ is constant. Service price increases if and only if demand for 
 Demand for urban land may increase for a number of reasons.
 \begin{enumerate}
 \item \jumpto{PPF-location-nonhomothetic-1}{Structural change shifts demand towards services}.
-\item \jumpto{PPF-location-housing-1}{Development increases the demand for residential land}.
+\item \jumpto{housing}{Development increases the demand for residential land}.
 \item \jumpto{PPF-location-transport-1}{Manufacturing shipping costs decline disproportionately}.
 \end{enumerate}
 \end{frame}
@@ -634,8 +634,41 @@ Services    & 0.32      & 0.05      & 0.27      \\ \hline\hline
 \widefigure{PPF-location-nonhomothetic-1}{Structural change}
 \widefigure{PPF-location-nonhomothetic-2}{Structural change}
 
+\begin{frame}\frametitle{\backto{housing}{Introducing housing}}
+\begin{itemize}
+    \item We introduce homothetic preferences for housing.
+    \item Housing is complementary with consumption:
+\[
+u(m,s,h) = \min\{m^\gamma s^{1-\gamma} ,h/H\}.
+\]
+    \item No technical progress in housing (or slower than in manufacturing).
+    \item High commuting costs.
+\end{itemize}
+These assumptions imply that
+\begin{enumerate}
+    \item residents live closest to CBD,
+    \item residential land increases with development.
+\end{enumerate}    
+\end{frame}
+
 \widefigure{PPF-location-housing-1}{Housing demand increases}
 \widefigure{PPF-location-housing-2}{Housing demand increases}
+
+\begin{frame}\frametitle{Predictions}
+As productivity increases,
+\begin{enumerate}
+    \item residential land increases,
+    \item home prices increase,
+    \item the rent gradient becomes steeper,
+    \item tradable industries move away from center,
+    \item services become more expensive,
+    \item labor productivity increases faster in manufacturing.
+%   \item employment becomes more concentrated.
+\end{enumerate}
+\begin{enumerate}
+    \item[7.] All of these effects are stronger for more densely populated countries.
+\end{enumerate}
+\end{frame}
 
 \widefigure{PPF-location-transport-1}{Transportation becomes cheaper}
 \widefigure{PPF-location-transport-2}{Transportation becomes cheaper}
