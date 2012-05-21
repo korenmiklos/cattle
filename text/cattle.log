@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011/MacPorts 2011_5) (format=pdflatex 2012.3.9)  21 MAY 2012 20:21
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011/MacPorts 2011_5) (format=pdflatex 2012.3.9)  21 MAY 2012 20:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -364,7 +364,7 @@ Package: ltxcmds 2011/04/18 v1.20 LaTeX kernel commands for general use (HO)
 \c@moment=\count103
 \c@insight=\count104
 
-No file cattle.aux.
+(./cattle.aux)
 \openout1 = `cattle.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
@@ -379,6 +379,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 53.
 LaTeX Font Info:    ... okay on input line 53.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 53.
 LaTeX Font Info:    ... okay on input line 53.
+
 (/opt/local/share/texmf-texlive-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count105
@@ -444,26 +445,33 @@ e
 {/opt/local/var/db/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
 (./cattle.aux) ) 
 Here is how much of TeX's memory you used:
- 2612 strings out of 495070
- 32991 string characters out of 3181963
+ 2634 strings out of 495070
+ 33225 string characters out of 3181963
  90232 words of memory out of 3000000
- 5758 multiletter control sequences out of 15000+200000
- 12461 words of font info for 30 fonts, out of 3000000 for 9000
+ 5770 multiletter control sequences out of 15000+200000
+ 16348 words of font info for 42 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  37i,13n,23p,584b,278s stack positions out of 5000i,500n,10000p,200000b,50000s
  </Users/koren/.texlive2011/texmf-var/fonts/pk/ljfour/jknappen/
-ec/ecbx1728.600pk> </Users/koren/.texlive2011/texmf-var/fonts/pk/ljfour/jknappe
-n/ec/ecrm1000.600pk> </Users/koren/.texlive2011/texmf-var/fonts/pk/ljfour/jknap
-pen/ec/ecrm1200.600pk> </Users/koren/.texlive2011/texmf-var/fonts/pk/ljfour/jkn
-appen/ec/ecbx1095.600pk> </Users/koren/.texlive2011/texmf-var/fonts/pk/ljfour/j
-knappen/ec/ecrm1440.600pk> </Users/koren/.texlive2011/texmf-var/fonts/pk/ljfour
-/jknappen/ec/ecrm2074.600pk></opt/local/share/texmf-texlive-dist/fonts/type1/pu
-blic/amsfonts/cm/cmsy10.pfb></opt/local/share/texmf-texlive-dist/fonts/type1/pu
-blic/amsfonts/cm/cmsy7.pfb>
-Output written on cattle.pdf (2 pages, 68252 bytes).
+ec/ecbx1440.600pk> </Users/koren/.texlive2011/texmf-var/fonts/pk/ljfour/jknappe
+n/ec/ecbx1728.600pk> </Users/koren/.texlive2011/texmf-var/fonts/pk/ljfour/jknap
+pen/ec/ecrm1000.600pk> </Users/koren/.texlive2011/texmf-var/fonts/pk/ljfour/jkn
+appen/ec/ecrm1200.600pk> </Users/koren/.texlive2011/texmf-var/fonts/pk/ljfour/j
+knappen/ec/ecbx1095.600pk> </Users/koren/.texlive2011/texmf-var/fonts/pk/ljfour
+/jknappen/ec/ecrm1440.600pk> </Users/koren/.texlive2011/texmf-var/fonts/pk/ljfo
+ur/jknappen/ec/ecrm2074.600pk></opt/local/share/texmf-texlive-dist/fonts/type1/
+public/amsfonts/cm/cmmi12.pfb></opt/local/share/texmf-texlive-dist/fonts/type1/
+public/amsfonts/cm/cmmi6.pfb></opt/local/share/texmf-texlive-dist/fonts/type1/p
+ublic/amsfonts/cm/cmmi8.pfb></opt/local/share/texmf-texlive-dist/fonts/type1/pu
+blic/amsfonts/cm/cmr12.pfb></opt/local/share/texmf-texlive-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr8.pfb></opt/local/share/texmf-texlive-dist/fonts/type1/publi
+c/amsfonts/cm/cmsy10.pfb></opt/local/share/texmf-texlive-dist/fonts/type1/publi
+c/amsfonts/cm/cmsy7.pfb></opt/local/share/texmf-texlive-dist/fonts/type1/public
+/amsfonts/cm/cmsy8.pfb>
+Output written on cattle.pdf (2 pages, 127511 bytes).
 PDF statistics:
- 200 PDF objects out of 1000 (max. 8388607)
- 36 compressed objects within 1 object stream
+ 261 PDF objects out of 1000 (max. 8388607)
+ 58 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
