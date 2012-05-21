@@ -71,6 +71,24 @@ There are two reasons why development accounting in our model is different from 
 
 To quantify the importance of these two mechanisms, we calibrate our model to match the spatial distribution of economic activities in the U.S., and the share of sectors in each country.
 
-\section{A model of }
+\section{A model of industry location}
+\subsection{Technology}
+Output in sector $i$ at location $z$ depends on employment and land used at that location,
+\[
+Q_i(z) = A_i N_i(z)^{\alpha_i}L_i(z)^{1-\alpha_i}.
+\]
+Sectors differ in their labor share $\alpha_i$ and Hicks neutral productivity shifter $A_i$.
+
+All products are sold and consumed at a single location, the central business district. This is location $z=0$, so that $z$ indexes distance to the center.
+
+\subsection{Shipping}
+To ship a product to the center, one has to incur shipping costs. If a unit of product $i$ leaves location $z$, only
+\[
+e^{-\tau_i z}
+\]
+units arrive at the center. This is akin to the iceberg assumption of fixed costs. Sectors also differ in the intensity of shipping costs $\tau_i$.
+
+\subsection{Worker--consumers}
+Workers can choose their location freely.
 \end{document}
 
