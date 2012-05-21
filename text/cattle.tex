@@ -73,11 +73,11 @@ To quantify the importance of these two mechanisms, we calibrate our model to ma
 
 \section{A model of industry location}
 \subsection{Technology}
-Output in sector $i$ at location $z$ depends on employment and land used at that location,
+Output in sector $i$ at location $z$ depends on capital, employment and land used at that location,
 \[
-Q_i(z) = A_i N_i(z)^{\alpha_i}L_i(z)^{1-\alpha_i}.
+Q_i(z) = A_i K_i(z)^{\alpha_i}N_i(z)^{\beta_i}L_i(z)^{1-\alpha_i-\beta_i}.
 \]
-Sectors differ in their labor share $\alpha_i$ and Hicks neutral productivity shifter $A_i$.
+Sectors differ in their capital and labor shares $\alpha_i$ and $\beta_i$ and Hicks neutral productivity shifter $A_i$.
 
 All products are sold and consumed at a single location, the central business district. This is location $z=0$, so that $z$ indexes distance to the center.
 
@@ -89,6 +89,15 @@ e^{-\tau_i z}
 units arrive at the center. This is akin to the iceberg assumption of fixed costs. Sectors also differ in the intensity of shipping costs $\tau_i$.
 
 \subsection{Worker--consumers}
-Workers can choose their location freely.
+Workers can choose their location freely. Workers have only labor income (landlords are absentee). They consume goods and services in the center and housing services locally, combining them in a Cobb--Douglas fashion. The utility-based price index of a consumer at location $z$ is
+\[
+P(z) = R(z)^{\gamma_0}\prod_{i}P_i(0)^{\gamma_i},
+\]
+where $R(z)$ is rent at location $z$ and $P_i(0)$ is the price of good $i$ in the center.
+
+Free mobility ensures that real wages are equalized across locations,
+\[
+\frac{W(z)}{P(z)} = W_0.
+\]
 \end{document}
 
