@@ -2,7 +2,7 @@ import pysal
 import os
 from dbfpy import dbf
 import csv
-from googlemaps import GoogleMaps
+from geopy import geocoders
 
 def find_folder(data_path):
 	dir = os.path.abspath(os.getcwd())
@@ -12,6 +12,7 @@ def find_folder(data_path):
 	     return candidate
 	  # go up
 	  parent = os.path.dirname(dir)
+	  print parent
 	  is_root = (len(dir) <= len(parent))
 	  if is_root:
 	     raise IOError('Data path not found: {0}'.format(data_path))
@@ -19,7 +20,7 @@ def find_folder(data_path):
 
 shapefiles = find_folder('SparkleShare/County-Business-Patterns/shapefiles')
 msas = dbf.Dbf('%s/msa2010/tl_2010_us_csa10.dbf' % shapefiles)
-gm = GoogleMaps('AIzaSyDQ5KDOnMLg-DyORDhAv8xqsCEKdyBywqA')
+gm = geocoders.Yahoo(app_id='EuuQAJ36')
 msaout = csv.writer(open('../data/census/cbp/msa.csv','wb'))
 
 msaout.writerow(['msa', 'lat', 'lng'])
@@ -29,7 +30,8 @@ for record in msas:
 	# skip puerto rico
 	if not state.strip()=='PR':
 		firstcity = name.split(',')[0].split('-')[0]
-		(lat,lng) = gm.address_to_latlng('%s, %s, United States' % (firstcity, state))
+		results = gm.geocode('%s, %s, United States' % (firstcity, state), exactly_one=False)
+		place, (lat, lng) = results[0]
 		msaout.writerow(['%s, %s' % (firstcity, state), lat, lng])
 
 
