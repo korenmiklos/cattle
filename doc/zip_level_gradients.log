@@ -1,0 +1,231 @@
+--------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  /Users/koren/Dropbox/projects/balassa/code/../doc/zip_level_gradients.log
+  log type:  text
+ opened on:   7 Jun 2012, 22:09:09
+
+. 
+. local CBP ~/SparkleShare/County-Business-Patterns
+
+. 
+. insheet using `CBP'/2007/zbp07detail.txt
+(12 vars, 3340643 obs)
+
+. 
+. * drop sector totals, no new info
+. drop if naics=="------"
+(39652 observations deleted)
+
+. * keep only 2-digit NAICS
+. keep if substr(naics,3,4)=="----"
+(2874166 observations deleted)
+
+. 
+. * estimate employment
+. gen emp = n1_4*2.5 + n5_9*7 + n10_19*15 + n20_49*35 + n50_99*75 + n100_249*175 + n250_499*375 + n500_999*750
+>  + n1000*2000
+
+. 
+. gen sector = real(substr(naics,1,2))
+
+. drop n*
+
+. 
+. * fill in all sectors
+. reshape wide est emp, i(zip) j(sector)
+(note: j = 11 21 22 23 31 42 44 48 51 52 53 54 55 56 61 62 71 72 81 99)
+
+Data                               long   ->   wide
+-----------------------------------------------------------------------------
+Number of obs.                   426825   ->   39652
+Number of variables                   4   ->      41
+j variable (20 values)           sector   ->   (dropped)
+xij variables:
+                                    est   ->   est11 est21 ... est99
+                                    emp   ->   emp11 emp21 ... emp99
+-----------------------------------------------------------------------------
+
+. reshape long
+(note: j = 11 21 22 23 31 42 44 48 51 52 53 54 55 56 61 62 71 72 81 99)
+
+Data                               wide   ->   long
+-----------------------------------------------------------------------------
+Number of obs.                    39652   ->  793040
+Number of variables                  41   ->       4
+j variable (20 values)                    ->   sector
+xij variables:
+                  est11 est21 ... est99   ->   est
+                  emp11 emp21 ... emp99   ->   emp
+-----------------------------------------------------------------------------
+
+. replace est=0 if missing(est)
+(366215 real changes made)
+
+. replace emp=0 if missing(emp)
+(366215 real changes made)
+
+. 
+. * merge distances and areas
+. csvmerge zip using ../data/census/cbp/zip.csv
+(6 vars, 33120 obs)
+(note: file /var/folders/7b/svcv81g94n3fm6nrj7ckr15c0000gn/T//S_03546.000001 not found)
+file /var/folders/7b/svcv81g94n3fm6nrj7ckr15c0000gn/T//S_03546.000001 saved
+(note: you are using old merge syntax; see [D] merge for new syntax)
+variable zip does not uniquely identify observations in the master data
+
+. tab _m
+
+     _merge |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          1 |    142,960       18.01       18.01
+          2 |        616        0.08       18.09
+          3 |    650,080       81.91      100.00
+------------+-----------------------------------
+      Total |    793,656      100.00
+
+. tab _m [fw=est]
+
+     _merge |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          1 |    118,363        1.54        1.54
+          3 |  7,586,655       98.46      100.00
+------------+-----------------------------------
+      Total |  7,705,018      100.00
+
+. * nonmatched zips are only 1.54% of establishments, drop them
+. 
+. keep if _m==3
+(143576 observations deleted)
+
+. drop _m
+
+. 
+. * calculate densities
+. gen emp_density = emp/area
+
+. gen est_density = est/area
+
+. gen distance100 = distance/100
+
+. 
+. egen msacode = group(msa)
+
+. 
+. * regressions
+. *poisson est_density distance100 i.msacode i.sector
+. *poisson emp_density distance100 i.msacode i.sector
+. 
+. gen sectorgroup = sector
+
+. recode sectorgroup 11 = 1 21 31 = 2 * =3
+(sectorgroup: 650080 changes made)
+
+. su sectorgroup
+
+    Variable |       Obs        Mean    Std. Dev.       Min        Max
+-------------+--------------------------------------------------------
+ sectorgroup |    650080         2.8    .5099023          1          3
+
+. local max `r(max)'
+
+. 
+. egen citysector = group(msa sector)
+
+. 
+. * sector-level regressions
+. gen tau = .
+(650080 missing values generated)
+
+. forval i = 1/`max' {
+  2.         xtpoisson emp_density distance100 if sectorgroup==`i', i(citysector) fe
+  3.         replace tau = _b[distance100] if sectorgroup==`i'
+  4. }
+note: you are responsible for interpretation of non-count dep. variable
+
+Iteration 0:   log likelihood = -.03976705  
+Iteration 1:   log likelihood =  -.0397654  
+Iteration 2:   log likelihood =  -.0397654  
+
+Conditional fixed-effects Poisson regression    Number of obs      =     32504
+Group variable: citysector                      Number of groups   =       100
+
+                                                Obs per group: min =        45
+                                                               avg =     325.0
+                                                               max =      1019
+
+                                                Wald chi2(1)       =      0.00
+Log likelihood  =  -.0397654                    Prob > chi2        =    0.9985
+
+------------------------------------------------------------------------------
+ emp_density |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+ distance100 |   .0101568   5.519069     0.00   0.999    -10.80702    10.82733
+------------------------------------------------------------------------------
+(32504 real changes made)
+note: you are responsible for interpretation of non-count dep. variable
+
+Iteration 0:   log likelihood =  -6.450516  
+Iteration 1:   log likelihood = -6.4427952  
+Iteration 2:   log likelihood = -6.4427872  
+Iteration 3:   log likelihood = -6.4427872  
+
+Conditional fixed-effects Poisson regression    Number of obs      =     65008
+Group variable: citysector                      Number of groups   =       200
+
+                                                Obs per group: min =        45
+                                                               avg =     325.0
+                                                               max =      1019
+
+                                                Wald chi2(1)       =      0.01
+Log likelihood  = -6.4427872                    Prob > chi2        =    0.9254
+
+------------------------------------------------------------------------------
+ emp_density |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+ distance100 |  -.1517619   1.621332    -0.09   0.925    -3.329514     3.02599
+------------------------------------------------------------------------------
+(65008 real changes made)
+note: you are responsible for interpretation of non-count dep. variable
+
+Iteration 0:   log likelihood = -149.31503  
+Iteration 1:   log likelihood = -147.74348  
+Iteration 2:   log likelihood = -147.71608  
+Iteration 3:   log likelihood = -147.71605  
+Iteration 4:   log likelihood = -147.71605  
+
+Conditional fixed-effects Poisson regression    Number of obs      =    552568
+Group variable: citysector                      Number of groups   =      1700
+
+                                                Obs per group: min =        45
+                                                               avg =     325.0
+                                                               max =      1019
+
+                                                Wald chi2(1)       =      2.13
+Log likelihood  = -147.71605                    Prob > chi2        =    0.1443
+
+------------------------------------------------------------------------------
+ emp_density |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+ distance100 |  -1.555481   1.065508    -1.46   0.144    -3.643839    .5328762
+------------------------------------------------------------------------------
+(552568 real changes made)
+
+. 
+. table sectorgroup, c(mean tau)
+
+----------------------
+sectorgro |
+up        |  mean(tau)
+----------+-----------
+        1 |   .0101568
+        2 |  -.1517619
+        3 |  -1.555481
+----------------------
+
+. 
+. log close
+      name:  <unnamed>
+       log:  /Users/koren/Dropbox/projects/balassa/code/../doc/zip_level_gradients.log
+  log type:  text
+ closed on:   7 Jun 2012, 22:10:11
+--------------------------------------------------------------------------------------------------------------

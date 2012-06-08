@@ -100,5 +100,32 @@ Free mobility ensures that real wages are equalized across locations,
 \frac{W(z)}{P(z)} = W_0.
 \]
 %% This provides us with some magnification: workers also have to be compensated for higher rents.
+
+\section{Data and calibration}
+\subsection{Sector gradients}
+We use the 2010 ZIP Business Patters of the U.S. Census to determine the location of sectors in the United States. We use this to calibrate transportation costs and XX.
+
+The ZIP Business Patterns contains the number of establishments in employment size categories in each ZIP code for each 6-digit NAICS code. We merge NAICS codes into agriculture, manufacturing and services as follows. XX TO DO.
+
+To map the model into the data, we need to specifiy how far each ZIP code is from the city center. We take Metropolitan Statistical Areas (MSAs) as independent monocentric cities, and we assign the central point to the business center of the first-mentioned city in the MSA. For example, the center of ``New York–Northern New Jersey–Long Island, NY–NJ–PA MSA'' is the corner of Broadway and Chamber St in downtown Manhattan, whereas the center of ``Boston–Cambridge–Quincy, MA–NH MSA'' is 1 Boston Pl.
+
+We calulcate the distance of each ZIP code to business center of the nearest MSA. 
+
+According to the model XX, the employment density of sector $i$ in location $z$ proportional to the rent-wage ratio. When industry $i$ demands positive land in the neighborhood of $z$, then the rent gradient is proportional to $e^{-\tau_iz}$. We can use this observation to estimate $tau_i$.
+\[
+\frac{d\ln n(z)/l(z)}{dz} =\frac{d\ln r(z)}{dz} = -\tau_i.
+\]
+Let $n_{izc}$ be the employment of industry $i$ in ZIP code $z$, belonging to city (MSA) $c$. (Note that this employment can, and very often will be zero.) We denote the land area of ZIP code $z$ by $l_z$.
+\begin{equation}\label{eq:estimable:gradient}
+\frac{n_{izc}}{l_z} = e^{\mu_c+\nu_i-\tau_i d(z,c)}
+\end{equation}
+The city fixed effect captures variation in rents and wages in the MSA, the sector fixed effect captures variation in land and labor intensity across sectors. XX WE MAY NEED CITY*SECTOR FEs The key parameter of interest is $\tau$, which captures how fast employment declines with distance to the center.
+
+We estimate \eqref{eq:estimable:gradient} by a Poisson regression which ensures that the equation holds in expectation, and permits estimation even when $n_{izc}=0$, which is often the case. The estimates of $\tau_i$ in the three sectors are below. XX TO DO
+
+XX TABLE HERE
+
+The three columns report the estimates for agriculture, manufacturing and services, respectively. The estimated coefficients can be interepreted as follows. The employment density gradient of agriculture is inverted, reflecting the fact that most agricultural activity is carried out away from the cities.
+
 \end{document}
 
