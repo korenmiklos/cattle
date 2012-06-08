@@ -1,16 +1,27 @@
--------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------
       name:  <unnamed>
-       log:  /media/home/share/Dropbox/projects/balassa/code/../doc/average_distances.log
+       log:  /Users/koren/Dropbox/projects/balassa/code/../doc/average_distances.log
   log type:  text
- opened on:   8 Jun 2012, 19:01:35
+ opened on:   8 Jun 2012, 21:41:04
 
 . 
 . use ../data/zip_business_patterns
 
 . 
+. * convert population into sector 0
+. expand 1+(sector==1), gen(expanded)
+(32504 observations created)
+
+. replace sector=0 if expanded
+(32504 real changes made)
+
+. replace emp = pop if expanded
+(32370 real changes made)
+
+. 
 . * nonzero number of establishments
 . gen byte are = area if est>0 & !missing(est)
-(25542 missing values generated)
+(47999 missing values generated)
 
 . replace lndistance = . if missing(emp,pop)
 (0 real changes made)
@@ -29,7 +40,7 @@
 . egen maxcumsum = max(cumsum), by(sector)
 
 . replace cumsum = cumsum/maxcumsum
-(97506 real changes made)
+(130010 real changes made)
 
 . label var cumsum "Cumulative share of employment"
 
@@ -38,7 +49,8 @@
 . tw (line cumsum lndistance if sector==1, sort) /*
 > */ (line cumsum lndistance if sector==2, sort) /*
 > */ (line cumsum lndistance if sector==3, sort) /*
-> */, scheme(s2color) legend(order(1 "Agriculture" 2 "Industry" 3 "Services"))
+> */ (line cumsum lndistance if sector==0, sort) /*
+> */, scheme(s2color) legend(order(1 "Agriculture" 2 "Industry" 3 "Services" 4 "Housing"))
 
 . 
 . * median weighted distances
@@ -47,6 +59,7 @@
 -------------------------
    sector | max(distance)
 ----------+--------------
+        0 |      19.92913
         1 |      38.46871
         2 |      20.24428
         3 |      15.89778
@@ -56,7 +69,7 @@
 . foreach X of var emp pop est are {
   2.         gen `X'distance = `X'*lndistance
   3. }
-(62340 missing values generated)
+(91521 missing values generated)
 
 . 
 . collapse (sum) ???distance emp est pop are, by(sector)
@@ -64,25 +77,26 @@
 . foreach X of var emp pop est are {
   2.         replace `X'distance = exp(`X'distance/`X')
   3. }
-(3 real changes made)
-(3 real changes made)
-(3 real changes made)
-(3 real changes made)
+(4 real changes made)
+(4 real changes made)
+(4 real changes made)
+(4 real changes made)
 
 . l sector ???distance
 
      +---------------------------------------------------------------+
      | sector   msadis~e   empdis~e   popdis~e   estdis~e   aredis~e |
      |---------------------------------------------------------------|
-  1. |      1    4274903   32.59922   18.79972   40.92046    24.4589 |
-  2. |      2    4274903   18.47116   18.79972   20.34524   27.12635 |
-  3. |      3    4274903   13.88963   18.79972     16.284   28.57707 |
+  1. |      0    4274903   18.79972   18.79972   40.92046    24.4589 |
+  2. |      1    4274903   32.59922   18.79972   40.92046    24.4589 |
+  3. |      2    4274903   18.47116   18.79972   20.34524   27.12635 |
+  4. |      3    4274903   13.88963   18.79972     16.284   28.57707 |
      +---------------------------------------------------------------+
 
 . 
 . log close
       name:  <unnamed>
-       log:  /media/home/share/Dropbox/projects/balassa/code/../doc/average_distances.log
+       log:  /Users/koren/Dropbox/projects/balassa/code/../doc/average_distances.log
   log type:  text
- closed on:   8 Jun 2012, 19:01:40
--------------------------------------------------------------------------------------------
+ closed on:   8 Jun 2012, 21:41:11
+--------------------------------------------------------------------------------------------------------------
