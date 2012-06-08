@@ -1,0 +1,241 @@
+-------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  /media/home/share/Dropbox/projects/balassa/code/../doc/merge_zips.log
+  log type:  text
+ opened on:   8 Jun 2012, 17:01:17
+
+. 
+. local CBP ~/SparkleShare/County-Business-Patterns
+
+. 
+. * read zip-level population
+. tempfile zippop
+
+. insheet using `CBP'/population/zcta_county_rel_10.txt
+(24 vars, 44410 obs)
+
+. collapse (mean) zpop zhu zarealand, by(zcta5)
+
+. ren zcta5 zip
+
+. replace zarealand = zarealand/1e+6
+(33120 real changes made)
+
+. ren zarealand ziparea
+
+. ren zpop pop
+
+. ren zhu homes
+
+. sort zip 
+
+. save `zippop', replace
+(note: file /tmp/St30023.000001 not found)
+file /tmp/St30023.000001 saved
+
+. 
+. clear
+
+. insheet using `CBP'/2007/zbp07detail.txt
+(12 vars, 3340643 obs)
+
+. 
+. * drop sector totals, no new info
+. drop if naics=="------"
+(39652 observations deleted)
+
+. 
+. * keep only 2-digit NAICS
+. keep if substr(naics,3,4)=="----"
+(2874166 observations deleted)
+
+. 
+. * estimate employment
+. gen emp = n1_4*2.5 + n5_9*7 + n10_19*15 + n20_49*35 + n50_99*75 + n100_249*175 + n250_499
+> *375 + n500_999*750 + n1000*2000
+
+. 
+. gen sector = real(substr(naics,1,2))
+
+. drop n*
+
+. 
+. * fill in all sectors
+. reshape wide est emp, i(zip) j(sector)
+(note: j = 11 21 22 23 31 42 44 48 51 52 53 54 55 56 61 62 71 72 81 99)
+
+Data                               long   ->   wide
+-----------------------------------------------------------------------------
+Number of obs.                   426825   ->   39652
+Number of variables                   4   ->      41
+j variable (20 values)           sector   ->   (dropped)
+xij variables:
+                                    est   ->   est11 est21 ... est99
+                                    emp   ->   emp11 emp21 ... emp99
+-----------------------------------------------------------------------------
+
+. reshape long
+(note: j = 11 21 22 23 31 42 44 48 51 52 53 54 55 56 61 62 71 72 81 99)
+
+Data                               wide   ->   long
+-----------------------------------------------------------------------------
+Number of obs.                    39652   ->  793040
+Number of variables                  41   ->       4
+j variable (20 values)                    ->   sector
+xij variables:
+                  est11 est21 ... est99   ->   est
+                  emp11 emp21 ... emp99   ->   emp
+-----------------------------------------------------------------------------
+
+. replace est=0 if missing(est)
+(366215 real changes made)
+
+. replace emp=0 if missing(emp)
+(366215 real changes made)
+
+. 
+. * merge different sectors
+. recode sector 11 = 1 21 22 23 31 = 2 * =3
+(sector: 793040 changes made)
+
+. collapse (sum) emp est, by(zip sector)
+
+. 
+. * merge distances and areas
+. csvmerge zip using ../data/census/cbp/zip.csv
+(6 vars, 33120 obs)
+(note: file /tmp/St30023.000002 not found)
+file /tmp/St30023.000002 saved
+(note: you are using old merge syntax; see [D] merge for new syntax)
+variable zip does not uniquely identify observations in the master data
+
+. tab _m
+
+     _merge |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          1 |     21,444       17.93       17.93
+          2 |        616        0.52       18.45
+          3 |     97,512       81.55      100.00
+------------+-----------------------------------
+      Total |    119,572      100.00
+
+. tab _m [fw=est]
+
+     _merge |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          1 |    118,363        1.54        1.54
+          3 |  7,586,655       98.46      100.00
+------------+-----------------------------------
+      Total |  7,705,018      100.00
+
+. * nonmatched zips are only 1.54% of establishments, drop them
+. 
+. keep if _m==3
+(22060 observations deleted)
+
+. drop _m
+
+. 
+. * are is in m2, convert to km2
+. replace area = area/1e+6
+(97512 real changes made)
+
+. 
+. * merge population data
+. merge m:1 zip using `zippop', keep(match)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                            97,512  (_merge==3)
+    -----------------------------------------
+
+. drop _m
+
+. 
+. corr area ziparea
+(obs=97512)
+
+             |     area  ziparea
+-------------+------------------
+        area |   1.0000
+     ziparea |   1.0000   1.0000
+
+
+. 
+. 
+. * calculate densities
+. gen emp_density = emp/area
+
+. gen est_density = est/area
+
+. gen lndistance = ln(distance)
+
+. label var lndistance "Distance to city center (log)"
+
+. 
+. * split up area between activities
+. egen people = sum(emp), by(zip)
+
+. * people living or working in this zip code all take up space
+. replace people = people+pop
+(97104 real changes made)
+
+. gen share = emp/people
+
+. su share, d
+
+                            share
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%            0              0
+ 5%            0              0
+10%            0              0       Obs               97512
+25%            0              0       Sum of Wgt.       97512
+
+50%     .0225788                      Mean           .0693383
+                        Largest       Std. Dev.       .117632
+75%     .0872978              1
+90%           .2              1       Variance       .0138373
+95%     .2911258              1       Skewness       3.340522
+99%     .5725191              1       Kurtosis       18.49697
+
+. reg share lndistance
+
+      Source |       SS       df       MS              Number of obs =   97512
+-------------+------------------------------           F(  1, 97510) = 1877.68
+       Model |  25.4914459     1  25.4914459           Prob > F      =  0.0000
+    Residual |  1323.79631 97510  .013576006           R-squared     =  0.0189
+-------------+------------------------------           Adj R-squared =  0.0189
+       Total |  1349.28775 97511  .013837288           Root MSE      =  .11652
+
+------------------------------------------------------------------------------
+       share |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+  lndistance |  -.0146659   .0003385   -43.33   0.000    -.0153293   -.0140026
+       _cons |   .1158813   .0011371   101.91   0.000     .1136527    .1181099
+------------------------------------------------------------------------------
+
+. 
+. * area of zip is split across sectors and homeowners
+. gen imputed_area = share*area
+
+. 
+. gen establishment_size = emp/est
+(25542 missing values generated)
+
+. gen imputed_density = emp/imputed_area
+(25542 missing values generated)
+
+. 
+. saveold ../data/zip_business_patterns, replace
+(note: file ../data/zip_business_patterns.dta not found)
+file ../data/zip_business_patterns.dta saved
+
+. 
+. log close
+      name:  <unnamed>
+       log:  /media/home/share/Dropbox/projects/balassa/code/../doc/merge_zips.log
+  log type:  text
+ closed on:   8 Jun 2012, 17:01:51
+-------------------------------------------------------------------------------------------
