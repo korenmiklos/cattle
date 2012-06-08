@@ -22,6 +22,7 @@ insheet using `CBP'/2007/zbp07detail.txt
 
 * drop sector totals, no new info
 drop if naics=="------"
+
 * keep only 2-digit NAICS
 keep if substr(naics,3,4)=="----"
 
@@ -39,7 +40,7 @@ replace emp=0 if missing(emp)
 
 * merge different sectors
 gen sectorgroup = sector
-recode sectorgroup 11 = 1 21 31 = 2 * =3
+recode sectorgroup 11 = 1 21 22 23 31 = 2 * =3
 collapse (sum) emp est, by(zip sectorgroup)
 
 * merge distances and areas
