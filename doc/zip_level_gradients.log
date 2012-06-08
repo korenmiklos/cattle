@@ -1,13 +1,41 @@
---------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
       name:  <unnamed>
-       log:  /Users/koren/Dropbox/projects/balassa/code/../doc/zip_level_gradients.log
+       log:  /media/home/share/Dropbox/projects/balassa/code/../doc/zip_level_gradients.log
   log type:  text
- opened on:   7 Jun 2012, 22:09:09
+ opened on:   8 Jun 2012, 15:38:47
 
 . 
 . local CBP ~/SparkleShare/County-Business-Patterns
 
 . 
+. * read zip-level population
+. tempfile zippop
+
+. insheet using `CBP'/population/zcta_county_rel_10.txt
+(24 vars, 44410 obs)
+
+. collapse (mean) zpop zhu zarealand, by(zcta5)
+
+. ren zcta5 zip
+
+. replace zarealand = zarealand/1e+6
+(33120 real changes made)
+
+. ren zarealand ziparea
+
+. ren zpop pop
+
+. ren zhu homes
+
+. sort zip 
+
+. save `zippop', replace
+(note: file /tmp/St30023.000001 not found)
+file /tmp/St30023.000001 saved
+
+. 
+. clear
+
 . insheet using `CBP'/2007/zbp07detail.txt
 (12 vars, 3340643 obs)
 
@@ -22,8 +50,8 @@
 
 . 
 . * estimate employment
-. gen emp = n1_4*2.5 + n5_9*7 + n10_19*15 + n20_49*35 + n50_99*75 + n100_249*175 + n250_499*375 + n500_999*750
->  + n1000*2000
+. gen emp = n1_4*2.5 + n5_9*7 + n10_19*15 + n20_49*35 + n50_99*75 + n100_249*175 + n250_499
+> *375 + n500_999*750 + n1000*2000
 
 . 
 . gen sector = real(substr(naics,1,2))
@@ -65,11 +93,20 @@ xij variables:
 (366215 real changes made)
 
 . 
+. * merge different sectors
+. gen sectorgroup = sector
+
+. recode sectorgroup 11 = 1 21 31 = 2 * =3
+(sectorgroup: 793040 changes made)
+
+. collapse (sum) emp est, by(zip sectorgroup)
+
+. 
 . * merge distances and areas
 . csvmerge zip using ../data/census/cbp/zip.csv
 (6 vars, 33120 obs)
-(note: file /var/folders/7b/svcv81g94n3fm6nrj7ckr15c0000gn/T//S_03546.000001 not found)
-file /var/folders/7b/svcv81g94n3fm6nrj7ckr15c0000gn/T//S_03546.000001 saved
+(note: file /tmp/St30023.000002 not found)
+file /tmp/St30023.000002 saved
 (note: you are using old merge syntax; see [D] merge for new syntax)
 variable zip does not uniquely identify observations in the master data
 
@@ -77,11 +114,11 @@ variable zip does not uniquely identify observations in the master data
 
      _merge |      Freq.     Percent        Cum.
 ------------+-----------------------------------
-          1 |    142,960       18.01       18.01
-          2 |        616        0.08       18.09
-          3 |    650,080       81.91      100.00
+          1 |     21,444       17.93       17.93
+          2 |        616        0.52       18.45
+          3 |     97,512       81.55      100.00
 ------------+-----------------------------------
-      Total |    793,656      100.00
+      Total |    119,572      100.00
 
 . tab _m [fw=est]
 
@@ -95,137 +132,425 @@ variable zip does not uniquely identify observations in the master data
 . * nonmatched zips are only 1.54% of establishments, drop them
 . 
 . keep if _m==3
-(143576 observations deleted)
+(22060 observations deleted)
 
 . drop _m
 
+. 
+. * are is in m2, convert to km2
+. replace area = area/1e+6
+(97512 real changes made)
+
+. 
+. * merge population data
+. merge m:1 zip using `zippop', keep(match)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                            97,512  (_merge==3)
+    -----------------------------------------
+
+. drop _m
+
+. 
+. corr area ziparea
+(obs=97512)
+
+             |     area  ziparea
+-------------+------------------
+        area |   1.0000
+     ziparea |   1.0000   1.0000
+
+
+. 
 . 
 . * calculate densities
 . gen emp_density = emp/area
 
 . gen est_density = est/area
 
-. gen distance100 = distance/100
+. gen lndistance = ln(distance)
+
+. label var lndistance "Distance to city center (log)"
+
+. 
+. * split up area between activities
+. egen people = sum(emp), by(zip)
+
+. * people living or working in this zip code all take up space
+. replace people = people+pop
+(97104 real changes made)
+
+. gen share = emp/people
+
+. su share, d
+
+                            share
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%            0              0
+ 5%            0              0
+10%            0              0       Obs               97512
+25%            0              0       Sum of Wgt.       97512
+
+50%     .0095233                      Mean           .0693383
+                        Largest       Std. Dev.      .1249576
+75%      .089002              1
+90%     .2152526              1       Variance       .0156144
+95%      .311828              1       Skewness       3.170134
+99%      .599834              1       Kurtosis       16.57121
+
+. reg share lndistance
+
+      Source |       SS       df       MS              Number of obs =   97512
+-------------+------------------------------           F(  1, 97510) = 1660.34
+       Model |  25.4914459     1  25.4914459           Prob > F      =  0.0000
+    Residual |   1497.0838 97510  .015353131           R-squared     =  0.0167
+-------------+------------------------------           Adj R-squared =  0.0167
+       Total |  1522.57524 97511  .015614395           Root MSE      =  .12391
+
+------------------------------------------------------------------------------
+       share |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+  lndistance |  -.0146659   .0003599   -40.75   0.000    -.0153714   -.0139605
+       _cons |   .1158813   .0012092    95.83   0.000     .1135113    .1182513
+------------------------------------------------------------------------------
+
+. 
+. * area of zip is split across sectors and homeowners
+. gen imputed_area = share*area
 
 . 
 . egen msacode = group(msa)
 
 . 
-. * regressions
-. *poisson est_density distance100 i.msacode i.sector
-. *poisson emp_density distance100 i.msacode i.sector
-. 
-. gen sectorgroup = sector
-
-. recode sectorgroup 11 = 1 21 31 = 2 * =3
-(sectorgroup: 650080 changes made)
-
 . su sectorgroup
 
     Variable |       Obs        Mean    Std. Dev.       Min        Max
 -------------+--------------------------------------------------------
- sectorgroup |    650080         2.8    .5099023          1          3
+ sectorgroup |     97512           2    .8165008          1          3
 
 . local max `r(max)'
 
 . 
-. egen citysector = group(msa sector)
+. * nonparametric gradients
+. local K 33
+
+. egen distpct = cut(distance), group(`K')
+
+. egen mean_emp_dens = mean(emp_dens), by(distpct sectorgroup)
+
+. egen tag = tag(distpct sectorgroup)
 
 . 
+. gen ln_mean_emp_dens = ln(mean_emp_dens)
+
+. 
+. tw (line ln_mean_emp_dens distance if tag&sectorgroup==1&distance<=100, sort) /*
+> */ (line ln_mean_emp_dens distance if tag&sectorgroup==2&distance<=100, sort) /*
+> */ (line ln_mean_emp_dens distance if tag&sectorgroup==3&distance<=100, sort) /*
+> */, legend(order(1 "Agriculture" 2 "Manufacturing" 3 "Services")) scheme(s2color)
+
+. 
+. preserve
+
+. * calculate shares
+. collapse emp est lndistance distance, by(sectorgroup distpct)
+
+. reshape wide emp est, i(distpct) j(sectorgroup)
+(note: j = 1 2 3)
+
+Data                               long   ->   wide
+-----------------------------------------------------------------------------
+Number of obs.                       99   ->      33
+Number of variables                   6   ->       9
+j variable (3 values)       sectorgroup   ->   (dropped)
+xij variables:
+                                    emp   ->   emp1 emp2 emp3
+                                    est   ->   est1 est2 est3
+-----------------------------------------------------------------------------
+
+. egen totalemp = rsum(emp?)
+
+. sort distance
+
+. forval i=1/`max' {
+  2.         gen share`i' = emp`i'/totalemp
+  3.         gen lnshare`i' = ln(emp`i'/totalemp)
+  4.         gen share`i'norm = ln(share`i'/share`i'[1])
+  5. }
+
+. tw (line share?norm lndistance, sort), legend(order(1 "Agriculture" 2 "Manufacturing" 3 "
+> Services")) scheme(s2color)
+
+. 
+. restore
+
+. 
+. 
 . * sector-level regressions
-. gen tau = .
-(650080 missing values generated)
+. gen lower = 0
 
-. forval i = 1/`max' {
-  2.         xtpoisson emp_density distance100 if sectorgroup==`i', i(citysector) fe
-  3.         replace tau = _b[distance100] if sectorgroup==`i'
-  4. }
+. gen upper = 500
+
+. replace upper = 20 if sectorgroup==3
+(32504 real changes made)
+
+. replace lower = 20 if sectorgroup==2
+(32504 real changes made)
+
+. replace upper = 100 if sectorgroup==2
+(32504 real changes made)
+
+. replace lower = 100 if sectorgroup==1
+(32504 real changes made)
+
+. 
+. gen establishment_size = emp/est
+(30501 missing values generated)
+
+. gen imputed_density = emp/imputed_area
+(30501 missing values generated)
+
+. 
+. foreach X in emp_density establishment_size imputed_density {
+  2.         gen tau_`X' = .
+  3.         forval i = 1/`max' {
+  4.                 xtpoisson `X' distance if sectorgroup==`i' & distance>=lower & distanc
+> e<upper, i(msacode) fe
+  5.                 replace tau_`X' = _b[distance] if sectorgroup==`i'
+  6.         }
+  7. }
+(97512 missing values generated)
 note: you are responsible for interpretation of non-count dep. variable
+note: 3 groups (3 obs) dropped because of only one obs per group
+note: 2 groups (7 obs) dropped because of all zero outcomes
 
-Iteration 0:   log likelihood = -.03976705  
-Iteration 1:   log likelihood =  -.0397654  
-Iteration 2:   log likelihood =  -.0397654  
+Iteration 0:   log likelihood = -576.67497  
+Iteration 1:   log likelihood = -576.61055  
+Iteration 2:   log likelihood = -576.61038  
+Iteration 3:   log likelihood = -576.61038  
 
-Conditional fixed-effects Poisson regression    Number of obs      =     32504
-Group variable: citysector                      Number of groups   =       100
+Conditional fixed-effects Poisson regression    Number of obs      =      1838
+Group variable: msacode                         Number of groups   =        20
 
-                                                Obs per group: min =        45
-                                                               avg =     325.0
-                                                               max =      1019
+                                                Obs per group: min =         3
+                                                               avg =      91.9
+                                                               max =       342
 
-                                                Wald chi2(1)       =      0.00
-Log likelihood  =  -.0397654                    Prob > chi2        =    0.9985
+                                                Wald chi2(1)       =      0.12
+Log likelihood  = -576.61038                    Prob > chi2        =    0.7242
 
 ------------------------------------------------------------------------------
  emp_density |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
- distance100 |   .0101568   5.519069     0.00   0.999    -10.80702    10.82733
+    distance |  -.0007855   .0022259    -0.35   0.724    -.0051481    .0035771
 ------------------------------------------------------------------------------
 (32504 real changes made)
 note: you are responsible for interpretation of non-count dep. variable
 
-Iteration 0:   log likelihood =  -6.450516  
-Iteration 1:   log likelihood = -6.4427952  
-Iteration 2:   log likelihood = -6.4427872  
-Iteration 3:   log likelihood = -6.4427872  
+Iteration 0:   log likelihood = -1179728.2  
+Iteration 1:   log likelihood = -1160182.4  
+Iteration 2:   log likelihood = -1160091.6  
+Iteration 3:   log likelihood = -1160091.5  
 
-Conditional fixed-effects Poisson regression    Number of obs      =     65008
-Group variable: citysector                      Number of groups   =       200
+Conditional fixed-effects Poisson regression    Number of obs      =     18257
+Group variable: msacode                         Number of groups   =       125
 
-                                                Obs per group: min =        45
-                                                               avg =     325.0
-                                                               max =      1019
+                                                Obs per group: min =         2
+                                                               avg =     146.1
+                                                               max =       445
 
-                                                Wald chi2(1)       =      0.01
-Log likelihood  = -6.4427872                    Prob > chi2        =    0.9254
+                                                Wald chi2(1)       =  33628.69
+Log likelihood  = -1160091.5                    Prob > chi2        =    0.0000
 
 ------------------------------------------------------------------------------
  emp_density |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
- distance100 |  -.1517619   1.621332    -0.09   0.925    -3.329514     3.02599
+    distance |  -.0373429   .0002036  -183.38   0.000     -.037742   -.0369438
 ------------------------------------------------------------------------------
-(65008 real changes made)
+(32504 real changes made)
 note: you are responsible for interpretation of non-count dep. variable
 
-Iteration 0:   log likelihood = -149.31503  
-Iteration 1:   log likelihood = -147.74348  
-Iteration 2:   log likelihood = -147.71608  
-Iteration 3:   log likelihood = -147.71605  
-Iteration 4:   log likelihood = -147.71605  
+Iteration 0:   log likelihood =  -50327030  
+Iteration 1:   log likelihood =  -26891746  
+Iteration 2:   log likelihood =  -26890195  
+Iteration 3:   log likelihood =  -26890195  
 
-Conditional fixed-effects Poisson regression    Number of obs      =    552568
-Group variable: citysector                      Number of groups   =      1700
+Conditional fixed-effects Poisson regression    Number of obs      =     12089
+Group variable: msacode                         Number of groups   =       125
 
-                                                Obs per group: min =        45
-                                                               avg =     325.0
-                                                               max =      1019
+                                                Obs per group: min =        10
+                                                               avg =      96.7
+                                                               max =       654
 
-                                                Wald chi2(1)       =      2.13
-Log likelihood  = -147.71605                    Prob > chi2        =    0.1443
+                                                Wald chi2(1)       =  2.17e+07
+Log likelihood  =  -26890195                    Prob > chi2        =    0.0000
 
 ------------------------------------------------------------------------------
  emp_density |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
- distance100 |  -1.555481   1.065508    -1.46   0.144    -3.643839    .5328762
+    distance |  -.4476845   .0000962 -4653.97   0.000    -.4478731    -.447496
 ------------------------------------------------------------------------------
-(552568 real changes made)
+(32504 real changes made)
+(97512 missing values generated)
+note: you are responsible for interpretation of non-count dep. variable
+note: 3 groups (3 obs) dropped because of only one obs per group
 
-. 
-. table sectorgroup, c(mean tau)
+Iteration 0:   log likelihood = -4870.8206  
+Iteration 1:   log likelihood = -4870.3832  
+Iteration 2:   log likelihood =  -4870.383  
 
-----------------------
+Conditional fixed-effects Poisson regression    Number of obs      =       679
+Group variable: msacode                         Number of groups   =        18
+
+                                                Obs per group: min =         2
+                                                               avg =      37.7
+                                                               max =       153
+
+                                                Wald chi2(1)       =      0.87
+Log likelihood  =  -4870.383                    Prob > chi2        =    0.3523
+
+------------------------------------------------------------------------------------
+establishment_size |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------------+----------------------------------------------------------------
+          distance |  -.0003965   .0004262    -0.93   0.352    -.0012318    .0004389
+------------------------------------------------------------------------------------
+(32504 real changes made)
+note: you are responsible for interpretation of non-count dep. variable
+
+Iteration 0:   log likelihood = -396126.19  
+Iteration 1:   log likelihood = -396034.95  
+Iteration 2:   log likelihood = -396034.95  
+
+Conditional fixed-effects Poisson regression    Number of obs      =     13032
+Group variable: msacode                         Number of groups   =       125
+
+                                                Obs per group: min =         2
+                                                               avg =     104.3
+                                                               max =       307
+
+                                                Wald chi2(1)       =    181.75
+Log likelihood  = -396034.95                    Prob > chi2        =    0.0000
+
+------------------------------------------------------------------------------------
+establishment_size |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------------+----------------------------------------------------------------
+          distance |  -.0014382   .0001067   -13.48   0.000    -.0016473   -.0012291
+------------------------------------------------------------------------------------
+(32504 real changes made)
+note: you are responsible for interpretation of non-count dep. variable
+
+Iteration 0:   log likelihood = -110506.17  
+Iteration 1:   log likelihood = -106462.36  
+Iteration 2:   log likelihood = -106462.32  
+Iteration 3:   log likelihood = -106462.32  
+
+Conditional fixed-effects Poisson regression    Number of obs      =     12075
+Group variable: msacode                         Number of groups   =       125
+
+                                                Obs per group: min =        10
+                                                               avg =      96.6
+                                                               max =       654
+
+                                                Wald chi2(1)       =   8015.35
+Log likelihood  = -106462.32                    Prob > chi2        =    0.0000
+
+------------------------------------------------------------------------------------
+establishment_size |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------------+----------------------------------------------------------------
+          distance |  -.0383068   .0004279   -89.53   0.000    -.0391454   -.0374681
+------------------------------------------------------------------------------------
+(32504 real changes made)
+(97512 missing values generated)
+note: you are responsible for interpretation of non-count dep. variable
+note: 3 groups (3 obs) dropped because of only one obs per group
+
+Iteration 0:   log likelihood =  -171155.1  
+Iteration 1:   log likelihood = -169879.21  
+Iteration 2:   log likelihood = -169877.49  
+Iteration 3:   log likelihood = -169877.49  
+
+Conditional fixed-effects Poisson regression    Number of obs      =       679
+Group variable: msacode                         Number of groups   =        18
+
+                                                Obs per group: min =         2
+                                                               avg =      37.7
+                                                               max =       153
+
+                                                Wald chi2(1)       =   2428.69
+Log likelihood  = -169877.49                    Prob > chi2        =    0.0000
+
+---------------------------------------------------------------------------------
+imputed_density |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+----------------+----------------------------------------------------------------
+       distance |  -.0046452   .0000943   -49.28   0.000    -.0048299   -.0044604
+---------------------------------------------------------------------------------
+(32504 real changes made)
+note: you are responsible for interpretation of non-count dep. variable
+
+Iteration 0:   log likelihood =  -10073980  
+Iteration 1:   log likelihood = -9960591.2  
+Iteration 2:   log likelihood = -9960553.4  
+Iteration 3:   log likelihood = -9960553.4  
+
+Conditional fixed-effects Poisson regression    Number of obs      =     13032
+Group variable: msacode                         Number of groups   =       125
+
+                                                Obs per group: min =         2
+                                                               avg =     104.3
+                                                               max =       307
+
+                                                Wald chi2(1)       = 210682.30
+Log likelihood  = -9960553.4                    Prob > chi2        =    0.0000
+
+---------------------------------------------------------------------------------
+imputed_density |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+----------------+----------------------------------------------------------------
+       distance |  -.0167421   .0000365  -459.00   0.000    -.0168136   -.0166707
+---------------------------------------------------------------------------------
+(32504 real changes made)
+note: you are responsible for interpretation of non-count dep. variable
+
+Iteration 0:   log likelihood =  -50388616  
+Iteration 1:   log likelihood =  -27468756  
+Iteration 2:   log likelihood =  -27460589  
+Iteration 3:   log likelihood =  -27460587  
+
+Conditional fixed-effects Poisson regression    Number of obs      =     12075
+Group variable: msacode                         Number of groups   =       125
+
+                                                Obs per group: min =        10
+                                                               avg =      96.6
+                                                               max =       654
+
+                                                Wald chi2(1)       =  2.90e+07
+Log likelihood  =  -27460587                    Prob > chi2        =    0.0000
+
+---------------------------------------------------------------------------------
+imputed_density |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+----------------+----------------------------------------------------------------
+       distance |  -.2784774   .0000517 -5384.68   0.000    -.2785788   -.2783761
+---------------------------------------------------------------------------------
+(32504 real changes made)
+
+. table sectorgroup, c(mean tau_emp_density mean tau_establishment_size mean tau_imputed_de
+> nsity)
+
+----------------------------------------------------------
 sectorgro |
-up        |  mean(tau)
-----------+-----------
-        1 |   .0101568
-        2 |  -.1517619
-        3 |  -1.555481
-----------------------
+up        | mean(tau_em~y)  mean(tau_es~e)  mean(tau_im~y)
+----------+-----------------------------------------------
+        1 |      -.0007855       -.0003965       -.0046452
+        2 |      -.0373429       -.0014382       -.0167421
+        3 |      -.4476845       -.0383068       -.2784774
+----------------------------------------------------------
 
 . 
 . log close
       name:  <unnamed>
-       log:  /Users/koren/Dropbox/projects/balassa/code/../doc/zip_level_gradients.log
+       log:  /media/home/share/Dropbox/projects/balassa/code/../doc/zip_level_gradients.log
   log type:  text
- closed on:   7 Jun 2012, 22:10:11
---------------------------------------------------------------------------------------------------------------
+ closed on:   8 Jun 2012, 15:39:48
+-------------------------------------------------------------------------------------------
