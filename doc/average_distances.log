@@ -2,7 +2,7 @@
       name:  <unnamed>
        log:  /media/home/share/Dropbox/projects/balassa/code/../doc/average_distances.log
   log type:  text
- opened on:   8 Jun 2012, 17:35:17
+ opened on:   8 Jun 2012, 19:01:35
 
 . 
 . use ../data/zip_business_patterns
@@ -29,7 +29,7 @@
 . egen maxcumsum = max(cumsum), by(sector)
 
 . replace cumsum = cumsum/maxcumsum
-(97510 real changes made)
+(97506 real changes made)
 
 . label var cumsum "Cumulative share of employment"
 
@@ -47,9 +47,9 @@
 -------------------------
    sector | max(distance)
 ----------+--------------
-        1 |      30.19405
-        2 |      16.08478
-        3 |      13.02499
+        1 |      38.46871
+        2 |      20.24428
+        3 |      15.89778
 -------------------------
 
 . 
@@ -71,18 +71,18 @@
 
 . l sector ???distance
 
-     +----------------------------------------------------+
-     | sector   empdis~e   popdis~e   estdis~e   aredis~e |
-     |----------------------------------------------------|
-  1. |      1     27.528   14.68174   30.38156   20.51081 |
-  2. |      2   14.04532   14.68174   16.03618   19.69105 |
-  3. |      3    11.0805   14.68174   13.01792   20.52506 |
-     +----------------------------------------------------+
+     +---------------------------------------------------------------+
+     | sector   msadis~e   empdis~e   popdis~e   estdis~e   aredis~e |
+     |---------------------------------------------------------------|
+  1. |      1    4274903   32.59922   18.79972   40.92046    24.4589 |
+  2. |      2    4274903   18.47116   18.79972   20.34524   27.12635 |
+  3. |      3    4274903   13.88963   18.79972     16.284   28.57707 |
+     +---------------------------------------------------------------+
 
 . 
 . log close
       name:  <unnamed>
        log:  /media/home/share/Dropbox/projects/balassa/code/../doc/average_distances.log
   log type:  text
- closed on:   8 Jun 2012, 17:35:24
+ closed on:   8 Jun 2012, 19:01:40
 -------------------------------------------------------------------------------------------

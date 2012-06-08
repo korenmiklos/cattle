@@ -2,7 +2,7 @@
       name:  <unnamed>
        log:  /media/home/share/Dropbox/projects/balassa/code/../doc/merge_zips.log
   log type:  text
- opened on:   8 Jun 2012, 17:01:17
+ opened on:   8 Jun 2012, 19:00:50
 
 . 
 . local CBP ~/SparkleShare/County-Business-Patterns
@@ -103,7 +103,7 @@ xij variables:
 . 
 . * merge distances and areas
 . csvmerge zip using ../data/census/cbp/zip.csv
-(6 vars, 33120 obs)
+(8 vars, 33120 obs)
 (note: file /tmp/St30023.000002 not found)
 file /tmp/St30023.000002 saved
 (note: you are using old merge syntax; see [D] merge for new syntax)
@@ -136,7 +136,14 @@ variable zip does not uniquely identify observations in the master data
 . drop _m
 
 . 
-. * are is in m2, convert to km2
+. * use distance to urban area, not MSA
+. ren citydistance distance
+
+. ren city city
+  (all newnames==oldnames)
+
+. 
+. * area is in m2, convert to km2
 . replace area = area/1e+6
 (97512 real changes made)
 
@@ -203,17 +210,17 @@ variable zip does not uniquely identify observations in the master data
 . reg share lndistance
 
       Source |       SS       df       MS              Number of obs =   97512
--------------+------------------------------           F(  1, 97510) = 1877.68
-       Model |  25.4914459     1  25.4914459           Prob > F      =  0.0000
-    Residual |  1323.79631 97510  .013576006           R-squared     =  0.0189
--------------+------------------------------           Adj R-squared =  0.0189
-       Total |  1349.28775 97511  .013837288           Root MSE      =  .11652
+-------------+------------------------------           F(  1, 97510) = 3022.53
+       Model |   40.566544     1   40.566544           Prob > F      =  0.0000
+    Residual |  1308.72121 97510  .013421405           R-squared     =  0.0301
+-------------+------------------------------           Adj R-squared =  0.0301
+       Total |  1349.28775 97511  .013837288           Root MSE      =  .11585
 
 ------------------------------------------------------------------------------
        share |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-  lndistance |  -.0146659   .0003385   -43.33   0.000    -.0153293   -.0140026
-       _cons |   .1158813   .0011371   101.91   0.000     .1136527    .1181099
+  lndistance |  -.0198162   .0003604   -54.98   0.000    -.0205226   -.0191097
+       _cons |   .1398673   .0013354   104.74   0.000     .1372498    .1424847
 ------------------------------------------------------------------------------
 
 . 
@@ -229,7 +236,6 @@ variable zip does not uniquely identify observations in the master data
 
 . 
 . saveold ../data/zip_business_patterns, replace
-(note: file ../data/zip_business_patterns.dta not found)
 file ../data/zip_business_patterns.dta saved
 
 . 
@@ -237,5 +243,5 @@ file ../data/zip_business_patterns.dta saved
       name:  <unnamed>
        log:  /media/home/share/Dropbox/projects/balassa/code/../doc/merge_zips.log
   log type:  text
- closed on:   8 Jun 2012, 17:01:51
+ closed on:   8 Jun 2012, 19:01:23
 -------------------------------------------------------------------------------------------
