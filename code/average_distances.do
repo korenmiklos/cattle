@@ -5,21 +5,36 @@ log using ../doc/average_distances, text replace
 
 use ../data/zip_business_patterns
 
-replace distance = . if missing(emp,pop)
-replace emp = . if missing(distance,pop)
-replace pop = . if missing(distance,emp)
+* nonzero number of establishments
+gen byte are = area if est>0 & !missing(est)
+replace lndistance = . if missing(emp,pop)
+replace emp = . if missing(lndistance,pop)
+replace pop = . if missing(lndistance,emp)
 
-foreach X of var emp pop est {
-	gen `X'distance = `X'*distance
+sort sector distance
+by sector: gen cumsum = sum(emp)
+egen maxcumsum = max(cumsum), by(sector)
+replace cumsum = cumsum/maxcumsum
+label var cumsum "Cumulative share of employment"
+
+* empirical CDF of weighted distances in the three sectors
+tw (line cumsum lndistance if sector==1, sort) /*
+*/ (line cumsum lndistance if sector==2, sort) /*
+*/ (line cumsum lndistance if sector==3, sort) /*
+*/, scheme(s2color) legend(order(1 "Agriculture" 2 "Industry" 3 "Services"))
+
+* median weighted distances
+table sector if cumsum<=.5, c(max distance)
+
+foreach X of var emp pop est are {
+	gen `X'distance = `X'*lndistance
 }
 
-collapse (sum) ???distance emp est pop, by(sector msa)
-foreach X of var emp pop est {
-	replace `X'distance = `X'distance/`X'
+collapse (sum) ???distance emp est pop are, by(sector)
+foreach X of var emp pop est are {
+	replace `X'distance = exp(`X'distance/`X')
 }
-gen lnpopdistance = ln(popdistance)
-
-poisson empdistance lnpopdistance i.sector
+l sector ???distance
 
 log close
 set more on

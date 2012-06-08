@@ -2,68 +2,87 @@
       name:  <unnamed>
        log:  /media/home/share/Dropbox/projects/balassa/code/../doc/average_distances.log
   log type:  text
- opened on:   8 Jun 2012, 17:18:46
+ opened on:   8 Jun 2012, 17:35:17
 
 . 
 . use ../data/zip_business_patterns
 
 . 
-. replace distance = . if missing(emp,pop)
+. * nonzero number of establishments
+. gen byte are = area if est>0 & !missing(est)
+(25542 missing values generated)
+
+. replace lndistance = . if missing(emp,pop)
 (0 real changes made)
 
-. replace emp = . if missing(distance,pop)
+. replace emp = . if missing(lndistance,pop)
 (0 real changes made)
 
-. replace pop = . if missing(distance,emp)
+. replace pop = . if missing(lndistance,emp)
 (0 real changes made)
 
 . 
-. foreach X of var emp pop est {
-  2.         gen `X'distance = `X'*distance
+. sort sector distance
+
+. by sector: gen cumsum = sum(emp)
+
+. egen maxcumsum = max(cumsum), by(sector)
+
+. replace cumsum = cumsum/maxcumsum
+(97510 real changes made)
+
+. label var cumsum "Cumulative share of employment"
+
+. 
+. * empirical CDF of weighted distances in the three sectors
+. tw (line cumsum lndistance if sector==1, sort) /*
+> */ (line cumsum lndistance if sector==2, sort) /*
+> */ (line cumsum lndistance if sector==3, sort) /*
+> */, scheme(s2color) legend(order(1 "Agriculture" 2 "Industry" 3 "Services"))
+
+. 
+. * median weighted distances
+. table sector if cumsum<=.5, c(max distance)
+
+-------------------------
+   sector | max(distance)
+----------+--------------
+        1 |      30.19405
+        2 |      16.08478
+        3 |      13.02499
+-------------------------
+
+. 
+. foreach X of var emp pop est are {
+  2.         gen `X'distance = `X'*lndistance
   3. }
+(62340 missing values generated)
 
 . 
-. collapse (sum) ???distance emp est pop, by(sector msa)
+. collapse (sum) ???distance emp est pop are, by(sector)
 
-. foreach X of var emp pop est {
-  2.         replace `X'distance = `X'distance/`X'
+. foreach X of var emp pop est are {
+  2.         replace `X'distance = exp(`X'distance/`X')
   3. }
-(375 real changes made)
-(375 real changes made)
-(375 real changes made)
+(3 real changes made)
+(3 real changes made)
+(3 real changes made)
+(3 real changes made)
 
-. gen lnpopdistance = ln(popdistance)
+. l sector ???distance
 
-. 
-. poisson empdistance lnpopdistance i.sector
-note: you are responsible for interpretation of noncount dep. variable
-
-Iteration 0:   log likelihood = -1200.2867  
-Iteration 1:   log likelihood = -1187.0249  
-Iteration 2:   log likelihood = -1187.0096  
-Iteration 3:   log likelihood = -1187.0096  
-
-Poisson regression                                Number of obs   =        375
-                                                  LR chi2(3)      =    4714.69
-                                                  Prob > chi2     =     0.0000
-Log likelihood = -1187.0096                       Pseudo R2       =     0.6651
-
--------------------------------------------------------------------------------
-  empdistance |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
---------------+----------------------------------------------------------------
-lnpopdistance |   .9148899   .0122864    74.46   0.000     .8908089    .9389708
-              |
-       sector |
-           2  |  -.2351609   .0233901   -10.05   0.000    -.2810047   -.1893171
-           3  |  -.2673947   .0236031   -11.33   0.000     -.313656   -.2211334
-              |
-        _cons |   .4960466   .0459441    10.80   0.000     .4059978    .5860954
--------------------------------------------------------------------------------
+     +----------------------------------------------------+
+     | sector   empdis~e   popdis~e   estdis~e   aredis~e |
+     |----------------------------------------------------|
+  1. |      1     27.528   14.68174   30.38156   20.51081 |
+  2. |      2   14.04532   14.68174   16.03618   19.69105 |
+  3. |      3    11.0805   14.68174   13.01792   20.52506 |
+     +----------------------------------------------------+
 
 . 
 . log close
       name:  <unnamed>
        log:  /media/home/share/Dropbox/projects/balassa/code/../doc/average_distances.log
   log type:  text
- closed on:   8 Jun 2012, 17:18:47
+ closed on:   8 Jun 2012, 17:35:24
 -------------------------------------------------------------------------------------------
