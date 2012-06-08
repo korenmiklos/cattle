@@ -19,19 +19,25 @@ def find_folder(data_path):
 	  dir = parent
 
 shapefiles = find_folder('SparkleShare/County-Business-Patterns/shapefiles')
-msas = dbf.Dbf('%s/msa2010/tl_2010_us_csa10.dbf' % shapefiles)
+msas = dbf.Dbf('%s/urban2010/tl_2010_us_uac10.dbf' % shapefiles)
 gm = geocoders.Yahoo(app_id='EuuQAJ36')
-msaout = csv.writer(open('../data/census/cbp/msa.csv','wb'))
+msaout = csv.writer(open('../data/census/cbp/urban.csv','wb'))
 
 msaout.writerow(['msa', 'lat', 'lng'])
 for record in msas:
 	name = record['NAME10']
-	state = name.split(',')[1].split('-')[0]
-	# skip puerto rico
-	if not state.strip()=='PR':
-		firstcity = name.split(',')[0].split('-')[0]
-		results = gm.geocode('%s, %s, United States' % (firstcity, state), exactly_one=False)
-		place, (lat, lng) = results[0]
-		msaout.writerow(['%s, %s' % (firstcity, state), lat, lng])
+	# only process urban areas, not clusters
+	if record['UATYP10']=='U':
+		print name
+		state = name.split(',')[1].split('-')[0]
+		# skip puerto rico
+		if not state.strip()=='PR':
+			firstcity = name.split(',')[0].split('-')[0]
+			try:
+				results = gm.geocode('%s, %s, United States' % (firstcity, state), exactly_one=False)
+				place, (lat, lng) = results[0]
+				msaout.writerow(['%s, %s' % (firstcity, state), lat, lng])
+			except ValueError:
+				pass
 
 

@@ -51,7 +51,11 @@ tab _m [fw=est]
 keep if _m==3
 drop _m
 
-* are is in m2, convert to km2
+* use distance to urban area, not MSA
+ren citydistance distance
+ren city city
+
+* area is in m2, convert to km2
 replace area = area/1e+6
 
 * merge population data

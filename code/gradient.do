@@ -45,12 +45,12 @@ replace lower = 20 if sector==2
 replace upper = 100 if sector==2
 replace lower = 100 if sector==1
 
-egen msacode = group(msa)
+egen citycode = group(city)
 
 foreach X in emp_density establishment_size imputed_density {
 	gen tau_`X' = .
 	forval i = 1/`max' {
-		xtpoisson `X' distance if sector==`i' & distance>=lower & distance<upper, i(msacode) fe
+		xtpoisson `X' distance if sector==`i' & distance>=lower & distance<upper, i(citycode) fe
 		replace tau_`X' = _b[distance] if sector==`i'
 	}
 }
