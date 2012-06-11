@@ -2,7 +2,7 @@
       name:  <unnamed>
        log:  /Users/koren/Dropbox/projects/balassa/code/../doc/average_distances.log
   log type:  text
- opened on:   8 Jun 2012, 21:41:04
+ opened on:  11 Jun 2012, 23:52:21
 
 . 
 . use ../data/zip_business_patterns
@@ -66,6 +66,19 @@
 -------------------------
 
 . 
+. * 90th pect weighted distances
+. table sector if cumsum<=.9, c(max distance)
+
+-------------------------
+   sector | max(distance)
+----------+--------------
+        0 |      59.25776
+        1 |      103.6156
+        2 |      61.56392
+        3 |      49.23067
+-------------------------
+
+. 
 . foreach X of var emp pop est are {
   2.         gen `X'distance = `X'*lndistance
   3. }
@@ -98,5 +111,5 @@
       name:  <unnamed>
        log:  /Users/koren/Dropbox/projects/balassa/code/../doc/average_distances.log
   log type:  text
- closed on:   8 Jun 2012, 21:41:11
+ closed on:  11 Jun 2012, 23:52:28
 --------------------------------------------------------------------------------------------------------------

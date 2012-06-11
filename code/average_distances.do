@@ -32,6 +32,9 @@ tw (line cumsum lndistance if sector==1, sort) /*
 * median weighted distances
 table sector if cumsum<=.5, c(max distance)
 
+* 90th pect weighted distances
+table sector if cumsum<=.9, c(max distance)
+
 foreach X of var emp pop est are {
 	gen `X'distance = `X'*lndistance
 }
