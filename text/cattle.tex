@@ -69,15 +69,20 @@ Our model yields a simple spatial equilibrium in which agriculture (``cattle'') 
 
 There are two reasons why development accounting in our model is different from models without land. First, as some sectors are more land intensive, their prices may be more sensitive to rents. Because of this, conditional on productivity, agricultural prices will be relatively higher in rich countries. Second, because sectors endogenously choose locations, their price is also affected by the rent gradient: the speed with which rents decline in distance from the city center. Urban sectors will be relatively more expensive in countries where the rent gradient is higher.
 
-To quantify the importance of these two mechanisms, we calibrate our model to match the spatial distribution of economic activities in the U.S., and the share of sectors in each country.
+To quantify the importance of these two mechanisms, we calibrate our model to match the spatial distribution of economic activities in the U.S., and the share of sectors in each country. We then use the calibrated model to infer sector-level productivities for each country using data on relative prices (XX AND URBANIZATION)
+
+Our main findings are as follows. XX
+
 
 \section{A model of industry location}
 \subsection{Technology}
-Output in sector $i$ at location $z$ depends on capital, employment and land used at that location,
+Output in sector $i$ at location $z$ depends on employment and land used at that location,
 \[
-Q_i(z) = A_i K_i(z)^{\alpha_i}N_i(z)^{\beta_i}L_i(z)^{1-\alpha_i-\beta_i}.
+Q_i(z) = A_i L_i(z)^{\beta_i}N_i(z)^{1-\beta_i}.
 \]
-Sectors differ in their capital and labor shares $\alpha_i$ and $\beta_i$ and Hicks neutral productivity shifter $A_i$.
+We take labor to be freely mobile within the country, land is in fixed supply in each location. The names ``land'' and ``labor'' are for the sake of convenience, these two factors correspond to spatially fixed and mobile factors, respectively, and we will calibrate them accordingly.
+
+Sectors differ in their land shares $\beta_i$ and Hicks neutral productivity shifter $A_i$.
 
 All products are sold and consumed at a single location, the central business district. This is location $z=0$, so that $z$ indexes distance to the center.
 
@@ -88,28 +93,92 @@ e^{-\tau_i z}
 \]
 units arrive at the center. This is akin to the iceberg assumption of fixed costs. Sectors also differ in the intensity of shipping costs $\tau_i$.
 
-\subsection{Worker--consumers}
-Workers can choose their location freely. Workers have only labor income (landlords are absentee). They consume goods and services in the center and housing services locally, combining them in a Cobb--Douglas fashion. The utility-based price index of a consumer at location $z$ is
+\subsection{Consumers}
+Consumers have Cobb--Douglas preferences across the three goods,
 \[
-P(z) = R(z)^{\gamma_0}\prod_{i}P_i(0)^{\gamma_i},
+U = C_1^{\alpha_1}C_2^{\alpha_2}C_3^{\alpha_3}
 \]
-where $R(z)$ is rent at location $z$ and $P_i(0)$ is the price of good $i$ in the center.
 
-Free mobility ensures that real wages are equalized across locations,
+
+\subsection{Spatial structure}
+At each location $z$ where industry $i$ is active, the value marginal product of land and labor have equal rents and wages, respectively.
+\begin{align}
+R(z) &=\beta_i P_ie^{-\tau_i z}A_i \left(\frac{N_i(z)}{L_i(z)}\right)^{1-\beta_i}\\
+W &=(1-\beta_i) P_ie^{-\tau_i z}A_i \left(\frac{N_i(z)}{L_i(z)}\right)^{-\beta_i}
+\end{align}
+Because labor is freely mobile, wages do not depend on location.
+
+The labor-land ratio (employment density) can be expressed as
 \[
-\frac{W(z)}{P(z)} = W_0.
+\frac{N_i(z)}{L_i(z)} = \frac{1-\beta_i}{\beta_i}\frac{R(z)}{W}.
 \]
-%% This provides us with some magnification: workers also have to be compensated for higher rents.
+Substituting this into the FOC for land,
+\[
+R(z) =\beta_i P_ie^{-\tau_i z}A_i \left(\frac{1-\beta_i}{\beta_i}\frac{R(z)}{W}\right)^{1-\beta_i}
+\]
+\[
+R(z)^{\beta_i} =\beta_i^{\beta_i}(1-\beta_i)^{1-\beta_i} P_ie^{-\tau_i z}A_i W^{\beta_i-1}
+\]
+\[
+R(z) =\beta_i(1-\beta_i)^{1/\beta_i-1} (P_iA_i)^{1/\beta_i} W^{1-1/\beta_i} e^{-\frac{\tau_i}{\beta_i} z}
+\]
+This pins down the gradient of the bid-rent curve. Substituting into the labor-land ratio,
+\[
+\frac{N_i(z)}{L_i(z)} = (1-\beta_i)^{1/\beta_i} \left(\frac{P_iA_i}{W}\right)^{1/\beta_i} e^{-\frac{\tau_i}{\beta_i} z}
+\]
+gives us the employment gradient.
+
+Value added per unit of land at consumer prices,
+\[
+\frac{P_i Q_i(z)}{L_i(z)} = (1-\beta_i)^{1/\beta_i-1}
+(P_iA_i)^{1/\beta_i}W^{1-1/\beta_i}
+ e^{-\frac{1-\beta_i}{\beta_i}\tau_i z}.
+\]
+The same at producer prices
+\[
+\frac{e^{-\tau_i z} P_i Q_i(z)}{L_i(z)} = (1-\beta_i)^{1/\beta_i-1}
+(P_iA_i)^{1/\beta_i}W^{1-1/\beta_i}
+ e^{-\frac{\tau_i}{\beta_i} z}.
+\]
+
 
 \section{Data and calibration}
+
+\subsection{Variation across countries}
+Countries differ in Hicks-neutral productivities $A_i$, their urban fringe $z_3$ and their demand parameters $\alpha_i$. Each country has the same land share within sectors $\beta_i$ and the same shipping cost $\tau_i$.
+
+We allow for sector-specific differences in productivity, which are the key object of interest in multi-sector development accounting. The urban fringe may also vary with country area and its degree of urbanization and we calibrate it below. Demand parameters are allowed to vary to allow different countries to have different expenditure shares in agriculture, manufacturing and services. XX TALK MORE ABOUT STRUCTURAL CHG
+
+\subsection{Calibration}
+
+We calibrate sectoral land shares ($\beta_i$) using US data. Our aim is to capture the share of immobile factors in production. These come from two sources: $(i)$ the direct use of land in production and $(ii)$ the land-rent paid by workers. We calibrate the direct use of land in sectoral production using US factor income share estimates of Herrendorf and Valentinyi (2008). The first two columns of table XX show their estimates for land and labor shares across sectors.
+
+Our land-rent share in labor estimate is a product of the US aggregate rent-share in consumption expenditure reported by the BLS ($30\%$) and the average land-share of US house prices between 1984-1998 estimated by Davis and Palumbo (2008) (36\%). We multiply this product by the labor shares, and add this product to the direct land use to obtain our land share estimate.
+
+\begin{table}[h!] \center
+\begin{tabular}{l|ccc|c}
+\hline 
+Factor shares & Direct land & Labor & Indirect land & Overall land share $\beta_i$ \\ \hline
+Agriculture & 0.18 & 0.46  & 0.05 & 0.23 \\
+Manufacturing& 0.03 & 0.67 & 0.07 & 0.10  \\
+Services    &  0.06 & 0.66 & 0.07 & 0.13 \\ \hline 
+\end{tabular}
+
+\noindent \footnotesize{Land and Labor shares are estimates of Herrendorf and Valentinyi (2008). Land share in labor is the product of rent-share in US consumption expenditures, the average land-share of US house prices between 1984-1998 estimated by Davis and Palumbo (2008) and the labor shares. Our land share estimates are the sum of direct land share and the indirect land share through labor.}
+\end{table}
+
+
+
+
+
 \subsection{Sector gradients}
 We use the 2010 ZIP Business Patters of the U.S. Census to determine the location of sectors in the United States. We use this to calibrate transportation costs and XX.
 
 The ZIP Business Patterns contains the number of establishments in employment size categories in each ZIP code for each 6-digit NAICS code. We merge NAICS codes into agriculture, manufacturing and services as follows. XX TO DO.
 
-To map the model into the data, we need to specifiy how far each ZIP code is from the city center. We take Metropolitan Statistical Areas (MSAs) as independent monocentric cities, and we assign the central point to the business center of the first-mentioned city in the MSA. For example, the center of ``New York–Northern New Jersey–Long Island, NY–NJ–PA MSA'' is the corner of Broadway and Chamber St in downtown Manhattan, whereas the center of ``Boston–Cambridge–Quincy, MA–NH MSA'' is 1 Boston Pl.
+To map the model into the data, we need to specifiy how far each ZIP code is from the city center. We take Urbanized Areas (UAs) as independent monocentric cities, and we assign the central point to the business or administrative center of the first-mentioned city in the UA, as given by Yahoo Maps. For example, the center of ``New York–Newark, NY-NJ-CT Urbanized Area'' is the corner of Broadway and Chamber St in downtown Manhattan, whereas the center of ``Boston, MA–NH-RI Urbanized Area'' is 1 Boston Pl.
 
-We calulcate the distance of each ZIP code to business center of the nearest MSA. 
+We calulcate the distance of each ZIP code to business center of the nearest UA.
 
 According to the model XX, the employment density of sector $i$ in location $z$ proportional to the rent-wage ratio. When industry $i$ demands positive land in the neighborhood of $z$, then the rent gradient is proportional to $e^{-\tau_iz}$. We can use this observation to estimate $tau_i$.
 \[
@@ -125,7 +194,16 @@ We estimate \eqref{eq:estimable:gradient} by a Poisson regression which ensures 
 
 XX TABLE HERE
 
-The three columns report the estimates for agriculture, manufacturing and services, respectively. The estimated coefficients can be interepreted as follows. The employment density gradient of agriculture is inverted, reflecting the fact that most agricultural activity is carried out away from the cities.
+The three columns report the estimates for agriculture, manufacturing and services, respectively. The estimated coefficients can be interpreted as follows. The employment density gradient of agriculture is inverted, reflecting the fact that most agricultural activity is carried out away from the cities.
+
+\subsection{Sector locations}
+We calibrate $\tau$ so as to match the location of sectors in the U.S. We use the Zip Business Patterns data (XX COPY FROM ABOVE) to calculate the employment-weighted median distance of each sector to the center of the MSA.
+
+Figure XX shows the empirical distribution of distance across the three sectors. While there is certainly a wide range of distances for each sector, and the location of sectors overlaps, there is also a clear location shift visible: the typical agricultural employee is farther away than the typical industry employee, who is, in turn, farther away that service employees.
+
+Table XX reports the median distance of each sector to the city center. Services are closest with 13km, manufacturing are 16km, whereas agriculture is 30km away from the center, as weighted by employment.
+
+\subsection{The urban fringe}
 
 \end{document}
 
