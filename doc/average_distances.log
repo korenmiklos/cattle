@@ -2,10 +2,647 @@
       name:  <unnamed>
        log:  /Users/koren/Dropbox/projects/balassa/code/../doc/average_distances.log
   log type:  text
- opened on:  11 Jun 2012, 23:52:21
+ opened on:  12 Jun 2012, 00:40:46
 
 . 
 . use ../data/zip_business_patterns
+
+. 
+. * calculate the urban fringe
+. collapse (sum) emp est (mean) area pop homes, by(city msa distance zip)
+
+. sort city distance
+
+. foreach X of var area emp est pop homes {
+  2.         by city: gen cum`X' = sum(`X')
+  3.         by city: egen sum`X' = max(cum`X')
+  4.         replace cum`X' = cum`X'/sum`X'
+  5.         
+.         egen `X'fringe = max(cond(cum`X'<.9,distance,.)), by(city)
+  6. }
+(32504 real changes made)
+(32504 real changes made)
+(32504 real changes made)
+(32484 real changes made)
+(32465 real changes made)
+
+. 
+. gen lnpop = ln(sumpop)
+
+. gen lnarea = ln(sumarea)
+
+. gen byte urban = city==msa
+
+. 
+. table city, c(mean empfringe mean popfringe mean homesfringe)
+
+-------------------------------------------------------------------------------------
+                                city | mean(empfri~e)  mean(popfri~e)  mean(homesf~e)
+-------------------------------------+-----------------------------------------------
+                       Aberdeen,  MD |       48.15747         44.3005        42.61452
+                        Abilene,  TX |       101.9272        106.6079        106.6079
+                          Akron,  OH |       29.57537        29.57537        29.57537
+                         Albany,  GA |       68.26083        68.26083        68.26083
+                         Albany,  NY |       22.57569        28.65188        28.65188
+                         Albany,  OR |       25.51752        31.62035        31.62035
+                    Albuquerque,  NM |        22.3842        27.18327        27.18327
+                     Alexandria,  LA |       98.63338        98.63338        104.5597
+                      Allentown,  PA |       27.87676        28.95734        28.95734
+                          Alton,  IL |       65.45907        71.43546        73.24114
+                        Altoona,  PA |       73.84416        73.70673        73.84416
+                       Amarillo,  TX |       190.3174         203.928        203.5348
+                           Ames,  IA |       103.0644        102.1276        103.0644
+                      Anchorage,  AK |       926.6985        867.9935        863.0382
+                       Anderson,  IN |       32.36458        32.50371        32.50371
+                       Anderson,  SC |       55.97459        50.59599        50.59599
+                      Ann Arbor,  MI |       29.11828        29.11828        29.11828
+                       Anniston,  AL |       63.48772        63.48772        63.48772
+                        Antioch,  CA |       16.42617        16.42617        16.42617
+                       Appleton,  WI |        25.0593        29.74495        32.08445
+                  Arroyo Grande,  CA |       9.682893        9.682893        9.682893
+                      Asheville,  NC |        53.2745        55.82555        55.82555
+                         Athens,  GA |       43.53131        43.53131        44.94501
+                        Atlanta,  GA |       40.51488         46.6755        45.95897
+                  Atlantic City,  NJ |       27.49568        34.41225        34.41225
+                         Auburn,  AL |       54.98534        54.98534        54.98534
+                        Augusta,  GA |        56.8489        65.77831         66.4013
+                         Austin,  TX |       30.65777        40.88034         42.1736
+                       Avondale,  AZ |       26.03025        27.73866        33.27551
+                    Bakersfield,  CA |       32.93487        42.82483         52.3799
+                      Baltimore,  MD |       27.89914        28.76838        28.06582
+                         Bangor,  ME |       215.8838        208.0079         202.396
+                Barnstable Town,  MA |       33.83198        33.80593        38.61116
+                    Baton Rouge,  LA |       34.51735        36.65355        36.88449
+                   Battle Creek,  MI |       43.26464        47.17901        47.17901
+                       Bay City,  MI |       158.4489        158.4489        158.4489
+                       Beaumont,  TX |       67.06955        86.77676        86.77676
+                        Beckley,  WV |       68.58328        76.65383        77.36037
+                     Bellingham,  WA |       50.19918        50.19918        89.16841
+                         Beloit,  WI |       48.11272        48.11272        48.11272
+                           Bend,  OR |         61.058        67.67757        71.20445
+                  Benton Harbor,  MI |       35.71591        35.74929        37.94011
+                       Billings,  MT |       203.9135        203.9135        203.9135
+                     Binghamton,  NY |       46.48078        46.48078        51.13088
+                     Birmingham,  AL |       36.86499        49.26213        49.46321
+                       Bismarck,  ND |       263.5343        271.9945        271.9945
+                     Blacksburg,  VA |       79.65344        69.45923        69.45923
+                    Bloomington,  IL |       53.81713        56.75419        62.46646
+                    Bloomington,  IN |       74.17069        64.17971        64.17971
+                     Bloomsburg,  PA |        38.5827         37.8731         37.8731
+                     Boise City,  ID |       153.0808        153.0808        156.2598
+                 Bonita Springs,  FL |       71.50837        71.50837        48.87489
+                         Boston,  MA |       27.85872        30.42107        30.13791
+                        Boulder,  CO |       145.4755        145.4755        145.4755
+                  Bowling Green,  KY |       66.85549        75.20148        75.79328
+                      Bremerton,  WA |       37.93742        37.93742        37.93742
+                     Bridgeport,  CT |       49.75517        50.63119        50.63119
+                        Bristol,  TN |       69.53623         77.9477         77.9477
+                    Brownsville,  TX |       13.87761        18.45681        18.45681
+                      Brunswick,  GA |       74.32549        74.32549        74.32549
+                        Buffalo,  NY |       54.59167        60.37319        63.47252
+                     Burlington,  NC |       59.37122        59.37122        59.37122
+                     Burlington,  VT |        95.3345        102.1081        103.6075
+                      Camarillo,  CA |       8.931591        8.931591        8.931591
+                         Canton,  OH |       40.16615        41.24092        40.48179
+                     Cape Coral,  FL |       20.77385        33.98775         33.4045
+                 Cape Girardeau,  MO |       100.7086        100.7086        101.9826
+                     Carbondale,  IL |       86.67198        86.67198        86.67198
+                    Carson City,  NV |       40.84451        67.63486        80.62167
+                   Cartersville,  GA |       33.00198        33.83047        33.83047
+                    Casa Grande,  AZ |       119.8229         192.166         192.166
+                         Casper,  WY |       186.5013        186.5013        186.5013
+                   Cedar Rapids,  IA |       38.54955        46.51768        46.51768
+                   Chambersburg,  PA |       29.85995        33.98145        35.34059
+                      Champaign,  IL |       34.20374        37.07539        37.07539
+                     Charleston,  SC |       34.49846        47.10219        50.96947
+                     Charleston,  WV |        59.0978        59.61538        61.72283
+                      Charlotte,  NC |       18.92966        22.26318        22.26318
+                Charlottesville,  VA |       38.37685        42.34496        42.25842
+                    Chattanooga,  TN |       30.11403        43.69916        43.69916
+                       Cheyenne,  WY |       175.7408        175.7408        192.7785
+                        Chicago,  IL |       38.90364        40.23736        39.45864
+                          Chico,  CA |       78.04828         88.2351         88.2351
+                     Cincinnati,  OH |       29.19772         48.6961         48.6961
+                    Clarksville,  TN |       82.72915        82.72915          83.453
+                      Cleveland,  OH |        31.0948         31.0948         31.0948
+                      Cleveland,  TN |        79.8192        67.47758        67.47758
+                  Coeur d'Alene,  ID |       87.61691        114.2803        114.2803
+                College Station,  TX |       73.40001        69.46578        73.40001
+               Colorado Springs,  CO |       48.12763        54.98785        57.21647
+                       Columbia,  MO |       135.9379        136.5552        136.5552
+                       Columbia,  SC |       52.50384        51.48953        53.42011
+                       Columbus,  GA |       50.28965         58.4921         58.4921
+                       Columbus,  IN |        60.8747         60.8747         60.8747
+                       Columbus,  OH |       36.91241        40.88697        40.88697
+                        Concord,  CA |       17.20272        17.93709        17.93709
+                        Concord,  NC |       36.70793        42.91292        44.61906
+                         Conroe,  TX |       51.77238        55.35295        70.32774
+                         Conway,  AR |       76.17609        88.94225        88.94225
+                 Corpus Christi,  TX |       67.98775        67.98775        67.98775
+                      Corvallis,  OR |        68.0855        66.21626         68.0855
+                     Cumberland,  MD |       37.53407        47.88816        47.88816
+                         Dallas,  TX |       49.26138        55.12926         55.1418
+                         Dalton,  GA |       34.94279        34.94279         39.4255
+                        Danbury,  CT |        43.6633         43.6633        43.33045
+                       Danville,  IL |       33.62917        36.87754        36.87754
+                         Daphne,  AL |        52.8681         52.8681         52.8681
+                      Davenport,  IA |       73.46759        75.97752        75.97752
+                          Davis,  CA |       5.512477        5.512477        5.512477
+                         Dayton,  OH |       38.70586        35.59983         31.4755
+                         DeKalb,  IL |       54.48558        56.47147        56.47147
+                        Decatur,  AL |       54.29566        54.29566        54.29566
+                        Decatur,  IL |       83.01974        83.01974        83.01974
+                         Delano,  CA |        26.0927        21.96895        21.96895
+                        Deltona,  FL |       34.98641        32.07477        34.98641
+                         Denton,  TX |       66.46053        66.46053        66.82732
+                         Denver,  CO |       23.12101        28.77136        28.77136
+                     Des Moines,  IA |       73.13371        86.55698        86.93993
+                        Detroit,  MI |       32.37674        34.78766        32.60133
+                         Dothan,  AL |       63.28655          65.956          65.956
+                          Dover,  DE |       56.07454         46.5052        46.55012
+                          Dover,  NH |       65.00774        65.00774        68.80733
+                        Dubuque,  IA |       66.69592        66.69592        66.69592
+                         Duluth,  MN |       131.1356        145.4102        151.6131
+                         Durham,  NC |       45.11051        53.67766        53.67766
+               East Stroudsburg,  PA |       50.30493        53.74708        54.19206
+                     Eau Claire,  WI |       77.90238        77.90238        91.48866
+                      El Centro,  CA |       28.61673        34.54503        56.99006
+El Paso de Robles (Paso Robles),  CA |       67.83884        69.88692        67.83884
+                        El Paso,  TX |       17.37258        34.31291        34.31291
+                  Elizabethtown,  KY |       79.70844        79.70844        81.45576
+                        Elkhart,  IN |       52.67182        49.79448        49.79448
+                         Elmira,  NY |       73.41251         76.7515        80.79157
+                           Erie,  PA |       82.87598         83.2001        84.19312
+                         Eugene,  OR |       89.25537        89.25537        91.11918
+                     Evansville,  IN |       71.54558        79.59758        79.59758
+                      Fairbanks,  AK |       646.5787        646.5787        646.5787
+                      Fairfield,  CA |       8.065877        8.065877        8.065877
+                          Fargo,  ND |       178.9909        161.6322        161.3944
+                     Farmington,  NM |       139.3372        146.9158        146.9158
+                   Fayetteville,  AR |       74.38792        74.38792        74.38792
+                   Fayetteville,  NC |       55.86635         56.0907         56.0907
+                      Flagstaff,  AZ |       174.8857         187.535        193.5763
+                          Flint,  MI |       37.23051        37.32278        37.32278
+                       Florence,  AL |       117.4836        117.4836        117.4836
+                       Florence,  SC |        65.2879        65.78545        65.78545
+                    Fond du Lac,  WI |       46.70148        46.70148        46.70148
+                   Fort Collins,  CO |       11.39646        13.80728        29.11027
+                     Fort Smith,  AR |        82.7105        85.84033        85.84033
+              Fort Walton Beach,  FL |       59.92895        59.92895        59.92895
+                     Fort Wayne,  IN |       51.41574        53.97224          54.847
+                      Frederick,  MD |       38.34528        38.34528        38.34528
+                 Fredericksburg,  VA |       51.10881        49.37081        49.51179
+                         Fresno,  CA |       24.76887        27.17602        30.51601
+                        Gadsden,  AL |       47.03283        47.03283        47.03283
+                    Gainesville,  FL |       63.83676        61.16866        62.62447
+                    Gainesville,  GA |       41.74096        51.93577        63.15339
+                       Gastonia,  NC |       33.29663        33.29663        33.29663
+                         Gilroy,  CA |       20.38129        20.38129        20.38129
+                    Glens Falls,  NY |       79.13808        71.25942        78.67406
+                      Goldsboro,  NC |       37.43095        37.43095        37.43095
+                    Grand Forks,  ND |        156.127        162.1242        174.0248
+                   Grand Island,  NE |       208.8523        208.8523        213.4556
+                 Grand Junction,  CO |       177.5874        177.5874        154.0305
+                   Grand Rapids,  MI |       21.89611        37.85884         38.5004
+                    Grants Pass,  OR |       92.16804        92.16804        92.16804
+                    Great Falls,  MT |       170.2689        170.2689        170.2689
+                        Greeley,  CO |       169.4476        169.4476        188.1806
+                      Green Bay,  WI |       212.5726        215.5264        218.7717
+                     Greensboro,  NC |       27.04269        44.00172        44.00172
+                     Greenville,  NC |       41.44461        48.19187        48.19187
+                     Greenville,  SC |       49.08562        41.95964        49.44581
+                       Gulfport,  MS |       20.01662        26.76198        26.76198
+                     Hagerstown,  MD |       26.13251        30.09419        30.09419
+                        Hammond,  LA |       76.19514        76.19514        76.19514
+                        Hanford,  CA |       28.34225        42.63903        29.27849
+                        Hanover,  PA |       19.80772        19.80772        19.80772
+                      Harlingen,  TX |       29.16211        23.87721        29.16211
+                     Harrisburg,  PA |       26.22176        30.93453        30.93453
+                   Harrisonburg,  VA |        59.8726        55.13079        55.13079
+                       Hartford,  CT |       19.73858        23.58421        23.58421
+                    Hattiesburg,  MS |       121.3497        112.5184        112.5184
+                       Hazleton,  PA |       28.68816        29.65196        29.72505
+                          Hemet,  CA |       30.94814        30.94814        30.94814
+                        Hickory,  NC |       55.96512        55.96512        55.96512
+                     High Point,  NC |       30.18037        32.27572        32.27572
+             Hilton Head Island,  SC |       38.65091        50.07028        44.05632
+                     Hinesville,  GA |       89.37931        89.37931        89.37931
+                        Holland,  MI |       18.13579        25.94684        32.08031
+              Homosassa Springs,  FL |        29.5223         29.5223         29.5223
+                    Hot Springs,  AR |       53.82953         66.1504         66.1504
+                          Houma,  LA |       50.79361        50.76189        50.79361
+                        Houston,  TX |       31.23059        38.35342        36.21215
+                     Huntington,  WV |       93.67613        88.50389        88.50389
+                     Huntsville,  AL |       48.20868        54.13648        54.33804
+                    Idaho Falls,  ID |       156.6587        128.3107        179.1606
+                   Indianapolis,  IN |       24.21552         28.4276        27.63022
+                          Indio,  CA |       31.55807        49.94997        49.94997
+                      Iowa City,  IA |       109.0056        126.1703        126.1703
+                         Ithaca,  NY |       48.26733        48.26733        48.26733
+                        Jackson,  MI |       46.58811        46.58811        46.58811
+                        Jackson,  MS |       113.4383         122.197        122.9995
+                        Jackson,  TN |       91.22617        85.98959        85.98959
+                   Jacksonville,  FL |       24.15799        33.59203        33.59203
+                   Jacksonville,  NC |       33.94912        33.94912        41.63706
+                     Janesville,  WI |        38.8875         38.8875         38.8875
+                 Jefferson City,  MO |       84.05726        100.6749        107.5153
+                   Johnson City,  TN |       40.41377        46.50978         46.8968
+                      Johnstown,  PA |       39.97241         42.2771        42.10732
+                      Jonesboro,  AR |       94.61606        97.17497        98.69297
+                         Joplin,  MO |       101.7553        96.36626        96.36626
+                        Kahului,  HI |        184.152        206.4574        206.4574
+       Kailua (Honolulu County),  HI |        31.4602        24.73981        24.73981
+                      Kalamazoo,  MI |       22.78094        31.29874        33.05334
+                       Kankakee,  IL |       53.31496        53.31496        53.31496
+                    Kansas City,  MO |          24.87         33.7569        32.34685
+                      Kennewick,  WA |       50.96079        53.81604        53.81604
+                        Kenosha,  WI |       14.63663        14.63663        14.63663
+                        Killeen,  TX |       76.46316        76.46316        78.79062
+                      Kingsport,  TN |       99.59338        99.59338        99.59338
+                       Kingston,  NY |       38.08761        38.08761        39.31026
+                      Kissimmee,  FL |       18.61467        21.15188        21.19897
+                      Knoxville,  TN |       72.13335        86.27045        86.27045
+                         Kokomo,  IN |       43.40331        48.95865        48.95865
+                      La Crosse,  WI |       65.55351        75.62318        79.42171
+                      Lady Lake,  FL |       16.48911         17.6131         17.6131
+                      Lafayette,  CO |       15.60756        16.45406        16.45406
+                      Lafayette,  IN |        41.5411         41.5411         41.5411
+                      Lafayette,  LA |       39.41547        48.29228        48.29228
+                   Lake Charles,  LA |        52.8142        59.61296        59.61296
+               Lake Havasu City,  AZ |       87.68777        105.0918        96.80651
+                   Lake Jackson,  TX |       80.46175        66.39773        66.39773
+                       Lakeland,  FL |       19.89824         25.8122         25.8122
+                      Lancaster,  CA |       56.70998        41.01291        56.70998
+                      Lancaster,  PA |       20.00583        25.77173        22.45978
+                        Lansing,  MI |       29.41871        37.88282        34.91065
+                         Laredo,  TX |       135.3264        135.3264        135.3264
+                     Las Cruces,  NM |       151.1329        151.1329        151.4524
+                      Las Vegas,  NV |       17.42495        23.38715        24.09946
+                       Lawrence,  KS |       54.16758        54.16758        54.92304
+                         Lawton,  OK |       126.8341        118.6912        124.5938
+                        Lebanon,  PA |       23.88638        30.08804        32.06872
+                   Lee's Summit,  MO |       57.35123        67.48665        70.06606
+                       Leesburg,  FL |       32.80696        32.80696        32.80696
+                     Leominster,  MA |       65.44005        63.04365        65.44005
+                       Lewiston,  ID |        75.9761        80.77287        86.68439
+                       Lewiston,  ME |       85.26065        84.67783        97.64919
+                 Lexington Park,  MD |       48.28803         43.1644        48.28803
+                      Lexington,  KY |       98.79678        95.51267        98.79678
+                           Lima,  OH |       56.76943        56.93376        56.93376
+                        Lincoln,  NE |       86.06632        86.06632        86.06632
+                    Little Rock,  AR |       24.63196        36.73952        36.73952
+                      Livermore,  CA |       24.70197        26.81444        26.81444
+                           Lodi,  CA |       51.33989        55.46891         56.8434
+                          Logan,  UT |       231.5686        231.5686        231.5686
+                         Lompoc,  CA |       22.36346        22.36346        22.36346
+                       Longmont,  CO |       23.27004        23.85206        23.85206
+                       Longview,  TX |       82.42751        82.42751        82.42751
+                       Longview,  WA |       75.83164        75.83164        87.72337
+                         Lorain,  OH |       46.55011        46.55011        46.55011
+                    Los Angeles,  CA |       32.33945        32.33945        32.52758
+                      Los Lunas,  NM |        110.597        144.1857        152.4532
+    Louisville/Jefferson County,  KY |       32.44948        42.19667        41.94705
+                        Lubbock,  TX |       191.9863        191.9863        191.9863
+                      Lynchburg,  VA |       63.87626        69.09702        71.49885
+                          Macon,  GA |       64.71674        64.71674        64.71674
+                         Madera,  CA |        58.5524        46.86283         58.5524
+                        Madison,  WI |       54.28366         56.4039        63.18037
+                     Manchester,  NH |       94.36163        88.17567        89.66297
+                     Mandeville,  LA |        35.8661         35.8661         35.8661
+                      Manhattan,  KS |        102.013         102.013         102.013
+                        Mankato,  MN |       112.5547         110.295        117.1162
+                      Mansfield,  OH |        54.6081         54.6081         54.6081
+                        Manteca,  CA |       7.392093        10.21352        10.21352
+                     Marysville,  WA |       29.99881        29.99881        29.99881
+                        Mauldin,  SC |       14.05741        18.19073        26.70634
+                        McAllen,  TX |       22.00085         27.7099         27.7099
+                       McKinney,  TX |       39.50147        41.68173        47.20794
+                        Medford,  OR |       91.31701        91.31701        91.31701
+                        Memphis,  TN |       91.62489        102.9012        102.9012
+                         Merced,  CA |       41.07978        41.07978        50.19129
+                          Miami,  FL |       65.98726        64.14212        68.93218
+                  Michigan City,  IN |       46.74791        46.74791        46.74791
+                     Middletown,  NY |       64.16355         60.5106        61.38844
+                     Middletown,  OH |       50.72839        50.72839        50.72839
+                        Midland,  MI |       201.2477          207.07        214.9043
+                        Midland,  TX |       62.17168        68.03883        68.03883
+                      Milwaukee,  WI |       26.46563        28.96448        26.51639
+                    Minneapolis,  MN |        37.1171        45.93804        45.93804
+                  Mission Viejo,  CA |        32.6281        32.82868        32.79006
+                       Missoula,  MT |       168.2501        168.2501        168.2501
+                         Mobile,  AL |       45.62525        57.16671        69.62535
+                        Modesto,  CA |       28.94597        26.93422        68.74168
+                       Monessen,  PA |       33.95353        33.95353        33.95353
+                         Monroe,  LA |       89.78092        89.78092        89.78092
+                         Monroe,  MI |       23.27592        23.27592        23.27592
+                     Montgomery,  AL |         71.491          71.491        71.87226
+                     Morgantown,  WV |        79.0573        72.63228        74.54804
+                     Morristown,  TN |        90.7606        108.3427        108.3427
+                   Mount Vernon,  WA |       25.45611        25.45611        28.40389
+                         Muncie,  IN |       43.09828        45.59966        44.88876
+                   Murfreesboro,  TN |        88.1659         88.1659         88.1659
+                       Murrieta,  CA |       44.74506        42.36389        42.36389
+                       Muskegon,  MI |       89.16532        109.0093        112.2379
+                   Myrtle Beach,  SC |       46.31208         53.8714         53.8714
+                          Nampa,  ID |       60.95177        60.95177        60.95177
+                           Napa,  CA |        14.0119         14.0119         14.0119
+                         Nashua,  NH |       27.64581        27.64581        27.64581
+                      Nashville,  TN |       35.16405         39.4619         39.4619
+                    New Bedford,  MA |        36.4806         36.4806         36.4806
+                       New Bern,  NC |       49.92619        49.92619        64.10417
+                      New Haven,  CT |        48.5755        48.32694        58.21657
+                    New Orleans,  LA |       15.93328         18.6368         18.6368
+                       New York,  NY |       38.03154        36.98478        36.58138
+                         Newark,  OH |       57.32532        55.45839         56.7153
+                         Norman,  OK |       73.55322        73.55322        73.55322
+                     North Port,  FL |       23.07926        32.05903        23.07926
+                        Norwich,  CT |       36.34542        36.34542        51.01899
+                          Ocala,  FL |       16.06573        22.75951        26.89937
+                         Odessa,  TX |       198.5201        198.5201        200.8264
+                          Ogden,  UT |         18.225          18.225          18.225
+                  Oklahoma City,  OK |       78.50905        90.58899        94.19345
+                        Olympia,  WA |       47.52653        54.52156         56.7454
+                          Omaha,  NE |       49.71466        65.25187        65.45739
+                        Orlando,  FL |       19.66813        22.62327        22.62327
+                        Oshkosh,  WI |       57.43517        60.05611        71.71305
+                      Owensboro,  KY |       71.29234         66.8559         66.8559
+                         Oxnard,  CA |       8.796583        8.796583        10.04753
+                       Palm Bay,  FL |        33.3309         33.3309         33.3309
+                     Palm Coast,  FL |       29.09114        34.04862        34.88081
+                    Panama City,  FL |       50.02767        58.70269        58.70269
+                    Parkersburg,  WV |       54.13322          60.721          60.721
+                     Pascagoula,  MS |       21.11271        27.68265        27.68265
+                      Pensacola,  FL |        36.8306        37.28588        37.28588
+                         Peoria,  IL |       74.73946        78.18402        78.18402
+                       Petaluma,  CA |        24.3984         24.3984         24.3984
+                   Philadelphia,  PA |       30.81059        28.59681        28.59681
+                        Phoenix,  AZ |       32.21548        35.96059        38.20841
+                     Pine Bluff,  AR |       127.1233        127.1233        124.2268
+                     Pittsburgh,  PA |       33.97877          43.223        42.43958
+                     Pittsfield,  MA |       61.37185         57.7803        61.37185
+                      Pocatello,  ID |       165.4011        165.4011        165.4011
+                    Port Arthur,  TX |        16.0671         16.0671         16.0671
+                     Port Huron,  MI |       51.94886        51.94886        52.63997
+                 Port St. Lucie,  FL |       78.65448        79.00121        79.00121
+                    Porterville,  CA |        16.7982         16.7982        44.85944
+                       Portland,  ME |       25.32311        30.98314        37.21991
+                       Portland,  OR |       25.09995        34.40497        34.40497
+                     Portsmouth,  NH |       30.13709        31.52483        30.28975
+                      Pottstown,  PA |       35.22744        35.22744        35.22744
+                   Poughkeepsie,  NY |       53.40641        53.40641        53.40641
+                Prescott Valley,  AZ |       76.68552        89.32579        89.32579
+                     Providence,  RI |        28.9883        29.75896        29.75896
+                          Provo,  UT |       119.3321        119.3321        132.9844
+                         Pueblo,  CO |       173.7971        173.7971        173.7971
+                         Racine,  WI |       16.00207        20.70642        20.70642
+                        Raleigh,  NC |       31.33783        31.33783        31.33783
+                     Rapid City,  SD |       236.0428        236.0428        236.0428
+                        Reading,  PA |       22.70801        23.23047        23.23047
+                        Redding,  CA |       147.6475        147.6475        147.6475
+                           Reno,  NV |       60.54391        117.3773        117.3773
+                       Richmond,  VA |       34.96693        40.79326        43.77874
+                      Riverside,  CA |       31.45491        31.60732        31.60732
+                        Roanoke,  VA |       61.24496        61.24496        61.24496
+                      Rochester,  MN |       61.20838        61.20838        61.36715
+                      Rochester,  NY |       44.34113        51.13893        51.13893
+                      Rock Hill,  SC |       40.13123        40.13123        40.13123
+                       Rockford,  IL |       57.36068        57.36068        57.36068
+                    Rocky Mount,  NC |       82.73554        82.73554        81.51146
+                           Rome,  GA |       51.81845        48.80665        48.80665
+               Round Lake Beach,  IL |       36.30581         36.8676         36.8676
+                     Sacramento,  CA |       32.05164        35.20996        37.75972
+                        Saginaw,  MI |       17.55298        22.13832        22.13832
+                          Salem,  OR |       35.64737        35.64737        37.12016
+                        Salinas,  CA |       10.99065        28.14692        28.14692
+                      Salisbury,  MD |        48.6299        48.02982        50.37716
+                 Salt Lake City,  UT |       27.50847        30.13878        30.19982
+                     San Angelo,  TX |       194.6102        194.6102        194.6102
+                    San Antonio,  TX |       29.77966        49.94125        53.40685
+                      San Diego,  CA |        35.7161        40.98874        40.98874
+                  San Francisco,  CA |       27.66115        27.09233        25.64185
+                       San Jose,  CA |       26.16331        24.32331        26.16331
+                San Luis Obispo,  CA |       12.72975        15.76867        15.76867
+                     San Marcos,  TX |       64.19828        64.19828        64.19828
+                  Santa Barbara,  CA |       38.40813        38.40813        38.40813
+                  Santa Clarita,  CA |       20.49749        21.24986        21.24986
+                     Santa Cruz,  CA |       11.74668        16.02552        16.02552
+                       Santa Fe,  NM |       91.40566        91.40566         107.585
+                    Santa Maria,  CA |       15.99262        15.99262        15.99262
+                     Santa Rosa,  CA |       85.94978        85.94978        85.94978
+                       Sarasota,  FL |       22.06251        23.57555        23.57555
+               Saratoga Springs,  NY |       45.52842        44.89906        44.89906
+                       Savannah,  GA |       16.17177        37.56819        37.56819
+                       Scranton,  PA |        28.3311        37.05883        40.46482
+                        Seaside,  CA |       10.92495        10.92495        10.92495
+                        Seattle,  WA |       32.90829        35.14042        35.14042
+                      Sebastian,  FL |       26.99167        26.99167        26.99167
+                        Sebring,  FL |       50.21257        50.21257        50.21257
+                      Sheboygan,  WI |       34.57092        34.57092        34.57092
+                        Sherman,  TX |       92.67844        100.0612        100.0612
+                     Shreveport,  LA |       57.61339         73.3759        73.68133
+                   Sierra Vista,  AZ |       137.9508        137.9508        137.9508
+                    Simi Valley,  CA |       22.23068        22.23068        22.23068
+                     Sioux City,  IA |       112.2072        112.2072        116.0787
+                    Sioux Falls,  SD |       156.1553        156.1553        156.1553
+                        Slidell,  LA |       29.01582        29.01582        29.01582
+                     South Bend,  IN |       29.24802        29.24802        29.24802
+                     South Lyon,  MI |       38.15245        33.27444        34.01445
+                    Spartanburg,  SC |       40.97716        41.95378        41.95378
+                        Spokane,  WA |       29.78859        59.89706        71.25221
+                    Spring Hill,  FL |       30.80378        30.80378        30.80378
+                    Springfield,  IL |       60.91476        73.08941        73.08941
+                    Springfield,  MA |       30.99952        30.99952        30.99952
+                    Springfield,  MO |       118.5269        119.3109        119.3109
+                    Springfield,  OH |       49.11191        49.92593        49.92593
+                  St. Augustine,  FL |       40.68888        40.68888        40.68888
+                      St. Cloud,  MN |       119.6336        113.7149        124.0566
+                     St. George,  UT |       84.85344        106.4165        117.9006
+                     St. Joseph,  MO |       100.8565         105.255        107.8533
+                      St. Louis,  MO |       44.43264        58.58069        57.69081
+                  State College,  PA |       90.93934        90.93934        90.93934
+                       Staunton,  VA |       44.97542         43.4193        72.97122
+                       Stockton,  CA |        11.7403         11.7403        11.78749
+                         Sumter,  SC |       48.79306        55.61675        55.61675
+                       Syracuse,  NY |       36.36338        49.25836        49.25836
+                    Tallahassee,  FL |       47.70516         53.0043         53.0043
+                          Tampa,  FL |       31.82396        33.55749        33.69773
+                         Temple,  TX |       43.39533        43.39533        43.39533
+                    Terre Haute,  IN |       59.67578        68.97598        72.65445
+                      Texarkana,  TX |       83.41425         87.9426        91.99017
+                     Texas City,  TX |       28.98659         29.2406         29.2406
+                  Thousand Oaks,  CA |       13.90804        13.90804        13.90804
+                     Titusville,  FL |       29.39397        26.39922        26.81588
+                         Toledo,  OH |       57.15824        53.14168        53.14168
+                         Topeka,  KS |       81.67452        81.67452        81.67452
+                          Tracy,  CA |        7.81227        19.77538        19.77538
+                        Trenton,  NJ |       33.94014        33.94014        33.94014
+                         Tucson,  AZ |       21.89737        43.87864        44.34396
+                          Tulsa,  OK |       65.78766        80.02916        80.02916
+                        Turlock,  CA |       27.34636        35.99432        35.99432
+                     Tuscaloosa,  AL |       124.0916        130.3607        130.3607
+                    Twin Rivers,  NJ |       41.22662        42.21936        42.21936
+                          Tyler,  TX |       120.0984        110.7274        107.9321
+                      Uniontown,  PA |       37.18076        37.18076        37.76067
+                 Urban Honolulu,  HI |       21.22473        36.85043        173.7934
+                          Utica,  NY |       43.72182        49.21815        50.67377
+                      Vacaville,  CA |       7.196383        7.196383        7.196383
+                       Valdosta,  GA |       88.72758        82.70434        82.70434
+                        Vallejo,  CA |       12.09926        15.17237        15.17237
+                       Victoria,  TX |       74.15318        84.33411        84.33411
+                    Victorville,  CA |       57.63836        57.63836        57.63836
+                         Villas,  NJ |       38.63774        38.63774        38.63774
+                       Vineland,  NJ |       28.08285        28.08285        28.37718
+                 Virginia Beach,  VA |       46.17725        50.20665        61.11007
+                        Visalia,  CA |       18.82397        30.13127        30.13127
+                           Waco,  TX |       92.92796           90.64        92.92796
+                        Waldorf,  MD |       30.40497        30.40497        30.40497
+                    Walla Walla,  WA |       129.4231        129.4231        129.4231
+                  Warner Robins,  GA |       73.98764        84.85658        84.85658
+                     Washington,  DC |       33.61176        36.37698        33.61176
+                      Waterbury,  CT |       26.40194        25.43458        27.75663
+                       Waterloo,  IA |       100.5358        100.5358        100.5358
+                      Watertown,  NY |       114.3219        111.0652        111.0652
+                    Watsonville,  CA |       11.71464        9.142402        9.142402
+                         Wausau,  WI |       125.2991        196.8981        196.8981
+                        Weirton,  WV |        38.4921         39.2009         39.2009
+                      Wenatchee,  WA |       113.7612        120.5672        120.5672
+                      West Bend,  WI |        41.1861         41.1861         41.1861
+                    Westminster,  MD |       26.18382        27.25454        26.18382
+                       Wheeling,  WV |       48.17819        50.08851        50.24632
+                  Wichita Falls,  TX |       82.56487        82.63734        83.98387
+                        Wichita,  KS |        217.763         217.763          215.33
+                   Williamsburg,  VA |       40.54616        47.54519          47.939
+                   Williamsport,  PA |       58.64309        52.38618        58.64309
+                     Wilmington,  NC |       38.59713        49.82295        49.82295
+                     Winchester,  VA |       39.42782        44.03191        44.61122
+                        Winston,  NC |       53.75977        53.75977        53.75977
+                   Winter Haven,  FL |        19.6183         19.6183         19.6183
+                       Woodland,  CA |       19.43235        19.43235        19.43235
+                      Worcester,  MA |       30.45278         30.1985         30.1985
+                         Yakima,  WA |       42.57503        61.61133        61.61133
+                           York,  PA |       14.74886        20.88418        20.34064
+                     Youngstown,  OH |       50.13786        50.55774        50.55774
+                      Yuba City,  CA |       56.26818        56.67965        61.19808
+                           Yuma,  AZ |       62.96971        62.96971        62.96971
+                    Zephyrhills,  FL |       20.65625        20.65625        20.65625
+-------------------------------------------------------------------------------------
+
+. poisson empfringe urban lnpop lnarea
+note: you are responsible for interpretation of noncount dep. variable
+
+Iteration 0:   log likelihood = -258549.19  
+Iteration 1:   log likelihood = -258540.06  
+Iteration 2:   log likelihood = -258540.06  
+
+Poisson regression                                Number of obs   =      32504
+                                                  LR chi2(3)      = 1228283.64
+                                                  Prob > chi2     =     0.0000
+Log likelihood = -258540.06                       Pseudo R2       =     0.7037
+
+------------------------------------------------------------------------------
+   empfringe |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+       urban |  -.1752827   .0016166  -108.42   0.000    -.1784512   -.1721142
+       lnpop |  -.0657088   .0009865   -66.61   0.000    -.0676423   -.0637753
+      lnarea |   .5753361   .0005524  1041.55   0.000     .5742535    .5764188
+       _cons |  -.3253363   .0149478   -21.76   0.000    -.3546334   -.2960391
+------------------------------------------------------------------------------
+
+. 
+. egen distrank = rank(distance), by(city)
+
+. egen maxrank = max(distrank), by(city)
+
+. replace distrank = int(20*(distrank-1)/maxrank)
+(32395 real changes made)
+
+. 
+. * shape of cities
+. replace cumarea = cumarea*sumarea
+(32504 real changes made)
+
+. collapse (mean) cumarea distance, by(city distrank)
+
+. egen citycode = group(city)
+
+. gen lndistance = ln(distance)
+
+. gen lncumarea = ln(cumarea)
+
+. egen maxdistance = max(distance), by(city)
+
+. 
+. gen lncircular = ln(distance^2*3.14159)
+
+. 
+. label var lncumarea "Cumulated area from city center (log)"
+
+. label var lndistance "Distance to city center (log)"
+
+. label var lncircular "Circular area (log)"
+
+. 
+. * shape of area distance relationship, should be quadratic in plain
+. xtpoisson cumarea lndistance, i(citycode) fe
+note: you are responsible for interpretation of non-count dep. variable
+
+Iteration 0:   log likelihood =  -17986797  
+Iteration 1:   log likelihood = -1141155.4  
+Iteration 2:   log likelihood = -1123401.4  
+Iteration 3:   log likelihood = -1123395.9  
+Iteration 4:   log likelihood = -1123395.9  
+
+Conditional fixed-effects Poisson regression    Number of obs      =      9211
+Group variable: citycode                        Number of groups   =       486
+
+                                                Obs per group: min =         3
+                                                               avg =      19.0
+                                                               max =        20
+
+                                                Wald chi2(1)       =  2.30e+07
+Log likelihood  = -1123395.9                    Prob > chi2        =    0.0000
+
+------------------------------------------------------------------------------
+     cumarea |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+  lndistance |   1.297964   .0002708  4792.80   0.000     1.297434    1.298495
+------------------------------------------------------------------------------
+
+. xtpoisson cumarea lndistance if distance<100, i(citycode) fe
+note: you are responsible for interpretation of non-count dep. variable
+
+Iteration 0:   log likelihood = -8475901.6  
+Iteration 1:   log likelihood = -434084.04  
+Iteration 2:   log likelihood = -387276.09  
+Iteration 3:   log likelihood = -387184.65  
+Iteration 4:   log likelihood = -387184.65  
+
+Conditional fixed-effects Poisson regression    Number of obs      =      8335
+Group variable: citycode                        Number of groups   =       486
+
+                                                Obs per group: min =         2
+                                                               avg =      17.2
+                                                               max =        20
+
+                                                Wald chi2(1)       =  1.10e+07
+Log likelihood  = -387184.65                    Prob > chi2        =    0.0000
+
+------------------------------------------------------------------------------
+     cumarea |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+  lndistance |   1.476067    .000444  3324.10   0.000     1.475197    1.476937
+------------------------------------------------------------------------------
+
+. 
+. * nonparametric
+. tw (scatter lncumarea lndistance) (line lncircular lndistance), scheme(s2color)
+
+. graph export ../text/figures/circular_city_in_data.png, replace width(800)
+(file ../text/figures/circular_city_in_data.png written in PNG format)
+
+. 
+. 
+. use ../data/zip_business_patterns, clear
 
 . 
 . * convert population into sector 0
@@ -49,8 +686,10 @@
 . tw (line cumsum lndistance if sector==1, sort) /*
 > */ (line cumsum lndistance if sector==2, sort) /*
 > */ (line cumsum lndistance if sector==3, sort) /*
-> */ (line cumsum lndistance if sector==0, sort) /*
-> */, scheme(s2color) legend(order(1 "Agriculture" 2 "Industry" 3 "Services" 4 "Housing"))
+> */, scheme(s2color) legend(order(1 "Agriculture" 2 "Industry" 3 "Services"))
+
+. graph export ../text/figures/sector_distance_cdfs.png, replace width(800)
+(file ../text/figures/sector_distance_cdfs.png written in PNG format)
 
 . 
 . * median weighted distances
@@ -111,5 +750,5 @@
       name:  <unnamed>
        log:  /Users/koren/Dropbox/projects/balassa/code/../doc/average_distances.log
   log type:  text
- closed on:  11 Jun 2012, 23:52:28
+ closed on:  12 Jun 2012, 00:41:08
 --------------------------------------------------------------------------------------------------------------
