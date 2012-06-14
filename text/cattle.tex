@@ -128,6 +128,7 @@ This pins down the gradient of the bid-rent curve. Substituting into the labor-l
 \]
 gives us the employment gradient.
 
+\subsection{Aggregation across space}
 Value added per unit of land at consumer prices,
 \[
 \frac{P_i Q_i(z)}{L_i(z)} = (1-\beta_i)^{1/\beta_i-1}
@@ -140,6 +141,209 @@ The same at producer prices
 (P_iA_i)^{1/\beta_i}W^{1-1/\beta_i}
  e^{-\frac{\tau_i}{\beta_i} z}.
 \]
+Let 
+\[
+\Lambda_i(z) = \int_0^z L(s)e^{-\frac{\tau_i}{\beta_i} s}ds
+\]
+denote the cumulative area between $0$ and $z$ weighted by the rent gradient of sector $i$. The the total supply of services and manufacturing at producer prices,
+\begin{align*}
+Y_1 &= (1-\beta_1)^{1/\beta_1-1}
+(P_1A_1)^{1/\beta_1}W^{1-1/\beta_1} \Lambda_1(z_1)\\
+Y_2 &= (1-\beta_2)^{1/\beta_2-1}
+(P_2A_2)^{1/\beta_2}W^{1-1/\beta_2} [\Lambda_2(z_2)-\Lambda_2(z_1)]
+\end{align*}
+Overall employment in the sectors,
+\begin{align*}
+N_1 &= (1-\beta_1)^{1/\beta_1}
+\left(\frac{P_1A_1}{W}\right)^{1/\beta_1} \Lambda_1(z_1)\\
+N_2 &= (1-\beta_2)^{1/\beta_2}
+\left(\frac{P_2A_2}{W}\right)^{1/\beta_2}  [\Lambda_2(z_2)-\Lambda_2(z_1)]
+\end{align*}
+
+\[
+N_i = (1-\beta_i)^{1/\beta_i}
+\left(\frac{P_iA_i}{W}\right)^{1/\beta_i}
+\int_{z\in Z_i}L_i(z) e^{-\frac{1}{\beta_i}\tau_i z}dz
+\]
+so that we can express $W/P_i$ as
+\[
+\left(\frac{W}{P_i}\right)^{1/\beta_i} = (1-\beta_i)^{1/\beta_i}
+N_i^{-1}A_i^{1/\beta_i}
+\int_{z\in Z_i}L_i(z) e^{-\frac{1}{\beta_i}\tau_i z}dz
+\]
+\[
+\frac{W}{P_i} = (1-\beta_i)
+N_i^{-\beta_i}A_i
+\left[\int_{z\in Z_i}L_i(z) e^{-\frac{1}{\beta_i}\tau_i z}dz\right]^{\beta_i}
+\]
+\[
+\left(\frac{W}{P_i}\right)^{1-1/\beta_i} = (1-\beta_i)^{1-1/\beta_i}
+N_i^{1-\beta_i}A_i^{1-1/\beta_i}
+\left[\int_{z\in Z_i}L_i(z) e^{-\frac{1}{\beta_i}\tau_i z}dz\right]^{\beta_i-1}
+\]
+
+\subsection{Productivity measurement}
+If we have data on physical output, we can write an aggregate output as
+\[
+Q_i = 
+(1-\beta_i)^{1/\beta_i-1}
+A_i^{1/\beta_i}\left(\frac{W}{P_i}\right)^{1-1/\beta_i}
+\int_{z\in Z_i}L_i(z) e^{-\frac{1-\beta_i}{\beta_i}\tau_i z}dz
+\]
+which takes us to the aggregate production function
+\[
+Q_i = 
+A_iN_i^{1-\beta_i}\left[\int_{z\in Z_i}L_i(z) e^{-\frac{1}{\beta_i}\tau_i z}dz\right]^{\beta_i-1}
+\int_{z\in Z_i}L_i(z) e^{-\frac{1-\beta_i}{\beta_i}\tau_i z}dz
+\]
+\[
+Q_i = 
+A_iL_i^{\beta_i}N_i^{1-\beta_i}
+\left[\int_{z\in Z_i}\frac{L_i(z)}{L_i} e^{-\frac{1}{\beta_i}\tau_i z}dz\right]^{\beta_i-1}
+\int_{z\in Z_i}\frac{L_i(z)}{L_i} e^{-\frac{1-\beta_i}{\beta_i}\tau_i z}dz,
+\]
+where $L_i$ is the unweighted amount of land devoted to the production of good $i$. Aggregate output is a Cobb--Douglas function of land and labor, adjusted with trade costs (the last two terms). The adjustment factor is always less than one, as it is a weighted average of trade cost factors. The factor is smaller for sectors with large trade costs ($\tau_i$) and sectors farther away from the city. Simply put, services will look unproductive in New York City relative to Budapest, because NYC is larger.
+
+Output per worker
+\[
+\frac{Q_i}{N_i} = \frac1{1-\beta_i}
+\frac{W}{P_i} \frac{\int_{z\in Z_i}L(z)e^{-\frac{1-\beta_i}{\beta_i}\tau_i z}dz}
+{\int_{z\in Z_i}L(z)e^{-\frac{1}{\beta_i}\tau_i z}dz}
+\]
+We want to get rid of prices in this formula
+\[
+\frac{R(z)}{W} =\beta_i(1-\beta_i)^{1/\beta_i-1} \left(\frac{P_iA_i}{W}\right)^{1/\beta_i} e^{-\frac{\tau_i}{\beta_i} z}
+\]
+\[
+\left(\frac{W}{P_i}\right)^{1/\beta_i}  =\beta_i(1-\beta_i)^{1/\beta_i-1} 
+A_i^{1/\beta_i}
+\frac{W}{R(z)}
+ e^{-\frac{\tau_i}{\beta_i} z}
+\]
+\[
+\frac{W}{P_i}  =\beta_i^{\beta_i}(1-\beta_i)^{1-\beta_i} 
+A_i
+\left(\frac{W}{R(z)}\right)^{\beta_i}
+ e^{-\tau_i  z}
+\]
+\[
+\frac{Q_i}{N_i} = \beta_i^{\beta_i}(1-\beta_i)^{-\beta_i} 
+A_i
+\left[\frac{W}{R_i(0)}\right]^{\beta_i}
+ \frac{\int_{z\in Z_i}L(z)e^{-\frac{1-\beta_i}{\beta_i}\tau_i z}dz}
+{\int_{z\in Z_i}L(z)e^{-\frac{1}{\beta_i}\tau_i z}dz},
+\]
+where $R_i(0)$ is the intercept of the rent gradient of sector $i$, that is, the amount of rent it would be willing to pay at the center. 
+
+XX THESE FORMULAS CAN BE MUCH SIMPLER IF output is measured as revenue at producer prices divided by some common price Pi
+
+For $i>0$, we can write 
+\[
+R_i(0) \equiv R_i(z_{i-1})e^{\frac{\tau_i}{\beta_i}z_{i-1}} = R_{i-1}(z_{i-1})e^{\frac{\tau_i}{\beta_i}z_{i-1}}
+= R_{i-1}(z_{i-2})
+e^{-\frac{\tau_{i-1}}{\beta_{i-1}}(z_{i-1}-z_{i-2})+\frac{\tau_i}{\beta_i}z_{i-1}}
+\]
+so that
+\[
+r_i(0) = r(0)-\sum_{k=1}^i 
+\frac{\tau_{k}}{\beta_{k}}(z_{k}-z_{k-1})
++ \frac{\tau_{i}}{\beta_{i}}z_{i}
+\]
+Log output per worker (XX CANCELLING THE INTEGRAL)
+\[
+q_i - n_i = 
+\beta_i\ln\beta_i+(1-\beta_i)\ln(1-\beta_i)
++a_i +\beta_i [w
+-r(0)]
++\sum_{k=1}^i 
+\frac{\beta_i}{\beta_{k}}\tau_{k}(z_{k}-z_{k-1})
+- \tau_{i}z_{i}
+\]
+Conditional on true productivity $a_i$, measured productivity is lower in cities where rents are higher. The magnitude of this bias depends on the (direct and indirect) land share of the sector, $\beta_i$. Measured productivity is also lower whenever the sector locates far from the center ($z_i$ is high). Interestingly, this bias does not depend on the land share. The intuition is that XX
+
+XX WE HAVE YET TO INTERPRET THE MIDDLE TERM
+
+The former bias will be bigger for rich countries, as rents tend to be more sensitive to per capita income than wages are. The latter bias will be bigger for rich and urbanized countries, where each urban sector takes up more space.
+
+\subsection{Development accounting}
+
+Inferring productivity from output per worker,
+\[
+a_i =  \tilde a_i +\gamma_i
++\beta_i [r(0)-w]
+-\sum_{k=1}^i 
+\frac{\beta_i}{\beta_{k}}\tau_{k}(z_{k}-z_{k-1})
++ \tau_{i}z_{i},
+\]
+where $\tilde a_i = q_i-n_i$ is log measured productivity and $\gamma_i = -\beta_i\ln\beta_i-(1-\beta_i)\ln(1-\beta_i)$ is a sector-specific constant. This is our main equation for sector-level development accounting.
+
+We are interested in how sectoral productivities are correalted with per capita income.
+\[
+\frac{d a_i}{dy_i} = \frac{d \tilde a_i}{dy_i} +\beta_i \left[
+\frac{d r(0)}{dy_i}-\frac{d w}{dy_i}\right]
+-\sum_{k=1}^i 
+\frac{\beta_i}{\beta_{k}}\tau_{k}\left[\frac{d z_k}{dy_i}-\frac{d z_{k-1}}{dy_i}\right]
++ \tau_{i}\frac{d z_i}{dy_i}.
+\]
+
+
+\subsection{Spatial arbitrage}
+Competitive land markets ensure that each location goes to the highest bidder. The slope of the bid-rent gradient in sector $i$ is $\tau_i/\beta_i$. Suppose that this is the highest for services, lower for manufacturing, and lowest for agriculture.
+
+Let $z_i$ denote the outer edge of the land use of sector $i$. At such locations, both sector $i$ and sector $i+1$ have the same reservation rent: 
+\begin{align*}
+R(z_i) &=\beta_i(1-\beta_i)^{1/\beta_i-1} (P_iA_i)^{1/\beta_i} W^{1-1/\beta_i} e^{-\frac{\tau_i}{\beta_i} z_i}\\
+R(z_i) &=\beta_{i+1}(1-\beta_{i+1})^{1/\beta_{i+1}-1} (P_{i+1}A_{i+1})^{1/\beta_{i+1}} W^{1-1/\beta_{i+1}} e^{-\frac{\tau_{i+1}}{\beta_{i+1}} z_i}
+\end{align*}
+
+Substitute in the overall amount of value added,
+\[
+R_i(z) = \frac{\beta_i Y_i}{\Lambda_i(z_i)-\Lambda_i(z_{i-1})} e^{-\frac{\tau_{i}}{\beta_{i}} z}.
+\]
+
+
+Let $\underline R$ denote the rent prevalining beyond the urban fringe (we may want to make agricuture costless to trade). The we can find the urban fringe as the location $z_2$ such that $R_2(z_2)=\underline R$.
+
+Agricultural rent is
+\[
+\underline R = \frac{\beta_3 Y_3}{\int_{z_2}^{\bar z}L(s)ds} 
+\]
+
+\[
+ \frac{\beta_3 Y_3}{\int_{z_2}^{\bar z}L(s)ds} =
+ \frac{\beta_2 Y_2}{\Lambda_2(z_2)-\Lambda_2(z_1)} e^{-\frac{\tau_{2}}{\beta_{2}} z_2}
+\]
+\[
+\frac{\tau_2}{\beta_2}z_2 =
+\ln\beta_2-\ln\beta_3 +y_2-y_3+\ln\left[\int_{z_2}^{\bar z}L(s)ds\right]
+-\ln[\Lambda_2(z_2)-\Lambda_2(z_1)]
+\]
+
+The services-manufacturing barrier,
+\[
+ \frac{\beta_1 Y_1}{\Lambda_1(z_1)} e^{-\frac{\tau_{1}}{\beta_{1}} z_1} =
+ \frac{\beta_2 Y_2}{\Lambda_2(z_2)-\Lambda_2(z_1)} e^{-\frac{\tau_{2}}{\beta_{2}} z_1}
+\]
+
+\[
+e^{\left(\frac{\tau_{1}}{\beta_{1}}-\frac{\tau_{2}}{\beta_{2}}\right) z_1}
+= 
+ \frac{\beta_1 Y_1}{\beta_2 Y_2}  
+ \frac{\Lambda_2(z_2)-\Lambda_2(z_1)}{\Lambda_1(z_1)} 
+\]
+
+The following two equations implicitly define the two barriers $z_1$ and $z_2$.
+\begin{align}
+ \frac{\beta_1 Y_1}{\beta_2 Y_2}  
+ &=
+ e^{\left(\frac{\tau_{1}}{\beta_{1}}-\frac{\tau_{2}}{\beta_{2}}\right) z_1}
+ \frac{\Lambda_1(z_1)}{\Lambda_2(z_2)-\Lambda_2(z_1)} 
+\\
+ \frac{\beta_2 Y_2}  {\beta_3 Y_3}
+ &=
+ e^{\frac{\tau_{2}}{\beta_{2}} z_2}
+ \frac{\Lambda_2(z_2)-\Lambda_2(z_1)} {\int_{z_2}^{\bar z}L(s)ds}
+\end{align}
 
 
 \section{Data and calibration}
@@ -201,9 +405,15 @@ We calibrate $\tau$ so as to match the location of sectors in the U.S. We use th
 
 Figure XX shows the empirical distribution of distance across the three sectors. While there is certainly a wide range of distances for each sector, and the location of sectors overlaps, there is also a clear location shift visible: the typical agricultural employee is farther away than the typical industry employee, who is, in turn, farther away that service employees.
 
-Table XX reports the median distance of each sector to the city center. Services are closest with 13km, manufacturing are 16km, whereas agriculture is 30km away from the center, as weighted by employment.
+Table XX reports the median distance of each sector to the city center. Services are closest with 15.9km, manufacturing are 20.2km, whereas agriculture is 38.5km away from the center, as weighted by employment.
+
+\[
+\frac{\int_0^z Y_1(s)ds}{\int_0^{z_1} Y_1(s)ds} = \frac{\Lambda_1(z)}{\Lambda_1(z_1)}
+\]
 
 \subsection{The urban fringe}
+
+
 
 \end{document}
 
