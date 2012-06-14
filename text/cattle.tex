@@ -183,32 +183,32 @@ N_i^{1-\beta_i}A_i^{1-1/\beta_i}
 \]
 
 \subsection{Productivity measurement}
-If we have data on physical output, we can write an aggregate output as
+Suppose physical output is measured as revenue at producer prices deflated by a common price index. We take the price index to be the consumer price (XX CHECK IF IT MATTERS).
 \[
-Q_i = 
+\tilde Q_i(z) = \frac{e^{-\tau_i z}P_iQ_i(Z)}{P_i}
+\]
+We can write an aggregate output as
+\[
+\tilde Q_i = 
 (1-\beta_i)^{1/\beta_i-1}
 A_i^{1/\beta_i}\left(\frac{W}{P_i}\right)^{1-1/\beta_i}
-\int_{z\in Z_i}L_i(z) e^{-\frac{1-\beta_i}{\beta_i}\tau_i z}dz
+\int_{z\in Z_i}L_i(z) e^{-\frac{1}{\beta_i}\tau_i z}dz
 \]
 which takes us to the aggregate production function
 \[
-Q_i = 
-A_iN_i^{1-\beta_i}\left[\int_{z\in Z_i}L_i(z) e^{-\frac{1}{\beta_i}\tau_i z}dz\right]^{\beta_i-1}
-\int_{z\in Z_i}L_i(z) e^{-\frac{1-\beta_i}{\beta_i}\tau_i z}dz
-\]
+\tilde Q_i = 
+A_iN_i^{1-\beta_i}\left[\int_{z\in Z_i}L_i(z) e^{-\frac{1}{\beta_i}\tau_i z}dz\right]^{\beta_i}\]
 \[
-Q_i = 
+\tilde Q_i = 
 A_iL_i^{\beta_i}N_i^{1-\beta_i}
-\left[\int_{z\in Z_i}\frac{L_i(z)}{L_i} e^{-\frac{1}{\beta_i}\tau_i z}dz\right]^{\beta_i-1}
-\int_{z\in Z_i}\frac{L_i(z)}{L_i} e^{-\frac{1-\beta_i}{\beta_i}\tau_i z}dz,
+\left[\int_{z\in Z_i}\frac{L_i(z)}{L_i} e^{-\frac{1}{\beta_i}\tau_i z}dz\right]^{\beta_i}
 \]
 where $L_i$ is the unweighted amount of land devoted to the production of good $i$. Aggregate output is a Cobb--Douglas function of land and labor, adjusted with trade costs (the last two terms). The adjustment factor is always less than one, as it is a weighted average of trade cost factors. The factor is smaller for sectors with large trade costs ($\tau_i$) and sectors farther away from the city. Simply put, services will look unproductive in New York City relative to Budapest, because NYC is larger.
 
 Output per worker
 \[
-\frac{Q_i}{N_i} = \frac1{1-\beta_i}
-\frac{W}{P_i} \frac{\int_{z\in Z_i}L(z)e^{-\frac{1-\beta_i}{\beta_i}\tau_i z}dz}
-{\int_{z\in Z_i}L(z)e^{-\frac{1}{\beta_i}\tau_i z}dz}
+\frac{\tilde Q_i}{N_i} = \frac1{1-\beta_i}
+\frac{W}{P_i} 
 \]
 We want to get rid of prices in this formula
 \[
@@ -227,15 +227,11 @@ A_i
  e^{-\tau_i  z}
 \]
 \[
-\frac{Q_i}{N_i} = \beta_i^{\beta_i}(1-\beta_i)^{-\beta_i} 
+\frac{\tilde Q_i}{N_i} = \beta_i^{\beta_i}(1-\beta_i)^{-\beta_i} 
 A_i
 \left[\frac{W}{R_i(0)}\right]^{\beta_i}
- \frac{\int_{z\in Z_i}L(z)e^{-\frac{1-\beta_i}{\beta_i}\tau_i z}dz}
-{\int_{z\in Z_i}L(z)e^{-\frac{1}{\beta_i}\tau_i z}dz},
-\]
+ \]
 where $R_i(0)$ is the intercept of the rent gradient of sector $i$, that is, the amount of rent it would be willing to pay at the center. 
-
-XX THESE FORMULAS CAN BE MUCH SIMPLER IF output is measured as revenue at producer prices divided by some common price Pi
 
 For $i>0$, we can write 
 \[
@@ -249,9 +245,9 @@ r_i(0) = r(0)-\sum_{k=1}^i
 \frac{\tau_{k}}{\beta_{k}}(z_{k}-z_{k-1})
 + \frac{\tau_{i}}{\beta_{i}}z_{i}
 \]
-Log output per worker (XX CANCELLING THE INTEGRAL)
+Log output per worker is
 \[
-q_i - n_i = 
+\tilde q_i - n_i = 
 \beta_i\ln\beta_i+(1-\beta_i)\ln(1-\beta_i)
 +a_i +\beta_i [w
 -r(0)]
