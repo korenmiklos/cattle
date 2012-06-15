@@ -143,43 +143,41 @@ The same at producer prices
 \]
 Let 
 \[
-\Lambda_i(z) = \int_0^z L(s)e^{-\frac{\tau_i}{\beta_i} s}ds
+\tilde z_i = -
+\frac{\beta_i}{\tau_i}
+\ln\int_{z\in Z_i} \frac{L_i(z)}{L_i}e^{-\frac{\tau_i}{\beta_i} z}dz
 \]
-denote the cumulative area between $0$ and $z$ weighted by the rent gradient of sector $i$. The the total supply of services and manufacturing at producer prices,
-\begin{align*}
-Y_1 &= (1-\beta_1)^{1/\beta_1-1}
-(P_1A_1)^{1/\beta_1}W^{1-1/\beta_1} \Lambda_1(z_1)\\
-Y_2 &= (1-\beta_2)^{1/\beta_2-1}
-(P_2A_2)^{1/\beta_2}W^{1-1/\beta_2} [\Lambda_2(z_2)-\Lambda_2(z_1)]
-\end{align*}
-Overall employment in the sectors,
-\begin{align*}
-N_1 &= (1-\beta_1)^{1/\beta_1}
-\left(\frac{P_1A_1}{W}\right)^{1/\beta_1} \Lambda_1(z_1)\\
-N_2 &= (1-\beta_2)^{1/\beta_2}
-\left(\frac{P_2A_2}{W}\right)^{1/\beta_2}  [\Lambda_2(z_2)-\Lambda_2(z_1)]
-\end{align*}
+denote the average distance of sector $i$ to the center, where $L_i=\int_{z\in Z_i} L_i(z)dz$ is the total amount of land devoted to sector $i$. This definition ensures that the trade cost going to location $\tilde z_i$ equals the land-weighted average trade cost across all sectoral locations,
+\[
+e^{-\frac{\tau_i}{\beta_i} \tilde z_i} = \int_{z\in Z_i} \frac{L_i(z)}{L_i}e^{-\frac{\tau_i}{\beta_i} z}dz.
+\]
+As we will see below, $\tilde z_i$ is a sufficient statistic about sector location for aggregation purposes. (XX THIS IS A TRICK OF THE MELITZ MODEL)
 
+The the total supply of sector $i$ at producer prices,
+\[
+Y_i = (1-\beta_i)^{1/\beta_i-1}
+(P_iA_i)^{1/\beta_i}W^{1-1/\beta_i} L_i e^{-\frac{\tau_i}{\beta_i} \tilde z_i}.
+\]
+Overall employment in the sector,
 \[
 N_i = (1-\beta_i)^{1/\beta_i}
-\left(\frac{P_iA_i}{W}\right)^{1/\beta_i}
-\int_{z\in Z_i}L_i(z) e^{-\frac{1}{\beta_i}\tau_i z}dz
+\left(\frac{P_iA_i}{W}\right)^{1/\beta_i} L_i e^{-\frac{\tau_i}{\beta_i} \tilde z_i},
 \]
 so that we can express $W/P_i$ as
 \[
 \left(\frac{W}{P_i}\right)^{1/\beta_i} = (1-\beta_i)^{1/\beta_i}
 N_i^{-1}A_i^{1/\beta_i}
-\int_{z\in Z_i}L_i(z) e^{-\frac{1}{\beta_i}\tau_i z}dz
+L_i e^{-\frac{\tau_i}{\beta_i} \tilde z_i}
 \]
 \[
 \frac{W}{P_i} = (1-\beta_i)
-N_i^{-\beta_i}A_i
-\left[\int_{z\in Z_i}L_i(z) e^{-\frac{1}{\beta_i}\tau_i z}dz\right]^{\beta_i}
+N_i^{-\beta_i}A_i L_i^{\beta_i}
+ e^{-\tau_i\tilde z_i}
 \]
 \[
 \left(\frac{W}{P_i}\right)^{1-1/\beta_i} = (1-\beta_i)^{1-1/\beta_i}
-N_i^{1-\beta_i}A_i^{1-1/\beta_i}
-\left[\int_{z\in Z_i}L_i(z) e^{-\frac{1}{\beta_i}\tau_i z}dz\right]^{\beta_i-1}
+A_i^{1-1/\beta_i}N_i^{1-\beta_i}L_i^{\beta_i-1}
+e^{\frac{1-\beta_i}{\beta_i}\tau_i \tilde z_i}
 \]
 
 \subsection{Productivity measurement}
@@ -192,72 +190,63 @@ We can write an aggregate output as
 \tilde Q_i = 
 (1-\beta_i)^{1/\beta_i-1}
 A_i^{1/\beta_i}\left(\frac{W}{P_i}\right)^{1-1/\beta_i}
-\int_{z\in Z_i}L_i(z) e^{-\frac{1}{\beta_i}\tau_i z}dz
+L_i e^{-\frac{\tau_i}{\beta_i} \tilde z_i}
 \]
 which takes us to the aggregate production function
 \[
 \tilde Q_i = 
-A_iN_i^{1-\beta_i}\left[\int_{z\in Z_i}L_i(z) e^{-\frac{1}{\beta_i}\tau_i z}dz\right]^{\beta_i}\]
-\[
-\tilde Q_i = 
 A_iL_i^{\beta_i}N_i^{1-\beta_i}
-\left[\int_{z\in Z_i}\frac{L_i(z)}{L_i} e^{-\frac{1}{\beta_i}\tau_i z}dz\right]^{\beta_i}
+ e^{-\tau_i\tilde z_i}.
 \]
-where $L_i$ is the unweighted amount of land devoted to the production of good $i$. Aggregate output is a Cobb--Douglas function of land and labor, adjusted with trade costs (the last two terms). The adjustment factor is always less than one, as it is a weighted average of trade cost factors. The factor is smaller for sectors with large trade costs ($\tau_i$) and sectors farther away from the city. Simply put, services will look unproductive in New York City relative to Budapest, because NYC is larger.
+Aggregate output is a Cobb--Douglas function of land and labor, adjusted with trade costs. The factor is smaller for sectors with large trade costs ($\tau_i$) and sectors farther away from the city (larger $\tilde z_i$). Simply put, services will look unproductive in New York City relative to Budapest, because NYC is larger.
 
 Output per worker
 \[
 \frac{\tilde Q_i}{N_i} = \frac1{1-\beta_i}
 \frac{W}{P_i} 
 \]
-We want to get rid of prices in this formula
+We want to get rid of product prices in this formula and express them as a function of input costs
 \[
-\frac{R(z)}{W} =\beta_i(1-\beta_i)^{1/\beta_i-1} \left(\frac{P_iA_i}{W}\right)^{1/\beta_i} e^{-\frac{\tau_i}{\beta_i} z}
+\frac{R_i}{W} =\beta_i(1-\beta_i)^{1/\beta_i-1} \left(\frac{P_iA_i}{W}\right)^{1/\beta_i} e^{-\frac{\tau_i}{\beta_i} \tilde z_i},
 \]
+where $R_i$ is the rent prevailing at location $\tilde z_i$ (which is also equal to the average rent paid by the sector, as proven below)
+\[
+R(\tilde z_i) = 
+R(z_{i-1})e^{-\frac{\tau_i}{\beta_i}(\tilde z_i-z_{i-1})}
+\]
+\[
+R_i =\int_{z\in Z_i}\frac{L_i(z)}{L_i}R(z)dz =
+R(z_{i-1})e^{\frac{\tau_i}{\beta_i}z_{i-1}}
+\int_{z\in Z_i}\frac{L_i(z)}{L_i}e^{-\frac{\tau_i}{\beta_i}z}dz
+\]
+
 \[
 \left(\frac{W}{P_i}\right)^{1/\beta_i}  =\beta_i(1-\beta_i)^{1/\beta_i-1} 
 A_i^{1/\beta_i}
-\frac{W}{R(z)}
- e^{-\frac{\tau_i}{\beta_i} z}
+\frac{W}{R_i}
+ e^{-\frac{\tau_i}{\beta_i} \tilde z_i}
 \]
 \[
 \frac{W}{P_i}  =\beta_i^{\beta_i}(1-\beta_i)^{1-\beta_i} 
 A_i
-\left(\frac{W}{R(z)}\right)^{\beta_i}
- e^{-\tau_i  z}
+\left(\frac{W}{R_i}\right)^{\beta_i}
+ e^{-\tau_i \tilde z_i}
 \]
+so that output per worker can be written as
 \[
 \frac{\tilde Q_i}{N_i} = \beta_i^{\beta_i}(1-\beta_i)^{-\beta_i} 
 A_i
-\left[\frac{W}{R_i(0)}\right]^{\beta_i}
+\left(\frac{W}{R_i}\right)^{\beta_i}e^{-\tau_i \tilde z_i}.
  \]
-where $R_i(0)$ is the intercept of the rent gradient of sector $i$, that is, the amount of rent it would be willing to pay at the center. 
-
-For $i>0$, we can write 
-\[
-R_i(0) \equiv R_i(z_{i-1})e^{\frac{\tau_i}{\beta_i}z_{i-1}} = R_{i-1}(z_{i-1})e^{\frac{\tau_i}{\beta_i}z_{i-1}}
-= R_{i-1}(z_{i-2})
-e^{-\frac{\tau_{i-1}}{\beta_{i-1}}(z_{i-1}-z_{i-2})+\frac{\tau_i}{\beta_i}z_{i-1}}
-\]
-so that
-\[
-r_i(0) = r(0)-\sum_{k=1}^i 
-\frac{\tau_{k}}{\beta_{k}}(z_{k}-z_{k-1})
-+ \frac{\tau_{i}}{\beta_{i}}z_{i}
-\]
 Log output per worker is
 \[
 \tilde q_i - n_i = 
 \beta_i\ln\beta_i+(1-\beta_i)\ln(1-\beta_i)
-+a_i +\beta_i [w
--r(0)]
-+\sum_{k=1}^i 
-\frac{\beta_i}{\beta_{k}}\tau_{k}(z_{k}-z_{k-1})
++a_i +\beta_i (w
+-r_i)
 - \tau_{i}z_{i}
 \]
 Conditional on true productivity $a_i$, measured productivity is lower in cities where rents are higher. The magnitude of this bias depends on the (direct and indirect) land share of the sector, $\beta_i$. Measured productivity is also lower whenever the sector locates far from the center ($z_i$ is high). Interestingly, this bias does not depend on the land share. The intuition is that XX
-
-XX WE HAVE YET TO INTERPRET THE MIDDLE TERM
 
 The former bias will be bigger for rich countries, as rents tend to be more sensitive to per capita income than wages are. The latter bias will be bigger for rich and urbanized countries, where each urban sector takes up more space.
 
@@ -266,19 +255,15 @@ The former bias will be bigger for rich countries, as rents tend to be more sens
 Inferring productivity from output per worker,
 \[
 a_i =  \tilde a_i +\gamma_i
-+\beta_i [r(0)-w]
--\sum_{k=1}^i 
-\frac{\beta_i}{\beta_{k}}\tau_{k}(z_{k}-z_{k-1})
++\beta_i (r_i-w)
 + \tau_{i}z_{i},
 \]
 where $\tilde a_i = q_i-n_i$ is log measured productivity and $\gamma_i = -\beta_i\ln\beta_i-(1-\beta_i)\ln(1-\beta_i)$ is a sector-specific constant. This is our main equation for sector-level development accounting.
 
 We are interested in how sectoral productivities are correalted with per capita income.
 \[
-\frac{d a_i}{dy_i} = \frac{d \tilde a_i}{dy_i} +\beta_i \left[
-\frac{d r(0)}{dy_i}-\frac{d w}{dy_i}\right]
--\sum_{k=1}^i 
-\frac{\beta_i}{\beta_{k}}\tau_{k}\left[\frac{d z_k}{dy_i}-\frac{d z_{k-1}}{dy_i}\right]
+\frac{d a_i}{dy_i} = \frac{d \tilde a_i}{dy_i} +\beta_i \left(
+\frac{d r_i}{dy_i}-\frac{d w}{dy_i}\right)
 + \tau_{i}\frac{d z_i}{dy_i}.
 \]
 
@@ -291,11 +276,36 @@ Let $z_i$ denote the outer edge of the land use of sector $i$. At such locations
 R(z_i) &=\beta_i(1-\beta_i)^{1/\beta_i-1} (P_iA_i)^{1/\beta_i} W^{1-1/\beta_i} e^{-\frac{\tau_i}{\beta_i} z_i}\\
 R(z_i) &=\beta_{i+1}(1-\beta_{i+1})^{1/\beta_{i+1}-1} (P_{i+1}A_{i+1})^{1/\beta_{i+1}} W^{1-1/\beta_{i+1}} e^{-\frac{\tau_{i+1}}{\beta_{i+1}} z_i}
 \end{align*}
-
 Substitute in the overall amount of value added,
 \[
-R_i(z) = \frac{\beta_i Y_i}{\Lambda_i(z_i)-\Lambda_i(z_{i-1})} e^{-\frac{\tau_{i}}{\beta_{i}} z}.
+R_i(z) = R_i e^{-\frac{\tau_i}{\beta_i}(z-\tilde z_i)}.
 \]
+\[
+R_i = \frac{\beta_i Y_i}{L_i}
+\]
+\[
+R_i(z) = \frac{\beta_i Y_i}{L_i} e^{-\frac{\tau_i}{\beta_i}(z-\tilde z_i)}.
+\]
+At the location $z_{i-1}$ where sectors $i$ and $i-1$ meet,
+\[
+\frac{\beta_{i-1} Y_{i-1}}{L_{i-1}} 
+  e^{-\frac{\tau_{i-1}}{\beta_{i-1}}(z_{i-1}-\tilde z_{i-1})} = 
+\frac{\beta_i Y_i}{L_i} 
+  e^{-\frac{\tau_i}{\beta_i}(z_{i-1} -\tilde z_i)}.
+\]
+
+\[
+\Delta\ln\beta_i + \Delta y_i - \Delta l_i =
+\frac{\tau_i}{\beta_i}(z_{i-1} -\tilde z_i)
+-\frac{\tau_{i-1}}{\beta_{i-1}}(z_{i-1}-\tilde z_{i-1})
+\]
+\[
+\Delta\ln\beta_i + \Delta y_i - \Delta l_i =
+\frac{\tau_{i-1}}{\beta_{i-1}}\tilde z_{i-1}
+-\frac{\tau_i}{\beta_i}\tilde z_i
++\left(\frac{\tau_{i}}{\beta_{i}}-\frac{\tau_{i-1}}{\beta_{i-1}}\right)z_{i-1}
+\]
+
 
 
 Let $\underline R$ denote the rent prevalining beyond the urban fringe (we may want to make agricuture costless to trade). The we can find the urban fringe as the location $z_2$ such that $R_2(z_2)=\underline R$.
