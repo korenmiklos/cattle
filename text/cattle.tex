@@ -57,7 +57,7 @@
 \begin{document}
 
 \title{Cattle, Steaks and Restaurants: Development Accounting when Space Matters}
-\author{Péter Karádi\thanks{European Central Bank. E-mail: peter.karadi@ecb.int}~ and Miklós Koren\thanks{Central European University, IE--HAS and CEPR. E-mail: korenm@ceu.hu.}\\ 
+\author{Péter Karádi\thanks{European Central Bank. E-mail: peter.karadi@ecb.int}~and Miklós Koren\thanks{Central European University, IE--HAS and CEPR. E-mail: korenm@ceu.hu.}\\ 
 \\
 Preliminary and incomplete, please do not circulate}
 \maketitle
@@ -65,7 +65,7 @@ Preliminary and incomplete, please do not circulate}
 %\begin{abstract}
 %\end{abstract}
 
-Productivity is much lower in poor countries than in rich ones (\citeN{Klenow97}, \citeN{Hall99}, \citeN{Caselli05}). To understand the fundamental causes of productivity differences, it is important to identify the sectors in which these differences are the greatest (REF). Several recent papers have studied the sectoral composition of productivity differences by using data on sector-level prices (\citeN{Bailey01}, \citeN{Caselli05}, \citeN{Duarte10}, \citeN{Restuccia08}). Their main result is that productivity differences are sizeable and they are larger in agriculture and services than in manufacturing.\footnote{These results are in line with the classic Balassa-Samuelson literature (\citeN{Balassa64}, \citeN{Samuelson64}, \citeN{Baumol65}, \citeN{Baumol67}), which explains sectoral price-level differences by productivity advantage of manufacturing over services.} %High service share in developed countries, in turn, translate these sectoral patterns to differences in aggregate productivity (\citeN{Duarte10}).
+Productivity is much lower in poor countries than in rich ones (\citeN{Klenow97}, \citeN{Hall99}, \citeN{Caselli05}). To understand the fundamental causes of productivity differences, it is important to identify the sectors in which these differences are the greatest (REF). Several recent papers have studied the sectoral composition of productivity differences by using data on sector-level inputs, outputs and prices (\citeN{Bailey01}, \citeN{Caselli05}, \citeN{Duarte10}, \citeN{Restuccia08}). Their main result is that productivity differences are sizeable and they are larger in agriculture than in manufacturing and services.\footnote{These results are in line with the classic Balassa-Samuelson literature (\citeN{Balassa64}, \citeN{Samuelson64}, \citeN{Baumol65}, \citeN{Baumol67}), which explains sectoral price-level differences by productivity advantage of manufacturing over services.} %High service share in developed countries, in turn, translate these sectoral patterns to differences in aggregate productivity (\citeN{Duarte10}).
 The reliability of these results depend on the proper measurement of the sector-level prices. If prices reflect unmeasured factors of production, productivity estimates lead to biased results. (XXX Intuitively, prices are)
 
 We revisit the measurement of sectoral prices and sectoral productivity in a macro model where land and location play a role. A high relative price in one sector may simply reflect high rents accruing to a non-reproducible input, land. For example, the fact that restaurants are expensive in New York City has more to do with high rents, and may not imply that NYC restaurants are inefficient (see Table \ref{tab:EIU} for a specific example). Rents are, in turn, determined in general equilibrium, and may respond to demand for urban land. In developed countries, urban land demand is higher as a result of structural transformation, urbanization or income-sensitive demand for residential land. Measurements disregarding the effects of land and location would attribute an exaggerated portion of observed price differences to productivity differences. % in other activities, such as finance, culture and housing in the NYC example.
@@ -193,7 +193,7 @@ We can also get the employment gradient by substituting the bid rent curve into 
 This is the relationship we use to calibrate the sectoral transport cost intensities.
 
 \begin{proposition}
-Let's assume that $\tau_s/\beta_s>\tau_m/\beta_m>\tau_a/\beta_a>0$.\footnote{It is straightforward to see that in the knife-edge case of equality, the equilibrium were not unique and not necessarily a simple partitioning.} There exists a unique competitive spatial equilibrium. The structure of this equilibrium is a simple partitioning, with locations $0<z_1,z_2<z_3$ such that services with the higher $\tau_i/\beta_i$ rate locate closest to the CBD in $\left[0,z_1\right]$, manufacturing locates in $\left(z_1,z_2\right]$, and agriculture locates in $\left(z_2,z_3\right]$.
+Assume that $\tau_s/\beta_s>\tau_m/\beta_m>\tau_a/\beta_a>0$.\footnote{It is straightforward to see that in the knife-edge case of equality, the equilibrium were not unique and not necessarily a simple partitioning.} There exists a unique competitive spatial equilibrium. The structure of this equilibrium is a simple partitioning, with locations $0<z_1,z_2<z_3$ such that services with the higher $\tau_i/\beta_i$ rate locate closest to the CBD in $\left[0,z_1\right]$, manufacturing locates in $\left(z_1,z_2\right]$, and agriculture locates in $\left(z_2,z_3\right]$.
 \end{proposition}
 \begin{proof}
 Sketch of proof:
@@ -469,11 +469,9 @@ We use the 2010 ZIP Business Patters of the U.S. Census to determine the locatio
 
 The ZIP Business Patterns contains the number of establishments in employment size categories in each ZIP code for each 6-digit NAICS code. We merge NAICS codes into agriculture, manufacturing and services as follows. Agriculture is sector 11 of NAICS. We merge mining (21), utilities (22), and construction (23) together with manufacturing industries (31-33). As services, we categorize the rest, including public administration. We estimate employment by using the midpoints of the size categories XXX.
 
-To map the model into the data, we need to specify how far each ZIP code is from the city center. We take Urbanized Areas (UAs) as independent monocentric cities, and we assign the central point to the business or administrative center of the first-mentioned city in the UA, as given by Yahoo Maps. For example, the center of ``New York–Newark, NY-NJ-CT Urbanized Area'' is the corner of Broadway and Chamber St in downtown Manhattan, whereas the center of ``Boston, MA–NH-RI Urbanized Area'' is 1 Boston Pl.
+To map the model into the data, we need to specify how far each ZIP code is from the city center. We take Urbanized Areas (UAs) as independent monocentric cities, and we assign the central point to the business or administrative center of the first-mentioned city in the UA, as given by Yahoo Maps. For example, the center of ``New York–Newark, NY-NJ-CT Urbanized Area'' is the corner of Broadway and Chamber St in downtown Manhattan, whereas the center of ``Boston, MA–NH-RI Urbanized Area'' is 1 Boston Pl. We calculate the distance of each ZIP code to business center of the nearest UA. 
 
-We calculate the distance of each ZIP code to business center of the nearest UA. For example, the ZIP code 11215 next to the Prospect Park in Brooklyn is 6kms from New York City, while the ZIP code 07030 in Hoboken, New Jersey, is 4 kms from NYC.
-
-According to equation \ref{eq:EmpDens}, the employment density of sector $i$ in location $z$ is proportional to the rent-wage ratio. When industry $i$ demands positive land in the neighborhood of $z$, then the rent is proportional to $e^{-\tau_i/\beta_i z}$. We can use this observation to estimate $tau_i$.
+According to equation \ref{eq:EmpDens}, the employment density of sector $i$ in location $z$ is proportional to the rent-wage ratio. When industry $i$ demands positive land in the neighborhood of $z$, then the rent is proportional to $e^{-\tau_i/\beta_i z}$. We can use this observation to estimate $\tau_i$:
 \[
 \frac{d\ln n_i(z)/l_i(z)}{dz} =\frac{d\ln r_i(z)}{dz} = -\frac{\tau_i}{\beta_i}.
 \]
@@ -482,7 +480,7 @@ To get a sense where each sectors is active, we calculate location quotients by 
 
 \dofigure{sector_location_quotients}{Sector location quotients}{Source: ZIP Business Patterns. Plots the sectoral employment shares at a particular distance (in a 3kms wide ring) from the city center, relative to the average sectoral employment share. The figure shows that sectors sort as in the model: services are overrepresented closer the the city center, while manufacturing and agriculture are located mostly farther away, agriculture showing a particularly steep gradient.}
 
-Figure \ref{fig:sector_location_quotients} shows that sectors sort as in the model: services are overrepresented closer to the city center, while manufacturing and agriculture are both underrepresented there. Agriculture shows a particularly steep gradient, with high relative employment farther away from the city center. In the calculation of sectoral employment gradients below, we restrict attention to the areas where the sectors are overrepresented. We assume that services are active up to 30 kms from the center, manufacturing is active between 10-60kms and agriculture farther than 60 kms.
+Figure \ref{fig:sector_location_quotients} shows that sectors sort as in the model: services are overrepresented closer to the city center, while manufacturing and agriculture are both underrepresented there. Agriculture shows a particularly steep gradient, with high relative employment farther away from the city center. In the calculation of sectoral employment gradients below, we restrict attention to the areas where the sectors are overrepresented. We assume that services are active up to 30 kms from the center, manufacturing is active between 10 and 60 kms and agriculture farther than 60 kms.
 
 Let $n_{izc}$ be the employment of industry $i$ in ZIP code $z$, belonging to city (MSA) $c$. (Note that this employment can, and very often will be zero.) We denote the land area of ZIP code $z$ by $l_z$.
 \begin{equation}\label{eq:estimable:gradient}
@@ -490,6 +488,8 @@ Let $n_{izc}$ be the employment of industry $i$ in ZIP code $z$, belonging to ci
 \end{equation}
 The city fixed effect captures variation in rents and wages in the MSA, the sector fixed effect captures variation in land and labor intensity across sectors. %XX WE MAY NEED CITY*SECTOR FEs
 The key parameter of interest is $\gamma_i$, which captures how fast employment declines with distance to the center by sector.
+
+XX IN THE END WE ARE USING ESTABLISHMENTS FOR L
 
 We estimate \eqref{eq:estimable:gradient} by a Poisson regression which ensures that the equation holds in expectation, and permits estimation even when $n_{izc}=0$, which is often the case. The estimates of $\gamma_i$ and the implied sectoral transport cost intensities $\tau_i$ in the three sectors are below.
 
@@ -523,13 +523,13 @@ To capture the international variation in sectoral demand ($\alpha_i$), we use s
 
 The sectoral unit labor costs come from the EUKLEMS database \citeN{OMahony09}, which contains internationally comparable sector-level labor compensation measures per hour and labor productivities.\footnote{Using multi-factor productivities would reduce our sample size from the already tight 14 to 11.}
 
-The diverse \emph{size} of the representative cities introduces international variation in transport costs. To control for this, we take the internationally comparable 'arable land' measure from the World Bank's World Development Indicator database\footnote{Some urban land measure would be preferable, but the available measures are based on national definitions, so can not be directly compared internationally.} and divide it by the number of cities with above 50.000 inhabitants.\footnote{The dataset is compiled by Stefan Helders (www.world-gazetteer.com) and uses mostly official sources.} This gives us a measure of the available land in the representative city. As we assume circular cities in our model, this area measure ($L$) readily translates into distance by $L=z_3^2\pi$, where $z_3$ the distance of the urban fringe from the city center $z_3$. Combining these measures with country-level estimates of sectoral land shares, as we show below, we obtain estimates for sectoral transport costs.
+The diverse \emph{size} of the representative cities introduces international variation in transport costs. To control for this, we take the internationally comparable ``arable land'' measure from the World Bank's World Development Indicator database\footnote{Some urban land measure would be preferable, but the available measures are based on national definitions, so can not be directly compared internationally.} and divide it by the number of cities with above 50.000 inhabitants.\footnote{The dataset is compiled by Stefan Helders (www.world-gazetteer.com) and uses mostly official sources.} This gives us a measure of the available land in the representative city. As we assume circular cities in our model, this area measure ($L$) readily translates into distance by $L=z_3^2\pi$, where $z_3$ the distance of the urban fringe from the city center $z_3$. Combining these measures with country-level estimates of sectoral land shares, as we show below, we obtain estimates for sectoral transport costs.
 
 \subsubsection{Sector locations}
 
 International variation in the distances of sectors from the city center influence transport costs. Our sector location measure ($z_i^j$)\footnote{In the current version, we are calculating the maximum distance ($z_i^j$), instead of the average distance ($\tilde{z}_i^j$) suggested by the model. In this way, we are going to get a measure for the maximum bias to productivity estimates by disregarding location. It shows the potential of location correction. In the future versions, we are planning to use the model-based estimates of average sectoral distances.} is a product of the urban fringe and sectoral land shares:
 \begin{equation*}
-z_i^j=z_3^j\frac{L_i^j}{L^j},i=1,2
+z_i^j=z_3^j\sqrt{\frac{L_i^j}{L^j}},i=1,2
 \end{equation*}
 For the US, we calculate sectoral land shares directly using the ZIP Business Patterns of the US Census. For each ZIP area, we calculate sectoral land demand as a share of commercial land, using the published employment data. %XX HOW? 
 
