@@ -1,15 +1,15 @@
 \documentclass[12pt]{article}
 \usepackage{amsmath,amsthm}
 \usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+%\usepackage[T1]{fontenc}
 %\usepackage{minionpro}
 \usepackage{array,graphicx}
 \usepackage{chicago}        %bibliography style
 \usepackage{booktabs}       %to make table lines thicker
 
 \setlength{\topmargin}{-0.3in} \setlength{\textheight}{8.75in}
-\setlength{\oddsidemargin}{0.0in} \setlength{\evensidemargin}{0.0in}
-\setlength{\textwidth}{6.5in}
+\setlength{\oddsidemargin}{0.25in} \setlength{\evensidemargin}{0.25in}
+\setlength{\textwidth}{6in}
 \def\labelenumi{\arabic{enumi}.}
 \def\theenumi{\arabic{enumi}}
 \def\labelenumii{(\alph{enumii})}
@@ -38,6 +38,8 @@
 \newtheorem{moment}{Empirical regularity}
 \newtheorem{insight}{Qualitative prediction}
 
+\renewcommand{\baselinestretch}{1.17}
+
 \newcommand{\dofigure}[3]{\begin{figure}
 \begin{centering}
 \includegraphics[width=0.75\linewidth]{figures/#1}
@@ -56,23 +58,23 @@
 
 \begin{document}
 
-\title{Cattle, Steaks and Restaurants: Development Accounting when Space Matters}
-\author{Péter Karádi\thanks{European Central Bank. E-mail: peter.karadi@ecb.int}~and Miklós Koren\thanks{Central European University, IE--HAS and CEPR. E-mail: korenm@ceu.hu.}\\ 
+\title{Cattle, Steaks and Restaurants:\\ Development Accounting when Space Matters}
+\author{Péter Karádi\thanks{European Central Bank. E-mail: peter.karadi@ecb.int} and Miklós Koren\thanks{Central European University, IE--HAS and CEPR. E-mail: korenm@ceu.hu.}\\
 \\
 Preliminary and incomplete, please do not circulate}
 \maketitle
 
-%\begin{abstract}
-%\end{abstract}
+\begin{abstract}
+We conduct sector-level development accounting in a macro model where land and location play a role. Producers in agriculture, manufacturing and services choose their location to trade off transport costs to the city center and rents. We solve for the spatial equilibrium and show how space affects the aggregate production function and measured productivity. Studies not accounting for sector location will deem services in large, expensive cities unproductive. This biases development accounting because rich countries have large service-cities. Our preliminary calibrations show that, correcting for sector location, service productivity varies as much across countries as manufacturing productivity does. This is in contrast with previous studies that found smaller variation in service productivity.
+\end{abstract}
 
-Productivity is much lower in poor countries than in rich ones (\citeN{Klenow97}, \citeN{Hall99}, \citeN{Caselli05}). To understand the fundamental causes of productivity differences, it is important to identify the sectors in which these differences are the greatest (REF). Several recent papers have studied the sectoral composition of productivity differences by using data on sector-level inputs, outputs and prices (\citeN{Bailey01}, \citeN{Caselli05}, \citeN{Duarte10}, \citeN{Restuccia08}). Their main result is that productivity differences are sizeable and they are larger in agriculture than in manufacturing and services.\footnote{These results are in line with the classic Balassa-Samuelson literature (\citeN{Balassa64}, \citeN{Samuelson64}, \citeN{Baumol65}, \citeN{Baumol67}), which explains sectoral price-level differences by productivity advantage of manufacturing over services.} %High service share in developed countries, in turn, translate these sectoral patterns to differences in aggregate productivity (\citeN{Duarte10}).
-The reliability of these results depend on the proper measurement of the sector-level prices. If prices reflect unmeasured factors of production, productivity estimates lead to biased results. (XXX Intuitively, prices are)
+Productivity is much lower in poor countries than in rich ones (\citeN{Klenow97}, \citeN{Hall99}, \citeN{Caselli05}). To understand the fundamental causes of productivity differences, it is important to identify the sectors in which these differences are the greatest. Several recent papers have studied the sectoral composition of productivity differences by using data on sector-level inputs, outputs and prices (\citeN{Bailey01}, \citeN{Caselli05}, \citeN{Duarte10}, \citeN{Restuccia08}). Their main result is that productivity differences are sizeable and they are larger in agriculture than in manufacturing and services.\footnote{These results are in line with the classic Balassa-Samuelson literature (\citeN{Balassa64}, \citeN{Samuelson64}, \citeN{Baumol65}, \citeN{Baumol67}), which explains sectoral price-level differences by productivity advantage of manufacturing over services.} %High service share in developed countries, in turn, translate these sectoral patterns to differences in aggregate productivity (\citeN{Duarte10}).
+The reliability of these results depend on the proper measurement of the sector-level prices. If prices reflect unmeasured factors of production, productivity estimates lead to biased results.
 
 We revisit the measurement of sectoral prices and sectoral productivity in a macro model where land and location play a role. A high relative price in one sector may simply reflect high rents accruing to a non-reproducible input, land. For example, the fact that restaurants are expensive in New York City has more to do with high rents, and may not imply that NYC restaurants are inefficient (see Table \ref{tab:EIU} for a specific example). Rents are, in turn, determined in general equilibrium, and may respond to demand for urban land. In developed countries, urban land demand is higher as a result of structural transformation, urbanization or income-sensitive demand for residential land. Measurements disregarding the effects of land and location would attribute an exaggerated portion of observed price differences to productivity differences. % in other activities, such as finance, culture and housing in the NYC example.
 
 \begin{table}[h!]
-\label{tab:EIU}
-\caption{An example of two cities}
+\caption{An example of two cities\label{tab:EIU}}
 \begin{center}
 \begin{tabular}{lccc}
 %\hline\hline
@@ -85,7 +87,7 @@ We revisit the measurement of sectoral prices and sectoral productivity in a mac
  ~~~~~Services productivity       & 1.00    & 0.55    & 1.82 \\ %\hline\hline
 \end{tabular}
 \end{center}
-\noindent \footnotesize{Prices and measured producitivies in two cities: New York City, New York, USA and Budapest, Hungary. The city level prices are from the Economist Intelligence Unit Cost of Living Survey; the sectoral productivities are country level productivites from the EUKLEMS database. In the example, the relative price of a two-course meal with a high service content is 3 times higher in NYC than in Budapest, while roast beef is only 2 times as expensive. We observe the inverse pattern in measured relative productivities.}
+\noindent \footnotesize{Prices and measured productivities in two cities: New York City, New York, USA and Budapest, Hungary. The city level prices are from the Economist Intelligence Unit Cost of Living Survey; the sectoral productivities are country level productivites from the EUKLEMS database. In the example, the relative price of a two-course meal with a high service content is 3 times higher in NYC than in Budapest, while roast beef is only 2 times as expensive. We observe the inverse pattern in measured relative productivities.}
 \end{table}
 
 We build a simple multi-sector general equilibrium model. Each sector uses labor (or a composite of other spatially mobile inputs) and land. The location of sectors is determined in the canonical von Thünen city model. In the model, all trade happens in the city center, the central business district (CBD). Producers choose their location freely on a plane, and have to pay a shipping cost to transport their goods to the CBD. This spatial structure introduces variable land-quality to the model, as land closer to the CBD saves on transport cost. Equilibrium rents decrease with distance from the CBD, and the producers optimally choose locations to balance savings on transport costs to higher rents.
@@ -107,12 +109,14 @@ Consumers have Cobb--Douglas preferences across goods produced by the three sect
 \label{eq:Utility}
 U = C_1^{\alpha_1}C_2^{\alpha_2}C_3^{\alpha_3},
 \end{equation}
-with $\sum_{i=1}^3\alpha_i=1$. They supply labor $N$ inelastically, and rent land to producers in a competitive market. Their budget constraint is
+with $\sum_{i=1}^3\alpha_i=1$. They supply labor $N$ inelastically, and rent land to producers in a competitive market. They are \emph{absentee landlords}: the rents they collect are independent of the place of employment.
+
+Their budget constraint is
 \begin{equation}
 \label{eq:BudCons}
-PC=WN+R(z)\tilde{L}dz,
+PC=WN+\int_z R(z)\tilde{L}(z)dz,
 \end{equation}
-where $C=\Pi_{i=1}^3C_i^{\alpha_i}$ and $P=\Pi_{i=1}^3P_i^{\alpha_i}/\Pi_{i=1}^3\alpha_i^{\alpha_i}$ are the quantity and price of the composite good, respectively. $R(z)$ is the rent as a function of the distance to the center, and $W$ is the wage. Because labor is freely mobile, wages do not depend on location.
+where $C=\Pi_{i=1}^3C_i^{\alpha_i}$ and $P=\Pi_{i=1}^3P_i^{\alpha_i}/\Pi_{i=1}^3\alpha_i^{\alpha_i}$ are the quantity and price of the composite good, respectively. $R(z)$ is the rent as a function of the distance to the center (see later), and $W$ is the wage. Because labor is freely mobile, wages do not depend on location.
 
 The parameters $\alpha_i$ determine the sectoral consumption shares:
 \begin{equation*}
@@ -121,11 +125,11 @@ The parameters $\alpha_i$ determine the sectoral consumption shares:
 
 \subsection{Producers}
 \subsubsection{Technology}
-Output in sector $i$ at location $z$ depends on employment and land used at that location,
+Output in sector $i$ at location $z$ depends on employment $N$ and land $L$ used at that location,
 \[
 Q_i(z) = A_i L_i(z)^{\beta_i}N_i(z)^{1-\beta_i}.
 \]
-We take labor to be freely mobile within the country, land is in fixed supply ($\tilde{L}$) in each location. The names ``land'' and ``labor'' are for the sake of convenience, these two factors correspond to spatially fixed and mobile factors, respectively, and we will calibrate them accordingly.
+We take labor to be freely mobile within the country, land is in fixed $\tilde{L}(z)$ in each location. The names ``land'' and ``labor'' are for the sake of convenience, these two factors correspond to spatially fixed and mobile factors, respectively, and we will calibrate them accordingly.
 
 Sectors differ in their land shares $\beta_i$ and Hicks neutral productivity shifter $A_i$.
 
@@ -142,7 +146,7 @@ units arrive at the center. This is akin to the iceberg assumption of transport 
 Profits in sector $i$ from production at $z$ is
 \begin{equation}
 \label{eq:profit}
-\Pi_i(z)=P_ie_{-\tau_iz}Q_i(z)-WN_i(z)-R(z)L_i(z).
+\Pi_i(z)=P_ie^{-\tau_iz}Q_i(z)-WN_i(z)-R(z)L_i(z).
 \end{equation}
 A sector being active at location $z$ requires that their maximized profit $\max\Pi_i(z)\geq0.$
 
@@ -150,18 +154,18 @@ A sector being active at location $z$ requires that their maximized profit $\max
 
 The competitive spatial equilibrium in a circular city $z\in Z$ is an equilibrium set of quantities $\{C_i, Q_i(z), L_i(z), N_i(z)\}_{i=1}^3$ and prices $\{P_i, R(z), W\}_{i=1}^3$ such that
 \begin{enumerate}
-    \item The consumer chooses $\{C_i\}_{i=1}^3$ to maximize its utility (\ref{eq:Utility}) subject to its budget constraint (\ref{eq:BudCons}), taking prices as given.
+    \item The consumer chooses $\{C_i\}_{i=1}^3$ to maximize utility (\ref{eq:Utility}) subject to its budget constraint (\ref{eq:BudCons}), taking prices as given.
     \item The producers choose technology $i$ and location $z$, and nonnegative quantities $\{Q_i(z), L_i(z), N_i(z)\}$ to maximize their profits (\ref{eq:profit}), taking prices as given.
     \item Sectoral goods market clear: $C_i=\int_{z\in Z} e^{-\tau_iz}Q_i(z)dz$ for $i=1,2,3$.
     \item Labor market clears: $N=\sum_i\int_{z\in Z} N_i(z)$.
-    \item Land markets clear at every location: $\sum_iL_i(z)=L$ for all $z\in Z$.
+    \item Land markets clear at every location: $\sum_iL_i(z)=\tilde L(z)$ for all $z\in Z$.
 \end{enumerate}
 
 \subsection{Spatial structure}
 The equilibrium, as we show below, has a simple and intuitive structure. Sectors with higher transport cost intensity ($\tau_i$) and lower land share ($\beta_i$) locate closer to the center. Realistically, services locate in a circle around the center, manufacturing goods are produced on a ring around it, and agriculture inhibits the outer ring.
 
-To see why it is the case, it is instructive to construct the sectoral bid rent curves $R_i(z)$. These are the maximum rent an active producer with technology $i$ would be willing to pay at location $z$. %In a competitive market, the sector with the highest bid rent curve is active at a location ($R(z)=\max_iR_i(z)$ for all $z$). 
-A profit maximizing producer is choosing its land ($N_i(z)$) and labor demand ($L_i(z)$) to equalize the value marginal product of land and labor to rents and wages, respectively. It is true for any rent function or wages it might face, so it is true for rents given by its own bid-rent curve $R_i(z)$, in particular.
+To see why it is the case, it is instructive to construct the sectoral bid rent curves $R_i(z)$. These are the maximum rent an active producer with technology $i$ would be willing to pay at location $z$. %In a competitive market, the sector with the highest bid rent curve is active at a location ($R(z)=\max_iR_i(z)$ for all $z$).
+A profit maximizing producer is choosing its land $N_i(z)$ and labor demand $L_i(z)$ to equalize the value marginal product of land and labor to rents and wages, respectively. It is true for any rent function or wages it might face, so it is true for rents given by its own bid-rent curve $R_i(z)$, in particular.
 \begin{align}
 R_i(z) &=\beta_i P_ie^{-\tau_i z}A_i \left(\frac{N_i(z)}{L_i(z)}\right)^{1-\beta_i}\\
 W &=(1-\beta_i) P_ie^{-\tau_i z}A_i \left(\frac{N_i(z)}{L_i(z)}\right)^{-\beta_i}
@@ -172,18 +176,19 @@ The sectoral labor-land ratio (employment density) can be expressed as
 \label{eq:EmpDens}
 \frac{N_i(z)}{L_i(z)} = \frac{1-\beta_i}{\beta_i}\frac{R_i(z)}{W}.
 \end{equation}
-Substituting this into the FOC for land, we can get an expression for the sectoral bid rent curve:
+Substituting this into the FOC for land, we can get an implicit expression for the sectoral bid rent curve:
 \[
-R_i(z) =\beta_i P_ie^{-\tau_i z}A_i \left(\frac{1-\beta_i}{\beta_i}\frac{R_i(z)}{W}\right)^{1-\beta_i}
+R_i(z) =\beta_i P_ie^{-\tau_i z}A_i \left(\frac{1-\beta_i}{\beta_i}\frac{R_i(z)}{W}\right)^{1-\beta_i},
 \]
-\[
-R_i(z)^{\beta_i} =\beta_i^{\beta_i}(1-\beta_i)^{1-\beta_i} P_ie^{-\tau_i z}A_i W^{\beta_i-1}
-\]
+%\[
+%R_i(z)^{\beta_i} =\beta_i^{\beta_i}(1-\beta_i)^{1-\beta_i} P_ie^{-\tau_i z}A_i W^{\beta_i-1}
+%\]
+from which
 \begin{equation}
 \label{eq:BidRent}
-R_i(z) =\beta_i(1-\beta_i)^{1/\beta_i-1} (P_iA_i)^{1/\beta_i} W^{1-1/\beta_i} e^{-\frac{\tau_i}{\beta_i} z}
+R_i(z) =\beta_i(1-\beta_i)^{1/\beta_i-1} (P_iA_i)^{1/\beta_i} W^{1-1/\beta_i} e^{-\frac{\tau_i}{\beta_i} z}.
 \end{equation}
-Equation (\ref{eq:BidRent}) pins down the gradient of the sectoral rent curve, which determines how fast the bid-rents decrease with the distance from the CBD. The gradient is an increasing function of the sectoral transport costs and a decreasing function of land shares $|\partial\log R_i(z)/\partial \log z|=\tau_i/\beta_i$. Intuitively, transport costs ($\tau_iz$) increase with distance, so the producers offer lower rents for farther locations. If land were the only factor of production ($\beta_i=1$), only this direct effect would be present and the gradient would only depend on the transport cost intensity. With labor present, however, the producers can substitute labor for land, introducing an indirect effect on the gradient. As the equilibrium land-labor ratio shows (see equation \ref{eq:EmpDens}), the land share $\beta_i$ determines the strength of this substitutability: higher land share implies bid-rent curves decreasing with a slower rate.
+Equation (\ref{eq:BidRent}) pins down the gradient of the sectoral rent curve, which determines how fast the bid-rents decrease with the distance from the CBD. The gradient is an increasing function of the sectoral transport costs and a decreasing function of land shares $|\partial\log R_i(z)/\partial \log z|=\tau_i/\beta_i$. Intuitively, transport costs ($\tau_iz$) increase with distance, so producers offer lower rents for farther locations. If land were the only factor of production ($\beta_i=1$), only this direct effect would be present and the gradient would only depend on the transport cost intensity. With labor present, however, the producers can substitute labor for land, introducing an indirect effect on the gradient. As the equilibrium land-labor ratio shows (see equation \ref{eq:EmpDens}), the land share $\beta_i$ determines the strength of this substitutability: higher land share implies bid-rent curves decreasing with a slower rate.
 
 We can also get the employment gradient by substituting the bid rent curve into the labor-land ratio,
 \begin{equation}
@@ -215,155 +220,15 @@ The equilibrium requires that $R_1(z)$ crosses once with $R_2(z)$ at $z=z_1$. Si
 \noindent \footnotesize{The figure plots the structure of a spatial competitive equilibrium. It shows equilibrium sectoral bid rent curves as a function of distance from the city center. A sector is active over an area where it is willing to overbid alternative sectors. Crossings of the bid-rent curves determine the borders of the sectors. Services are active in $[0,z_1]$, manufacturing in $\left(z_1,z_2\right]$, and services in $\left(z_2,z_3\right]$.}
 \end{figure}
 
-\subsection{Aggregation across space}
-
-Value added per unit of land at consumer prices,
-\[
-\frac{P_i Q_i(z)}{L_i(z)} = (1-\beta_i)^{1/\beta_i-1}
-(P_iA_i)^{1/\beta_i}W^{1-1/\beta_i}
- e^{-\frac{1-\beta_i}{\beta_i}\tau_i z}.
-\]
-The same at producer prices
-\[
-\frac{e^{-\tau_i z} P_i Q_i(z)}{L_i(z)} = (1-\beta_i)^{1/\beta_i-1}
-(P_iA_i)^{1/\beta_i}W^{1-1/\beta_i}
- e^{-\frac{\tau_i}{\beta_i} z}.
-\]
-Let
-\[
-\tilde z_i = -
-\frac{\beta_i}{\tau_i}
-\ln\int_{z\in Z_i} \frac{L_i(z)}{L_i}e^{-\frac{\tau_i}{\beta_i} z}dz
-\]
-denote the average distance of sector $i$ to the center, where $L_i=\int_{z\in Z_i} L_i(z)dz$ is the total amount of land devoted to sector $i$. This definition ensures that the trade cost going to location $\tilde z_i$ equals the land-weighted average trade cost across all sectoral locations,
-\[
-e^{-\frac{\tau_i}{\beta_i} \tilde z_i} = \int_{z\in Z_i} \frac{L_i(z)}{L_i}e^{-\frac{\tau_i}{\beta_i} z}dz.
-\]
-As we will see below, $\tilde z_i$ is a sufficient statistic about sector location for aggregation purposes. (XX THIS IS A TRICK OF THE MELITZ MODEL)
-
-The the total supply of sector $i$ at producer prices,
-\[
-Y_i = (1-\beta_i)^{1/\beta_i-1}
-(P_iA_i)^{1/\beta_i}W^{1-1/\beta_i} L_i e^{-\frac{\tau_i}{\beta_i} \tilde z_i}.
-\]
-Overall employment in the sector,
-\[
-N_i = (1-\beta_i)^{1/\beta_i}
-\left(\frac{P_iA_i}{W}\right)^{1/\beta_i} L_i e^{-\frac{\tau_i}{\beta_i} \tilde z_i},
-\]
-so that we can express $W/P_i$ as
-\[
-\left(\frac{W}{P_i}\right)^{1/\beta_i} = (1-\beta_i)^{1/\beta_i}
-N_i^{-1}A_i^{1/\beta_i}
-L_i e^{-\frac{\tau_i}{\beta_i} \tilde z_i}
-\]
-\[
-\frac{W}{P_i} = (1-\beta_i)
-N_i^{-\beta_i}A_i L_i^{\beta_i}
- e^{-\tau_i\tilde z_i}
-\]
-\[
-\left(\frac{W}{P_i}\right)^{1-1/\beta_i} = (1-\beta_i)^{1-1/\beta_i}
-A_i^{1-1/\beta_i}N_i^{1-\beta_i}L_i^{\beta_i-1}
-e^{\frac{1-\beta_i}{\beta_i}\tau_i \tilde z_i}
-\]
-
-\subsection{Productivity measurement}
-Suppose physical output is measured as revenue at producer prices deflated by a common price index. We take the price index to be the consumer price (XX CHECK IF IT MATTERS).
-\[
-\tilde Q_i(z) = \frac{e^{-\tau_i z}P_iQ_i(Z)}{P_i}
-\]
-We can write an aggregate output as
-\[
-\tilde Q_i =
-(1-\beta_i)^{1/\beta_i-1}
-A_i^{1/\beta_i}\left(\frac{W}{P_i}\right)^{1-1/\beta_i}
-L_i e^{-\frac{\tau_i}{\beta_i} \tilde z_i}
-\]
-which takes us to the aggregate production function
-\[
-\tilde Q_i =
-A_iL_i^{\beta_i}N_i^{1-\beta_i}
- e^{-\tau_i\tilde z_i}.
-\]
-Aggregate output is a Cobb--Douglas function of land and labor, adjusted with trade costs. The factor is smaller for sectors with large trade costs ($\tau_i$) and sectors farther away from the city (larger $\tilde z_i$). Simply put, services will look unproductive in New York City relative to Budapest, because NYC is larger.
-
-Output per worker
-\[
-\frac{\tilde Q_i}{N_i} = \frac1{1-\beta_i}
-\frac{W}{P_i}
-\]
-We want to get rid of product prices in this formula and express them as a function of input costs
-\[
-\frac{R_i}{W} =\beta_i(1-\beta_i)^{1/\beta_i-1} \left(\frac{P_iA_i}{W}\right)^{1/\beta_i} e^{-\frac{\tau_i}{\beta_i} \tilde z_i},
-\]
-where $R_i$ is the rent prevailing at location $\tilde z_i$ (which is also equal to the average rent paid by the sector, as proven below)
-\[
-R(\tilde z_i) =
-R(z_{i-1})e^{-\frac{\tau_i}{\beta_i}(\tilde z_i-z_{i-1})}
-\]
-\[
-R_i =\int_{z\in Z_i}\frac{L_i(z)}{L_i}R(z)dz =
-R(z_{i-1})e^{\frac{\tau_i}{\beta_i}z_{i-1}}
-\int_{z\in Z_i}\frac{L_i(z)}{L_i}e^{-\frac{\tau_i}{\beta_i}z}dz
-\]
-
-\[
-\left(\frac{W}{P_i}\right)^{1/\beta_i}  =\beta_i(1-\beta_i)^{1/\beta_i-1}
-A_i^{1/\beta_i}
-\frac{W}{R_i}
- e^{-\frac{\tau_i}{\beta_i} \tilde z_i}
-\]
-\[
-\frac{W}{P_i}  =\beta_i^{\beta_i}(1-\beta_i)^{1-\beta_i}
-A_i
-\left(\frac{W}{R_i}\right)^{\beta_i}
- e^{-\tau_i \tilde z_i}
-\]
-so that output per worker can be written as
-\[
-\frac{\tilde Q_i}{N_i} = \beta_i^{\beta_i}(1-\beta_i)^{-\beta_i}
-A_i
-\left(\frac{W}{R_i}\right)^{\beta_i}e^{-\tau_i \tilde z_i}.
- \]
-Log output per worker is
-\[
-\tilde q_i - n_i =
-\beta_i\ln\beta_i+(1-\beta_i)\ln(1-\beta_i)
-+a_i +\beta_i (w
--r_i)
-- \tau_{i}z_{i}
-\]
-Conditional on true productivity $a_i$, measured productivity is lower in cities where rents are higher. The magnitude of this bias depends on the (direct and indirect) land share of the sector, $\beta_i$. Measured productivity is also lower whenever the sector locates far from the center ($z_i$ is high). Interestingly, this bias does not depend on the land share. The intuition is that XX
-
-The former bias will be bigger for rich countries, as rents tend to be more sensitive to per capita income than wages are. The latter bias will be bigger for rich and urbanized countries, where each urban sector takes up more space.
-
-\subsection{Development accounting}
-
-Inferring productivity from output per worker,
-\[
-a_i =  \tilde a_i +\gamma_i
-+\beta_i (r_i-w)
-+ \tau_{i}z_{i},
-\]
-where $\tilde a_i = q_i-n_i$ is log measured productivity and $\gamma_i = -\beta_i\ln\beta_i-(1-\beta_i)\ln(1-\beta_i)$ is a sector-specific constant. This is our main equation for sector-level development accounting.
-
-We are interested in how sectoral productivities are correlated with per capita income.
-\[
-\frac{d a_i}{dy_i} = \frac{d \tilde a_i}{dy_i} +\beta_i \left(
-\frac{d r_i}{dy_i}-\frac{d w}{dy_i}\right)
-+ \tau_{i}\frac{d z_i}{dy_i}.
-\]
-
 
 \subsection{Spatial arbitrage}
 Competitive land markets ensure that each location goes to the highest bidder. The slope of the bid-rent gradient in sector $i$ is $\tau_i/\beta_i$. Suppose that this is the highest for services, lower for manufacturing, and lowest for agriculture.
 
 Let $z_i$ denote the outer edge of the land use of sector $i$. At such locations, both sector $i$ and sector $i+1$ have the same reservation rent:
-\begin{align*}
+\begin{align}\label{eq:BorderRents}
 R(z_i) &=\beta_i(1-\beta_i)^{1/\beta_i-1} (P_iA_i)^{1/\beta_i} W^{1-1/\beta_i} e^{-\frac{\tau_i}{\beta_i} z_i}\\
 R(z_i) &=\beta_{i+1}(1-\beta_{i+1})^{1/\beta_{i+1}-1} (P_{i+1}A_{i+1})^{1/\beta_{i+1}} W^{1-1/\beta_{i+1}} e^{-\frac{\tau_{i+1}}{\beta_{i+1}} z_i}
-\end{align*}
+\end{align}
 Substitute in the overall amount of value added,
 \[
 R_i(z) = R_i e^{-\frac{\tau_i}{\beta_i}(z-\tilde z_i)}.
@@ -382,28 +247,188 @@ At the location $z_{i-1}$ where sectors $i$ and $i-1$ meet,
   e^{-\frac{\tau_i}{\beta_i}(z_{i-1} -\tilde z_i)}.
 \]
 
+\subsection{Solving for the prices}
+
+At the sector borders $z_i$, neighboring sectors have the same reservation rents. Having solved for these locations, equations \ref{eq:BorderRents} provide implicit equations for relative product prices $P_i$ for $i=s,m.$ The consumer budget constraint, given by equation \ref{eq:BudCons}, gives us the equation for the remaining product price $P_a$. This closes the model description.   
+
+\section{Development accounting}
+\subsection{Aggregation across space}
+Sectoral production, as we show in this section, is a function of a suitably chosen representative location. 
+
+Sectoral output measured at the center is
+\begin{equation*}
+\tilde{Q}_i=\int_{z\in Z_i}e^{-\tau_i z}A_iL_i(z)^\beta_iN_i(z)^{1-\beta_i}dz,
+\end{equation*}
+where $Z_i$ is the set of locations where sector $i$ is active in equilibrium. 
+
+Let the representative location
+\begin{equation}
+\label{eq:ReprLoc}
+\tilde z_i = -
+\frac{\beta_i}{\tau_i}
+\ln\int_{z\in Z_i} \frac{L_i(z)}{L_i}e^{-\frac{\tau_i}{\beta_i} z}dz
+\end{equation}
+denote the average distance of sector $i$ to the center, where $L_i=\int_{z\in Z_i} L_i(z)dz$ is the total amount of land devoted to sector $i$. This definition ensures that the trade cost going to location $\tilde z_i$ equals the land-weighted average trade cost across all sectoral locations,
+\[
+e^{-\frac{\tau_i}{\beta_i} \tilde z_i} = \int_{z\in Z_i} \frac{L_i(z)}{L_i}e^{-\frac{\tau_i}{\beta_i} z}dz.
+\]
+As we will see below, $\tilde z_i$ is a sufficient statistic about sector location for aggregation purposes. %(XX THIS IS A TRICK OF THE MELITZ MODEL)
+
+\begin{proposition}
+Aggregate sectoral production function is of the form: 
+\begin{equation}
+\tilde Q_i =
+A_iL_i^{\beta_i}N_i^{1-\beta_i}
+ e^{-\tau_i\tilde z_i}.
+\end{equation}
+It depends on trade costs from the representative location ($\tilde{z}_i$) defined by equation \ref{eq:ReprLoc} and is a Cobb-Douglas aggregate of sectoral land ($L_i=\int_{Z_i}L_i(z)dz$) and labor ($N_i=\int_{Z_i}N_i(z)dz$) use.
+\end{proposition}
+
+To show that it is the case, let us express value added (measured at the center) at a location $z$ per unit of land:
+\[
+\frac{e^{-\tau_i z} Q_i(z)}{L_i(z)} = e^{-\tau_i z} A_i(z)\left(\frac{N_i(z)}{L_i(z)}\right)^{1-\beta_i} = (1-\beta_i)^{1/\beta_i-1}
+A_i^{1/\beta_i}\left(\frac{W}{P_i}\right)^{1-1/\beta_i}
+ e^{-\frac{\tau_i}{\beta_i} z},
+\]
+where we used equation \ref{eq:EmpDens} on employment density. From this, total supply of sector $i$ becomes 
+\begin{equation}
+\label{eq:OutputInterm}
+\tilde{Q_i} = \int_{z\in Z_i}\frac{e^{-\tau_i z} Q_i(z)}{L_i(z)}L_i(z)dz=(1-\beta_i)^{1/\beta_i-1}
+(A_i)^{1/\beta_i}\left(\frac{W}{P_i}\right)^{1-1/\beta_i} L_i e^{-\frac{\tau_i}{\beta_i} \tilde z_i}.
+\end{equation} 
+by the definition of the representative location of the sector in equation \ref{eq:ReprLoc}.
+
+Overall employment in the sector,
+\[
+N_i = \int_{z\in Z_i}\frac{N_i(z)}{L_i(z)}L_i(z)dz= (1-\beta_i)^{1/\beta_i}
+\left(\frac{P_iA_i}{W}\right)^{1/\beta_i} L_i e^{-\frac{\tau_i}{\beta_i} \tilde z_i},
+\]
+so that we can express $W/P_i$ as
+%\[
+%\left(\frac{W}{P_i}\right)^{1/\beta_i} = (1-\beta_i)^{1/\beta_i}
+%N_i^{-1}A_i^{1/\beta_i}
+%L_i e^{-\frac{\tau_i}{\beta_i} \tilde z_i}
+%\]
+\[
+\frac{W}{P_i} = (1-\beta_i)
+N_i^{-\beta_i}A_i L_i^{\beta_i}
+ e^{-\tau_i\tilde z_i}
+\]
+%\[
+%\left(\frac{W}{P_i}\right)^{1-1/\beta_i} = (1-\beta_i)^{1-1/\beta_i}
+%A_i^{1-1/\beta_i}N_i^{1-\beta_i}L_i^{\beta_i-1}
+%e^{\frac{1-\beta_i}{\beta_i}\tau_i \tilde z_i}
+%\]
+Substituting this result to equation \ref{eq:OutputInterm}, we obtain the aggregate production function. 
+
+\subsection{Productivity measurement}
+Productivity measurements disregarding land and location lead to biased results, which we analyse below using our model. We first show the bias for labor productivity, which ignores land altogether, then for total-factor productivity, which accounts for land, but ignores its location.
+
+%Suppose physical output is measured as revenue at producer prices deflated by a common price index. We take the price index to be the consumer price (XX CHECK IF IT MATTERS).
+%\[
+%\tilde Q_i(z) = \frac{e^{-\tau_i z}P_iQ_i(Z)}{P_i}
+%\]
+%We can write an aggregate output as
+%\[
+%\tilde Q_i =
+%(1-\beta_i)^{1/\beta_i-1}
+%A_i^{1/\beta_i}\left(\frac{W}{P_i}\right)^{1-1/\beta_i}
+%L_i e^{-\frac{\tau_i}{\beta_i} \tilde z_i}
+%\]
+%which takes us to the aggregate production function
+%\[
+%\tilde Q_i =
+%A_iL_i^{\beta_i}N_i^{1-\beta_i}
+% e^{-\tau_i\tilde z_i}.
+%\]
+%Aggregate output is a Cobb--Douglas function of land and labor, adjusted with trade costs. The factor is smaller for sectors with large trade costs ($\tau_i$) and sectors farther away from the city (larger $\tilde z_i$). 
+
+Sectoral output per worker is
+\[
+\frac{\tilde Q_i}{N_i} = \frac1{1-\beta_i}
+\frac{W}{P_i}.
+\]
+We can substitute out product prices in this formula and express them as a function of input costs. To do this, define average sectoral rents as
+\begin{equation}
+R_i =\int_{z\in Z_i}\frac{L_i(z)}{L_i}R(z)dz = \beta_i(1-\beta_i)^{1/\beta_i-1} \left(P_iA_i\right)^{1/\beta_i} W^{1-1/\beta_i} e^{-\frac{\tau_i}{\beta_i} \tilde{z}_i}
+\end{equation}
+Note that $R_i$ also equals to the rent prevailing at location $\tilde z_i$. From this, we get that 
+%\[
+%\frac{R_i}{W} =\beta_i(1-\beta_i)^{1/\beta_i-1} \left(\frac{P_iA_i}{W}\right)^{1/\beta_i} e^{-\frac{\tau_i}{\beta_i} \tilde z_i},
+%\]
+%where $R_i$ is the rent prevailing at location $\tilde z_i$ (which is also equal to the average rent paid by the sector, as proven below)
+%\[
+%R(\tilde z_i) =
+%R(z_{i-1})e^{-\frac{\tau_i}{\beta_i}(\tilde z_i-z_{i-1})}
+%\]
+
+%\[
+%\left(\frac{W}{P_i}\right)^{1/\beta_i}  =\beta_i(1-\beta_i)^{1/\beta_i-1}
+%A_i^{1/\beta_i}
+%\frac{W}{R_i}
+% e^{-\frac{\tau_i}{\beta_i} \tilde z_i}
+%\]
+\[
+\frac{W}{P_i}  =\beta_i^{\beta_i}(1-\beta_i)^{1-\beta_i}
+A_i
+\left(\frac{W}{R_i}\right)^{\beta_i}
+ e^{-\tau_i \tilde z_i}
+\]
+so that output per worker can be written as
+\begin{equation}
+\frac{\tilde Q_i}{N_i} = \beta_i^{\beta_i}(1-\beta_i)^{-\beta_i}
+A_i
+\left(\frac{W}{R_i}\right)^{\beta_i}e^{-\tau_i \tilde z_i}.
+\end{equation}
+
+Log output per worker is
+\[
+\tilde q_i - n_i =
+\beta_i\ln\beta_i+(1-\beta_i)\ln(1-\beta_i)
++a_i +\beta_i (w
+-r_i)
+- \tau_{i}\tilde z_{i}
+\]
+Conditional on true productivity $a_i$, measured productivity (ignoring land) is lower in cities where rents are higher. The magnitude of this bias depends on the (direct and indirect) land share of the sector, $\beta_i$. Measured productivity is also lower whenever the sector locates far from the center ($\tilde z_i$ is high). %Interestingly, this bias does not depend on the land share. The intuition is that XX
+The former bias will be bigger for rich countries, as rents tend to be more sensitive to per capita income than wages are. The latter bias will be bigger for rich and urbanized countries, where each urban sector takes up more space. Simply put, services will look unproductive in New York City relative to Budapest, because NYC is larger.
+
+The bias in measured total factor productivity (if location is ignored) depends on sectoral trade costs ($-\tau_i\tilde z_i$), as 
+\begin{equation}
+\frac{\tilde Q_i}{L_i^{\beta_i}N_i^{1-\beta_i}} = A_i e^{-\tau_i \tilde z_i}.
+\end{equation}
+The bias is higher in non-tradable sectors, and in large countries and cities. 
+
+\subsection{Development accounting} 
+Location-corrected productivity can be expressed from measured TFP as
+\[
+a_i =  \tilde a_i+ \tau_{i}z_{i},
+\]
+where $\tilde a_i$ is log measured total-factor productivity productivity. This is our main equation for sector-level development accounting.
+
+We are interested in how location-corrected sectoral productivities are correlated with per capita income.
+\[
+\frac{d a_i}{dy_i} = \frac{d \tilde a_i}{dy_i}+ \tau_{i}\frac{d \tilde z_i}{dy_i}.
+\]
+For this, we need a solution to sector-specific location variables as a function of observables.  
+
 \subsection{Sectoral allocation of land}
-We want to express the sectoral allocation of land as a function of GDP shares and employment shares of sectors, both of which are observable in NIPA.
-
-XX NOTE: $e^{-\tau_i \tilde z_i}$ is completely isomorphic with $P_iA_i$. That is, we cannot calibrate $\tau$ and $\tilde z$ from aggregate data alone. We will calibrate these from ZIP-code-level data in the U.S., and use data on $P_iA_i$ for other countries.
-
-Land demand per dollar of value added,
+We want to express the sectoral allocation of land as a function of GDP shares of sectors,  which, in contrast to land shares, are observable in NIPA.\footnote{Value productivity $P_iA_i$ and trade costs $e^{-\tau_i \tilde z_i}$ are completely isomorphic in the sense that they only appear together in our aggregate equations. That is, we cannot calibrate $\tau$ and $\tilde z$ from aggregate data alone. We will calibrate these from ZIP-code-level data in the U.S., and use data on $P_iA_i$ for other countries.} Land demand per dollar of value added,
 \[
 \frac{L_i}{Y_i} =
-\frac{\beta_i}{R_i}
+\frac{\beta_i}{R_i}.
 \]
-\[
-R_i =\beta_i(1-\beta_i)^{1/\beta_i-1} (P_iA_i)^{1/\beta_i}W^{1-1/\beta_i} e^{-\frac{\tau_i}{\beta_i} \tilde z_i},
-\]
+Using the formula for the rent gradient, 
 \[
 \frac{L_i}{Y_i} =
-(1-\beta_i)^{1-1/\beta_i} (P_iA_i)^{-1/\beta_i}W^{1/\beta_i-1} e^{\frac{\tau_i}{\beta_i} \tilde z_i},
+(1-\beta_i)^{1-1/\beta_i} (P_iA_i)^{-1/\beta_i}W^{1/\beta_i-1} e^{\frac{\tau_i}{\beta_i} \tilde z_i}.
 \]
-
+We rewrite this in terms of land and GDP shares,
 \[
 \frac{L_i}{L} = \frac{Y_i}{Y}\frac{Y}{WL}
-(1-\beta_i)^{1-1/\beta_i}\left(\frac{W}{P_iA_i e^{-\tau_i\tilde z_i}}\right)^{1/\beta_i} ,
+(1-\beta_i)^{1-1/\beta_i}\left(\frac{W}{P_iA_i e^{-\tau_i\tilde z_i}}\right)^{1/\beta_i}.
 \]
+Note that the last term is unit labor cost, and, given that \emph{measured} TFP is $A_i e^{-\tau_i\tilde z_i}$, all its components are, in principle, measurable.
+
 Let superscript $j$ denote country $j$ (we have omitted country indexes so far).
 \begin{equation}
 \label{eq:LandShare}
@@ -427,12 +452,16 @@ ULC_i^{USA} =1=(1-\beta_i)^{\beta_i-1} \left(\frac{L_i^{USA}}{Y_i^{USA}}\right)^
 \end{equation}
 Having the proper units of output (and ULC), we can simply calculate the land demand in each country for a set of value added shares and measured ULCs.
 
+
+
+
+
 \section{Data and calibration}
 Now we calibrate the model to show that correcting for land and location in sectoral productivity measures has the potential to change previous conclusions of multi-sector development accounting.
 We allow for sector-specific differences in productivity ($A_i$), which are the key object of interest in multi-sector development accounting. The urban fringe ($z_3$) may also vary with country area and its degree of urbanization and we calibrate it below. Demand parameters ($\alpha_i$) are allowed to vary to allow different countries to have different expenditure shares in agriculture, manufacturing and services. %XX TALK MORE ABOUT STRUCTURAL CHG
 Each country has the same land share within sectors $\beta_i$ and the same shipping cost $\tau_i$.
 %\subsection{Variation across countries}
-%Countries differ in Hicks-neutral productivities $A_i$, their urban fringe $z_3$ and their demand parameters $\alpha_i$. 
+%Countries differ in Hicks-neutral productivities $A_i$, their urban fringe $z_3$ and their demand parameters $\alpha_i$.
 
 \subsection{Calibration}
 First we calibrate land shares and shipping costs using US data. Then we turn to the calibration of parameters influencing cross-country variations.
@@ -467,9 +496,9 @@ Services    &  0.06 & 0.66 & 0.07 & 0.13 \\
 
 We use the 2010 ZIP Business Patters of the U.S. Census to determine the location of sectors in the United States. We use this to calibrate transportation costs and distances of the sectors from the center.
 
-The ZIP Business Patterns contains the number of establishments in employment size categories in each ZIP code for each 6-digit NAICS code. We merge NAICS codes into agriculture, manufacturing and services as follows. Agriculture is sector 11 of NAICS. We merge mining (21), utilities (22), and construction (23) together with manufacturing industries (31-33). As services, we categorize the rest, including public administration. We estimate employment by using the midpoints of the size categories XXX.
+The ZIP Business Patterns contains the number of establishments in employment size categories in each ZIP code for each 6-digit NAICS code. We merge NAICS codes into agriculture, manufacturing and services as follows. Agriculture is sector 11 of NAICS. We merge mining (21), utilities (22), and construction (23) together with manufacturing industries (31-33). As services, we categorize the rest, including public administration. We estimate employment by using the midpoints of the size categories.
 
-To map the model into the data, we need to specify how far each ZIP code is from the city center. We take Urbanized Areas (UAs) as independent monocentric cities, and we assign the central point to the business or administrative center of the first-mentioned city in the UA, as given by Yahoo Maps. For example, the center of ``New York–Newark, NY-NJ-CT Urbanized Area'' is the corner of Broadway and Chamber St in downtown Manhattan, whereas the center of ``Boston, MA–NH-RI Urbanized Area'' is 1 Boston Pl. We calculate the distance of each ZIP code to business center of the nearest UA. 
+To map the model into the data, we need to specify how far each ZIP code is from the city center. We take Urbanized Areas (UAs) as independent monocentric cities, and we assign the central point to the business or administrative center of the first-mentioned city in the UA, as given by Yahoo Maps. For example, the center of ``New York–Newark, NY-NJ-CT Urbanized Area'' is the corner of Broadway and Chamber St in downtown Manhattan, whereas the center of ``Boston, MA–NH-RI Urbanized Area'' is 1 Boston Pl. We calculate the distance of each ZIP code to business center of the nearest UA.
 
 According to equation \ref{eq:EmpDens}, the employment density of sector $i$ in location $z$ is proportional to the rent-wage ratio. When industry $i$ demands positive land in the neighborhood of $z$, then the rent is proportional to $e^{-\tau_i/\beta_i z}$. We can use this observation to estimate $\tau_i$:
 \[
@@ -482,14 +511,12 @@ To get a sense where each sectors is active, we calculate location quotients by 
 
 Figure \ref{fig:sector_location_quotients} shows that sectors sort as in the model: services are overrepresented closer to the city center, while manufacturing and agriculture are both underrepresented there. Agriculture shows a particularly steep gradient, with high relative employment farther away from the city center. In the calculation of sectoral employment gradients below, we restrict attention to the areas where the sectors are overrepresented. We assume that services are active up to 30 kms from the center, manufacturing is active between 10 and 60 kms and agriculture farther than 60 kms.
 
-Let $n_{izc}$ be the employment of industry $i$ in ZIP code $z$, belonging to city (MSA) $c$. (Note that this employment can, and very often will be zero.) We denote the land area of ZIP code $z$ by $l_z$.
+Let $n_{izc}$ be the employment of industry $i$ in ZIP code $z$, belonging to city (MSA) $c$.  Assuming that establishments in a given sector consume the same amount of land,\footnote{We believe this approximation is likely to bias our estimates of the rent gradient downward. Rural establishments probably occupy more space that urban establishments even in the same narrow industry, so establishment sizes do not go down as fast with distance as employment density does. } we denote by $l_{izc}$ the number of establishments of sector $i$ in ZIP code $z$. We can then regress establishment size (workers per establishment) in each sector in each ZIP code on fixed effects, and the distance of the ZIP code to the city center,
 \begin{equation}\label{eq:estimable:gradient}
-\frac{n_{izc}}{l_z} = e^{\mu_c+\nu_i-\gamma_i d(z,c)}
+\frac{n_{izc}}{l_{izc}} = e^{\mu_c+\nu_i-\gamma_i d(z,c)}.
 \end{equation}
-The city fixed effect captures variation in rents and wages in the MSA, the sector fixed effect captures variation in land and labor intensity across sectors. %XX WE MAY NEED CITY*SECTOR FEs
+The city fixed effect captures variation in rents and wages in the MSA, the sector fixed effect captures variation in land and labor intensity and establishment size across sectors. %XX WE MAY NEED CITY*SECTOR FEs
 The key parameter of interest is $\gamma_i$, which captures how fast employment declines with distance to the center by sector.
-
-XX IN THE END WE ARE USING ESTABLISHMENTS FOR L
 
 We estimate \eqref{eq:estimable:gradient} by a Poisson regression which ensures that the equation holds in expectation, and permits estimation even when $n_{izc}=0$, which is often the case. The estimates of $\gamma_i$ and the implied sectoral transport cost intensities $\tau_i$ in the three sectors are below.
 
@@ -514,26 +541,26 @@ We estimate \eqref{eq:estimable:gradient} by a Poisson regression which ensures 
   \noindent \footnotesize{Sectoral rent gradients $\gamma_i$ are estimated using US employment-density observation across ZIP codes in MSAs. Price gradients reflect transport costs ($\tau_i$) and are estimated by multiplying rent gradients with sectoral land shares ($\beta_i$). }
 \end{table}%
 
-The three columns report the calibrated land shares, and the estimates for rent and price gradients, respectively, for each sector. The estimated coefficients can be interpreted as follows. We find that the rents paid by services become 13.15\% cheaper with every kilometer from the city center over the 0-30kms range, where services are active. Though a 13\% reduction is substantial, it does not seem unrealistic with a whole 1 kilometer distance. In line with our intuition, rent gradients of manufacturing and agriculture (measured further away from the city center) both imply slower rent declines. We infer price gradients reflecting the transportation cost intensities ($\tau_i$) from the measured rent gradients $\gamma_i=\tau_i/\beta_i$ and the sectoral land shares. The last column of table \ref{ta:EmpGrad} shows that we find transportation costs of services significantly higher (1.71\%) than those of manufacturing and agriculture (0.52\%, 0.81\%). We hold these estimated technology parameters constant across countries. %The employment density gradient of agriculture is inverted, reflecting the fact that most agricultural activity is carried out away from the cities.
+The three columns report the calibrated land shares, and the estimates for rent and price gradients, respectively, for each sector. The estimated coefficients can be interpreted as follows. We find that the rents paid by services become 13.15\% cheaper with every kilometer from the city center over the 0-30kms range, where services are active. Though a 13\% reduction is substantial, it does not seem unrealistic with a whole 1 kilometer distance. In line with our intuition, rent gradients of manufacturing and agriculture (measured further away from the city center) both imply slower rent declines. We infer price gradients reflecting the transportation cost intensities ($\tau_i$) from the measured rent gradients $\gamma_i=\tau_i/\beta_i$ and the sectoral land shares. The last column of table \ref{tab:EmpGrad} shows that we find transportation costs of services significantly higher (1.71\%) than those of manufacturing and agriculture (0.52\%, 0.81\%). We hold these estimated technology parameters constant across countries. %The employment density gradient of agriculture is inverted, reflecting the fact that most agricultural activity is carried out away from the cities.
 
 \subsubsection{Country parameters}
 We allow three parameters to vary across countries: the sector share of GDP ($\alpha_i$), the sectoral unit labor costs ($ULC_i$) and the city sizes $(z_3)$.
 
 To capture the international variation in sectoral demand ($\alpha_i$), we use sectoral value added shares reported by the World Bank's World Development Indicator database.
 
-The sectoral unit labor costs come from the EUKLEMS database \citeN{OMahony09}, which contains internationally comparable sector-level labor compensation measures per hour and labor productivities.\footnote{Using multi-factor productivities would reduce our sample size from the already tight 14 to 11.}
+The sectoral unit labor costs come from the EUKLEMS database (\citeN{OMahony09}), which contains internationally comparable sector-level labor compensation measures per hour and labor productivities.\footnote{Using multi-factor productivities would reduce our sample size from the already tight 14 to 11.}
 
 The diverse \emph{size} of the representative cities introduces international variation in transport costs. To control for this, we take the internationally comparable ``arable land'' measure from the World Bank's World Development Indicator database\footnote{Some urban land measure would be preferable, but the available measures are based on national definitions, so can not be directly compared internationally.} and divide it by the number of cities with above 50.000 inhabitants.\footnote{The dataset is compiled by Stefan Helders (www.world-gazetteer.com) and uses mostly official sources.} This gives us a measure of the available land in the representative city. As we assume circular cities in our model, this area measure ($L$) readily translates into distance by $L=z_3^2\pi$, where $z_3$ the distance of the urban fringe from the city center $z_3$. Combining these measures with country-level estimates of sectoral land shares, as we show below, we obtain estimates for sectoral transport costs.
 
 \subsubsection{Sector locations}
 
-International variation in the distances of sectors from the city center influence transport costs. Our sector location measure ($z_i^j$)\footnote{In the current version, we are calculating the maximum distance ($z_i^j$), instead of the average distance ($\tilde{z}_i^j$) suggested by the model. In this way, we are going to get a measure for the maximum bias to productivity estimates by disregarding location. It shows the potential of location correction. In the future versions, we are planning to use the model-based estimates of average sectoral distances.} is a product of the urban fringe and sectoral land shares:
+International variation in the distances of sectors from the city center influence transport costs. Our sector location measure ($z_i^j$) is a product of the urban fringe and sectoral land shares:\footnote{In the current version, we are calculating the maximum distance ($z_i^j$), instead of the average distance ($\tilde{z}_i^j$) suggested by the model. In this way, we are going to get a measure for the maximum bias to productivity estimates by disregarding location. It shows the potential of location correction. In the future versions, we are planning to use the model-based estimates of average sectoral distances.}
 \begin{equation*}
-z_i^j=z_3^j\sqrt{\frac{L_i^j}{L^j}},i=1,2
+z_i^j=z_3^j\sqrt{\frac{L_i^j}{L^j}}
 \end{equation*}
-For the US, we calculate sectoral land shares directly using the ZIP Business Patterns of the US Census. For each ZIP area, we calculate sectoral land demand as a share of commercial land, using the published employment data. %XX HOW? 
+For the US, we calculate sectoral land shares directly using the ZIP Business Patterns of the US Census. For each ZIP area, we calculate sectoral land demand as a share of commercial land, using the published employment data. %XX HOW?
 
-Sectoral land share estimates for other countries are obtained using equation \ref{eq:LandShare}. The equation considers international variation in both sector demand and unit labor costs. As unit labor costs in EUKLEMS are expressed relative to the US, we choose the units of each sectors such that US unit labor costs are 1 (see equation \ref{eq:US_ULC}). Table \ref{tab:spatial_eg} compares estimates for three countries: a large developed country (USA), a small developed country (Belgium), and a small middle-income country (Hungary). Service sector constitute a large share of output in each countries, its share is somewhat smaller in the less developed Hungary. Agriculture, in contrast, generates only 1\% of the GDP in developed countries, but is somewhat more important in the less developed Hungary. Intuitively, sectors are closer to the city center of the representative cities in the smaller Belgium and Hungary than in the US.
+Sectoral land share estimates for other countries are obtained using equation \ref{eq:LandShare}. The equation considers international variation in both sector demand and unit labor costs. As unit labor costs in EUKLEMS are expressed relative to the US, we choose the units of each sectors such that US unit labor costs are 1 (see equation \ref{eq:US_ULC}). Table \ref{tab:spatial_eg} compares estimates for three countries: a large developed country (USA), a small developed country (Belgium), and a small middle-income country (Hungary). Service sector constitute a large share of output in each countries, its share is somewhat smaller in the less developed Hungary. Agriculture, in contrast, generates only 1\% of the GDP in developed countries, but is somewhat more important in Hungary. Intuitively, sectors are closer to the city center of the representative cities in the smaller Belgium and Hungary than in the US.
 
 % Table generated by Excel2LaTeX from sheet 'regions'
 \begin{table}[h!]
@@ -554,7 +581,7 @@ Sectoral land share estimates for other countries are obtained using equation \r
 
 \subsection{Development accounting}
 
-Which sector's productivity varies more with development? Our estimates for shipping costs and sector locations allows us to create location-corrected sectoral productivity measures $A_i$ from measured productivities $A_ie^{-\tau_iz_i}$. We are interested in their comovement with aggregate productivity. Our measured productivities come from 14 countries in the EUKLEMS databas, and we compare them to GDP per capita from the 2007 World Development indicators. Table \ref{tab:dev_acc} presents the estimated elasticities. 
+Which sector's productivity varies more with development? Our estimates for shipping costs and sector locations allow us to create location-corrected sectoral productivity measures $A_i$ from measured productivities $A_ie^{-\tau_iz_i}$. We are interested in their correlation with aggregate productivity. Our measured productivities come from 14 countries in the EUKLEMS database, and we compare them to GDP per capita from the 2007 World Development Indicators. Table \ref{tab:dev_acc} presents the estimated elasticities.
 
 % Table generated by Excel2LaTeX from sheet 'devacct'
 \begin{table}[h!]
@@ -571,8 +598,8 @@ Which sector's productivity varies more with development? Our estimates for ship
     \end{tabular}%
   \label{tab:dev_acc}%
 \end{table}%
-  
-We find that land and location of sectors do influence sectoral productivity measurements. Our preliminary results support previous conclusions that productivity differences in agriculture vary most with development. Correcting for the location-bias, this variation with development is if anything even higher. Using measured productivity, services productivity varies less with development than manufacturing productivity, in line with previous result. Correcting for the location-bias, however, changes this picture. It suggests that the cross-country differences in services productivity relative to manufacturing might be overestimated, because in our sample of high and middle-income countries location-corrected services productivity vary \emph{similarly} with development.
+
+We find that land and location of sectors do influence sectoral productivity measurements. Our preliminary results support previous conclusions that productivity differences in agriculture vary most with development. Correcting for the location-bias, this variation with development is, if anything, even higher. Using measured productivity, services productivity varies less with development than manufacturing productivity, in line with previous result. Correcting for the location-bias, however, changes this picture. It suggests that the cross-country differences in services productivity relative to manufacturing might be overestimated, because in our sample of high and middle-income countries location-corrected services productivity vary \emph{similarly} with development.
 
 %\subsection{Sector locations}
 %The plan for calibration is as follows.
@@ -610,7 +637,7 @@ We find that land and location of sectors do influence sectoral productivity mea
 
 
 \section{Conclusion}
-[TO BE COMPLETED]
+We conduct sector-level development accounting in a macro model where land and location play a role. Producers in agriculture, manufacturing and services choose their location endogenously to trade off transport costs and rents. We solve for the spatial equilibrium and show space affects the aggregate production function and measured productivity. Studies not accounting for sector location will deem services in large, expensive cities unproductive. This biases development accounting because rich countries have large service-cities. Our preliminary calibrations show that, correcting for sector location, service productivity varies as much across countries as manufacturing productivity does. This is contrast with previous studies that found smaller variation in service productivity.
 
 \clearpage
 
