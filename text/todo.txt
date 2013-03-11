@@ -1,0 +1,40 @@
+Literature
+----------
+1. Read Lagakos and Waugh and discuss it in introduction. Do not sound too derviative.
+2. Get new paper from Restuccia and update discussion in introduction. 
+	Asked him to get a copy.
+3. Update agri references. 
+4. Cite Desmet-RH on city structure and RH-Wright on cities and firms.
+5. Cite Holmes-Stevens 1 and 2 on different plant functions and firms shipping to different distances.
+6. Cite Hsieh-Klenow on misallocation and discuss (see Holmes' slides).
+
+Model
+-----
+1. Nonhomothetic preferences?
+2. Agriculture is freely traded, fringe is at z2.
+	This is relatively easy. Do we want to do it already in single-city model? Might be useful also because of data constraints.
+
+Empirics
+--------
+1. Get agri land data from agri census.
+	Agri census does not have employment by ZIP code. They have total wagebill of hired farm workers. Farm land areas are also very crude.
+2. Estimate rent gradients using imputed land use. Think about mixed use.
+3. Give more details about estimation in text.
+4. Write down validation exercises.
+5. Discuss empirical patterns related to development and land use and city structure.
+6. Check results with personal services only - they may behave more like nontradables.
+
+Calibration
+-----------
+1. Check numerical algorithm for circular city.
+2. Redo decomposition for EUKLEMS labor productivity.
+3. Redo with homogeneous productivity differences. What fraction of cross-sectoral productivity differences can be accounted for by our channels? Also simpler to calibrate to cross-country data.
+
+Writeup
+-------
+1. Emphasize "decomposition" of productivity differences rather than measurement.
+2. Discuss how land varies with development and Esteban's replication argument.
+	I guess that an "endogenous-city" extension will deliver this argument. It also poses additional restrictions on the data, which we can test. All well, but it may be difficult to write up.
+3. Discuss misallocation argument (but do not do it in this paper).
+4. Discuss measurement issues. Either price or rent data would help. (But argument is not about measuring "true" productivity, rather that decomposition would depend on how prices are measured.) Cite EUKLEMS, BEA, BLS, OECD on measurement.
+5. Write up decomposition exercise.

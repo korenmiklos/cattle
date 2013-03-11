@@ -1,0 +1,33 @@
+CEU Lunch Seminar
+=================
+
+Major comments
+--------------
+1. Validate model before using it for counterfactuals. For example, use data on US rents to establish that the rent gradient behave as in the model.
+2. Does not the PPI correct for transportation cost? If output is measured at producer prices and deflated by PPI, the effect should go away.
+3. Using rent data could remedy the problem.
+4. Heterogeneity in city structure across countries may matter.
+
+Minor comments
+--------------
+1. Agriculture is small in most economies - downplay agriculture and use services in motivation.
+2. Business services are tradable - cite Restuccia and show one table how business vs personal services differ in rent gradient.
+3. Land may have elastic supply, construction, zoning.
+4. Number and size of cities are endogenous.
+
+CURE
+====
+Major comments
+--------------
+1. Exercise similar to Hsieh-Klenow, allocation of resources across different productivities affects aggregate producivity. Is land always going to the best possible use? Zoning? Size restrictions? (Tom Holmes) - We can recover wedges from predicted vs actual gradients and quantify the gains from eliminating those wedges. Next paper.
+2. Lagakos and Waugh make a similar point about agriculture. The quality of inputs varies on the extensive margin because of nonhomothethic preferences. (Jon Vogel)
+3. Do not use plant size instead of land. Don't be conservative in estimating land rent gradients. (Tom Holmes)
+4. Land should not matter, as you can always replicate it building new cities. (Esteban RH) Indeed, we don't see any correlation of land availability with development. But within cities, there is variation, as urban land cannot be replicated.
+
+Minor comments
+--------------
+1. Productivity as omitted variable in micro production function estimates a la Zvi Griliches (Albert Saiz).
+2. Not a lot of variation in office space per worker. (Albert Saiz)
+3. Isn't there a cirularity in estimating tau and then using sector location to validate? (Jon Vogel) - tau is estimated from variation with the region, we could still have log-concave rent gradients, contradicting the theory. Also, it should be fairly simple to allow for mixed use in a logit setting.
+4. Land rents are not the same as home rents. There is land rent data for Pittsburgh. (Jeff)
+5. The ZBP does not include farms. Farmland is available from agri census. (Tom Holmes)
