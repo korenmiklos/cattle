@@ -65,6 +65,15 @@ drop _m
 corr area ziparea
 
 
+* merge naics land and labor shares
+gen laborshare = 0.46
+replace laborshare = 0.67 if sector==2
+replace laborshare = 0.66 if sector==3
+
+gen landshare = 0.18
+replace landshare = 0.03 if sector==2
+replace landshare = 0.06 if sector==3
+
 * calculate densities
 gen emp_density = emp/area
 gen est_density = est/area
@@ -73,19 +82,36 @@ label var lndistance "Distance to city center (log)"
 
 * split up area between activities
 egen people = sum(emp), by(zip)
+egen landdemand = sum(emp/laborshare*landshare), by(zip)
 * people living or working in this zip code all take up space
-replace people = people+pop
-gen share = emp/people
+* population has land share 0.3*0.36
+replace landdemand = landdemand+pop*0.3*0.36
+
+* allocate area of ZIP to sectors based on their direct need 
+gen share = emp/laborshare*landshare/landdemand
 su share, d
-reg share lndistance
+xi: reg share i.sector*lndistance
+
 
 * area of zip is split across sectors and homeowners
 gen imputed_area = share*area
+gen residential_area = pop*0.3*0.36/landdemand*area
 
 gen establishment_size = emp/est
 gen imputed_density = emp/imputed_area
 
 saveold ../data/zip_business_patterns, replace
+
+* calculate total areas
+collapse (sum) emp imputed_area residential_area (mean) landshare laborshare, by(sector)
+egen sumemp = sum(emp)
+gen indirect_land = emp/sumemp*residential_area
+
+l sector imputed_area indirect_land
+
+residential_area
+
+l
 
 log close
 set more on
