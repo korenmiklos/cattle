@@ -107,6 +107,8 @@ U = C_1^{\alpha_1}C_2^{\alpha_2}C_3^{\alpha_3},
 \end{equation}
 with $\sum_{i=1}^3\alpha_i=1$. They supply labor $N$ inelastically, and rent land to producers in a competitive market. They are \emph{absentee landlords}: the rents they collect are independent of the place of employment.
 
+%% make this nonhomogeneous
+
 Their budget constraint is
 \begin{equation}
 \label{eq:BudCons}
@@ -544,8 +546,83 @@ ULC_i^{USA} =1=(1-\beta_i)^{\beta_i-1} \left(\frac{L_i^{USA}}{Y_i^{USA}}\right)^
 Having the proper units of output (and ULC), we can simply calculate the land demand in each country for a set of value added shares and measured ULCs.
 
 
+\section{Multiple Cities}
+So far we have discussed the equilibrium of a given city, with a fixed supply of land and labor. In this section, we introduce a system of multiple cities within a country. We first discuss the case when the number of cities is fixed, but their area and population are endogenous. We then turn to endogenizing the number of cities with development.
 
+To endogenize the boundaries of cities, we have to take a stand on what happens ``in between'' cities. Following the tradition of the urban literature, we assume that agricultural goods are freely tradable, $\tau_3=0$. As we show below, this assumption ensures that agriculture fills up all the space between cities. The urban fringe is then $z_2$.
 
+When agriculture is freely tradable, its rent gradient is completely flat. Agricultural producers are indifferent as to where they locate.
+
+\subsection{Fixed number of cities}
+Let the country have $k=1,2,...,K$ cities. Each city has a CBD in an exogenously fixed location. We assume the country is large enough that cities boundaries never overlap. 
+
+Cities also differ in labor productivity. In particular, city $k$ is characterized by a labor productivity shifter $\Omega_k$, so that the effective supply of labor is $\Omega_kN_k$, where $N_k$ is the population of the city. 
+
+We need some heterogeneity across cities to capture the empirical fact that cities differ in size. Desmet and Rossi-Hansberg (XX) build a model where cities differ in productivity, amenities and the efficiency of public services. We focus on productivity to capture the most salient differences across cities. We also note that better amenities are similar to higher labor productivity in that they reduce the unit labor cost in the city: A likeable city offers low wages, making it cheap to produce there.
+
+An \emph{equilibrium system of cities} consists of a list of city populations $\{N_k\}$, city boundaries $\{z_{k2}\}$ XX
+such that
+(i) each city is in a \emph{single-city equilibrium} given its boundary $z_{k2}$ and population $N_k$, (ii) land rents at the urban fringe are equal to agricultural rents, (iii) workers earn the same real wage in each city, (iv) the sum of city population and rural population equals country population.
+
+\subsubsection{Urban sectors}
+The supply of urban sectors in each city is characterized by the single-city equilibrium, adjusted for city-level labor productivity shifter,
+\[
+Q_m = A_m\Omega_k^{1-\beta_m}e^{-\tau_m\tilde z_{km}} 
+L_{km}^{\beta_m}
+N_{km}^{1-\beta_m}.
+\]
+\subsubsection{Equilibrium allocation of workers}
+Free worker mobility equates real wages across cities. In fact, as the point of consumption is independent from the point of employment (we need this assumption so that agricultural workers can also consume urban goods), the law of one price will prevail for all goods across all cities. This will equate the nominal wage, as well. The only thing that differs across productive and unproductive cities is the urban rent.\footnote{To be consistent with the free trade of consumption goods, we can reinterpret the CBD as providing a necessary service in the \emph{production}, but not the consumption of goods, e.g., packaging.}
+
+\subsubsection{Arbitrage at the urban fringe}
+Urban rent at the fringe $z_{km}$ equals agricultural rent,
+\[
+R_{km}(z_{km}) = R_a = R_{km}(0)e^{-\frac{\tau_m}{\beta_m}z_{km}}.
+\]
+Given that product prices are the same in each city, we can write this arbitrage condition as
+\[
+\Omega_k^{1/\beta_m-1}e^{-\frac{\tau_m}{\beta_m}z_{km}}
+=\frac1{\beta_m}
+(1-\beta_m)^{1-1/\beta_m}
+\frac{R_a}{W}
+\left(
+\frac{P_mA_m}{W}
+\right)^{-1/\beta_m}
+\]
+Importantly, none of the terms on the RHS depend on $k$. We can hence derive the relative boundary of any two cities as
+\[
+(1-\beta_m)(\omega_{k} - \omega_{k'}) = 
+\tau_m(z_{km} - z_{k'm}).
+\]
+More productive cities are larger.
+
+\subsubsection{Rural land}
+We still need to determine the overall quantity of rural vs urban land and employment. The ratio of urban to rural labor,
+\[
+\frac{N_m+N_s}{N_a} =
+\frac{WN_m/Y+WN_s/Y}{WN_a/Y} = 
+\frac{\alpha_m(1-\beta_m)+\alpha_s(1-\beta_s)}{\alpha_a(1-\beta_a)}
+\]
+is constant. The same ratio for land rents,
+\[
+\frac{\sum_k \tilde R_{ks}L_{ks}+\tilde R_{km}L_{km}}
+{R_aL_a} = 
+\frac{\alpha_m\beta_m+\alpha_s\beta_s}{\alpha_a\beta_a}.
+\]
+This suggests the following algorithmic construction of the quilibrium
+\begin{enumerate}
+\item Guess $L_a$. This also fixes urban land $L-L_a$.
+\item Given the relative city sizes and the total urban land, calculate the urban fring for each city $\{z_{km}\}$.
+\item Solve for the single-city equilibrium to determine $\{z_{ks}\}$. (XX CHALLENGE: we do not have market clearing by city, they may become specialized in either urban good)
+\item Given $\{(z_{ks}, z_{km})\}$, solve for the rent gradient in each city and calculate total urban rents.
+\item If urban rents are too high relative to rural rents, reduce $L_a$ and go back to step (1). 
+\end{enumerate}
+\subsection{Endogenous cities}
+Urbanization clearly varies with development (XX REF). We introduce an extension of the model that is consistent with this empirical patterns. The extended model leads to additional predcitions that can be tested against the data.
+
+A country is characterized by a triplet of productivities in the three sectors, $(A_s, A_m, A_a)$, total population $N$, and total land area $L$. The country can build cities at a fixed cost $f$ each. Each city has a random labor productivity $\Omega_k$, drawn independently from the common distribution $\Phi(\Omega)$.
+
+An \emph{endgenous-city equilibrium} is XX.
 
 \section{Data and calibration}
 Now we calibrate the model to show that correcting for land and location in sectoral productivity measures has the potential to change previous conclusions of multi-sector development accounting.
