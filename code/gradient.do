@@ -5,21 +5,31 @@ log using ../doc/zip_level_gradients, text replace
 
 use ../data/zip_business_patterns
 
+* merge fair market rents
+csvmerge zip using ../data/HUD/zip-rents.csv
+tab _m
+drop if _m==2
+drop _m
+
 su sector
 local max `r(max)'
 
 * nonparametric gradients
 local K 33
 egen distpct = cut(distance), group(`K')
-egen mean_emp_dens = mean(emp_dens), by(distpct sector)
+egen mean_emp_dens = mean(establishment_size), by(distpct sector)
 egen tag = tag(distpct sector)
 
 gen ln_mean_emp_dens = ln(mean_emp_dens)
+
+label var distance "Distance to city center (km)"
+label var ln_mean "Workers per establishment (log)"
 
 tw (line ln_mean_emp_dens distance if tag&sector==1&distance<=100, sort) /*
 */ (line ln_mean_emp_dens distance if tag&sector==2&distance<=100, sort) /*
 */ (line ln_mean_emp_dens distance if tag&sector==3&distance<=100, sort) /*
 */, legend(order(1 "Agriculture" 2 "Manufacturing" 3 "Services")) scheme(s2color)
+graph export ../text/figures/nonparametric_gradients.png, width(800) replace
 
 preserve
 * calculate shares
@@ -29,21 +39,27 @@ egen totalemp = rsum(emp?)
 sort distance
 forval i=1/`max' {
 	gen share`i' = emp`i'/totalemp
+	egen meanshare`i' = mean(share`i')
 	gen lnshare`i' = ln(emp`i'/totalemp)
-	gen share`i'norm = ln(share`i'/share`i'[1])
+	gen share`i'norm = share`i'/meanshare`i'
 }
-tw (line share?norm lndistance, sort), legend(order(1 "Agriculture" 2 "Manufacturing" 3 "Services")) scheme(s2color)
+
+label var distance "Distance to city center (km)"
+
+tw (line share?norm distance if distance<=100, sort), /*
+ */ ytitle(Location quotient of sector) /*
+ */ legend(order(1 "Agriculture" 2 "Manufacturing" 3 "Services")) scheme(s2color)
+graph export ../text/figures/sector_location_quotients.png, width(800) replace
 
 restore
-
 
 * sector-level regressions
 gen lower = 0
 gen upper = 500
-replace upper = 20 if sector==3
-replace lower = 20 if sector==2
-replace upper = 100 if sector==2
-replace lower = 100 if sector==1
+replace upper = 30 if sector==3
+replace lower = 10 if sector==2
+replace upper = 60 if sector==2
+replace lower = 60 if sector==1
 
 egen citycode = group(city)
 
