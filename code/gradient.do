@@ -52,6 +52,7 @@ gen lower = 0
 gen upper = 500
 replace upper = 30 if sector==3
 replace lower = 30 if sector==2
+replace upper = 60 if sector==2
 * non-overlapping zones for M and S
 * we do not care about agri gradient
 
