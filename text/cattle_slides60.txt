@@ -4,48 +4,51 @@
 
 == Development accounting ==
 * Why do poor countries have low output per worker? 
-  * lower capital (and other inputs)
-  * lower productivity
+  * low capital (and other inputs)
+  * low productivity
 ...
-* Consensus (Klenow and Rodríguez-Clare, 1997; Hall and Jones, 1999; Caselli, 2005) blames low productivity.
+* Consensus blames low productivity. (E.g., Klenow and Rodríguez-Clare, 1997; Hall and Jones, 1999; Caselli, 2005.)
   * More difficult for policy.
   * Need deeper understanding.
 
 == Sector-level development accounting ==
 * In which sectors is the productivity gap the largest?
-  * Important to think about technology adoption and to target policies.
+* Important to think about technology adoption and to target policies.
 ...
 * Agricultural productivity varies most. (Caselli, 2005; Restucciaa, Yangb and Zhu, 2008; Duarte and Restuccia, 2010)
-* Services productivity is much more similar across countries. (Balassa, 1964; Samuelson, 1964; Baumol, 1966; Baumol and Bowen, 1966; Bailey and Solow, 2001)
-  * Upshot: focus on agriculture, ignore services (also due to data constraints).
+* Services productivity is much more similar across countries. (Balassa, 1964; Samuelson, 1964; Baumol, 1966; Baumol and Bowen, 1966; Bailey and Solow, 2001; Duarte and Restuccia, 2012)
+...
+* Upshot: the road to development leads through the farm.
 
 == ==
 \widefigure{caselli_nonagri}{Non-agricultural productivity mirrors aggregate productivity}
 \widefigure{caselli_agri}{Agricultural productivity varies more}
 
-
 == This paper ==
-* We believe development accounting should control for the '''location of sectors'''.
-* Without this, services in expensive large cities will be deemed unproductive.
-  * This matters because rich countries have large service-cities.
+1. Land matters.
+2. Location matters.
+3. They matter relatively more for services.
 
-== Measuring land ==
-=== OECD Manual ``Measuring Capital" ===
-Valuing stocks of land is also problematic when land prices vary significantly between locations and applying an ``average" price of land seems liable to significant bias.
-
+== An example of two cities ==
 == ==
-\widetable{beef_restaurant}{An example of two cities}
+\widetable{beef}{Large productivity difference in producing beef}
+\widetable{restaurant}{Smaller productivity difference in restaurant meals}
 
 == Basic idea ==
-* Demand for urban land in developed economies is higher (structural transformation, urbanization, more demand for residential land).
-* This bids up urban rents relative to rural rents,
-* increasing the price of services even relative to manufacturing and agriculture.
+* We believe development accounting should control for the '''land demand''' and the '''location''' of sectors.
+* Without this, services in expensive large cities will be deemed unproductive.
+* This matters because rich countries have large service-cities.
+
+== Related literature ==
+
 
 == Outline ==
 1. A ''simple'' equilibrium model of sector location
-2. Aggregating over space
-3. Calibrating the spatial features to U.S. data
+2. A first look at the data
+3. Calibrating the spatial features to U.S. data:
+   internal validation
 4. Development accounting in the model
+
 
 
 = A model of sector location =
@@ -69,45 +72,6 @@ Q_i(z) = A_i L_i(z)^{\beta_i}N_i(z)^{1-\beta_i}
 \]
 $\tau_i$: ''hazard'' of iceberg melting, goods damaged etc. per km
 
-== The bid rent curve ==
-* Markets are competitive, firms choose location freely.
-* Bid-rent curve:
-\[
-R_i(z) =\beta_i(1-\beta_i)^{1/\beta_i-1} (P_iA_i)^{1/\beta_i} W^{1-1/\beta_i} e^{-\frac{\tau_i}{\beta_i} z}
-\]
-
-== ==
-\widefigure{fig_spatial_equilibrium}{Spatial equilibrium}
-
-== Spatial equilibrium ==
-Sectors sort by $\tau_i/\beta_i$. Less tradable and less land intensive sectors locate closer.
-  1. services locate in $[0,z_1]$
-  2. manufacturing locates in $(z_1,z_2]$ 
-  3. agriculture locates in $(z_2,z_3]$
-
-== Solving for sector location ==
-* Take sector 1 and 2. The cutoff between them determines
-  1. the relative supply of land in each
-  2. the relative price of land in each (by spatial aribtrage)
-* Goods market clearing then pins down cutoff.
-
-== Equilibrium sector locations ==
-* Under Cobb--Douglas preferences and technologies, each sector pays a constant fraction of GDP to land owners.
-* For given Cobb--Douglas shares, equilibrium spatial structure is independent of development: 
-\[
-\frac{\alpha_{i-1}\beta_{i-1} }
-{\alpha_i \beta_i}
-=
-\frac{\int_{z\in Z_{i-1}} \tilde L(z) dz}
-{\int_{z\in Z_{i}} \tilde L(z) dz}
-  e^{\frac{\tau_{i-1}}{\beta_{i-1}}(z_{i-1}-\tilde z_{i-1})-\frac{\tau_i}{\beta_i}(z_{i-1} -\tilde z_i)}.
-\]
-* Spatial structure depends on 
-  * sectoral composition $\alpha_i$
-  * city size $z_3$
-
-
-= Aggregation =
 == Aggregation over space ==
 * Aggregate value added at producer prices:
 \[
@@ -120,39 +84,74 @@ e^{-\frac{\tau_i}{\beta_i}\tilde z_i} = \int_{z\in Z_i} \frac{L_i(z)}{L_i}e^{-\f
 \]
 * All aggregates are a function of $\tilde z_i$ only, as if all production happened at that point.
 
-== Productivity measurement ==
-* Labor productivity (ignoring land)
-\[
-\frac{\tilde Q_i}{N_i} = \beta_i^{\beta_i}(1-\beta_i)^{-\beta_i} 
-A_i
-\left(\frac{W}{R_i}\right)^{\beta_i}e^{-\tau_i \tilde z_i}.
- \]
-* Relative to $A_i$, biased downwards if:
-  * $R_i/W$ is high (rich, high-rent countries)
-  * $\beta_i$ is high (land intensive sectors)
-  * $\tau_i$ is high (nontradable sectors)
-  * $\tilde z_i$ is high (large countries and cities)
 
-== Productivity measurement ==
-* Total factor productivity
+== Productivity ==
+* Output per worker
 \[
-\frac{\tilde Q_i}{L_i^{\beta_i}N_i^{1-\beta_i}} = 
+\frac{\tilde Q_i}{N_i} = 
 A_i
- e^{-\tau_i\tilde z_i}.
+ \left(
+ \frac{L_i}
+ {N_i}\right)^{\beta_i}e^{-\tau_i\tilde z_i}.
 \]
-* Relative to $A_i$, biased downwards if:
-  * $\tau_i$ is high (nontradable sectors)
-  * $\tilde z_i$ is high (large countries and cities)
+* Low if
+  * productivity is low (technology, capital)
+  * land is scarce (especially for land intensive sectors)
+  * trade costs are high
+  * cities are large
+* Interation between sector characteristics ($\beta$, $\tau$) and sector location ($\tilde z$).
 
+
+
+= Spatial equilibrium =
+== The bid rent curve ==
+* Markets are competitive, firms choose location freely.
+* Bid-rent curve:
+\[
+R_i(z) =\beta_i(1-\beta_i)^{1/\beta_i-1} (P_iA_i)^{1/\beta_i} W^{1-1/\beta_i} e^{-\frac{\tau_i}{\beta_i} z}
+\]
+* Each location goes to the highest bidder.
+
+== ==
+\widefigure{fig_spatial_equilibrium}{Spatial equilibrium}
+
+== Spatial equilibrium ==
+Sectors sort by $\tau_i/\beta_i$. Less tradable and less land intensive sectors locate closer to cities.
+  1. services locate in $[0,z_1]$
+  2. manufacturing locates in $(z_1,z_2]$ 
+  3. agriculture locates in $(z_2,z_3]$
+
+== Solving for sector location ==
+* Take two neighboring sectors. The cutoff between them determines
+  1. the relative supply of land in each
+  2. the relative price of land in each (by spatial aribtrage)
+* Goods market clearing then pins down cutoff.
+* Under Cobb--Douglas preferences and technologies, equilibrium spatial structure is independent of development.
+* Spatial structure only depends on 
+  * sectoral composition $\alpha_i$
+  * city size $z_3$
+
+
+
+= A first look at the data =
+
+\widefigure{clark-landrents}{Land is no longer important but urban land is (Clark, 2007)}
+\widefigure{urbanization}{Rich countries are more urbanized}
+\widefigure{largest-cities}{But their cities are similar}
+
+\widefigure{priceserv}{Service prices rise steeply with income}
+\widefigure{serviceshare}{Richer countries produce more services}
+
+\widefigure{sector_location_quotients}{Sectors sort as in the model}
 
 
 = Calibration =
 == Road map ==
 1. Estimate parameters $\tau$ and $\beta$ from U.S. spatial and NIPA data.
 2. Measure country-specific sectoral shares $\alpha$.
-3. Infer city size $z_3$ from number and population of cities in each country.
-4. Solve for equilibrium sector locations $z$.
-5. Evaluate bias in productivity.
+3. Infer city size $z_3$ from population of cities in each country.
+4. Solve for equilibrium sector locations $\tilde z_1$, $\tilde z_2$, $\tilde z_3$.
+5. Conduct productivity decompositions.
 
 == Calibration ==
 * We calibrate production and shipping technologies to U.S.
@@ -189,52 +188,95 @@ Services    & 0.32      & 0.05      & 0.27      \\ \hline\hline
 \]
 
 == ==
-\widefigure{sector_location_quotients}{Sectors sort as in the model}
 \widetable{land_shares_and_gradients}{Sectoral land shares and estimated gradients}
+\widefigure{fig_linear_avgdist}{Validation of model across U.S.~cities}
 
 == Determining sector locations in other countries ==
-* For each country, count cities above 50,000. Treat them as symmetric (for now).
-* Take cities to be circular, so that amount of land $[0,z]$ kms away from center
-$L(z) = \pi z^2$.
-* Allocate enough land to each sector to match aggregate output:
-\[
-{L_i}= \frac{Y_i}{W}
-(1-\beta_i)^{1-1/\beta_i}\left(\frac{W}{P_iA_i e^{-\tau_i\tilde z_i}}\right)^{1/\beta_i} ,
-\]
-* Key variation across countries:
-  * sector share in GDP
-  * unit labor cost of sector
-  * country area
+* Take global list of cities with population data (45,000) from MaxMind.
+* Exogenously divide up country land area across cities ($z_3$).
+* Given sector shares $\alpha_i$, solve for sector location in each city ''in isolation''.
+* Present results with largest city.
+
 == ==
-\widetable{spatial_structures}{Calibrated spatial structures across countries}
+\widefigure{ztilde1-share1-largest}{Cities in service-intensive countries have larger service cores}
+
+
 
 = Development accounting =
 == Development accounting ==
-* Which sector's productivity varies most with development?
-* Compare measured productivity $A_ie^{-\tau_i \tilde z_i}$ and ''location-corrected'' productivity $A_i$ to GDP per capita.
-  * GDP per capita from World Development Indicators 2007.
-  * Productivity measures from EUKLEMS (14 countries).
+* Decompose log output per worker into
+\[
+\ln\frac{\tilde Q_i}{N_i}
+=
+\underbrace{\ln A_i}_{\text{productivity}}
++\underbrace{\beta_i(\ln L_i-\ln N_i)}_{\text{land}}
+\underbrace{-\tau_i\tilde z_i}_{\text{location}}
+\]
+* Document, for each sector, how the components vary with development.
+  1. Last two components across 191 countries (no productivity data).
+  2. All components across 14 EUKLEMS countries (little variation).
 
 == ==
 
-\widefigure{measured_prod_1}{Measured productivity in services}
-\widefigure{true_prod_1}{Location-corrected productivity in services}
+\widefigure{location_contribution1-share1-largest}{Location leads to lower output per worker in service cities}
+\widefigure{location_contribution1-y-largest}{...reducing service output in rich countries}
+\widefigure{location_contribution2-y-largest}{Manufacturing is crowded out of cities in rich countries}
 
-\widefigure{measured_prod_2}{Measured productivity in manufacturing}
-\widefigure{true_prod_2}{Location-corrected productivity in manufacturing}
 
-\widefigure{measured_prod_3}{Measured productivity in agriculture}
-\widefigure{true_prod_3}{Location-corrected productivity in agriculture}
+\widefigure{density_contribution1-y-largest}{Land use of services is uncorrelated with development}
+\widefigure{density_contribution2-y-largest}{Land makes manufacturing somewhat more productive in rich countries}
+\widefigure{density_contribution3-y-largest}{Land makes agriculture much more productive in rich countries}
+
 
 \widetable{development_accounting}{The elasticity of productivity with respect to GDP per capita}
 
+
+
 = Conclusion =
 == Conclusion ==
-* Simple macro model with space can be easily calibrated to sectoral aggregates.
-* Without accounting for space, measured productivity is biased against large, high-rent locations.
-* Correcting for sector location, productivity in services varies as much across countries as in manufacturing.
-* We should understand more what drives service productivity.
+* Simple macro model with space to talk about sectoral aggregates.
+* Services in rich countries would be even more productive in poor cities.
+* Agriculture in rich countries would be less productive in poor rural areas.
+...
+* Productivity dispersion is more similar across sectors than previously thought.
 
+== Takeaway ==
+1. Back to square 1: we still don't know which sector drives productivity differences.
+...
+2. Variation might come from macro policies and institutions and may not be sector specific.
+
+
+
+= Appendix =
+= Measurement =
+== Measuring land ==
+=== OECD Manual ``Measuring Capital" ===
+Valuing stocks of land is also problematic when land prices vary significantly between locations and applying an ``average" price of land seems liable to significant bias.
+
+=== EUKLEMS ===
+Note that we only include fixed reproducible  assets. To have a complete capital accounts, however, land and inventories should also be taken into consideration, as capital compensation in the national accounts includes the user costs of these items as well.
+
+== Measuring prices ==
+* Precise consumer and producer prices by location would lead to precise productivity measures.
+* However:
+  1. Location variation is difficult to track.
+  2. Service prices are hard to measure (BLS PPI).
+  3. Service trade costs are almost impossible to measure (BEA IO).
+
+= Extensions =
+== Multiple cities ==
+* Taking city structure as given, estimate $z_1$, $z_2$ and $z_3$ for each city.
+* With weighting, patterns are similar to single-city version.
+
+== ==
+\widefigure{location_contribution1-y-all}{Location makes services less productive in rich countries}
+\widefigure{location_contribution2-y-all}{Location makes manufacturing less productive in rich countries}
+\widefigure{density_contribution3-y-all}{Land makes agriculture more productive in rich countries}
+
+
+== Endogenous cities ==
+== Tradable services ==
+== Agglomeration externalities ==
 
 
 
