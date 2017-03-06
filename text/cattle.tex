@@ -59,7 +59,7 @@
 \begin{document}
 
 \title{Cattle, Steaks and Restaurants:\\ Development Accounting when Space Matters\thanks{For useful comments, we thank Thomas Holmes, Esteban Rossi-Hansberg, Albert Saiz, Adam Szeidl, Jonathan Vogel, Kei-Mu Yi and audiences of the Conference on Urban and Regional Economics and seminars at Central European University, Princeton University and the Philadelphia Fed.}}
-\author{Péter Karádi\thanks{European Central Bank. E-mail: peter.karadi@ecb.int} and Miklós Koren\thanks{Central European University, IE--HAS and CEPR. E-mail: korenm@ceu.hu.}}
+\author{Péter Karádi\thanks{European Central Bank. E-mail: peter.karadi@ecb.int} and Miklós Koren\thanks{Central European University, IE-CERS and CEPR. E-mail: korenm@ceu.hu.}}
 \maketitle
 
 \begin{abstract}
@@ -564,6 +564,9 @@ An \emph{equilibrium system of cities} consists of a list of city populations $\
 such that
 (i) each city is in a \emph{single-city equilibrium} given its boundary $z_{k2}$ and population $N_k$, (ii) land rents at the urban fringe are equal to agricultural rents, (iii) workers earn the same real wage in each city, (iv) the sum of city population and rural population equals country population.
 
+\subsubsection{Equilibrium allocation of workers}
+Free worker mobility equates real wages across cities. In fact, as the point of consumption is independent from the point of employment (we need this assumption so that agricultural workers can also consume urban goods), the law of one price will prevail for all goods across all cities. This will equate the nominal wage, as well. The only thing that differs across productive and unproductive cities is the urban rent.\footnote{To be consistent with the free trade of consumption goods, we can reinterpret the CBD as providing a necessary service in the \emph{production}, but not the consumption of goods, e.g., packaging.}
+
 \subsubsection{Urban sectors}
 The supply of urban sectors in each city is characterized by the single-city equilibrium, adjusted for city-level labor productivity shifter,
 \[
@@ -571,9 +574,12 @@ Q_m = A_m\Omega_k^{1-\beta_m}e^{-\tau_m\tilde z_{km}}
 L_{km}^{\beta_m}
 N_{km}^{1-\beta_m}.
 \]
-\subsubsection{Equilibrium allocation of workers}
-Free worker mobility equates real wages across cities. In fact, as the point of consumption is independent from the point of employment (we need this assumption so that agricultural workers can also consume urban goods), the law of one price will prevail for all goods across all cities. This will equate the nominal wage, as well. The only thing that differs across productive and unproductive cities is the urban rent.\footnote{To be consistent with the free trade of consumption goods, we can reinterpret the CBD as providing a necessary service in the \emph{production}, but not the consumption of goods, e.g., packaging.}
-
+The rent gradient is modified with the city-specific labor productivity,
+\[
+R_{ki}(z) =\beta_i(1-\beta_i)^{1/\beta_i-1} (P_iA_i)^{1/\beta_i} (W/\Omega_k)^{1-1/\beta_i} e^{-\frac{\tau_i}{\beta_i} z}.
+\]
+The boundary between the two urban sectors is determined by the relative price,
+Because the law of one price holds for urban sectors, 
 \subsubsection{Arbitrage at the urban fringe}
 Urban rent at the fringe $z_{km}$ equals agricultural rent,
 \[
