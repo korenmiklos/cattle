@@ -40,27 +40,32 @@ foreach X of var price???? {
 }
 
 * merge 1:1 iso using ../data/maxmind/cities, keep(match)
-sort iso
-merge iso using ../data/maxmind/all_cities, nokeep
+gen iso3 = iso
+merge 1:m iso3 year using ../data/oecd/cities/consistent/cities, 
+drop if _m==2
 drop _m
 
 * create some citygraphs
-egen urban = sum(cond(citypop>=50000&!missing(citypop),citypop,0)), by(iso)
+egen urban = sum(pop), by(iso)
 replace urban = urban/population
-gen logcitypop = log(citypop)
-label var urban "Fraction of people in cities>50,000"
+gen logcitypop = log(pop)
+label var urban "Fraction of people in metropolitan areas"
 label var logcitypop "Population of largest city (log)"
+label var gdp_pc "GDP per capita"
+
+egen rank = rank(-pop), by(iso)
+local top 5
 
 lowess urban y if rank==1, mlabel(iso) msize(tiny) scheme(s2color)
 graph export ../text/figures/urbanization.png, width(800) replace
 
-lowess logcitypop y if rank==1, mlabel(iso) msize(tiny) scheme(s2color)
+lowess logcitypop gdp_pc if rank<=`top', mlabel(Metropolitan) msize(tiny) scheme(s2color)
 graph export ../text/figures/largest-cities.png, width(800) replace
 
-* estimate city boundaries with constant population density
-gen lnz3 = ln(sqrt(area/population*citypopulation)/3.1416)
-label var lnz3 "City boundary (log)"
-lowess lnz3 y if rank==1, mlabel(iso) msize(tiny) scheme(s2color)
+* estimate city boundaries with circular area formula
+gen z3 = sqrt(surf_core+surf_hinter)/3.1416
+label var z3 "City boundary (km)"
+lowess z3 gdp_pc if rank<=`top', mlabel(Metropolitan) msize(tiny) scheme(s2color)
 graph export ../text/figures/z3.png, width(800) replace
 
 set more on
