@@ -18,8 +18,9 @@ keep if length(METRO_ID)==5
 
 * add iso3 codes
 gen str iso2 = substr(METRO_ID,1,2)
-* official iso code for UK is GB
+* official iso code for UK is GB, MX for MEX
 replace iso2 = "GB" if iso2=="UK"
+replace iso2 = "MX" if iso2=="ME"
 
 merge m:1 iso2 using `countries'
 drop if _m==2
