@@ -8,8 +8,9 @@ import delimited raw/CITIES_02052017083259614.csv, clear case(preserve) encoding
 drop Variables TIME Unit* Power* Reference* Flag*
 
 replace VAR = lower(VAR)
+ren Year year
 
-reshape wide Value, i(METRO_ID Year) j(VAR) string
+reshape wide Value, i(METRO_ID year) j(VAR) string
 ren Value* *
 
 * keep only cities
