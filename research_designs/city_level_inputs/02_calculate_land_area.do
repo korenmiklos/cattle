@@ -21,6 +21,13 @@ forval i=1/3 {
 
 * testing
 gen z1 = sqrt(L1)/pi
-z_to_tilde z_tilde_1 z1 tau1/beta1
+gen z2 = sqrt(L1+L2)/pi
+gen z3 = sqrt(L1+L2+L3)/pi
 
-gen contribution = exp(-tau1*z_tilde_1)*100-100
+z_to_tilde z_tilde_1 z1 tau1/beta1
+z_to_tilde z_tilde_2 z2 tau2/beta2 z1
+z_to_tilde z_tilde_3 z3 tau3/beta3 z2
+
+forval i=1/3 {
+	gen location_contribution`i' = exp(-tau`i'*z_tilde_`i')*100-100
+}
