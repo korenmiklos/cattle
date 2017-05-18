@@ -24,14 +24,9 @@ outreg2 using `whereto', `format' replace
 `before' lngdp lndensity gdpXlndensity gdpXprox `after'*/
 
 `before' lngdp lncitypop `after'
-`before' lngdp gdpXprox `after'
 outreg2 using `whereto', `format' append
-`before' lngdp1 gdp1Xprox `after'
+`before' lngdp gdpXprox lncitypop `after'
 outreg2 using `whereto', `format' append
-`before' lngdp2 gdp2Xprox `after'
-outreg2 using `whereto', `format' append
-
-BREAK
 
 /* add sector splits */
 gen gdpXagri = (lngdp)*(sector=="agri")

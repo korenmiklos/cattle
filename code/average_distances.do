@@ -63,16 +63,20 @@ replace lndistance = . if missing(emp,pop)
 replace emp = . if missing(lndistance,pop)
 replace pop = . if missing(lndistance,emp)
 
+local weight imputed_area
+
 sort sector distance
-by sector: gen cumsum = sum(emp)
-egen maxcumsum = max(cumsum), by(sector)
+by sector: gen cumsum = sum(`weight')
+egen maxcumsum = max(cond(distance<=100,cumsum,.)), by(sector)
 replace cumsum = cumsum/maxcumsum
-label var cumsum "Cumulative share of employment"
+label var cumsum "Cumulative share of `weight'"
+
+gen byte sample = (distance<=100)
 
 * empirical CDF of weighted distances in the three sectors
-tw (line cumsum lndistance if sector==1, sort) /*
-*/ (line cumsum lndistance if sector==2, sort) /*
-*/ (line cumsum lndistance if sector==3, sort) /*
+tw (line cumsum distance if sector==1&sample, sort) /*
+*/ (line cumsum distance if sector==2&sample, sort) /*
+*/ (line cumsum distance if sector==3&sample, sort) /*
 */, scheme(s2color) legend(order(1 "Agriculture" 2 "Industry" 3 "Services"))
 graph export ../text/figures/sector_distance_cdfs.png, replace width(800)
 

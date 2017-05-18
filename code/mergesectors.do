@@ -2,9 +2,9 @@ clear
 set memory 500m
 
 /* all potential datastores here */
-local datastores ../../../data/Miklos ~/share/data /share/datastore
+local datastores ../../../data/Miklos ~/share/data /share/datastore ~/Public/datastore
 local assembla ../data
-local proxmeasure density
+local proxmeasure distance
 local fixedeffectstransformation no
 tempfile codes wdi prox nber susb
 
@@ -18,14 +18,6 @@ foreach X of any `datastores' {
 }
 chdir `currentdir'
 
-/* read census business statistics */
-insheet using http://www2.census.gov/csd/susb/2002/02us_6digitnaics.txt, clear
-keep if length(naics) == 4 & entrsize == 1
-destring naics, force replace
-gen lbrshr = payr/rcpt
-keep naics lbrshr
-sort naics
-save `susb', replace
 
 /*Reading in product eli codes*/
 insheet using `assembla'/eiu/productcodes_sectors.csv, names clear
@@ -80,12 +72,6 @@ drop xrat
 drop if year<=1996
 collapse price citypop metropop pcgdp density population urban, by(city countryname product isocode)
 
-/* merge neighborhood PWT data */
-sort isocode
-merge isocode using ../data/neighbors, keep(lnrgdpch lnrgdpchngb lnpngb) nokeep
-tabulate _merge
-drop _merge
-
 sort product
 merge product using `codes', keep(eli naics productname sector sic87) nokeep
 tabulate _merge
@@ -102,19 +88,12 @@ merge sic87 using `nber', nokeep
 tabulate _merge
 drop _merge
 
-/* merge with census susb */
-sort naics
-merge naics using `susb', nokeep
-tabulate _merge
-drop _merge
 
 /*Creating variables*/
 gen lngdp=ln(pcgdp)
 gen lndensity=ln(density)
 gen lnprice=ln(price)
 gen lncitypop=ln(citypop)
-ren lnrgdpch lngdp1
-ren lnrgdpchngb lngdp2
 
 if "`proxmeasure'"=="density" {
     replace proximity=ln(proximity)
@@ -131,14 +110,12 @@ if "`fixedeffectstransformation'"=="yes" {
 drop meanbyp*
 }
 
-local vars lngdp lngdp1 lngdp2 urban lndensity lncitypop proximity labor unskilled
+local vars lngdp lndensity lncitypop proximity labor unskilled
 foreach X of var `vars' {
     egen mean`X' = mean(`X')
 }
 foreach X of var `vars' {
     gen gdpX`X' = (lngdp-meanlngdp)*(`X'-mean`X')
-    gen gdp1X`X' = (lngdp1-meanlngdp1)*(`X'-mean`X')
-    gen gdp2X`X' = (lngdp2-meanlngdp2)*(`X'-mean`X')
 }
 
 drop mean*
