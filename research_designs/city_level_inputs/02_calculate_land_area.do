@@ -5,9 +5,7 @@ drop if _m==2
 drop _m
 
 merge m:1 iso3 year using input/macro_indicators
-
 do structural_transformation
-
 drop if _m==2
 drop _m
 
@@ -40,4 +38,8 @@ z_to_tilde z_tilde_3 z3 tau3/beta3 z2
 forval i=1/3 {
 	gen location_contribution`i' =-tau`i'*z_tilde_`i'
 	gen land_contribution`i' = ln(L`i'/N`i')*beta`i'
+	* express land contribution relative to Boston
+	su land_contribution`i' if METRO_ID=="US048", meanonly
+	replace land_contribution`i' = land_contribution`i' - r(mean)
 }
+

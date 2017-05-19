@@ -1,8 +1,9 @@
 * city data from OECD
 use  ../../data/oecd/cities/consistent/cities, clear
-keep METRO_ID year gdp_pc pop emp labour_ surf_* iso3
+keep METRO_ID Metro year gdp_pc pop emp labour_ surf_* iso3
 keep if year==2007
 
+ren Metro city_name
 ren pop city_population
 ren emp city_employment
 gen city_area = surf_core+surf_hinter
