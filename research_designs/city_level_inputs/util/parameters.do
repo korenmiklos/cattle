@@ -1,3 +1,5 @@
+scalar pi = 3.1416
+
 *land shares
 gen beta1 = 0.13
 gen beta2 = 0.10

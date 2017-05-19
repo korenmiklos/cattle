@@ -34,8 +34,8 @@ use ../../data/wdi/wdi_2007, clear
 keep year countrycode agrishare gdppercapita industryshare manufshare serviceshare urbanization area population arable
 ren countrycode iso3 
 
-gen share1 = serviceshare
-gen share2 = industryshare
-gen share3 = agrishare
+gen share1 = serviceshare/100
+gen share2 = industryshare/100
+gen share3 = agrishare/100
 
 save input/macro_indicators, replace
