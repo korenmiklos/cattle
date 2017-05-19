@@ -40,3 +40,13 @@ gen share2 = industryshare/100
 gen share3 = agrishare/100
 
 save input/macro_indicators, replace
+
+* prices from ICP
+use ../../data/ICP/2005/sector-price-levels, clear
+
+ren iso iso3
+ren priceserv price1
+ren pricemanu price2
+ren priceagri price3
+
+save input/sector_price_levels, replace

@@ -5,9 +5,9 @@ drop if _m==2
 drop _m
 
 merge m:1 iso3 year using input/macro_indicators
-do structural_transformation
-drop if _m==2
 drop _m
+do structural_transformation
+drop if missing(METRO_ID)
 
 do util/parameters
 do util/programs
