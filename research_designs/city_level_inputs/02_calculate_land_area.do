@@ -49,7 +49,6 @@ z_to_tilde z_tilde_2 z2 tau2/beta2 z1
 z_to_tilde z_tilde_3 z3 tau3/beta3 z2
 
 forval i=1/3 {
-	gen location_contribution`i' = exp(-tau`i'*z_tilde_`i')*100-100
-	gen land_contribution`i' = (L`i'/N`i')^beta`i'
+	gen location_contribution`i' =-tau`i'*z_tilde_`i'
+	gen land_contribution`i' = ln(L`i'/N`i')*beta`i'
 }
-
