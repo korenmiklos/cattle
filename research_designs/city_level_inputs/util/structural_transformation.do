@@ -24,10 +24,14 @@ forval i=1/3 {
 drop _m
 
 * use eq 4 from Herrendorf et al AER 2013 with sigma=1, https://paperpile.com/view/d5a5586d-5160-0ec7-bcdd-23d5853fdb95
-
-nlsur (share1 = {omega1}*(1+({shifter1}*price1+{shifter2}*price2+{shifter3}*price3)/exp(ln_y)) - {shifter1}*price1/exp(ln_y)) /*
-   */ (share2 = {omega2}*(1+({shifter1}*price1+{shifter2}*price2+{shifter3}*price3)/exp(ln_y)) - {shifter2}*price2/exp(ln_y)) /*
-   */ (share3 = 1*(1+({shifter1}*price1+{shifter2}*price2+{shifter3}*price3)/exp(ln_y)) - {shifter3}*price3/exp(ln_y)) /*
+local sigma (1-exp({logsigma}))
+local price_index ({omega1}*price1^`sigma' + {omega2}*price2^`sigma' + price3^`sigma') 
+local committed_budget ({shifter1}*price1+{shifter2}*price2+{shifter3}*price3)
+local C exp(ln_y)
+nlsur /*
+   */ (share1 = {omega1}*price1^`sigma'/`price_index' * (1+`committed_budget'/`C') - {shifter1}*price1/`C') /*
+   */ (share2 = {omega2}*price2^`sigma'/`price_index' * (1+`committed_budget'/`C') - {shifter2}*price2/`C') /*
+   */ (share3 =        1*price3^`sigma'/`price_index' * (1+`committed_budget'/`C') - {shifter3}*price3/`C') /*
    */ if !missing(share1,share3,ln_y)&country_tag
    
 * save params for future use
