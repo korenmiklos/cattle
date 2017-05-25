@@ -49,3 +49,4 @@ forval i=1/3 {
 predict share1hat, eq(#1)
 predict share2hat, eq(#2)
 gen share3hat = 1-share1hat -share2hat 
+
