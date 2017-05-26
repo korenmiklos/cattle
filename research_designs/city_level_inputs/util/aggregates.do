@@ -1,6 +1,6 @@
 local input_variables L z1 z2 z3 N1 N2 N3
 confirm variable `input_variables'
-confirm new variable L1 L2 L3 z_tilde_1 z_tilde_2 z_tilde_3 zeta1 zeta2 zeta3
+confirm new variable L1 L2 L3 z_tilde_1 z_tilde_2 z_tilde_3 zeta1 zeta2 zeta3 p1 p2 p3
 
 foreach X in `input_variables' {
 	assert `X'>0 & !missing(`X')

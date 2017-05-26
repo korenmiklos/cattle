@@ -19,11 +19,3 @@ drop if missing(N1,N2,N3)
 do util/loop
 do util/aggregates
 
-forval i=1/3 {
-	replace N`i' = city_employment*N`i'/N
-	gen location_contribution`i' =-tau`i'*z_tilde_`i'
-	gen land_contribution`i' = ln(L`i'/N`i')*beta`i'
-	/** express land contribution relative to Boston
-	su land_contribution`i' if METRO_ID=="US048", meanonly
-	replace land_contribution`i' = land_contribution`i' - r(mean)*/
-}

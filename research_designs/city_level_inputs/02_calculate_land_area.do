@@ -1,4 +1,5 @@
-use input/cities, clear
+clear all
+use input/cities
 
 merge m:1 iso3 year using input/unit_labor_cost
 drop if _m==2
@@ -14,3 +15,8 @@ do util/programs
 
 do util/spatial_equilibrium
 
+* recover productivities
+pw_to_a price ln_y a
+do util/decomposition
+
+save output/calibrated_cities, replace
