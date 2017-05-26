@@ -15,8 +15,11 @@ ren priceagri price3
 ren pricemanu price2
 ren priceserv price1
 
-merge 1:m iso using ../data/maxmind/all_cities, keep(master match)
+gen iso3 = iso
+merge 1:m iso3 year using ../data/oecd/cities/consistent/cities, 
+drop if _m==2
 drop _m
+egen rank = rank(-pop), by(iso)
 
 gen y = ln(gdppercap)
 label var y "GDP per capita (PPP, log)"
@@ -55,13 +58,13 @@ gen tau2 = 0.22/100
 gen tau1 = 1.71/100
 
 * estimate city boundaries with constant population density
-* this is a starting value only
-gen citydensity = density
+gen citydensity = pop/(surf_core+surf_hinter)
+gen city_area = (surf_core+surf_hinter)
+gen z2 = sqrt(city_area/3.1416)
+
+scalar pi = 3.1416
 
 forval m = 1/1 {
-	* estimate city boundaries with constant population density
-	* this is a starting value only
-	gen z2 = sqrt(citypopulation/citydensity/3.1416)
 
 	* initial guess for rent gradient
 	gen R1 = 1
@@ -73,7 +76,6 @@ forval m = 1/1 {
 		gen R`i'low = R`i'
 	}
 
-	scalar pi = 3.1416
 
 	* iterate and hope for convergence
 	forval k=1/20 {
@@ -120,6 +122,8 @@ forval m = 1/1 {
 	}
 
 }
+
+BRK
 
 *convergence check
 * scatter z1 z3 if iso=="USA"

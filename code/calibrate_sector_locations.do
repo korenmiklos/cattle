@@ -7,8 +7,16 @@ clear all
 use ../data/wdi/wdi_2007
 ren countrycode iso
 
-merge 1:1 iso using ../data/maxmind/cities, keep(match)
+
+* merge 1:1 iso using ../data/maxmind/cities, keep(match)
+sort iso
+merge iso using ../data/maxmind/all_cities, nokeep
 drop _m
+
+* estimate city boundaries with constant population density
+gen z3 = sqrt(area/population*citypopulation)/3.1416
+* only do counterfactual with largest city
+keep if rank==1
 
 * reshape sectors into long
 ren agrishare share3
@@ -24,65 +32,43 @@ ren agriprice P3
 ren industryprice P2
 ren serviceprice P1
 
+*land shares
 gen beta1 = 0.13
 gen beta2 = 0.10
 gen beta3 = 0.23
 
-reshape long P A share beta, i(iso) j(sector)
-replace share = share/100
-
-* calculate unit labor cost relative to USA
-* approximate wages with GDP per capita
-egen USAwage = mean(cond(iso=="USA",wage,.))
-gen ULC = wage/USAwage/(P*A)
-
-* ULC in USA is calibrate to match land demand
-gen ULCUSA = 2.052 if sector==3
-replace ULCUSA = 0.799 if sector==2
-replace ULCUSA = 0.7915 if sector==1
-
 * taus calibrated to employment gradients
-gen tau = 0.008142 if sector==3
-replace tau = 0.00515 if sector==2
-replace tau = 0.017 if sector==1
+gen tau3 = 0.008142
+gen tau2 = 0.00515
+gen tau1 = 0.017
 
-* eq from cattle.pdf
-gen land_demand = share*(1-beta)^(1-1/beta)*(ULC*ULCUSA)^(1/beta)
-egen sum_land_demand = sum(land_demand), by(iso)
-replace land_demand = land_demand/sum_land_demand
-drop sum_land_demand
+scalar R1pR2 = 5
+scalar R1pR3 = 10
 
-l iso sector A ULC land_demand if !missing(ULC)
+* approximate sector cutoffs
+gen z2pz1 = sqrt(1+R1pR2*share2*beta2/share1/beta1)
+gen z3pz1 = sqrt(z2pz1^2+R1pR3*share3*beta3/share1/beta1)
 
-sort iso sector
-* cumulative area demand by first n sectors
-by iso: gen cumlandshare = sum(land_demand)
-replace cumlandshare = . if cumlandshare==0
+gen z1 = z3/z3pz1
+gen z2 = z1*z2pz1
 
-* calculate z_3
-* convert from hectares to square kms
-replace arable = arable/100
-* divide by number of cities to get average area of city
-gen city_area = area/cities
-* pretend cities are circular
-scalar pi = 3.14159265
-gen z = sqrt(city_area/pi) if sector==3
 
-* distribute land to other sectors according to demand - ignore rent gradient
-by iso: replace z = sqrt(cumlandshare)*z[3] if _n<3
+scalar pi = 3.1416
 
-* the maximum bias arises if the sector is located on the edge
-gen max_bias = exp(-tau*z)
+* create representative sector locations (ztilde) 
+local previous 0
+forval i=1/3 {
+	gen ztilde`i' = -beta`i'/tau`i'*log(1/(z`i'^2*pi-`previous'^2*pi)*2*pi*((-beta`i'/tau`i'*z`i'*exp(-tau`i'/beta`i'*z`i')+beta`i'/tau`i'*`previous'*exp(-tau`i'/beta`i'*`previous'))-((beta`i'/tau`i')^2*exp(-tau`i'/beta`i'*z`i')-(beta`i'/tau`i')^2*exp(-tau`i'/beta`i'*`previous')))) 
+	local previous ztilde`i'
+}
+edit iso z? ztilde?
 
-gen A_corrected = A/max_bias
-egen A_USA = mean(cond(iso=="USA",A_corrected,.)), by(sector)
-replace A_corrected = A_corrected/A_USA
-
-gen atilde = ln(A)
-gen a = ln(A_corrected)
 gen y = ln(gdppercap)
 
 label var y "GDP per capita (PPP, log)"
+
+BRK
+
 label var atilde "Measured productivity"
 label var a "Location-corrected productivity"
 
@@ -103,7 +89,14 @@ forval i=1/3 {
 
 table sector, c(mean coef_measured mean coef_true)
 
+preserve
 
+reshape wide atilde a z z_min bias ztilde max_bias share P A beta ULC ULCUSA tau land_demand cumlandshare A_corrected A_USA coef_measured coef_true, i(countryname) j(sector)
+list countryname A3 A_corrected3 A2 A_corrected2 A1 A_corrected1 if !missing(A_corrected3), noobs clean
+list countryname share1 share2 share3 z1 z2 z3 if !missing(A_corrected3), noobs clean
+list countryname ULC1 ULC2 ULC3 if !missing(A_corrected3), noobs clean
+
+restore 
 
 set more on
 log close

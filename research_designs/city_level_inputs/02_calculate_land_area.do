@@ -1,10 +1,6 @@
 clear all
 use input/cities
 
-merge m:1 iso3 year using input/unit_labor_cost
-drop if _m==2
-drop _m
-
 merge m:1 iso3 year using input/macro_indicators
 drop _m
 do util/structural_transformation

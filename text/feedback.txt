@@ -31,3 +31,24 @@ Minor comments
 3. Isn't there a cirularity in estimating tau and then using sector location to validate? (Jon Vogel) - tau is estimated from variation with the region, we could still have log-concave rent gradients, contradicting the theory. Also, it should be fairly simple to allow for mixed use in a logit setting.
 4. Land rents are not the same as home rents. There is land rent data for Pittsburgh. (Jeff)
 5. The ZBP does not include farms. Farmland is available from agri census. (Tom Holmes)
+
+CEMFI
+=====
+
+1. User intermediate linkages across sectors.
+2. Using firm-level data from Amadeus, we could create ZIP-code level patterns for Europe, too.
+
+Minor comments
+--------------
+- Value added is calculated at consumer prices, be precise.
+- Separate continents on urbanization graphs, Americas very different from Europe.
+- Exclude coastal cities. They are not circular, distance to coast might also matter.
+
+Jonathan Dingel
+---------------
+Spatial and Social Frictions in the City: Evidence from Yelp
+with Donald R. Davis, Jonathan I. Dingel, and Eduardo Morales. In progress.
+
+We employ user-generated data from the social website Yelp to estimate how spatial and social frictions combine to shape consumption choices within cities. Travel time matters for consumption choices, more strongly from work than home. Social frictions also play a large role. Individuals are less likely to visit venues in places demographically different from their own neighborhood. Crime shapes the consumption choices across space differently for men and women. Women, but not men, avoid high- crime areas. We can use our estimates to gauge how much greater these frictions would be if crime were at recent historical peaks and to show how transportation projects would alter the consumption value of a city.
+
+We could use this paper to calibrate trade cost of services.

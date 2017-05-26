@@ -2,7 +2,7 @@
       name:  <unnamed>
        log:  /Users/koren/Dropbox/projects/balassa/code/../doc/average_distances.log
   log type:  text
- opened on:  12 Jun 2012, 00:40:46
+ opened on:  16 Jun 2012, 12:14:23
 
 . 
 . use ../data/zip_business_patterns
@@ -670,22 +670,28 @@ Log likelihood  = -387184.65                    Prob > chi2        =    0.0000
 (0 real changes made)
 
 . 
+. local weight imputed_area
+
+. 
 . sort sector distance
 
-. by sector: gen cumsum = sum(emp)
+. by sector: gen cumsum = sum(`weight')
 
-. egen maxcumsum = max(cumsum), by(sector)
+. egen maxcumsum = max(cond(distance<=100,cumsum,.)), by(sector)
 
 . replace cumsum = cumsum/maxcumsum
-(130010 real changes made)
+(130004 real changes made)
 
-. label var cumsum "Cumulative share of employment"
+. label var cumsum "Cumulative share of `weight'"
+
+. 
+. gen byte sample = (distance<=100)
 
 . 
 . * empirical CDF of weighted distances in the three sectors
-. tw (line cumsum lndistance if sector==1, sort) /*
-> */ (line cumsum lndistance if sector==2, sort) /*
-> */ (line cumsum lndistance if sector==3, sort) /*
+. tw (line cumsum distance if sector==1&sample, sort) /*
+> */ (line cumsum distance if sector==2&sample, sort) /*
+> */ (line cumsum distance if sector==3&sample, sort) /*
 > */, scheme(s2color) legend(order(1 "Agriculture" 2 "Industry" 3 "Services"))
 
 . graph export ../text/figures/sector_distance_cdfs.png, replace width(800)
@@ -698,10 +704,10 @@ Log likelihood  = -387184.65                    Prob > chi2        =    0.0000
 -------------------------
    sector | max(distance)
 ----------+--------------
-        0 |      19.92913
-        1 |      38.46871
-        2 |      20.24428
-        3 |      15.89778
+        0 |      58.99314
+        1 |      58.99314
+        2 |      49.11077
+        3 |      50.42165
 -------------------------
 
 . 
@@ -711,10 +717,10 @@ Log likelihood  = -387184.65                    Prob > chi2        =    0.0000
 -------------------------
    sector | max(distance)
 ----------+--------------
-        0 |      59.25776
-        1 |      103.6156
-        2 |      61.56392
-        3 |      49.23067
+        0 |      90.45078
+        1 |      90.45078
+        2 |      85.88061
+        3 |      87.65492
 -------------------------
 
 . 
@@ -750,5 +756,5 @@ Log likelihood  = -387184.65                    Prob > chi2        =    0.0000
       name:  <unnamed>
        log:  /Users/koren/Dropbox/projects/balassa/code/../doc/average_distances.log
   log type:  text
- closed on:  12 Jun 2012, 00:41:08
+ closed on:  16 Jun 2012, 12:14:40
 --------------------------------------------------------------------------------------------------------------
