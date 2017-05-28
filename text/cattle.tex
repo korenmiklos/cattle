@@ -608,99 +608,33 @@ For each city $c$, we solve these equations for $(z_1,z_2,z_3)$, $(\tilde z_1,\t
 	\item Using equations \eqref{eq:land_market_clearing} and \eqref{eq:representative_location}, calculate $(L_{1c}, L_{2c}, L_{3c})$ and $(\tilde z_{1c}, \tilde z_{2c}, \tilde z_{3c})$.
 	\item Using equation \eqref{eq:labor_intensity}, calculate $(\zeta_{1c}, \zeta_{2c}, \zeta_{3c})$.
 	\item If rent arbitrage equation \eqref{eq:rent_arbitrage} is not satisfied, go back to step 3.
-	\item ...
+	\item Calculate equilibrium wages as
+	\[
+		W_c = \frac
+			{\sum_i (1-\beta_i)Y_{ic}}
+			{N_c}
+	\]
+	and using data on prices, recover
+	\[
+		A_{ic} = 
+			 \frac {\beta_i}{(1-\beta_i)^{1-\beta_i}}
+			 \frac {W_c}{P_{ic}}
+			 \exp(\zeta_{ic}).
+	\]
 \end{enumerate}
 
+\subsection{Decomposition of output per worker}
+To evaluate the quantitative importance of our mechanism, we firs report the decomposition of output per worker \eqref{} into a Hick-neutral productivity term, land per worker, and the representative location of the industry.
 
-We allow three parameters to vary across countries: the sector share of GDP ($\alpha_i$), the sectoral unit labor costs ($ULC_i$) and the city sizes $(z_3)$.
+\dofigure{productivity}{The contribution of productivity to output per worker}{}
 
-To capture the international variation in sectoral demand ($\alpha_i$), we use sectoral value added shares reported by the World Bank's World Development Indicator database.
+KARESZ, PLS CHECK FIGURES IN RESEARCH_DESIGNS/CITY_LEVEL_INPUTS/OUTPUT
 
-The sectoral unit labor costs come from the EUKLEMS database (\citeN{OMahony09}), which contains internationally comparable sector-level labor compensation measures per hour and labor productivities.\footnote{Using multi-factor productivities would reduce our sample size from the already tight 14 to 11.}
+Figure \ref{} shows the nonparametric relationship between productivity and GDP per capita of the city, separately for each of the four sectors. Not surprisingly, richer cities are estimated to have higher productivity. The three sectoral productivities run in parallel, showing that technological differences across cities are unbiased. This is in contrast with XX and XX.
 
-The diverse \emph{size} of the representative cities introduces international variation in transport costs. To control for this, we take the internationally comparable ``arable land'' measure from the World Bank's World Development Indicator database\footnote{Some urban land measure would be preferable, but the available measures are based on national definitions, so can not be directly compared internationally.} and divide it by the number of cities with above 50.000 inhabitants.\footnote{The dataset is compiled by Stefan Helders (www.world-gazetteer.com) and uses mostly official sources.} This gives us a measure of the available land in the representative city. As we assume circular cities in our model, this area measure ($L$) readily translates into distance by $L=z_3^2\pi$, where $z_3$ the distance of the urban fringe from the city center $z_3$. Combining these measures with country-level estimates of sectoral land shares, as we show below, we obtain estimates for sectoral transport costs.
+Figure \ref{} shows the contribution of land per worker to output per worker, relative to Boston. Across the entire level of city GDP per capita, this contribution is greater than one, because most cities are less densely populated than Boston. There is no clear tendency with development, but richer cities tend to have more land avaible for agriculture than for other sectors. This is because agricultural employment in these cities are smaller and they can use larger amounts of land on the city fringe.
 
-\subsubsection{Sector locations}
-
-International variation in the distances of sectors from the city center influence transport costs. Our sector location measure ($z_i^j$) is a product of the urban fringe and sectoral land shares:\footnote{In the current version, we are calculating the maximum distance ($z_i^j$), instead of the average distance ($\tilde{z}_i^j$) suggested by the model. In this way, we are going to get a measure for the maximum bias to productivity estimates by disregarding location. It shows the potential of location correction. In the future versions, we are planning to use the model-based estimates of average sectoral distances.}
-\begin{equation*}
-z_i^j=z_3^j\sqrt{\frac{L_i^j}{L^j}}
-\end{equation*}
-For the US, we calculate sectoral land shares directly using the ZIP Business Patterns of the US Census. For each ZIP area, we calculate sectoral land demand as a share of commercial land, using the published employment data. %XX HOW?
-
-Sectoral land share estimates for other countries are obtained using equation \ref{eq:LandShare}. The equation considers international variation in both sector demand and unit labor costs. As unit labor costs in EUKLEMS are expressed relative to the US, we choose the units of each sectors such that US unit labor costs are 1 (see equation \ref{eq:US_ULC}). Table \ref{tab:spatial_eg} compares estimates for three countries: a large developed country (USA), a small developed country (Belgium), and a small middle-income country (Hungary). Service sector constitute a large share of output in each countries, its share is somewhat smaller in the less developed Hungary. Agriculture, in contrast, generates only 1\% of the GDP in developed countries, but is somewhat more important in Hungary. Intuitively, sectors are closer to the city center of the representative cities in the smaller Belgium and Hungary than in the US.
-
-% Table generated by Excel2LaTeX from sheet 'regions'
-\begin{table}[h!]
-  \centering
-  \caption{Calibrated spatial structures}
-    \begin{tabular}{rcccccc}
-    \toprule
-    \textbf{} & \multicolumn{3}{c}{\textbf{Share in GDP}} & \multicolumn{3}{c}{\textbf{Distance to center (km)}} \\
-    \midrule
-    \textbf{} & \textbf{USA} & \textbf{BEL} & \textbf{HUN} & \textbf{USA} & \textbf{BEL} & \textbf{HUN} \\
-    Services & 77\%  & 75\%  & 66\%  & 36    & 15    & 8 \\
-    Manufacturing & 22\%  & 24\%  & 30\%  & 39    & 16    & 14 \\
-    Agriculture & 1\%   & 1\%   & 4\%   & 63    & 21    & 37 \\
-    \bottomrule
-    \end{tabular}%
-  \label{tab:spatial_eg}%
-\end{table}%
-
-\subsection{Development accounting}
-
-Which sector's productivity varies more with development? Our estimates for shipping costs and sector locations allow us to create location-corrected sectoral productivity measures $A_i$ from measured productivities $A_ie^{-\tau_iz_i}$. We are interested in their correlation with aggregate productivity. Our measured productivities come from 14 countries in the EUKLEMS database, and we compare them to GDP per capita from the 2007 World Development Indicators. Table \ref{tab:dev_acc} presents the estimated elasticities.
-
-% Table generated by Excel2LaTeX from sheet 'devacct'
-\begin{table}[h!]
-  \centering
-  \caption{Elasticity of productivity with respect to GDP per capita}
-    \begin{tabular}{rcc}
-    \toprule
-    \textbf{} & \textbf{Measured} & \textbf{Location-corrected} \\
-    \midrule
-    Services & 0.628 & 0.855 \\
-    Manufacturing & 0.867 & 0.926 \\
-    Agriculture & 1.634 & 1.806 \\
-    \bottomrule
-    \end{tabular}%
-  \label{tab:dev_acc}%
-\end{table}%
-
-We find that land and location of sectors do influence sectoral productivity measurements. Our preliminary results support previous conclusions that productivity differences in agriculture vary most with development. Correcting for the location-bias, this variation with development is, if anything, even higher. Using measured productivity, services productivity varies less with development than manufacturing productivity, in line with previous result. Correcting for the location-bias, however, changes this picture. It suggests that the cross-country differences in services productivity relative to manufacturing might be overestimated, because in our sample of high and middle-income countries location-corrected services productivity vary \emph{similarly} with development.
-
-%\subsection{Sector locations}
-%The plan for calibration is as follows.
-%\begin{enumerate}
-%    \item Normalize U.S. wages to one.
-%    \item Measure the share of land in each sector in the U.S.
-%    \item Use equation XX to obtain $P_iA_i$ for the U.S.
-%    \item Given the measures of $P_iA_i$ and $W$ relative to the U.S. in EUKLEMS, we derive land demand in other countries using equation XX.
-%\end{enumerate}
-%
-%\subsection{Trade costs}
-%\begin{enumerate}
-%    \item Guess $\tau_i$.
-%    \item Given this guess, calculate the land-weighted distance of each sector in the U.S., $\tilde z_i$.
-%    \item Calculate the same thing in the model.
-%\end{enumerate}
-
-
-
-
-%\subsection{Sector locations}
-%We calibrate $\tau$ so as to match the location of sectors in the U.S. We use the Zip Business Patterns data (XX COPY FROM ABOVE) to calculate the employment-weighted median distance of each sector to the center of the Urban Areas.
-%
-%\dofigure{sector_distance_cdfs}{Cumulative distribution functions of sector distances}{}
-%
-%Figure \ref{fig:sector_distance_cdfs} shows the empirical distribution of distance across the three sectors. While there is certainly a wide range of distances for each sector, and the location of sectors overlaps, there is also a clear location shift visible: the typical agricultural employee is farther away than the typical industry employee, who is, in turn, farther away that service employees.
-%
-%Table XX reports the median distance of each sector to the city center. Services are closest with 15.9km, manufacturing are 20.2km, whereas agriculture is 38.5km away from the center, as weighted by employment.
-%
-%\[
-%\frac{\int_0^z Y_1(s)ds}{\int_0^{z_1} Y_1(s)ds} = \frac{\Lambda_1(z)}{\Lambda_1(z_1)}
-%\]
-
+Figure \ref{} plots the contribution of sector location to output per worker. Cities with a GDP per capita below about \$5,000 tend to be smaller than Boston (also see Figure \ref{}), and the contribution of location is greater than in Boston. For rich and large cities, the spatial sprawl reduced output per worker by about 10 percent in services and manufacturing, and even more in agriculture.
 
 
 

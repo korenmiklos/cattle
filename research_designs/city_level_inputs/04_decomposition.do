@@ -17,3 +17,5 @@ foreach X in `variables' {
 	graph export output/`X'.png, width(800) replace
 }
 
+tw (lowess z3 gdp_pc) (scatter z3 gdp_pc if METRO_ID=="US048", mlabel(city_name)), legend(off) scheme(s2mono) xtitle(GDP per capita) ytitle("City radius (km)")
+graph export output/city_radius.png, width(800) replace
