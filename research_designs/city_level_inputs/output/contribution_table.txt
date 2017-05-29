@@ -1,0 +1,28 @@
+---------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  /Volumes/Home/Dropbox/projects/balassa/research_designs/city_level_inputs/output/contribution_table.txt
+  log type:  text
+ opened on:  29 May 2017, 08:40:44
+
+. table sector component , c(p10 contribution p90 contribution )
+
+----------------------------------------------------------
+          |                   component                   
+   sector | 1 productivity          2 land      3 location
+----------+-----------------------------------------------
+        1 |       .1939219        .9572188        .9501776
+          |       .7117044        1.265851          1.0923
+          | 
+        2 |       .1447585        .9151533        .9513102
+          |       .6848357        1.243997        1.059677
+          | 
+        3 |       .1300839        .7962009        .8894314
+          |       .6206791        1.729666         1.11406
+----------------------------------------------------------
+
+. log close
+      name:  <unnamed>
+       log:  /Volumes/Home/Dropbox/projects/balassa/research_designs/city_level_inputs/output/contribution_table.txt
+  log type:  text
+ closed on:  29 May 2017, 08:40:44
+---------------------------------------------------------------------------------------------------------------------

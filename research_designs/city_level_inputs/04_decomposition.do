@@ -19,3 +19,16 @@ foreach X in `variables' {
 
 tw (lowess z3 gdp_pc) (scatter z3 gdp_pc if METRO_ID=="US048", mlabel(city_name)), legend(off) scheme(s2mono) xtitle(GDP per capita) ytitle("City radius (km)")
 graph export output/city_radius.png, width(800) replace
+
+keep METRO_ID *contribution*
+reshape long productivity_contribution land_contribution location_contribution output_per_worker, i(METRO_ID) j(sector)
+ren *_contribution contribution*
+reshape long contribution, i(METRO_ID sector) j(component) string
+
+replace component = "1 productivity" if component=="productivity"
+replace component = "2 land" if component=="land"
+replace component = "3 location" if component=="location"
+
+log using output/contribution_table.txt, text replace
+table sector component , c(p10 contribution p90 contribution )
+log close
