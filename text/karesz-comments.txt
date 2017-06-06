@@ -17,3 +17,5 @@
 	A két szektor lényegében Leontief. Mivel a szolgáltatás valamivel drágább, ezért az expenditure share-je is nagyobb. Visszatérhetünk valami sztenderdedd util fvhez, a hatás sajnos így is kicsi.
 
 4)      A 6-os ábra alapján Boston outliernek tűnik. Nem tudnánk olyan – hasonlóan cool – baseline várost választani, ami reprezentatívabb?   
+
+	Megcsináltam mindent Seattle-lel, ami pont rajta fekszik a lowess görbén. igy valamivel könnyebben olvashatók a görbék, de a minta ugyanaz.
