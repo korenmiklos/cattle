@@ -1,7 +1,19 @@
-A nemlineáris legkisebb négyzetek regressziónál a 4.3-as sectionnél biztos, hogy az epsilon_t független y_t-től? Ha jól értem, a lambda(y_t) közelítése csak elsőrendű; a kihagyott magasabb-rendű tagok nem jelennek meg epsilon_t-ben?
+1) A nemlineáris legkisebb négyzetek regressziónál a 4.3-as sectionnél biztos, hogy az epsilon_t független y_t-től? Ha jól értem, a lambda(y_t) közelítése csak elsőrendű; a kihagyott magasabb-rendű tagok nem jelennek meg epsilon_t-ben?
+
+	Ez nem számít sokat, de a precizitás kedvéért írtam róla egy lábjegyzetet.
 
 2)      Nézted, hogy mi lesz az eredmény, ha (naívan) figyelmen kívül hagynánk a locationt? Ez lehetne egy counterfactual. Ha minden igaz, tau_i=0 esetekre kellene megoldani az egyenletrendszert. Ekkor a mi spacial structurünk nem unique, de egy lehetséges megoldás. Engem az érdekelne, hogy az implied szolgáltatás TFP a feldolgozóipari TFP-hez képest növekedik-e a developmenttel, ahogy a balassa-samuelson irodalom feltételezi. Vagyis a location számít-e, és átírja-e a relatív TFP alakulásról alkotott képünket?
 
+	Sajnos kicsi a hatás. Ha 50-edére csökkentem a tau-t (kinullázni nem tudom, mert az algoritmus nem engedi), akkor 
+
+		beta(log service productivity, log GDP per capia) = 0.91
+
+	a baseline kalibrációban pedig
+
+		beta = 0.98.
+
 3)      Engem némileg meglepett, hogy a szolgáltatás jövedelemrugalmassága nem nagyobb, mint a feldolgozóiparé? Igaz az, hogy a szolgáltatás/feldolgozóipar expenditure share-je nem nő a fejlődéssel?
+
+	A két szektor lényegében Leontief. Mivel a szolgáltatás valamivel drágább, ezért az expenditure share-je is nagyobb. Visszatérhetünk valami sztenderdedd util fvhez, a hatás sajnos így is kicsi.
 
 4)      A 6-os ábra alapján Boston outliernek tűnik. Nem tudnánk olyan – hasonlóan cool – baseline várost választani, ami reprezentatívabb?   
