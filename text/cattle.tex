@@ -624,48 +624,48 @@ For each city $c$, we solve these equations for $(z_1,z_2,z_3)$, $(\tilde z_1,\t
 \end{enumerate}
 
 \subsection{Decomposition of output per worker}
-To evaluate the quantitative importance of our mechanism, we first report the decomposition of output per worker \eqref{} into a Hick-neutral productivity term, land per worker, and the representative location of the industry. We express each component relative to Seattle, one of the richest cities in the sample.
+To evaluate the quantitative importance of our mechanism, we first report the decomposition of output per worker \eqref{} into a Hick-neutral productivity term, land per worker, and the representative location of the industry. We express each component relative to New York, one of the richest cities in the sample.
 
 \begin{table}[h!]
   \begin{center}
-  \caption{Distribution of productivity components across cities}
+  \caption{Distribution of productivity components across cities\label{tab:decomposition}}
     \begin{tabular}{lccc}
     \toprule
     \textbf{} & \multicolumn{3}{c}{\textbf{Contribution to output per worker of}}\\
     \textbf{} & \textbf{productivity} & \textbf{land per worker} & \textbf{location} \\
     \midrule
-        Services 		& 0.198 & 0.857 & 0.994 \\
-                 		& 0.725 & 1.134 & 1.142 \\
-        Manufacturing 	& 0.151 & 0.802 & 0.992 \\
-                 		& 0.715 & 1.090 & 1.105 \\
-        Agriculture 	& 0.149 & 0.567 & 0.974 \\
-                 		& 0.760 & 1.230 & 1.220 \\
+Services	& 0.186	& 1.083	& 0.987	\\
+	& 0.683	& 1.433	& 1.135	\\
+				
+Manufacturing	& 0.149	& 0.968	& 0.985	\\
+	& 0.706	& 1.316	& 1.097	\\
+				
+Agriculture	& 0.123	& 0.880	& 0.958	\\
+	& 0.589	& 1.911	& 1.200	\\
     \bottomrule
     \end{tabular}%
 
   \end{center}
-  \label{tab:decomposition}
-
-  \noindent \footnotesize{Notes: Table presents the 10th and 90th percentiles of contributions to output per worker. All contributions are expressed relative to Boston. See text for the precise definition of decomposition.}
+  \noindent \footnotesize{Notes: Table presents the 10th and 90th percentiles of contributions to output per worker. All contributions are expressed relative to New York. See text for the precise definition of decomposition.}
 \end{table}
 
-Table \ref{tab:decomposition} presents the distribution of productivity components across cities. For each sector and and each productivity component, we report the 10th and 90th percentile of the component relative to Boston. For example, the 10th percentile of Hicks-neutral productivity in the service sector is only 19.7 percent of that in Seattle. The productivity gap in similar in the three sectors.
+Table \ref{tab:decomposition} presents the distribution of productivity components across cities. For each sector and and each productivity component, we report the 10th and 90th percentile of the component relative to Boston. For example, the 10th percentile of Hicks-neutral productivity in the service sector is only 18.6 percent of that in New York. The productivity gap in similar in the three sectors.
 
-The contribution of land per worker ranges between 86 and 113 percent for services, 80 and 109 percent for manufacturing, and 57 and 123 percent for agriculture. This is not surprising, as agriculture is the most land intensive of the three sectors and most cities are smaller than Seattle and have less agricultural land available.
+The contribution of land per worker ranges between 108 and 143 percent for services, 97 and 132 percent for manufacturing, and 88 and 191 percent for agriculture. This is not surprising, as agriculture is the most land intensive of the three sectors and many cities are smaller than New York and have less agricultural land available.
 
-The contribution of sector location is generally between 99 and 120 percent.
+The contribution of sector location is generally between 96 and 120 percent.
 
-\dofigure{city_level_inputs/productivity}{The contribution of productivity to output per worker}{Notes: Figure presents the nonparametric relationship between city-level GDP per capita and sectoral productivity using locally weighted scatterplot smoothing. Productivity is expressed relative to that in Seattle.}
+\dofigure{city_level_inputs/productivity}{The contribution of productivity to output per worker}{Notes: Figure presents the nonparametric relationship between city-level GDP per capita and sectoral productivity using locally weighted scatterplot smoothing. Productivity is expressed relative to that in New York.}
 
 To see how land usage and city structure varies with development, we plot these productivity contributions against GDP per capita of the cities. Figure \ref{fig:city_level_inputs/productivity} shows the nonparametric relationship between productivity and GDP per capita, separately for each of the four sectors. Not surprisingly, richer cities are estimated to have higher productivity. The three sectoral productivities run in parallel, showing that technological differences across cities are unbiased. This is in contrast with XX and XX.
 
-\dofigure{city_level_inputs/land}{The contribution of land usage to output per worker}{Notes: Figure presents the nonparametric relationship between city-level GDP per capita and the contribution of land usage to output per worker using locally weighted scatterplot smoothing. The contribution is expressed relative to that in Seattle.}
+\dofigure{city_level_inputs/land}{The contribution of land usage to output per worker}{Notes: Figure presents the nonparametric relationship between city-level GDP per capita and the contribution of land usage to output per worker using locally weighted scatterplot smoothing. The contribution is expressed relative to that in New York.}
 
-Figure \ref{fig:city_level_inputs/land} shows the contribution of land per worker to output per worker, relative to Seattle. Across the entire level of city GDP per capita, this contribution is less than one, because most cities are more densely populated than Seattle. There is no clear tendency with development, but richer cities tend to have more land avaible for agriculture than for other sectors. This is because agricultural employment in these cities are smaller and they can use larger amounts of land on the city fringe.
+Figure \ref{fig:city_level_inputs/land} shows the contribution of land per worker to output per worker, relative to New York. Across the entire level of city GDP per capita, this contribution is less than one, because most cities are more densely populated than New York. There is no clear tendency with development, but richer cities tend to have more land avaible for agriculture than for other sectors. This is because agricultural employment in these cities are smaller and they can use larger amounts of land on the city fringe.
 
-\dofigure{city_level_inputs/location}{The contribution of sector location to output per worker}{Notes: Figure presents the nonparametric relationship between city-level GDP per capita and the contribution of sector location to output per worker using locally weighted scatterplot smoothing. The contribution is expressed relative to that in Seattle.}
+\dofigure{city_level_inputs/location}{The contribution of sector location to output per worker}{Notes: Figure presents the nonparametric relationship between city-level GDP per capita and the contribution of sector location to output per worker using locally weighted scatterplot smoothing. The contribution is expressed relative to that in New York.}
 
-Figure \ref{fig:city_level_inputs/location} plots the contribution of sector location to output per worker. For all cities this contribution is greater than in Seattle. This is because these cities tend to be smaller in area than Seattle, as is shown in Figure \ref{fig:city_level_inputs/city_radius}. For rich and large cities, the spatial sprawl reduces output per worker by about 10 percent in services and manufacturing, and even more in agriculture.
+Figure \ref{fig:city_level_inputs/location} plots the contribution of sector location to output per worker. For all cities this contribution is greater than in New York. This is because these cities tend to be smaller in area than New York, as is shown in Figure \ref{fig:city_level_inputs/city_radius}. For rich and large cities, the spatial sprawl reduces output per worker by about 10 percent in services and manufacturing, and even more in agriculture.
 
 \dofigure{city_level_inputs/city_radius}{City radius and GDP per capita}{Notes: Figure presents the nonparametric relationship between city-level GDP per capita and the radius of the city using locally weighted scatterplot smoothing. City radius is estimated using OECD data on city area and assuming circular cities.}
 

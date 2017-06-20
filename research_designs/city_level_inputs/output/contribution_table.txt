@@ -3,7 +3,7 @@
        log:  /Users/koren/Dropbox (CEU MicroData)/projects/balassa/research_design
 > s/city_level_inputs/output/contribution_table.txt
   log type:  text
- opened on:   6 Jun 2017, 15:09:38
+ opened on:  20 Jun 2017, 14:04:45
 
 . table sector component , c(p10 contribution p90 contribution )
 
@@ -11,14 +11,14 @@
           |                   component                   
    sector | 1 productivity          2 land      3 location
 ----------+-----------------------------------------------
-        1 |       .1974627         .857352        .9938402
-          |       .7246992        1.133784        1.142494
+        1 |       .1862236        1.083437        .9872216
+          |       .6834512        1.432765        1.134885
           | 
-        2 |       .1511532        .8018827        .9918582
-          |       .7150884        1.090025        1.104844
+        2 |       .1493022        .9680473        .9847083
+          |       .7063316        1.315898        1.096879
           | 
-        3 |       .1593052        .5663804        .9739531
-          |        .760105        1.230404        1.219928
+        3 |       .1233985        .8797145        .9583353
+          |       .5887803        1.911091        1.200366
 ----------------------------------------------------------
 
 . log close
@@ -26,5 +26,5 @@
        log:  /Users/koren/Dropbox (CEU MicroData)/projects/balassa/research_design
 > s/city_level_inputs/output/contribution_table.txt
   log type:  text
- closed on:   6 Jun 2017, 15:09:38
+ closed on:  20 Jun 2017, 14:04:45
 ----------------------------------------------------------------------------------

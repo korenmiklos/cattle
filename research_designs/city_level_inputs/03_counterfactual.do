@@ -1,8 +1,8 @@
 clear all
 
 use output/calibrated_cities
-* keep only Seattle
-keep if METRO_ID=="US003"
+* keep only New York
+keep if METRO_ID=="US084"
 merge 1:m year using input/macro_indicators, update replace
 
 do util/parameters
