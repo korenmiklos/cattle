@@ -51,6 +51,16 @@ nlsur /*
    */ (share3 = `numerator3'/`denominator') /*
    */ if !missing(share1,share2,share3,ln_y)&country_tag
    
+* save share graph
+predict share1hat, eq(#1)
+predict share2hat, eq(#2)
+gen share3hat = 1-share1hat -share2hat 
+line share1hat share2hat share3hat ln_y, sort  scheme(s2mono) ///
+	legend(order(1 "Services" 2 "Manufacturing" 3 "Agriculture")) ///
+	xtitle("GDP per capita (log)") ytitle("Estimated expenditure share")
+	graph export output/expenditure_shares.png, width(800) replace
+drop share?hat
+   
 * save params for future use
 estimates save output/structural_transformation, replace
 
