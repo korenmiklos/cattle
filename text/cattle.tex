@@ -207,26 +207,13 @@ We can also get the employment gradient by substituting the bid rent curve into 
 \end{equation}
 This is the relationship we use to calibrate the sectoral transport cost intensities.
 
-\begin{proposition}
-Assume that $\tau_1/\beta_1>\tau_2/\beta_2>\tau_3/\beta_3>0$. There exists a competitive spatial equilibrium, which is unique up to a choice of numeraire. The structure of this equilibrium is a partitioning, with locations $0<z_1<z_2<z_3$ such that services with the highest $\tau_i/\beta_i$ rate locate closest to the CBD in $\left[0,z_1\right]$, manufacturing locates in $\left(z_1,z_2\right]$, and agriculture locates in $\left(z_2,z_3\right]$.
+\begin{proposition}\label{prop:existence}
+Assume that $\tau_1/\beta_1>\tau_2/\beta_2>\tau_3/\beta_3>0$. There exists a competitive spatial equilibrium. The structure of this equilibrium is a partitioning, with locations $0<z_1<z_2<z_3$ such that services with the highest $\tau_i/\beta_i$ rate locate closest to the CBD in $\left[0,z_1\right]$, manufacturing locates in $\left(z_1,z_2\right]$, and agriculture locates in $\left(z_2,z_3\right]$.
 \end{proposition}
-\begin{proof}
-First note that profit maximization requires $R_i(z)\ge R(z)$ for all industries and locations and a strict inequality implies that $Q_i(z)=0$. Because the three bid-rent curves have different slopes, they can only intersect at a measure zero set of points. Hence all locations are used by a single industry, there is no mixed use.
-
-The single-crossing property of bid-rent curves imply a strict partitioning. For any pair of sectors with $\tau_i/\beta_i>\tau_j/\beta_j$ we have $\sup\{z: Q_i(z)>0\} \le \inf\{z: Q_j(z)>0\}$. That is, all sector $i$ locations are closer to the CBD than any sector $j$ location. (See Figure \ref{fig:BidRent}.) 
-
-Equation \eqref{eq:ConsShares} ensures positive demand for all three products so that all three sectors are active. The only such partitioning is where $\{z: Q_1(z)>0\} = [0,z_1]$, $\{z: Q_2(z)>0\} = (z_1,z_2]$ and $\{z: Q_3(z)>0\} = (z_2,z_3]$.
-
-Relative prices $P_i/W$ influence the position of the bid-rent curves, with higher prices implying higher bid-rents for each location. [TO BE COMPLETED]
-
-In equilibrium, a sector $i$ is active in location $z$ if $R_i(z)\geq R_{-i}(z)$, where $-i$ denotes the other sectors. We are to show that in equilibrium there are a vector of locations $(z_1, z_2)$ ($z_3$, the urban fringe is exogenously given), such that $0\leq z_i\leq z_3$ and $R_i(z)\geq R_{-i}(z)$ for $z\in[z_{i-1},z_i]$ for $i=1,2,3.$
-
-The equilibrium requires that $R_1(z)$ crosses once with $R_2(z)$ at $z=z_1$. Similarly, $R_2(z)$ crosses once with $R_3(z)$ at $z=z_2$. The strictly decreasing bid-rent curves imply that they cross \emph{at most} once. If equilibrium prices were such that one of them did not cross with any other at all, that sector would not produce. As our Cobb-Douglas utility function implies positive demand for each good, this would contradict the equilibrium. $z_1<z_2$, otherwise sector 1 would not produce. $z_2<z_3$, otherwise sector 3 would not produce.
-\end{proof}
+The proof is provided in the Appendix. Intuitively, the different exponential slope of the bid-rent curves ensures that they cross exactly once. This results in a strict partitioning across sectors, as shown in Figure \ref{fig:BidRent}. Equilibrium further requires that these bid-rent curves are consistent with consumer expenditure shares.
 
 \begin{figure}[h!]
-\label{fig:BidRent}
-\caption{Spatial equilibrium}
+\caption{Spatial equilibrium\label{fig:BidRent}}
 \begin{center}
 \includegraphics[scale=0.4]{figures/bid_rent_curves}
 \end{center}
@@ -234,6 +221,7 @@ The equilibrium requires that $R_1(z)$ crosses once with $R_2(z)$ at $z=z_1$. Si
 \noindent \footnotesize{The figure plots the structure of a spatial competitive equilibrium. It shows equilibrium sectoral bid rent curves as a function of distance from the city center. A sector is active over an area where it is willing to overbid alternative sectors. Crossings of the bid-rent curves determine the borders of the sectors. Services are active in $[0,z_1]$, manufacturing in $\left(z_1,z_2\right]$, and services in $\left(z_2,z_3\right]$.}
 \end{figure}
 
+[COMPARATIVE STATIC?]
 
 
 \section{Development accounting}
@@ -626,10 +614,41 @@ XX INTERPRETATION: Back to square 1: we still don’t know which sector drives p
 \bibliography{location}
 \bibliographystyle{chicago}
 
-
 \clearpage
 
-\section{Appendix}
+\appendix
+\section*{Appendix}
+\section{Proofs}
+\subsection{Proof of Proposition \ref{prop:existence}}
+We first show that the allocation of space across sectors follows a strict partitioning, and hence can be characterized by two cutoffs: $z_1$ denotes the boundary between services and manufacturing and $z_2$ denotes the boundary between manufacturing and agriculture. We then apply Brouwer's fixed point theorem to show there exist such equilibrium cutoffs.
+
+First note that profit maximization requires $R_i(z)\ge R(z)$ for all industries and locations and a strict inequality implies that $Q_i(z)=0$. Because the three bid-rent curves have different slopes, they can only intersect at a measure zero set of points. Hence all locations are used by a single industry, there is no mixed use.
+
+The single-crossing property of bid-rent curves imply a strict partitioning. For any pair of sectors with $\tau_i/\beta_i>\tau_j/\beta_j$ we have $\sup\{z: Q_i(z)>0\} \le \inf\{z: Q_j(z)>0\}$. That is, all sector $i$ locations are closer to the CBD than any sector $j$ location. 
+
+Equation \eqref{eq:ConsShares} ensures positive demand for all three products so that all three sectors are active. The only such partitioning is where $\{z: Q_1(z)>0\} = [0,z_1]$, $\{z: Q_2(z)>0\} = (z_1,z_2]$ and $\{z: Q_3(z)>0\} = (z_2,z_3]$. At these boundaries, a rent arbitrage condition holds:
+\begin{equation}\label{eq:rent_arbitrage}
+	R_i(z_i) = R_{i+1}(z_i).
+\end{equation}
+To use Brouwer's fixed point theorem, construct the following mapping. Take a pair of $z_1<z_2 \in [0,z_3]$. Denote the set of admissible $z$s by $Z=\{(z_1,z_2): z_1<z_2 \in [0,z_3]\}$, which is a compact and convex set. Let $W\equiv 1$ serve as the numeraire. Use the rent arbitrage condition at the boundaries \eqref{eq:rent_arbitrage} and the resource constraint for aggregate labor
+\[
+N = \sum_{i=1}^3 \int_{z=z_{i-1}}^{z_i}(1-\beta_i)^{1/\beta_i}
+	(P_iA_i)^{1/\beta_i}
+	e^{- z \tau_i/\beta_i}\tilde L(z)dz,
+\] 
+to solve for prices $P_1$, $P_2$ and $P_3$. These prices are a continuous function of $(z_1,z_2)$. 
+%% this is not yet proven
+Given these prices, solve for utility-maximizing expenditure shares $(x_1,x_2,x_3)$. The total amount of rents payable to each sector can then be expressed, in relative terms, as
+\[
+\frac {R_i}
+	{R_j}
+=
+\frac {\beta_i x_i}
+	{\beta_j x_j}.
+\]
+Let $(z_1',z_2')$ be the sector boundaries consistent with these relative rent amounts. Clearly, $(z_1',z_2')\in Z$ and the mapping is continuous. Applying Brouwer's fixed point theorem, there exists a $(z_1^*,z_2^*)$ such that $(z_1'^{*},z_2'^{*}) = (z_1^*,z_2^*)$ and all equilibrium conditions hold with equality.\hfill Q.E.D.
+
+\section{}
 
 % Table generated by Excel2LaTeX from sheet 'Sheet2'
 \begin{table}[htbp]
