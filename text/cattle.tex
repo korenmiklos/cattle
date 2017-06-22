@@ -58,12 +58,12 @@
 
 \begin{document}
 
-\title{Cattle, Steaks and Restaurants:\\ Development Accounting when Space Matters\thanks{For useful comments, we thank Thomas Holmes, Esteban Rossi-Hansberg, Albert Saiz, Adam Szeidl, Jonathan Vogel, Kei-Mu Yi and audiences of the Conference on Urban and Regional Economics and seminars at Central European University, Princeton University and the Philadelphia Fed.}}
+\title{Cattle, Steaks and Restaurants:\\ Development Accounting when Space Matters\thanks{For useful comments, we thank Thomas Holmes, Esteban Rossi-Hansberg, Albert Saiz, Adam Szeidl, Jonathan Vogel, Kei-Mu Yi and seminar audiences. The views expressed here are our own and do not reflect those of the ECB and the Eurosystem.}}
 \author{Péter Karádi\thanks{European Central Bank. E-mail: peter.karadi@ecb.int} and Miklós Koren\thanks{Central European University, MTA KRTK and CEPR. E-mail: korenm@ceu.edu.}}
 \maketitle
 
 \begin{abstract}
-We conduct sector-level development accounting in a macro model where land and location play a role. Producers in agriculture, manufacturing and services choose their location to trade off transport costs to the city center and rents. We solve for the spatial equilibrium and show how space affects the aggregate production function and measured productivity. Studies not accounting for sector location will deem services in large, expensive cities unproductive. This biases development accounting because rich countries have large service-cities. Our preliminary calibrations show that, correcting for sector location, service productivity varies as much across countries as manufacturing productivity does. This is in contrast with previous studies that found smaller variation in service productivity.
+We introduce location choice to a multi-sector general equilibrium model. Producers in agriculture, manufacturing and services choose their location to trade off land rents with transport costs to the city center. We show how space affects the aggregate production function and decompose output per worker into productivity, land per worker, and a term adjusting for sector location. In our model, services are luxury goods. As a result, richer cities have larger service cores, higher service prices, and relative less output per worker in services. These predictions are broadly consistent with the data. We calibrate our model to data on cities in OECD countries and show that land and location explain 10--30 percentage points of the variation in output per worker.
 \end{abstract}
 
 Output per worker is much lower in poor countries than in rich ones \cite{Klenow97,Hall99,Caselli05}. To understand the fundamental causes of productivity differences, it is important to identify the sectors in which these differences are the greatest. Several recent papers have studied the sectoral composition of productivity differences by using data on sector-level inputs, outputs and prices \cite{Bailey01,Caselli05,Restuccia08,Duarte10,Duarte2015-gl}. Their main result is that productivity differences are sizeable and they are larger in agriculture than in manufacturing and services.\footnote{These results are in line with the classic Balassa-Samuelson literature \cite{Balassa64,Samuelson64,Baumol65,Baumol67}, which explains sectoral price-level differences by productivity advantage of manufacturing over services.}
@@ -124,13 +124,13 @@ The sectoral consumption expenditures satisfy
 \end{equation}
 where $\lambda$ is the Lagrange multiplier of the budget constraint, which is decreasing in income. For a given set of prices, the expenditure of good $i$ relative to good $j$ is increasing in income if $\sigma_i>\sigma_j$.
 The income elasticity of good $i$ is
-\[
+\begin{equation}\label{eq:income_elasticity}
 \frac 	{\partial \ln c_i}
 		{\partial \ln y}
 =
 \frac 	{\sigma_i}
 		{\sum_j x_j\sigma_j},
-\]
+\end{equation}
 where $x_j=P_jc_j/\sum_k P_kc_k$ is the expenditure share of good $j$.
 
 
@@ -395,7 +395,7 @@ Figure \ref{fig:city_level_inputs/expenditure_shares} plots the estimated expend
 \dofigure{city_level_inputs/expenditure_shares}{Estimated expenditure shares and GDP per capita}{Fitted values of regression \eqref{eq:estimable:utility} plotted against log GDP per capita. Estimates also depend on sectoral relative prices, leading to variation independent of income.}
 
 \subsection{Recovering city-level parameters}
-We use city-level data on land area, employment and GDP per capita from the the OECD Metropolitan Areas database \cite{oecd}. Our sample includes 277 cities across OECD countries with non-missing area and employment data in 2007.\footnote{We impute employment from population for three cities in Switzerland.}
+We use city-level data on land area, employment and GDP per capita from the the OECD Metropolitan Areas database \cite{oecd}. Our sample includes 277 cities across OECD countries with non-missing area and employment data in 2007.\footnote{We impute employment from population for three cities in Switzerland.} To obtain variation in expenditure shares across cities, we use the model-consistent expenditure shares predicted by our estimated utility function. 
 
 The following equations completely characterize the spatial equilibrium of city $c$.
 
@@ -513,7 +513,7 @@ The contribution of sector location is generally between 96 and 120 percent.
 
 \dofigure{city_level_inputs/productivity}{The contribution of productivity to output per worker}{Notes: Figure presents the nonparametric relationship between city-level GDP per capita and sectoral productivity using locally weighted scatterplot smoothing. Productivity is expressed relative to that in New York.}
 
-To see how land usage and city structure varies with development, we plot these productivity contributions against GDP per capita of the cities. Figure \ref{fig:city_level_inputs/productivity} shows the nonparametric relationship between productivity and GDP per capita, separately for each of the four sectors. Not surprisingly, richer cities are estimated to have higher productivity. The three sectoral productivities run in parallel, showing that technological differences across cities are unbiased. This is in contrast with XX and XX.
+To see how land usage and city structure varies with development, we plot these productivity contributions against GDP per capita of the cities. Figure \ref{fig:city_level_inputs/productivity} shows the nonparametric relationship between productivity and GDP per capita, separately for each of the four sectors. Not surprisingly, richer cities are estimated to have higher productivity. The three sectoral productivities run in parallel, showing that technological differences across cities are unbiased. This is in contrast with \citeN{Herrendorf2012-yg}, who find large heterogeneity in sectoral productivities.
 
 \dofigure{city_level_inputs/land}{The contribution of land usage to output per worker}{Notes: Figure presents the nonparametric relationship between city-level GDP per capita and the contribution of land usage to output per worker using locally weighted scatterplot smoothing. The contribution is expressed relative to that in New York.}
 
@@ -527,11 +527,11 @@ Figure \ref{fig:city_level_inputs/location} plots the contribution of sector loc
 
 
 \section{Conclusion}
-We conduct sector-level development accounting in a macro model where land and location play a role. Producers in agriculture, manufacturing and services choose their location endogenously to trade off transport costs and rents. We solve for the spatial equilibrium and show space affects the aggregate production function and measured productivity. Studies not accounting for sector location will deem services in large, expensive cities unproductive. This biases development accounting because rich countries have large service-cities. Our preliminary calibrations show that, correcting for sector location, service productivity varies as much across countries as manufacturing productivity does. This is contrast with previous studies that found smaller variation in service productivity.
+We introduced location choice to a multi-sector general equilibrium model. Producers in agriculture, manufacturing and services choose their location to trade off land rents with transport costs to the city center. We showed how space affects the aggregate production function and decompose output per worker into productivity, land per worker, and a term adjusting for sector location. In our model, services are luxury goods. As a result, richer cities have larger service cores, higher service prices, and relative less output per worker in services. These predictions are broadly consistent with the data. We calibrated our model to data on cities in OECD countries and showed that land and location explain 10--30 percentage points of the variation in output per worker.
 
-XX INTERPRETATION: Back to square 1: we still don’t know which sector drives productivity differences.
-2. Variation might come from macro policies and institutions and may not be sector specific.
+In our calibration, sectoral productivities varied to the same extent across cities. This leaves less room for technology-based explanations as to why sectoral output per worker and sectoral prices vary with development. 
 
+We see two avenues for further research. First, the number and size of cities within countries can be endogenized to see how this contributes to aggregate outcomes \cite{Desmet2013, Ramondo2016-qy}. Second, urbanization patterns may be very different in less developed countries \cite{Glaeser2014-gd, Harari2016-cx}. The model can be calibrated to richer data on transport costs and land use across cities around the globe.
 \clearpage
 
 \bibliography{location}
@@ -577,7 +577,7 @@ We will verify that when $d\ln A_i=\kappa$ for all $i$, $d\ln P_i=-\kappa$ is an
 \subsection{Proof of Proposition \ref{prop:comparative_static}}
 Let $d\mathbf z$ denote the $2\times1$ vector $(dz_1,dz_2)$, $d\mathbf b$ denote the $3\times1$ vector with elements $d\ln(P_iA_i/W)/\beta_i$, and $d\mathbf q$ denote the $3\times1$ vector with elements $d\ln(P_iQ_i/W)$.
 
-Totally differentiating the production function \eqref{} yields
+Totally differentiating the production function \eqref{eq:OutputInterm} (below) yields
 \[
 d\mathbf q - d\mathbf b = \mathbf M_1 d\mathbf z,
 \]
@@ -591,7 +591,7 @@ where $\mathbf M_1$ is a $3\times2$ matrix,
 	0 & -e^{-z_2\tau_3/\beta_3}\Bar L(z_2)/\tilde L_3 
 \end{bmatrix}.
 \]
-Totally differentiating the rent arbitrage condition \eqref{} yields
+Totally differentiating the rent arbitrage condition \eqref{eq:rent_arbitrage} yields
 \[
 \mathbf M_2 d\mathbf b = d\mathbf z, 
 \]
@@ -625,7 +625,7 @@ The $2\times3$ matrix $\mathbf M_3$ has the structure
 \]
 for some positive $\kappa$s. 
 
-Using equation \eqref{} for the income elasticity of consumption in each of the three sectors, $dz_1/d\ln y>0$ whenever 
+Using equation \eqref{eq:income_elasticity} for the income elasticity of consumption in each of the three sectors, $dz_1/d\ln y>0$ whenever 
 \[
 \sigma_1> \frac{\kappa_1}{\kappa_1+\kappa_2}\sigma_2 + \frac{\kappa_2}{\kappa_1+\kappa_2}\sigma_3, 
 \]
