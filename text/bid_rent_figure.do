@@ -2,7 +2,7 @@ clear all
 
 set obs 100
 
-gen z = _n/10
+gen z = (_n-1)/10
 
 local z1 = 2.5
 local z2 = 7.0
@@ -24,10 +24,11 @@ forval i=2/3 {
 
 forval i=1/3 {
 	gen R`i' = exp(intercept`i'-z*slope`i')
+	replace R`i' = . if z>`z3'
 }
 
 tw (line R? z), scheme(s2mono) ///
-	xtitle("Distance to CBD, z") ytitle("Ri(z)=exp({&kappa}-z{&tau}/{&beta})") ///
+	xtitle("Distance to CBD, z") ytitle("Ri(z)=exp({&zeta}-z{&tau}/{&beta})") ///
 	legend(order(1 "Services" 2 "Manufacturing" 3 "Agriculture")) ///
 	xline(`z1' `z2' `z3', lstyle(refline)) ///
 	xlabel(`z1' "z1" `z2' "z2" `z3' "z3")
