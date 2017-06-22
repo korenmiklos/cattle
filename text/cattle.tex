@@ -169,7 +169,7 @@ The competitive spatial equilibrium in a circular city $z\in Z$ is a set of quan
     \item The producers choose technology $i$ and location $z$, and nonnegative quantities $\{Q_i(z), L_i(z), N_i(z)\}$ to maximize their profits (\ref{eq:profit}), taking prices as given.
     \item Sectoral goods market clear: $Nc_i=\int_{z\in Z} e^{-\tau_iz}Q_i(z)dz$ for $i=1,2,3$.
     \item Labor market clears: $N=\sum_i\int_{z\in Z} N_i(z)$.
-    \item Land markets clear at every location: $\sum_iL_i(z)=\tilde L(z)$ for all $z\in Z$.
+    \item Land markets clear at every location: $\sum_iL_i(z)=\Bar L(z)$ for all $z\in Z$.
 \end{enumerate}
 
 The equilibrium, as we show below, has a simple and intuitive spatial structure. Sectors with higher transport cost intensity ($\tau_i$) and lower land share ($\beta_i$) locate closer to the center. Realistically, services locate in a circle around the center, manufacturing goods are produced on a ring around it, and agriculture occupies the outer ring.
@@ -221,8 +221,16 @@ The proof is provided in the Appendix. Intuitively, the different exponential sl
 \noindent \footnotesize{The figure plots the structure of a spatial competitive equilibrium. It shows equilibrium sectoral bid rent curves as a function of distance from the city center. A sector is active over an area where it is willing to overbid alternative sectors. Crossings of the bid-rent curves determine the borders of the sectors. Services are active in $[0,z_1]$, manufacturing in $\left(z_1,z_2\right]$, and services in $\left(z_2,z_3\right]$.}
 \end{figure}
 
-[COMPARATIVE STATIC?]
+The following propositions characterize how space use depends on development.
+\begin{proposition}\label{prop:balanced_growth}
+Assume $\sigma_1=\sigma_2=\sigma_3$. Then a uniform increase in productivity across sectors leaves sectoral and spatial allocations ($z_i$, $L_i$, $N_i$) unchanged.
+\end{proposition}
 
+\begin{proposition}\label{prop:comparative_static}
+Assume $\sigma_1>\sigma_2>\sigma_3$. Then a uniform increase in productivity across sectors expands the amount of land devoted to services, and shrinks the amount of land devoted to agriculture: $z_1$, $z_2$ and $L_1$ increase, $L_3$ decreases. The price of services increases relative to agriculture.
+\end{proposition}
+
+Proposition \ref{prop:comparative_static} is consistent with the empirical facts about structural change, urbanization, and the relative price of services. 
 
 \section{Development accounting}
 \subsection{Aggregation across space}
@@ -295,62 +303,20 @@ Substituting this result to equation \ref{eq:OutputInterm}, we obtain the aggreg
 \end{proof}
 
 \subsection{Decomposing output per worker}
-Sectoral output per worker is
+Output per worker
 \[
-\frac{\tilde Q_i}{N_i} = \frac1{1-\beta_i}
-\frac{W}{P_i}.
-\]
-We can substitute out product prices in this formula and express them as a function of input costs. To do this, define average sectoral rents as
-\begin{equation}
-R_i =\int_{z\in Z_i}\frac{L_i(z)}{L_i}R(z)dz = \beta_i(1-\beta_i)^{1/\beta_i-1} \left(P_iA_i\right)^{1/\beta_i} W^{1-1/\beta_i} e^{-\frac{\tau_i}{\beta_i} \tilde{z}_i}
-\end{equation}
-Note that $R_i$ also equals to the rent prevailing at location $\tilde z_i$. From this, we get that
-%\[
-%\frac{R_i}{W} =\beta_i(1-\beta_i)^{1/\beta_i-1} \left(\frac{P_iA_i}{W}\right)^{1/\beta_i} e^{-\frac{\tau_i}{\beta_i} \tilde z_i},
-%\]
-%where $R_i$ is the rent prevailing at location $\tilde z_i$ (which is also equal to the average rent paid by the sector, as proven below)
-%\[
-%R(\tilde z_i) =
-%R(z_{i-1})e^{-\frac{\tau_i}{\beta_i}(\tilde z_i-z_{i-1})}
-%\]
-
-%\[
-%\left(\frac{W}{P_i}\right)^{1/\beta_i}  =\beta_i(1-\beta_i)^{1/\beta_i-1}
-%A_i^{1/\beta_i}
-%\frac{W}{R_i}
-% e^{-\frac{\tau_i}{\beta_i} \tilde z_i}
-%\]
-\[
-\frac{W}{P_i}  =\beta_i^{\beta_i}(1-\beta_i)^{1-\beta_i}
+\frac{\tilde Q_i}{N_i} = 
 A_i
-\left(\frac{W}{R_i}\right)^{\beta_i}
- e^{-\tau_i \tilde z_i}
+ \left(
+ \frac{L_i}
+ {N_i}\right)^{\beta_i}e^{-\tau_i\tilde z_i}.
 \]
-so that output per worker can be written as
-\begin{equation}
-\frac{\tilde Q_i}{N_i} = \beta_i^{\beta_i}(1-\beta_i)^{-\beta_i}
-A_i
-\left(\frac{W}{R_i}\right)^{\beta_i}e^{-\tau_i \tilde z_i}.
-\end{equation}
-
-Log output per worker is
-\[
-\tilde q_i - n_i =
-\beta_i\ln\beta_i+(1-\beta_i)\ln(1-\beta_i)
-+a_i +\beta_i (w
--r_i)
-- \tau_{i}\tilde z_{i}
-\]
-[REWRITE]
-Conditional on true productivity $a_i$, measured productivity (ignoring land) is lower in cities where rents are higher. The magnitude of this bias depends on the (direct and indirect) land share of the sector, $\beta_i$. Measured productivity is also lower whenever the sector locates far from the center ($\tilde z_i$ is high). %Interestingly, this bias does not depend on the land share. The intuition is that XX
-The former bias will be bigger for rich countries, as rents tend to be more sensitive to per capita income than wages are. The latter bias will be bigger for rich and urbanized countries, where each urban sector takes up more space. Simply put, services will look unproductive in New York City relative to Budapest, because NYC is larger.
-
-The bias in measured total factor productivity (if location is ignored) depends on sectoral trade costs ($-\tau_i\tilde z_i$), as
-\begin{equation}
-\frac{\tilde Q_i}{L_i^{\beta_i}N_i^{1-\beta_i}} = A_i e^{-\tau_i \tilde z_i}.
-\end{equation}
-The bias is higher in non-tradable sectors, and in large countries and cities.
-
+Low if
+  * productivity is low (technology, capital)
+  * land is scarce (especially for land intensive sectors)
+  * trade costs are high
+  * cities are large
+Interation between sector characteristics ($\beta$, $\tau$) and sector location ($\tilde z$)
 
 \section{Mapping the model to data}
 We calibrate the model to city-level data from the OECD to show how land usage and sector location varies with development. We fix a number of parameters across cities, but the supply of land and labor, as well as sectoral productivity are allowed to vary.
@@ -634,7 +600,7 @@ To use Brouwer's fixed point theorem, construct the following mapping. Take a pa
 \[
 N = \sum_{i=1}^3 \int_{z=z_{i-1}}^{z_i}(1-\beta_i)^{1/\beta_i}
 	(P_iA_i)^{1/\beta_i}
-	e^{- z \tau_i/\beta_i}\tilde L(z)dz,
+	e^{- z \tau_i/\beta_i}\Bar L(z)dz,
 \] 
 to solve for prices $P_1$, $P_2$ and $P_3$. These prices are a continuous function of $(z_1,z_2)$. 
 %% this is not yet proven
@@ -648,104 +614,71 @@ Given these prices, solve for utility-maximizing expenditure shares $(x_1,x_2,x_
 \]
 Let $(z_1',z_2')$ be the sector boundaries consistent with these relative rent amounts. Clearly, $(z_1',z_2')\in Z$ and the mapping is continuous. Applying Brouwer's fixed point theorem, there exists a $(z_1^*,z_2^*)$ such that $(z_1'^{*},z_2'^{*}) = (z_1^*,z_2^*)$ and all equilibrium conditions hold with equality.\hfill Q.E.D.
 
+\subsection{Proof of Proposition \ref{prop:balanced_growth}}
+We will verify that when $d\ln A_i=\kappa$ for all $i$, $d\ln P_i=-\kappa$ is an equilibrium. Because resource allocations across sectors and space only depend on $P_iA_i$, these will not change. Output in each sector goes up by $d\ln Q_i = \kappa$. Because preferences are homothetic and relative prices have not changed, expenditure shares remain constant. They are hence still consistent with the equilibrium.\hfill Q.E.D.
+
+\subsection{Proof of Proposition \ref{prop:comparative_static}}
+Let $d\mathbf z$ denote the $2\times1$ vector $(dz_1,dz_2)$, $d\mathbf b$ denote the $3\times1$ vector with elements $d\ln(P_iA_i/W)/\beta_i$, and $d\mathbf q$ denote the $3\times1$ vector with elements $d\ln(P_iQ_i/W)$.
+
+Totally differentiating the production function \eqref{} yields
+\[
+d\mathbf q - d\mathbf b = \mathbf M_1 d\mathbf z,
+\]
+where $\mathbf M_1$ is a $3\times2$ matrix,
+\[
+\mathbf M_1 =
+\begin{bmatrix}
+	e^{-z_1\tau_1/\beta_1}\Bar L(z_1)/\tilde L_1 & 0\\
+	-e^{-z_1\tau_2/\beta_2}\Bar L(z_1)/\tilde L_2 & 
+		e^{-z_2\tau_2/\beta_2}\Bar L(z_2)/\tilde L_2\\
+	0 & -e^{-z_2\tau_3/\beta_3}\Bar L(z_2)/\tilde L_3 
+\end{bmatrix}.
+\]
+Totally differentiating the rent arbitrage condition \eqref{} yields
+\[
+\mathbf M_2 d\mathbf b = d\mathbf z, 
+\]
+where $\mathbf M_2$ is a $2\times3$ matrix,
+\[
+\begin{bmatrix}
+	\frac 1
+		{\tau_1/\beta_1 - \tau_2/\beta_2}
+	& 	\frac {-1}
+		{\tau_1/\beta_1 - \tau_2/\beta_2}
+	& 0 \\
+	0
+	& \frac 1
+		{\tau_2/\beta_2 - \tau_3/\beta_3}
+	& 	\frac {-1}
+		{\tau_2/\beta_2 - \tau_3/\beta_3}
+	& 0 
+\end{bmatrix}.
+\]
+Combining these two equilibrium conditions, we can express the changes in sector boundaries as a function of changes in sector shares,
+\[
+d\mathbf z = \mathbf M_2 (\mathbf I+\mathbf M_1\mathbf M_2)^{-1}d\mathbf q \equiv \mathbf M_3 d\mathbf q.
+\]
+The $2\times3$ matrix $\mathbf M_3$ has the structure
+\[
+\mathbf M_3 =
+\begin{bmatrix}
+\kappa_1+\kappa_2 	& -\kappa_1 	& -\kappa_2 \\
+\kappa_3 			& \kappa_4		& -(\kappa_3+\kappa_4)
+\end{bmatrix}
+\]
+for some positive $\kappa$s. 
+
+Using equation \eqref{} for the income elasticity of consumption in each of the three sectors, $dz_1/d\ln y>0$ whenever 
+\[
+\sigma_1> \frac{\kappa_1}{\kappa_1+\kappa_2}\sigma_2 + \frac{\kappa_2}{\kappa_1+\kappa_2}\sigma_3, 
+\]
+which holds for because $\sigma_1>\sigma_2>\sigma_3$.
+
+Similarly, $dz_2/d\ln y>0$ whenever 
+\[
+\sigma_3 < \frac{\kappa_3}{\kappa_3+\kappa_4}\sigma_1 + \frac{\kappa_4}{\kappa_3+\kappa_4}\sigma_2, 
+\]
+which holds for because $\sigma_1>\sigma_2>\sigma_3$. The amount of land usage and relative prices follow from the equilibrium conditions.\hfill Q.E.D.
 \section{}
-
-% Table generated by Excel2LaTeX from sheet 'Sheet2'
-\begin{table}[htbp]
-  \centering
-  \caption{Calibrated spatial structures across countries}
-    \begin{tabular}{rcccccc}
-    \toprule
-          & \multicolumn{3}{c}{Share in GDP} & \multicolumn{3}{c}{Distance to center (kms)} \\
-    \midrule
-    Country & services & manuf & agri  & services & manuf & agri \\
-    Austria & 68.39\% & 29.86\% & 1.75\% & 2.5   & 2.6   & 32.4 \\
-    Belgium & 75.40\% & 23.72\% & 0.88\% & 15.7  & 16.0  & 20.9 \\
-    Canada & 66.77\% & 31.55\% & 1.69\% & 75.3  & 75.7  & 243.0 \\
-    Cyprus & 78.82\% & 18.97\% & 2.22\% & 1.3   & 1.3   & 54.2 \\
-    Finland & 63.24\% & 33.75\% & 3.01\% & 10.8  & 11.0  & 86.3 \\
-    France & 77.17\% & 20.62\% & 2.22\% & 7.0   & 8.3   & 41.1 \\
-    Germany & 68.56\% & 30.48\% & 0.96\% & 43.6  & 52.2  & 235.6 \\
-    Hungary & 65.78\% & 30.19\% & 4.02\% & 8.2   & 14.5  & 36.9 \\
-    Italy & 70.61\% & 27.35\% & 2.05\% & 2.5   & 3.6   & 26.9 \\
-    Luxembourg & 83.42\% & 16.18\% & 0.40\% & 3.2   & 6.9   & 28.7 \\
-    Netherlands & 73.24\% & 24.68\% & 2.08\% & 6.6   & 6.6   & 13.5 \\
-    Poland & 64.04\% & 31.64\% & 4.33\% & 0.2   & 0.5   & 34.0 \\
-    Slovenia & 62.90\% & 34.60\% & 2.51\% & 0.7   & 2.6   & 56.6 \\
-    United States & 76.95\% & 21.92\% & 1.13\% & 36.1  & 39.3  & 63.5 \\
-    \bottomrule
-    \end{tabular}%
-  \label{tab:share_dist}%
-\end{table}%
-
-% Table generated by Excel2LaTeX from sheet 'Sheet1'
-\begin{table}[htbp]
-  \centering
-  \caption{Measured (M'd) and corrected (C'd) sectoral productivities}
-    \begin{tabular}{rcccccc}
-    \toprule
-          & \multicolumn{2}{c}{services} & \multicolumn{2}{c}{manufacturing} & \multicolumn{2}{c}{agriculture}\\
-    Country & M'd   & C'd   & M'd   & C'd   & M'd   & C'd \\
-    \midrule
-    Austria & 0.79  & 0.45  & 0.75  & 0.62  & 0.32  & 0.25 \\
-    Belgium & 1.02  & 0.72  & 1.25  & 1.11  & 0.87  & 0.62 \\
-    Canada & 1.05  & 2.04  & 1.40  & 1.69  & 0.58  & 2.52 \\
-    Cyprus & 1.09  & 0.61  & 0.82  & 0.67  & 0.13  & 0.12 \\
-    Finland & 0.75  & 0.49  & 1.08  & 0.94  & 0.21  & 0.25 \\
-    France & 0.93  & 0.57  & 0.79  & 0.67  & 0.44  & 0.37 \\
-    Germany & 1.02  & 1.16  & 0.84  & 0.90  & 0.50  & 2.03 \\
-    Greece & 1.04  & 0.00  & 0.58  & 0.57  & 0.12  & 0.09 \\
-    Hungary & 0.55  & 0.34  & 0.31  & 0.27  & 0.20  & 0.16 \\
-    Italy & 0.94  & 0.53  & 1.01  & 0.84  & 0.25  & 0.19 \\
-    Luxembourg & 1.92  & 1.10  & 0.81  & 0.69  & 0.52  & 0.39 \\
-    Netherlands & 1.03  & 0.62  & 1.73  & 1.46  & 0.61  & 0.41 \\
-    Poland & 0.75  & 0.41  & 0.36  & 0.30  & 0.07  & 0.06 \\
-    Slovenia & 0.62  & 0.34  & 0.41  & 0.34  & 0.07  & 0.06 \\
-    United States & 1.00  & 1.00  & 1.00  & 1.00  & 1.00  & 1.00 \\
-    \bottomrule
-    \end{tabular}%
-  \label{tab:prods}%
-\end{table}%
-
-\dofigure{measured_prod_1}{Measured productivity in services}{}
-\dofigure{true_prod_1}{Location-corrected productivity in services}{}
-
-
-\dofigure{measured_prod_2}{Measured productivity in manufacturing}{}
-\dofigure{true_prod_2}{Location-corrected productivity in manufacturing}{}
-
-
-\dofigure{measured_prod_3}{Measured productivity in agriculture}{}
-\dofigure{true_prod_3}{Location-corrected productivity in agriculture}{}
-
-
 \end{document}
 
-\subsection{Spatial arbitrage}
-Competitive land markets ensure that each location goes to the highest bidder. The slope of the bid-rent gradient in sector $i$ is $\tau_i/\beta_i$. Suppose that this is the highest for services, lower for manufacturing, and lowest for agriculture.
-
-Let $z_i$ denote the outer edge of the land use of sector $i$. At such locations, both sector $i$ and sector $i+1$ have the same reservation rent:
-\begin{align}\label{eq:BorderRents}
-R(z_i) &=\beta_i(1-\beta_i)^{1/\beta_i-1} (P_iA_i)^{1/\beta_i} W^{1-1/\beta_i} e^{-\frac{\tau_i}{\beta_i} z_i}\\
-R(z_i) &=\beta_{i+1}(1-\beta_{i+1})^{1/\beta_{i+1}-1} (P_{i+1}A_{i+1})^{1/\beta_{i+1}} W^{1-1/\beta_{i+1}} e^{-\frac{\tau_{i+1}}{\beta_{i+1}} z_i}
-\end{align}
-Substitute in the overall amount of value added, $Y_i = P_iQ_i$,
-\[
-R_i(z) = R_i e^{-\frac{\tau_i}{\beta_i}(z-\tilde z_i)}.
-\]
-\[
-R_i = \frac{\beta_i Y_i}{L_i}
-\]
-\[
-R_i(z) = \frac{\beta_i Y_i}{L_i} e^{-\frac{\tau_i}{\beta_i}(z-\tilde z_i)}.
-\]
-At the location $z_{i-1}$ where sectors $i$ and $i-1$ meet,
-\[
-\frac{\beta_{i-1} Y_{i-1}}{L_{i-1}}
-  e^{-\frac{\tau_{i-1}}{\beta_{i-1}}(z_{i-1}-\tilde z_{i-1})} =
-\frac{\beta_i Y_i}{L_i}
-  e^{-\frac{\tau_i}{\beta_i}(z_{i-1} -\tilde z_i)}.
-\]
-\subsection{Solving for the prices}
-
-At the sector borders $z_i$, neighboring sectors have the same reservation rents. Having solved for these locations, equations \ref{eq:BorderRents} provide implicit equations for relative product prices $P_i$ for $i=s,m.$ The consumer budget constraint, given by equation \ref{eq:BudCons}, gives us the equation for the remaining product price $P_a$. This closes the model description.
