@@ -163,7 +163,10 @@ Profits in sector $i$ from production at $z$ is
 A sector being active at location $z$ requires that their maximized profit $\max\Pi_i(z)\geq0.$
 
 \subsection{Spatial Equilibrium}
-The competitive spatial equilibrium in a circular city $z\in Z$ is a set of quantities $\{c_i, Q_i(z), L_i(z), N_i(z)\}_{i=1}^3$ and prices $\{P_i, R(z), W\}_{i=1}^3$ such that
+We assume the city is circular with radius $z_3$ so that the available land at each distance $z$ is $\Bar L(z) \equiv 2z\pi$ for $z\in[0,z_3]$ and zero otherwise. We study symmetric equilibria where the distance to the CBD completely characterizes a location.
+
+\begin{definition}
+The competitive spatial equilibrium in a circular city is a set of quantities $\{c_i, Q_i(z), L_i(z), N_i(z)\}_{i=1}^3$ and prices $\{P_i, R(z), W\}_{i=1}^3$ such that
 \begin{enumerate}
     \item The consumer chooses $\{c_i\}_{i=1}^3$ to maximize utility (\ref{eq:Utility}) subject to its budget constraint (\ref{eq:BudCons}), taking prices as given.
     \item The producers choose technology $i$ and location $z$, and nonnegative quantities $\{Q_i(z), L_i(z), N_i(z)\}$ to maximize their profits (\ref{eq:profit}), taking prices as given.
@@ -171,7 +174,7 @@ The competitive spatial equilibrium in a circular city $z\in Z$ is a set of quan
     \item Labor market clears: $N=\sum_i\int_{z\in Z} N_i(z)$.
     \item Land markets clear at every location: $\sum_iL_i(z)=\Bar L(z)$ for all $z\in Z$.
 \end{enumerate}
-
+\end{definition}
 The equilibrium, as we show below, has a simple and intuitive spatial structure. Sectors with higher transport cost intensity ($\tau_i$) and lower land share ($\beta_i$) locate closer to the center. Realistically, services locate in a circle around the center, manufacturing goods are produced on a ring around it, and agriculture occupies the outer ring.
 
 To see why it is the case, construct the sectoral bid rent curves $R_i(z)$. These are the maximum rent an active producer in sector $i$ would be willing to pay at location $z$. %In a competitive market, the sector with the highest bid rent curve is active at a location ($R(z)=\max_iR_i(z)$ for all $z$).
@@ -232,7 +235,6 @@ Assume $\sigma_1>\sigma_2>\sigma_3$. Then a uniform increase in productivity acr
 
 Proposition \ref{prop:comparative_static} is consistent with the empirical facts about structural change, urbanization, and the relative price of services. 
 
-\section{Development accounting}
 \subsection{Aggregation across space}
 Sectoral production, as we show in this section, is a function of a suitably chosen representative location. Sectoral output measured at the center is
 \begin{equation*}
@@ -253,7 +255,7 @@ e^{-\frac{\tau_i}{\beta_i} \tilde z_i} = \int_{z\in Z_i} \frac{L_i(z)}{L_i}e^{-\
 \]
 As we will see below, $\tilde z_i$ is a sufficient statistic about sector location for aggregation purposes. %(XX THIS IS A TRICK OF THE MELITZ MODEL)
 
-\begin{proposition}
+\begin{proposition}\label{prop:aggregation}
 Aggregate sectoral production function is of the form:
 \begin{equation}
 \tilde Q_i =
@@ -262,61 +264,19 @@ A_iL_i^{\beta_i}N_i^{1-\beta_i}
 \end{equation}
 It depends on trade costs from the representative location ($\tilde{z}_i$) defined by equation \eqref{eq:ReprLoc} and is a Cobb-Douglas aggregate of sectoral land ($L_i=\int_{Z_i}L_i(z)dz$) and labor ($N_i=\int_{Z_i}N_i(z)dz$) use.
 \end{proposition}
-\begin{proof}
-[TO BE COMPLETED]
-To show that it is the case, let us express value added (measured at the center) at a location $z$ per unit of land:
-\[
-\frac{e^{-\tau_i z} Q_i(z)}{L_i(z)} = e^{-\tau_i z} A_i(z)\left(\frac{N_i(z)}{L_i(z)}\right)^{1-\beta_i} = (1-\beta_i)^{1/\beta_i-1}
-A_i^{1/\beta_i}\left(\frac{W}{P_i}\right)^{1-1/\beta_i}
- e^{-\frac{\tau_i}{\beta_i} z},
-\]
-where we used equation \ref{eq:EmpDens} on employment density. From this, total supply of sector $i$ becomes
-\begin{equation}
-\label{eq:OutputInterm}
-\tilde{Q_i} = \int_{z\in Z_i}\frac{e^{-\tau_i z} Q_i(z)}{L_i(z)}L_i(z)dz=(1-\beta_i)^{1/\beta_i-1}
-(A_i)^{1/\beta_i}\left(\frac{W}{P_i}\right)^{1-1/\beta_i} L_i e^{-\frac{\tau_i}{\beta_i} \tilde z_i}.
-\end{equation}
-by the definition of the representative location of the sector in equation \ref{eq:ReprLoc}.
 
-Overall employment in the sector,
-\[
-N_i = \int_{z\in Z_i}\frac{N_i(z)}{L_i(z)}L_i(z)dz= (1-\beta_i)^{1/\beta_i}
-\left(\frac{P_iA_i}{W}\right)^{1/\beta_i} L_i e^{-\frac{\tau_i}{\beta_i} \tilde z_i},
-\]
-so that we can express $W/P_i$ as
-%\[
-%\left(\frac{W}{P_i}\right)^{1/\beta_i} = (1-\beta_i)^{1/\beta_i}
-%N_i^{-1}A_i^{1/\beta_i}
-%L_i e^{-\frac{\tau_i}{\beta_i} \tilde z_i}
-%\]
-\[
-\frac{W}{P_i} = (1-\beta_i)
-N_i^{-\beta_i}A_i L_i^{\beta_i}
- e^{-\tau_i\tilde z_i}
-\]
-%\[
-%\left(\frac{W}{P_i}\right)^{1-1/\beta_i} = (1-\beta_i)^{1-1/\beta_i}
-%A_i^{1-1/\beta_i}N_i^{1-\beta_i}L_i^{\beta_i-1}
-%e^{\frac{1-\beta_i}{\beta_i}\tau_i \tilde z_i}
-%\]
-Substituting this result to equation \ref{eq:OutputInterm}, we obtain the aggregate production function.
-\end{proof}
-
-\subsection{Decomposing output per worker}
-Output per worker
-\[
+Using the aggregate production function, we can write output per worker in sector $i$ as
+\begin{equation}\label{eq:output_per_worker}
 \frac{\tilde Q_i}{N_i} = 
 A_i
  \left(
  \frac{L_i}
  {N_i}\right)^{\beta_i}e^{-\tau_i\tilde z_i}.
-\]
-Low if
-  * productivity is low (technology, capital)
-  * land is scarce (especially for land intensive sectors)
-  * trade costs are high
-  * cities are large
-Interation between sector characteristics ($\beta$, $\tau$) and sector location ($\tilde z$)
+\end{equation}
+This tends to be low when Hicks-neutral productivity is low, land is scarce (especially for land intensive sectors), trade costs are high, or cities are large.
+
+We call the first term the contribution of \emph{productivity}, the second term the contribution of \emph{land}, and the third term the contribution of \emph{location}. In the next section we calibrate the model and estimate each of the three components.
+
 
 \section{Mapping the model to data}
 We calibrate the model to city-level data from the OECD to show how land usage and sector location varies with development. We fix a number of parameters across cities, but the supply of land and labor, as well as sectoral productivity are allowed to vary.
@@ -443,7 +403,7 @@ We use city-level data on land area, employment and GDP per capita from the the 
 
 The following equations completely characterize the spatial equilibrium of city $c$.
 
-(Representative location):
+\paragraph{Representative location.}
 \begin{equation}\label{eq:representative_location}
 	\tilde z_{ic}
 	=
@@ -456,7 +416,7 @@ The following equations completely characterize the spatial equilibrium of city 
 		dz
 	\right]
 \end{equation}
-(Land market clearing):
+\paragraph{Land market clearing.}
 \begin{equation}\label{eq:land_market_clearing}
 	L_{ic}
 	=
@@ -466,7 +426,7 @@ The following equations completely characterize the spatial equilibrium of city 
 \end{equation}
 with $L_{1c}+L_{2c}+L_{3c}=L_c$.
 
-(Labor intensity):
+\paragraph{Labor intensity.}
 \begin{equation}\label{eq:labor_intensity}
 	\frac 	{N_{ic}}
 			{L_{ic}}
@@ -481,17 +441,18 @@ where we introduced
 + \frac 1{\beta_i} (\ln P_{ic} + \ln A_{ic} - \ln W_c)
 \]
 to simplify notation. The endogenous variable $\zeta_{ic}$ captures relative factor prices in sector $i$.
-(Rent arbitrage):
+
+\paragraph{Rent arbitrage.}
 \begin{equation}\label{eq:rent_arbitrage}
 	\zeta_{ic} - z_{ic} \tau_i/\beta_i
 	=
 	\zeta_{i+1,c} - z_{ic} \tau_{i+1}/\beta_{i+1}
 \end{equation}
-(Labor market clearing):
+\paragraph{Labor market clearing.}
 \begin{equation}\label{eq:labor_market_clearing}
 	\sum_i N_{ic} = N_c
 \end{equation}
-(Goods market clearing):
+\paragraph{Goods market clearing.}
 \begin{equation}\label{eq:goods_market_clearing}
 	W_c N_{ic}
 	=
@@ -499,7 +460,7 @@ to simplify notation. The endogenous variable $\zeta_{ic}$ captures relative fac
 \end{equation}
 For each city $c$, we solve these equations for $(z_1,z_2,z_3)$, $(\tilde z_1,\tilde z_2,\tilde z_3)$, $(L_1,L_2,L_3)$, $(N_1,N_2,N_3)$ and $(\zeta_1,\zeta_2,\zeta_3)$.
 
-\subsection{Recovering city- and sector-level productivities}
+Given city-level data on total area $L$, total employment $N$, sectoral prices $P_i$, and GDP per capita $Y$, we recover the sector-city level productivity parameters as follows. 
 \begin{enumerate}
 	\item Using the estimated expenditure shares $x_{ic}$ and equations \eqref{eq:goods_market_clearing} and \eqref{eq:labor_market_clearing}, calculate $(N_{1c},N_{2c},N_{3c})$.
 	\item Assuming the city is circular, set $z_{3c}=\sqrt{L_c/\pi}$.
@@ -523,7 +484,7 @@ For each city $c$, we solve these equations for $(z_1,z_2,z_3)$, $(\tilde z_1,\t
 \end{enumerate}
 
 \section{Decomposition of output per worker}
-To evaluate the quantitative importance of our mechanism, we first report the decomposition of output per worker \eqref{} into a Hicks-neutral productivity term, land per worker, and the representative location of the industry. We express each component relative to New York, one of the richest cities in the sample.
+To evaluate the quantitative importance of our mechanism, we first report the decomposition of output per worker \eqref{eq:output_per_worker} into a Hicks-neutral productivity term, land per worker, and the representative location of the industry. We express each component relative to New York, one of the richest cities in the sample.
 
 \begin{table}[h!]
   \begin{center}
@@ -566,7 +527,7 @@ Figure \ref{fig:city_level_inputs/land} shows the contribution of land per worke
 
 Figure \ref{fig:city_level_inputs/location} plots the contribution of sector location to output per worker. For all cities this contribution is greater than in New York. This is because these cities tend to be smaller in area than New York, as is shown in Figure \ref{fig:city_level_inputs/city_radius}. For rich and large cities, the spatial sprawl reduces output per worker by about 10 percent in services and manufacturing, and even more in agriculture.
 
-\dofigure{city_level_inputs/city_radius}{City radius and GDP per capita}{Notes: Figure presents the nonparametric relationship between city-level GDP per capita and the radius of the city using locally weighted scatterplot smoothing. City radius is estimated using OECD data on city area and assuming circular cities.}
+\dofigure{city_level_inputs/city_radius}{City radius and GDP per capita}{Notes: Figure presents the nonparametric relationship between city-level GDP per capita and the radius of the city using locally weighted scatter plot smoothing. City radius is estimated using OECD data on city area and assuming circular cities.}
 
 
 \section{Conclusion}
@@ -679,6 +640,43 @@ Similarly, $dz_2/d\ln y>0$ whenever
 \sigma_3 < \frac{\kappa_3}{\kappa_3+\kappa_4}\sigma_1 + \frac{\kappa_4}{\kappa_3+\kappa_4}\sigma_2, 
 \]
 which holds for because $\sigma_1>\sigma_2>\sigma_3$. The amount of land usage and relative prices follow from the equilibrium conditions.\hfill Q.E.D.
-\section{}
+\subsection{Proof of Proposition \ref{prop:aggregation}}
+Let us express value added (measured at the center) at a location $z$ per unit of land:
+\[
+\frac{e^{-\tau_i z} Q_i(z)}{L_i(z)} = e^{-\tau_i z} A_i(z)\left(\frac{N_i(z)}{L_i(z)}\right)^{1-\beta_i} = (1-\beta_i)^{1/\beta_i-1}
+A_i^{1/\beta_i}\left(\frac{W}{P_i}\right)^{1-1/\beta_i}
+ e^{-\frac{\tau_i}{\beta_i} z},
+\]
+where we used equation \ref{eq:EmpDens} on employment density. From this, total supply of sector $i$ becomes
+\begin{equation}
+\label{eq:OutputInterm}
+\tilde{Q_i} = \int_{z\in Z_i}\frac{e^{-\tau_i z} Q_i(z)}{L_i(z)}L_i(z)dz=(1-\beta_i)^{1/\beta_i-1}
+(A_i)^{1/\beta_i}\left(\frac{W}{P_i}\right)^{1-1/\beta_i} L_i e^{-\frac{\tau_i}{\beta_i} \tilde z_i}.
+\end{equation}
+by the definition of the representative location of the sector in equation \ref{eq:ReprLoc}.
+
+Overall employment in the sector,
+\[
+N_i = \int_{z\in Z_i}\frac{N_i(z)}{L_i(z)}L_i(z)dz= (1-\beta_i)^{1/\beta_i}
+\left(\frac{P_iA_i}{W}\right)^{1/\beta_i} L_i e^{-\frac{\tau_i}{\beta_i} \tilde z_i},
+\]
+so that we can express $W/P_i$ as
+%\[
+%\left(\frac{W}{P_i}\right)^{1/\beta_i} = (1-\beta_i)^{1/\beta_i}
+%N_i^{-1}A_i^{1/\beta_i}
+%L_i e^{-\frac{\tau_i}{\beta_i} \tilde z_i}
+%\]
+\[
+\frac{W}{P_i} = (1-\beta_i)
+N_i^{-\beta_i}A_i L_i^{\beta_i}
+ e^{-\tau_i\tilde z_i}
+\]
+%\[
+%\left(\frac{W}{P_i}\right)^{1-1/\beta_i} = (1-\beta_i)^{1-1/\beta_i}
+%A_i^{1-1/\beta_i}N_i^{1-\beta_i}L_i^{\beta_i-1}
+%e^{\frac{1-\beta_i}{\beta_i}\tau_i \tilde z_i}
+%\]
+Substituting this result to equation \eqref{eq:OutputInterm}, we obtain the aggregate production function.\hfill Q.E.D.
+
 \end{document}
 
