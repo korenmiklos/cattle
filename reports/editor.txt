@@ -1,0 +1,38 @@
+
+Dear Miklos,
+
+Thank you for submitting your manuscript to the Review of Economic Dynamics. 
+
+I have received two detailed reports on your paper from experts in this field. I have also read your paper along with the reports. Both referees think your paper is addressing an interesting and potentially important issue, however the referees are divided as to the suitability of your current submission for publication in the Review. Referee 1 thinks that, with a seemingly minor modification, your paper should be published. Referee 2 instead raises several concerns regarding the execution of the paper. In my view, considering space into development issues is of first-order importance so I am very sympathetic to the issues you are trying to address. At the same time, my assessment of your paper is somewhat closer to Referee 2, in that I fail to see a sharp and convincing characterization of the role of space into the development accounting. This is partly based on the interest set up in your intro about understanding the disparities between rich and poor countries, whereas
+the execution in your paper seems more suitable for countries closer in their economic structures. In this context for example, I view the distribution of people in spread rural areas in poor countries with poor transportation infrastructure and restrictive land institutions as key in sustaining low productivity agriculture. Not that your paper needs to talk about these particular issues of space, but it would be good to start with a clear idea of what aspects of the cross country differences your paper is appropriately addressing. To summarize, I think your paper is addressing a potentially important issue and that a suitable and ambitious revision of your paper to address the concerns of the referees should go a long way in making the paper publishable in RED. I hope you will pursue this revision.
+
+Let me stress that it is policy of RED to limit revisions, whenever possible, to a single round. Thus, the next round will be an up-or-out decision, so you should aim to submit a revision that is essentially ready for publication. 
+
+I am giving you a deadline of one year from now for submitting the revision; if this should turn out to be a problem, please let me know ahead of time.
+
+Please submit your revision online by logging onto the Elsevier Editorial System for the Review of Economic Dynamics:
+https://ees.elsevier.com/red/
+Your username is: korenm@ceu.hu 
+
+
+The manuscript record can be found in the "Submissions Needing Revision" menu.
+
+When submitting your revised paper, please include a separate document uploaded as "Response to Reviews" that carefully addresses the issues raised in the below comments, point by point. You should also include a suitable rebuttal to any specific request for change that has not been made.
+
+To facilitate the electronic publication of your manuscript (should it be accepted), we request that your manuscript text, tables and figure legend be submitted in an editable format (Word, WordPerfect, or LaTex only), and all figures uploaded individually as TIF or EPS files.
+
+Thank you, and we look forward to receiving your revised manuscript.
+
+Review of Economic Dynamics features the Interactive Plot Viewer, see: http://www.elsevier.com/interactiveplots. Interactive Plots provide easy access to the data behind plots. To include one with your article, please prepare a .csv file with your plot data and test it online at http://authortools.elsevier.com/interactiveplots/verification before submission as supplementary material.
+
+With kind regards,
+
+Diego Restuccia
+Editor
+Review of Economic Dynamics
+
+Review of Economic Dynamics, 
+Editorial Office
+E-mail: red@elsevier.com
+
+Note: While submitting the revised manuscript, please double check the author names provided in the submission so that authorship related changes are made in the revision stage. If your manuscript is accepted, any authorship change will involve approval from co-authors and respective editor handling the submission and this may cause a significant delay in publishing your manuscript.
