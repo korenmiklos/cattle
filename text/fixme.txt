@@ -3,4 +3,6 @@
 [FIXME: Add an amenity term to let N be calibrated freely.]
 [FIXME: Prove existence. Characterize.]
 [FIXME: Remove agriculture from this section.]
+[FIXME: Average land shares across urban sectors.]
+[FIXME: Recalculate taus for common land shares.]
 [FIXME: Write out equilibrium conditions.]
