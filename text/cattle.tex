@@ -177,6 +177,7 @@ Given a set of product prices $\{P_i\}_{i=1}^3$, define the \emph{competitive sp
 The equilibrium, as we show below, has a simple and intuitive spatial structure. Sectors with higher transport cost intensity $\tau_i$ locate closer to the center. Realistically, services locate in a circle around the center, manufacturing goods are produced on a ring around it, and agriculture is produced outside cities.
 
 [FIXME: Manufacturing may be entirely missing if its price is too low. Assume this away.]
+[FIXME: Define as small city equilibrium.]
 
 To see why this is the case, construct the sectoral bid rent curves $R_i(z)$. This is the maximum rent an active producer in sector $i$ would be willing to pay at location $z$. %In a competitive market, the sector with the highest bid rent curve is active at a location ($R(z)=\max_iR_i(z)$ for all $z$).
 A profit maximizing producer is choosing its land $N_i(z)$ and labor demand $L_i(z)$ to equalize the value marginal product of land and labor to rents and wages, respectively. It is true for any rent function or wages it might face, so it is true for rents given by its own bid-rent curve $R_i(z)$, in particular.
@@ -281,9 +282,79 @@ The multicity equilibrium of a country is a collection of competitive spatial eq
 [FIXME: Prove existence. Characterize.]
 
 Guess an agricultural price $P_3$. This directly pins down the rural rent $R_3$. At the city fringe $z_2$,
+
+Introduce the notation 
+\begin{equation}\label{eq:zeta}
+\zeta_{ic}=\beta(1-\beta)^{1/\beta-1} (P_{ic}A_{ic})^{1/\beta} W_c^{1-1/\beta}
+\end{equation}
+so that we can write the bid-rent curve as 
 \[
-R_2(z_2)=...
+R_{ic}(z) = \zeta_{ic}\exp(-z \tau_i/\beta).
 \]
+Total rent paid in sector $i$ is
+\[
+R_{ic} = \int_{z=z_{i-1,c}}^{z_{ic}} R_{ic}(z)\bar L(z)dz = 
+\zeta_{ic}\int_{z=z_{i-1,c}}^{z_{ic}} \exp(-z \tau_i/\beta)\bar L(z)dz
+\]
+The ratio of rents paid by services and manufacturing is
+\[
+\frac {R_{1c}}{R_{2c}} =
+\frac {\zeta_{1c}}
+	{\zeta_{2c}}
+\frac {\int_{z=0}^{z_{1c}} \exp(-z \tau_1/\beta)\bar L(z)dz}
+	{\int_{z=z_{1c}}^{z_{2c}} \exp(-z \tau_2/\beta)\bar L(z)dz}
+=
+\left(\frac {P_{1c}A_{1c}}
+	{P_{2}A_{2c}}
+	\right)^{1/\beta}
+\frac {\int_{z=0}^{z_{1c}} \exp(-z \tau_1/\beta)\bar L(z)dz}
+	{\int_{z=z_{1c}}^{z_{2c}} \exp(-z \tau_2/\beta)\bar L(z)dz}.
+\]
+The ratio of revenues in the two sectors is the same as the ratio of rents, as they have the same rent share. Given market clearing for services and the balanced trade condition, this ratio is the same as the ratio of expenditure on services and everything else,
+\[
+\frac{R_{1c}}{R_{2c}}=
+\frac{P_{1c}C_{1c}}{P_{2}C_{2c}+P_{3}C_{3c}}.
+\]
+Rent arbitrage between services and manufacturing
+\[
+R_{1c}(z_{1c}) = R_{2c}(z_{1c})
+\]
+\[
+\zeta_{1c}\exp(-z_1 \tau_1/\beta)=
+\zeta_{2c}\exp(-z_1 \tau_2/\beta)
+\]
+\[
+\left(\frac {P_{1c}A_{1c}}
+	{P_{2}A_{2c}}
+	\right)^{1/\beta}
+= \exp[z_1(\tau_1-\tau_2)/\beta].
+\]
+The relative price of services and manufacturing is
+\[
+\frac {P_{1c}}
+	{P_{2}}
+= \frac {A_{2c}} 
+	{A_{1c}}
+\exp[z_1(\tau_1-\tau_2)].
+\]
+
+Rent arbitrage between manufacturing and agriculture
+\[
+R_{2c}(z_{2c}) = R_{3}
+\]
+\[
+\zeta_{2c}^\beta\exp(-z_{2c} \tau_2) = (P_3A_3)^\beta
+\]
+\[
+\beta^\beta(1-\beta)^{1-\beta} P_{2}A_{2c} W_c^{\beta-1}
+\exp(-z_{2c} \tau_2) = (P_3A_3)^\beta
+\]
+\[
+\beta^\beta(1-\beta)^{1-\beta} 
+\exp(-z_{2c} \tau_2) P_{2}A_{2c}/W_c= (P_3A_3/W_c)^\beta
+\]
+
+For a small city with given $N_c$ and $P_2$, $P_3$, there are 5 equations in 5 unknowns: $z_1$, $z_2$, $P_1/P_2$, $R_1/R_2$, $W/P_3$.
 
 In the next section we calibrate the model and estimate each of the three components.
 
