@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.3)  3 JAN 2019 14:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.3)  3 JAN 2019 17:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -289,18 +289,14 @@ Overfull \hbox (7.60791pt too wide) in paragraph at lines 388--389
  $[][] \OML/cmm/m/it/12 N[]C[] \OT1/cmr/m/n/12 = [][] []$\OT1/cmr/m/it/12 . 
  []
 
-[12]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[13]
-<figures/sector_location_quotients.png, id=65, 803.0pt x 584.1825pt>
+[12] [13] [14]
+<figures/sector_location_quotients.png, id=68, 803.0pt x 584.1825pt>
 File: figures/sector_location_quotients.png Graphic file (type png)
 <use figures/sector_location_quotients.png>
 Package pdftex.def Info: figures/sector_location_quotients.png  used on input l
 ine 474.
 (pdftex.def)             Requested size: 325.215pt x 236.60152pt.
- [14] [15 <./figures/sector_location_quotients.png>] [16] [17]
+ [15 <./figures/sector_location_quotients.png>] [16] [17]
 <figures/city_level_inputs/expenditure_shares.png, id=80, 803.0pt x 584.1825pt>
 
 File: figures/city_level_inputs/expenditure_shares.png Graphic file (type png)
@@ -308,8 +304,8 @@ File: figures/city_level_inputs/expenditure_shares.png Graphic file (type png)
 Package pdftex.def Info: figures/city_level_inputs/expenditure_shares.png  used
  on input line 548.
 (pdftex.def)             Requested size: 325.215pt x 236.60152pt.
- [18]
-[19 <./figures/city_level_inputs/expenditure_shares.png>]
+
+[18] [19 <./figures/city_level_inputs/expenditure_shares.png>]
 
 ! LaTeX Error: Lonely \item--perhaps a missing list environment.
 
@@ -394,7 +390,7 @@ asic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2
 e/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/tex
 live/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/
 texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on cattle.pdf (33 pages, 589452 bytes).
+Output written on cattle.pdf (33 pages, 589531 bytes).
 PDF statistics:
  206 PDF objects out of 1000 (max. 8388607)
  135 compressed objects within 2 object streams
