@@ -1,6 +1,6 @@
 [FIXME: Experiment with Stone-Geary preferences.]
-[FIXME: Manufacturing may be entirely missing if its price is too low. Assume this away.]
-[FIXME: Define as small city equilibrium.]
+[FIXME: Prove existence. Characterize.]
+	\item Fix a small-enough $z_{1c}$ [FIXME: find upper bound] and solve for service price using \eqref{eq:SCE1}.
 [FIXME: Add an amenity term to let N be calibrated freely.]
 [FIXME: Prove existence. Characterize.]
 [FIXME: Remove agriculture from this section.]

@@ -163,21 +163,18 @@ Profits in sector $i$ from production at $z$ is
 \end{equation}
 and $\Pi_3(z)=P_3e^{-\tau_3z}Q_3(z)-R(z)L_i(z)$ for agriculture. A sector being active at location $z$ requires that their maximized profit $\max\Pi_i(z)\geq0.$
 
-\subsection{Spatial Equilibrium}
+\subsection{Spatial Sorting}
 Because space if featureless, the available land at each distance $z$ from the CBD is $\Bar L(z) \equiv 2z\pi$. We study symmetric equilibria where the distance to the CBD completely characterizes a location.
 
 \begin{definition}
-Given a set of product prices $\{P_i\}_{i=1}^3$, define the \emph{competitive spatial equilibrium} in a circular city as a set of quantities $\{Q_i(z), L_i(z), N_i(z)\}_{i=1}^3$ and factor prices $R(z), W$ such that
+Given a set of product prices $\{P_i\}_{i=1}^3$ and overall employment $N$, define \emph{spatial sorting} in a circular city as a set of quantities $\{Q_i(z), L_i(z), N_i(z)\}_{i=1}^3$ and factor prices $R(z), W$ such that
 \begin{enumerate}
     \item The producers choose sector $i$ and location $z$, and nonnegative quantities $\{Q_i(z), L_i(z), N_i(z)\}$ to maximize their profits (\ref{eq:profit}), taking prices as given.
     \item Labor market clears: $N=\sum_i\int_{z\in Z} N_i(z)$.
     \item Land markets clear at every location: $\sum_iL_i(z)=\Bar L(z)$ for all $z\in Z$.
 \end{enumerate}
 \end{definition}
-The equilibrium, as we show below, has a simple and intuitive spatial structure. Sectors with higher transport cost intensity $\tau_i$ locate closer to the center. Realistically, services locate in a circle around the center, manufacturing goods are produced on a ring around it, and agriculture is produced outside cities.
-
-[FIXME: Manufacturing may be entirely missing if its price is too low. Assume this away.]
-[FIXME: Define as small city equilibrium.]
+Spatial sorting, as we show below, has a simple and intuitive structure. Sectors with higher transport cost intensity $\tau_i$ locate closer to the center. Realistically, services locate in a circle around the center, manufacturing goods are produced on a ring around it, and agriculture is produced outside cities.
 
 To see why this is the case, construct the sectoral bid rent curves $R_i(z)$. This is the maximum rent an active producer in sector $i$ would be willing to pay at location $z$. %In a competitive market, the sector with the highest bid rent curve is active at a location ($R(z)=\max_iR_i(z)$ for all $z$).
 A profit maximizing producer is choosing its land $N_i(z)$ and labor demand $L_i(z)$ to equalize the value marginal product of land and labor to rents and wages, respectively. It is true for any rent function or wages it might face, so it is true for rents given by its own bid-rent curve $R_i(z)$, in particular.
@@ -219,9 +216,9 @@ We can also get the employment gradient by substituting the bid rent curve into 
 This is the relationship we use to calibrate the sectoral transport cost intensities.
 
 \begin{proposition}\label{prop:existence}
-Assume that $\tau_1>\tau_2>0$. There exists a competitive spatial equilibrium. The structure of this equilibrium is a partitioning, with locations $0<z_1<z_2$ such that services with the highest $\tau_1$ locate closest to the CBD in $\left[0,z_1\right]$, manufacturing locates in $\left(z_1,z_2\right]$, and agriculture locates in $(z_2,\infty)$.
+Assume that $\tau_1>\tau_2>0$. There exists a spatial sorting, characterized by locations $0<z_1\le z_2$ such that services with the highest $\tau_1$ locate closest to the CBD in $\left[0,z_1\right]$, manufacturing locates in $\left(z_1,z_2\right]$, and agriculture locates in $(z_2,\infty)$.
 \end{proposition}
-The proof is provided in the Appendix. Intuitively, the different exponential slope of the bid-rent curves ensures that they cross exactly once. This results in a strict partitioning across sectors, as shown in Figure \ref{fig:BidRent}. 
+The proof is provided in the Appendix. Intuitively, the different exponential slope of the bid-rent curves ensures that they cross exactly once. This results in a strict partitioning across sectors, as shown in Figure \ref{fig:BidRent}. When $z_1=z_2$, the city does not produce manufacturing in spatial sorting. We will later show that this cannot be an equilibrium. 
 
 \begin{figure}[h!]
 \caption{Spatial equilibrium\label{fig:BidRent}}
@@ -229,7 +226,7 @@ The proof is provided in the Appendix. Intuitively, the different exponential sl
 \includegraphics[scale=0.4]{figures/bid_rent_curves}
 \end{center}
 
-\noindent \footnotesize{The figure plots the structure of a spatial competitive equilibrium. It shows equilibrium sectoral bid rent curves as a function of distance from the city center. A sector is active over an area where it is willing to overbid alternative sectors. Crossings of the bid-rent curves determine the borders of the sectors. Services are active in $[0,z_1]$, manufacturing in $\left(z_1,z_2\right]$, and agriculture in $(z_2,\infty)$.}
+\noindent \footnotesize{The figure plots the structure of a spatial sorting. It shows equilibrium sectoral bid rent curves as a function of distance from the city center. A sector is active over an area where it is willing to overbid alternative sectors. Crossings of the bid-rent curves determine the borders of the sectors. Services are active in $[0,z_1]$, manufacturing in $\left(z_1,z_2\right]$, and agriculture in $(z_2,\infty)$.}
 \end{figure}
 
 Each city is characterized by two distance cutoffs, $z_1$ and $z_2$. We will call the circle $z\in\left[0,z_1\right]$ the city center or core, the ring $z\in\left(z_1,z_2\right]$ the city hinterland. Locations $z>z_2$ cannot be associated with any particular city and we will call them agricultural or rural land. This implies that $z_2$ will be the functional city boundary and we will calibrate the model accordingly.
@@ -264,25 +261,20 @@ A_iL_i^{\beta}N_i^{1-\beta}
 It depends on trade costs from the representative location ($\tilde{z}_i$) defined by equation \eqref{eq:ReprLoc} and is a Cobb-Douglas aggregate of sectoral land ($L_i=\int_{Z_i}L_i(z)dz$) and labor ($N_i=\int_{Z_i}N_i(z)dz$) use.
 \end{proposition}
 
-\subsection{Multicity equilibrium}
-The above equations characterize production in a city conditional on product prices and the number of workers. These, in turn, are pinned down in a multicity equilibrium.
+\subsection{Small City Equilibrium}
+The above equations characterize production in a city conditional on product prices and the number of workers. These, in turn, are pinned down in a multicity equilibrium. We first characterize a single city, taking tradable prices $P_2$ and $P_3$, as well city population $N_c$ as given. 
 
 \begin{definition}
-The multicity equilibrium of a country is a collection of competitive spatial equilibria for each city and a set of product prices $\{P_{1c}\}_{c=1}^K, P_2, P_3$ such that
+For given product prices $P_2$, $P_3$ and city population $N_c$, 
+the \emph{small city equilibrium} is a spatial sorting, a service price $P_{1c}$ and city wage $W_c$ such that
 \begin{enumerate}
-    \item Consumer $c$ chooses $\{C_{ic}\}_{i=1}^3$ to maximize utility (\ref{eq:Utility}) subject to her budget constraint (\ref{eq:BudCons}), taking prices as given.
-    \item Service sector clears in every city: $N_c C_{1c}=\tilde Q_{1c}$.
-    \item Manufacturing and agriculture clear at the country level: $\sum_{c=1}^K N_c C_{ic}=\sum_{c=1}^K\tilde Q_{ic}$.
-    \item Trade is balanced in each city: $N_c(P_2C_{2c} + P_3 C_{3c}) = P_2 \tilde Q_{3c}$.
-    \item Utility is equalized across cities. 
-[FIXME: Add an amenity term to let N be calibrated freely.]
+    \item Consumer chooses $\{C_{ic}\}_{i=1}^3$ to maximize utility (\ref{eq:Utility}) subject to her budget constraint (\ref{eq:BudCons}), taking prices as given.
+    \item Service sector clears: $N_c C_{1c}=\tilde Q_{1c}$.
+    \item Trade is balanced: $N_c(P_2C_{2c} + P_3 C_{3c}) = P_2 \tilde Q_{3c}$.
 \end{enumerate}
 \end{definition}
 
 [FIXME: Prove existence. Characterize.]
-
-Guess an agricultural price $P_3$. This directly pins down the rural rent $R_3$. At the city fringe $z_2$,
-
 Introduce the notation 
 \begin{equation}\label{eq:zeta}
 \zeta_{ic}=\beta(1-\beta)^{1/\beta-1} (P_{ic}A_{ic})^{1/\beta} W_c^{1-1/\beta}
@@ -320,23 +312,22 @@ Rent arbitrage between services and manufacturing
 R_{1c}(z_{1c}) = R_{2c}(z_{1c})
 \]
 \[
-\zeta_{1c}\exp(-z_1 \tau_1/\beta)=
-\zeta_{2c}\exp(-z_1 \tau_2/\beta)
+\zeta_{1c}\exp(-z_{1c} \tau_1/\beta)=
+\zeta_{2c}\exp(-z_{1c} \tau_2/\beta)
 \]
 \[
 \left(\frac {P_{1c}A_{1c}}
 	{P_{2}A_{2c}}
 	\right)^{1/\beta}
-= \exp[z_1(\tau_1-\tau_2)/\beta].
+= \exp[z_{1c}(\tau_1-\tau_2)/\beta].
 \]
-The relative price of services and manufacturing is
-\[
-\frac {P_{1c}}
-	{P_{2}}
-= \frac {A_{2c}} 
+The price of services is
+\begin{equation}\tag{i}\label{eq:SCE1}
+P_{1c}
+= \frac {P_{2}A_{2c}} 
 	{A_{1c}}
-\exp[z_1(\tau_1-\tau_2)].
-\]
+\exp[z_{1c}(\tau_1-\tau_2)].
+\end{equation}
 
 Rent arbitrage between manufacturing and agriculture
 \[
@@ -353,10 +344,56 @@ R_{2c}(z_{2c}) = R_{3}
 \beta^\beta(1-\beta)^{1-\beta} 
 \exp(-z_{2c} \tau_2) P_{2}A_{2c}/W_c= (P_3A_3/W_c)^\beta
 \]
+\begin{equation}\tag{ii}\label{eq:SCE2}
+W_c =
+\beta^{\beta/(1-\beta)}(1-\beta) (P_{2}A_{2c})^{1/(1-\beta)} (P_3A_3)^{-\beta/(1-\beta)}
+\exp[-z_{2c} \tau_2/(1-\beta)]
+\end{equation}
+Combining the rent ratio with the price ratio,
+\begin{multline}\tag{iii}\label{eq:SCE3}
+\frac{P_{1c}C_{1c}}{P_{2}C_{2c}+P_{3}C_{3c}}\equiv
+ x_{1c}(P_{1c}, P_{2}, P_{3}, W_c) \\
+ =
+\exp[z_1(\tau_1-\tau_2)/\beta]
+\frac {\int_{z=0}^{z_{1c}} \exp(-z \tau_1/\beta)\bar L(z)dz}
+	{\int_{z=z_{1c}}^{z_{2c}} \exp(-z \tau_2/\beta)\bar L(z)dz}.
+\end{multline}
+The LHS is the expenditure share of services, pinned from nonhomothetic demand by prices and income.
+\begin{equation}\tag{iv}\label{eq:SCE4}
+	W_c = 
+	N_c^{-\beta}
+(1-\beta)\left[
+	 \left(P_{1c}A_{1c}\right)^{1/\beta} e^{-\tilde z_{1c}{\tau_1}/{\beta} } L_1
+	 + \left(P_{2}A_{2c}\right)^{1/\beta} e^{-\tilde z_{2c}{\tau_2}/{\beta} } L_2
+	 \right]^\beta.
+\end{equation}
 
-For a small city with given $N_c$ and $P_2$, $P_3$, there are 5 equations in 5 unknowns: $z_1$, $z_2$, $P_1/P_2$, $R_1/R_2$, $W/P_3$.
+Equations \eqref{eq:SCE1}, \eqref{eq:SCE2}, \eqref{eq:SCE3} and \eqref{eq:SCE4} can be solved for $z_{1c}$, $z_{2c}$, $P_{1c}$ and $W_c$. Specifically, 
+\begin{enumerate}
+	\item Fix a small-enough $z_{1c}$ [FIXME: find upper bound] and solve for service price using \eqref{eq:SCE1}.
+	\item Combining \eqref{eq:SCE2} and \eqref{eq:SCE4}, solve for $z_{2c}>z_{1c}$. There is a unique $z_{2c}$, as wages decrease in $z_{2c}$ in \eqref{eq:SCE2}, but increase in \eqref{eq:SCE4}.
+	\item Given $W_c$ and $z_{2c}$, check if \eqref{eq:SCE3} holds.
+	\item If not, go back to 1. If there is excess demand for services, increase $z_{1c}$.
 
-In the next section we calibrate the model and estimate each of the three components.
+\end{enumerate}
+
+\subsection{Multicity equilibrium}
+The above equations characterize production in a city conditional on product prices and the number of workers. These, in turn, are pinned down in a multicity equilibrium.
+
+\begin{definition}
+The multicity equilibrium of a country is a collection of competitive spatial equilibria for each city and a set of product prices $\{P_{1c}\}_{c=1}^K, P_2, P_3$ such that
+\begin{enumerate}
+    \item Consumer $c$ chooses $\{C_{ic}\}_{i=1}^3$ to maximize utility (\ref{eq:Utility}) subject to her budget constraint (\ref{eq:BudCons}), taking prices as given.
+    \item Service sector clears in every city: $N_c C_{1c}=\tilde Q_{1c}$.
+    \item Manufacturing and agriculture clear at the country level: $\sum_{c=1}^K N_c C_{ic}=\sum_{c=1}^K\tilde Q_{ic}$.
+    \item Trade is balanced in each city: $N_c(P_2C_{2c} + P_3 C_{3c}) = P_2 \tilde Q_{3c}$.
+    \item Utility is equalized across cities. 
+[FIXME: Add an amenity term to let N be calibrated freely.]
+\end{enumerate}
+\end{definition}
+
+[FIXME: Prove existence. Characterize.]
+
 
 
 \subsection{Space and development}
