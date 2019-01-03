@@ -1,0 +1,6 @@
+[FIXME: Experiment with Stone-Geary preferences.]
+[FIXME: Manufacturing may be entirely missing if its price is too low. Assume this away.]
+[FIXME: Add an amenity term to let N be calibrated freely.]
+[FIXME: Prove existence. Characterize.]
+[FIXME: Remove agriculture from this section.]
+[FIXME: Write out equilibrium conditions.]

@@ -6,11 +6,10 @@ gen z = (_n-1)/10
 
 local z1 = 2.5
 local z2 = 7.0
-local z3 = 9.0
 
 
 * taus calibrated to employment gradients
-scalar slope3 = 5/100
+scalar slope3 = 0/100
 scalar slope2 = 15/100
 scalar slope1 = 30/100
 
@@ -24,13 +23,12 @@ forval i=2/3 {
 
 forval i=1/3 {
 	gen R`i' = exp(intercept`i'-z*slope`i')
-	replace R`i' = . if z>`z3'
 }
 
 tw (line R? z), scheme(s2mono) ///
 	xtitle("Distance to CBD, z") ytitle("Ri(z)=exp({&zeta}-z{&tau}/{&beta})") ///
 	legend(order(1 "Services" 2 "Manufacturing" 3 "Agriculture")) ///
-	xline(`z1' `z2' `z3', lstyle(refline)) ///
-	xlabel(`z1' "z1" `z2' "z2" `z3' "z3")
+	xline(`z1' `z2', lstyle(refline)) ///
+	xlabel(`z1' "z1" `z2' "z2")
 
 graph export figures/bid_rent_curves.png, width(800) replace
