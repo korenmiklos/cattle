@@ -16,6 +16,13 @@ Research
 			- core area (281)
 			- per capita GDP (310)
 			- labor productivity (310)
+- Relative productivity by sector
+	- 1-sector city
+		- separate rural and urban labor
+		- derive urban/sectoral wage premium
+		- comparative statics w- structural transformation
+	- 2-sector city
+		- generalize results
 
 Create
 ------
