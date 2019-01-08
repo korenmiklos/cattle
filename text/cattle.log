@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.3)  3 JAN 2019 17:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.3)  8 JAN 2019 17:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -264,48 +264,60 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <7> not available
 {/usr/local/texlive/2018basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2
 ]
 [3] [4] [5]
-Overfull \hbox (64.3636pt too wide) in paragraph at lines 172--173
-[]\OT1/cmr/m/it/12 The pro-duc-ers choose sec-tor $\OML/cmm/m/it/12 i$ \OT1/cmr
-/m/it/12 and lo-ca-tion $\OML/cmm/m/it/12 z$\OT1/cmr/m/it/12 , and non-neg-a-ti
-ve quan-ti-ties $\OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 Q[]\OT1/cmr/m/n/12 (\OML/cm
-m/m/it/12 z\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ; L[]\OT1/cmr/m/n/12 (\OML/cmm/m/i
-t/12 z\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ; N[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 
-z\OT1/cmr/m/n/12 )\OMS/cmsy/m/n/12 g$
+Overfull \hbox (1.45073pt too wide) in paragraph at lines 168--169
+\OT1/cmr/m/n/12 com-pet-i-tive spa-tial equi-lib-rium \OT1/cmr/m/it/12 in a cir
+-cu-lar city as a set of quan-ti-ties $\OML/cmm/m/it/12 Q\OT1/cmr/m/n/12 (\OML/
+cmm/m/it/12 z\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ; L\OT1/cmr/m/n/12 (\OML/cmm/m/i
+t/12 z\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ; N\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 z\
+OT1/cmr/m/n/12 )$
  []
 
 [6] [7]
-<figures/bid_rent_curves.png, id=41, 803.0pt x 584.1825pt>
+<figures/bid_rent_curves.png, id=40, 803.0pt x 584.1825pt>
 File: figures/bid_rent_curves.png Graphic file (type png)
 <use figures/bid_rent_curves.png>
-Package pdftex.def Info: figures/bid_rent_curves.png  used on input line 226.
+Package pdftex.def Info: figures/bid_rent_curves.png  used on input line 225.
 (pdftex.def)             Requested size: 321.1943pt x 233.66885pt.
+ [8 <./figures/bid_rent_curves.png>] [9]
+
+LaTeX Warning: Reference `eq:SCE1' on page 10 undefined on input line 317.
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+LaTeX Warning: Reference `eq:SCE3' on page 10 undefined on input line 317.
 
-[8] [9 <./figures/bid_rent_curves.png>] [10] [11]
-Overfull \hbox (7.60791pt too wide) in paragraph at lines 388--389
+
+LaTeX Warning: Reference `eq:SCE1' on page 10 undefined on input line 319.
+
+
+LaTeX Warning: Reference `eq:SCE3' on page 10 undefined on input line 321.
+
+[10]
+Overfull \hbox (7.60791pt too wide) in paragraph at lines 334--335
 []\OT1/cmr/m/it/12 Manufacturing and agri-cul-ture clear at the coun-try level:
  $[][] \OML/cmm/m/it/12 N[]C[] \OT1/cmr/m/n/12 = [][] []$\OT1/cmr/m/it/12 . 
  []
 
-[12] [13] [14]
-<figures/sector_location_quotients.png, id=68, 803.0pt x 584.1825pt>
+[11]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[12]
+<figures/sector_location_quotients.png, id=60, 803.0pt x 584.1825pt>
 File: figures/sector_location_quotients.png Graphic file (type png)
 <use figures/sector_location_quotients.png>
 Package pdftex.def Info: figures/sector_location_quotients.png  used on input l
-ine 474.
+ine 420.
 (pdftex.def)             Requested size: 325.215pt x 236.60152pt.
- [15 <./figures/sector_location_quotients.png>] [16] [17]
-<figures/city_level_inputs/expenditure_shares.png, id=80, 803.0pt x 584.1825pt>
+ [13] [14 <./figures/sector_location_quotients.png>] [15] [16]
+<figures/city_level_inputs/expenditure_shares.png, id=76, 803.0pt x 584.1825pt>
 
 File: figures/city_level_inputs/expenditure_shares.png Graphic file (type png)
 <use figures/city_level_inputs/expenditure_shares.png>
 Package pdftex.def Info: figures/city_level_inputs/expenditure_shares.png  used
- on input line 548.
+ on input line 494.
 (pdftex.def)             Requested size: 325.215pt x 236.60152pt.
-
-[18] [19 <./figures/city_level_inputs/expenditure_shares.png>]
+ [17]
+[18 <./figures/city_level_inputs/expenditure_shares.png>]
 
 ! LaTeX Error: Lonely \item--perhaps a missing list environment.
 
@@ -313,47 +325,47 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.608     \item U
+l.554     \item U
                  tility is equalized across cities.
 ? 
 
-LaTeX Warning: Reference `eq:goods_market_clearing' on page 20 undefined on inp
-ut line 623.
+LaTeX Warning: Reference `eq:goods_market_clearing' on page 19 undefined on inp
+ut line 569.
 
-[20]
-<figures/city_level_inputs/productivity.png, id=93, 803.0pt x 584.1825pt>
+[19]
+<figures/city_level_inputs/productivity.png, id=90, 803.0pt x 584.1825pt>
 File: figures/city_level_inputs/productivity.png Graphic file (type png)
 <use figures/city_level_inputs/productivity.png>
 Package pdftex.def Info: figures/city_level_inputs/productivity.png  used on in
-put line 676.
+put line 622.
 (pdftex.def)             Requested size: 325.215pt x 236.60152pt.
-<figures/city_level_inputs/land.png, id=94, 803.0pt x 584.1825pt>
+<figures/city_level_inputs/land.png, id=91, 803.0pt x 584.1825pt>
 File: figures/city_level_inputs/land.png Graphic file (type png)
 <use figures/city_level_inputs/land.png>
 Package pdftex.def Info: figures/city_level_inputs/land.png  used on input line
- 680.
+ 626.
 (pdftex.def)             Requested size: 325.215pt x 236.60152pt.
- [21] [22 <./figures/city_level_inputs/productivity.png> <./figures/city_level_
+ [20] [21 <./figures/city_level_inputs/productivity.png> <./figures/city_level_
 inputs/land.png>]
-<figures/city_level_inputs/location.png, id=103, 803.0pt x 584.1825pt>
+<figures/city_level_inputs/location.png, id=100, 803.0pt x 584.1825pt>
 File: figures/city_level_inputs/location.png Graphic file (type png)
 <use figures/city_level_inputs/location.png>
 Package pdftex.def Info: figures/city_level_inputs/location.png  used on input 
-line 684.
+line 630.
 (pdftex.def)             Requested size: 325.215pt x 236.60152pt.
-<figures/city_level_inputs/city_radius.png, id=104, 803.0pt x 584.1825pt>
+<figures/city_level_inputs/city_radius.png, id=101, 803.0pt x 584.1825pt>
 File: figures/city_level_inputs/city_radius.png Graphic file (type png)
 <use figures/city_level_inputs/city_radius.png>
 Package pdftex.def Info: figures/city_level_inputs/city_radius.png  used on inp
-ut line 688.
+ut line 634.
 (pdftex.def)             Requested size: 325.215pt x 236.60152pt.
- [23 <./figures/city_level_inputs/location.png>] [24 <./figures/city_level_inpu
-ts/city_radius.png>] (./cattle.bbl [25
+ [22 <./figures/city_level_inputs/location.png>] [23 <./figures/city_level_inpu
+ts/city_radius.png>] (./cattle.bbl [24
 
-] [26]) [27]
-[28
+] [25]) [26]
+[27
 
-] [29] (./response.tex [30] [31] [32]) [33] (./cattle.aux)
+] [28] (./response.tex [29] [30] [31]) [32] (./cattle.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -364,7 +376,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  2465 strings out of 494091
  34626 string characters out of 6163524
- 100622 words of memory out of 5000000
+ 100598 words of memory out of 5000000
  6094 multiletter control sequences out of 15000+600000
  12575 words of font info for 45 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
@@ -390,10 +402,10 @@ asic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2
 e/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/tex
 live/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/
 texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on cattle.pdf (33 pages, 589531 bytes).
+Output written on cattle.pdf (32 pages, 566805 bytes).
 PDF statistics:
- 206 PDF objects out of 1000 (max. 8388607)
- 135 compressed objects within 2 object streams
+ 203 PDF objects out of 1000 (max. 8388607)
+ 133 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  36 words of extra memory for PDF output out of 10000 (max. 10000000)
 

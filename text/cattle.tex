@@ -97,7 +97,6 @@ A city is a point on a bounded but otherwise featureless two-dimensional plane. 
 We first characterize the distribution of economic activities within a city, then discuss equilibrium allocation across cities within a country.
 
 \subsection{Consumers}
-[FIXME: Experiment with Stone-Geary preferences.]
 To be consistent with Fact 4, we assume non-homothetic consumer preferences. We follow \citeN{Fieler11} in assuming an isoelastic utility function with different elasticities for the three sectors,\footnote{We have estimated the preferences proposed by \citeN{Kongsamut2001}, \citeN{Ngai2007} and \citeN{Herrendorf2013} on cross-country data, but this provided a poor fit for rich countries, where the role of necessity spending is vanishingly small.}
 \begin{equation}
 \label{eq:Utility}
@@ -140,85 +139,85 @@ where $x_j=P_jc_j/\sum_k P_kc_k$ is the expenditure share of good $j$.
 
 
 \subsection{Producers}
-Output in services and manufacturing at location $z$ depends on labor $N$ and land $L$ used at that location,
+Output in the urban sector at location $z$ depends on labor $N$ and land $L$ used at that location,
 \[
-Q_i(z) = A_i L_i(z)^{\beta}N_i(z)^{1-\beta}\text{ for }i=1,2.
+Q(z) = A L(z)^{\beta}N(z)^{1-\beta}.
 \]
-We take labor to be freely mobile within the country, land is in fixed $\Bar{L}(z)$ supply in each location. The names ``land'' and ``labor'' are for the sake of convenience, these two factors correspond to spatially fixed and mobile factors, respectively, and we will calibrate them accordingly.
+We take labor to be freely mobile within the city, land is in fixed $\Bar{L}(z)$ supply in each location. The names ``land'' and ``labor'' are for the sake of convenience, these two factors correspond to spatially fixed and mobile factors, respectively, and we will calibrate them accordingly.
 
-Sectors differ in Hicks neutral productivity shifter $A_i$. For analytical convenience, we assume the elasticity of output to land is the same in manufacturing and services. This reflects the fact that the land shares are similar in the two sectors.\footnote{All the results of the model go through with sector-specific land shares.}
-All products are sold a single location in each city, the central business district. This is location $z=0$, so that $z$ indexes distance to the center.
-To ship a product to the center, one has to incur shipping costs. If a unit of product $i$ leaves location $z$, only
+Products are sold a single location in each city, the central business district. This is location $z=0$, so that $z$ indexes distance to the center.
+To ship a product to the center, one has to incur shipping costs. If a unit of product leaves location $z$, only
 \[
-e^{-\tau_i z}
+e^{-\tau z}
 \]
-units arrive at the center. This is akin to the iceberg assumption of transport costs. Sectors also differ in the intensity of shipping costs $\tau_i$. 
+units arrive at the center. This is akin to the iceberg assumption of transport costs. Sectors also differ in the intensity of shipping costs $\tau$. 
 
-The third sector, agriculture can be shipped freely, $\tau_3=0$ and uses only land in production. This will ensure that in equilibrium agricultural goods are produced outside cities in rural areas. Manufacturing products are costly to move to the CBD, but once there, they can be freely traded across cities within the same country. Services have to be consumed directly at the CBD, they cannot be traded across cities.
+The rural sector, agriculture can be shipped freely and uses only land in production. This will ensure that in equilibrium agricultural goods are produced outside cities in rural areas. 
 
-Profits in sector $i$ from production at $z$ is
+Profits from production at $z$ are
 \begin{equation}
 \label{eq:profit}
-\Pi_i(z)=P_ie^{-\tau_iz}Q_i(z)-WN_i(z)-R(z)L_i(z)\text{ for }i=1,2
+\Pi_u(z)=Pe^{-\tau z}Q(z)-WN(z)-R(z)L(z)
 \end{equation}
-and $\Pi_3(z)=P_3e^{-\tau_3z}Q_3(z)-R(z)L_i(z)$ for agriculture. A sector being active at location $z$ requires that their maximized profit $\max\Pi_i(z)\geq0.$
+for the urban sector. A sector being active at location $z$ requires that their maximized profit $\max\Pi(z)\geq0$.
 
 \subsection{Spatial Sorting}
 Because space if featureless, the available land at each distance $z$ from the CBD is $\Bar L(z) \equiv 2z\pi$. We study symmetric equilibria where the distance to the CBD completely characterizes a location.
 
 \begin{definition}
-Given a set of product prices $\{P_i\}_{i=1}^3$ and overall employment $N$, define \emph{spatial sorting} in a circular city as a set of quantities $\{Q_i(z), L_i(z), N_i(z)\}_{i=1}^3$ and factor prices $R(z), W$ such that
+Given a level of rural rent $R_r$ and overall employment $N$, define the \emph{competitive spatial equilibrium} in a circular city as a set of quantities $Q(z), L(z), N(z)$ and prices $P$, $R(z), W$ such that
 \begin{enumerate}
-    \item The producers choose sector $i$ and location $z$, and nonnegative quantities $\{Q_i(z), L_i(z), N_i(z)\}$ to maximize their profits (\ref{eq:profit}), taking prices as given.
-    \item Labor market clears: $N=\sum_i\int_{z\in Z} N_i(z)$.
+    \item The producers choose location $z$, and nonnegative quantities $Q(z), L(z), N(z)$ to maximize their profits (\ref{eq:profit}), taking prices as given.
+    \item Consumer chooses $\{C_{ic}\}_{i=1}^3$ to maximize utility (\ref{eq:Utility}) subject to her budget constraint (\ref{eq:BudCons}), taking prices as given.
+    \item Service sector clears: $N_c C_{1c}=\tilde Q_{1c}$.
+    \item Labor market clears: $N=\int_{z\in Z} N(z)$.
     \item Land markets clear at every location: $\sum_iL_i(z)=\Bar L(z)$ for all $z\in Z$.
 \end{enumerate}
 \end{definition}
-Spatial sorting, as we show below, has a simple and intuitive structure. Sectors with higher transport cost intensity $\tau_i$ locate closer to the center. Realistically, services locate in a circle around the center, manufacturing goods are produced on a ring around it, and agriculture is produced outside cities.
+The competitive spatial equilibrium, as we show below, has a simple and intuitive structure. The urban sector with a positive transport cost intensity $\tau$ locates closer to the center. The rural sector is produced outside cities.
 
-To see why this is the case, construct the sectoral bid rent curves $R_i(z)$. This is the maximum rent an active producer in sector $i$ would be willing to pay at location $z$. %In a competitive market, the sector with the highest bid rent curve is active at a location ($R(z)=\max_iR_i(z)$ for all $z$).
-A profit maximizing producer is choosing its land $N_i(z)$ and labor demand $L_i(z)$ to equalize the value marginal product of land and labor to rents and wages, respectively. It is true for any rent function or wages it might face, so it is true for rents given by its own bid-rent curve $R_i(z)$, in particular.
+To see why this is the case, construct the sectoral bid rent curve $R(z)$. This is the maximum rent an active producer in the urban sector would be willing to pay at location $z$. %In a competitive market, the sector with the highest bid rent curve is active at a location ($R(z)=\max_iR_i(z)$ for all $z$).
+A profit maximizing producer is choosing its land $N(z)$ and labor demand $L(z)$ to equalize the value marginal product of land and labor to rents and wages, respectively. It is true for any rent function or wages it might face, so it is true for rents given by its own bid-rent curve $R(z)$, in particular.
 \begin{align}
-R_i(z) &=\beta P_ie^{-\tau_i z}A_i \left(\frac{N_i(z)}{L_i(z)}\right)^{1-\beta}\\
-W &=(1-\beta) P_ie^{-\tau_i z}A_i \left(\frac{N_i(z)}{L_i(z)}\right)^{-\beta}
+R(z) &=\beta Pe^{-\tau z}A \left(\frac{N(z)}{L(z)}\right)^{1-\beta}\\
+W &=(1-\beta) Pe^{-\tau z}A \left(\frac{N(z)}{L(z)}\right)^{-\beta}
 \end{align}
 
 The sectoral labor-land ratio (employment density) can be expressed as
 \begin{equation}
 \label{eq:EmpDens}
-\frac{N_i(z)}{L_i(z)} = \frac{1-\beta}{\beta}\frac{R(z)}{W}
+\frac{N(z)}{L(z)} = \frac{1-\beta}{\beta}\frac{R(z)}{W}.
 \end{equation}
-for $i=1,2$.
 
-Substituting this into the first-order condition for land use, we can get an implicit expression for the sectoral bid rent curve:
+Substituting this into the first-order condition for land use, we can get an implicit expression for the  bid rent curve of the urban sector:
 \[
-R_i(z) =\beta P_ie^{-\tau_i z}A_i \left(\frac{1-\beta}{\beta}\frac{R_i(z)}{W}\right)^{1-\beta},
+R(z) =\beta P e^{-\tau z}A \left(\frac{1-\beta}{\beta}\frac{R(z)}{W}\right)^{1-\beta},
 \]
 from which
 \begin{equation}
 \label{eq:BidRent}
-R_i(z) =\beta(1-\beta)^{1/\beta-1} (P_iA_i)^{1/\beta} W^{1-1/\beta} e^{-\frac{\tau_i}{\beta} z}
+R(z) =\beta(1-\beta)^{1/\beta-1} (PA)^{1/\beta} W^{1-1/\beta} e^{-\frac{\tau}{\beta} z}
 \end{equation}
-for $i=1,2$. Equation (\ref{eq:BidRent}) pins down the gradient of the sectoral rent curve, which determines how fast the bid-rents decrease with the distance from the CBD. The gradient is an increasing function of the sectoral transport cost and a decreasing function of land share $|\partial\log R_i(z)/\partial \log z|=\tau_i/\beta$. Intuitively, transport costs ($\tau_iz$) increase with distance, so producers offer lower rents for farther locations. If land were the only factor of production ($\beta=1$), only this direct effect would be present and the gradient would only depend on the transport cost intensity. With labor present, however, the producers can substitute labor for land, introducing an indirect effect on the gradient. As the equilibrium land-labor ratio shows (see equation \ref{eq:EmpDens}), the land share $\beta$ determines the strength of this substitutability: higher land share implies bid-rent curves decreasing with a slower rate.
+for the urban sector, and $R(z)=R_r$ for the rural sector. Equation (\ref{eq:BidRent}) pins down the gradient of the sectoral rent curve, which determines how fast the bid-rents decrease with the distance from the CBD. The gradient is an increasing function of the transport cost and a decreasing function of land share $|\partial\log R(z)/\partial \log z|=\tau/\beta$. Intuitively, transport costs ($\tau z$) increase with distance, so producers offer lower rents for farther locations. If land were the only factor of production ($\beta=1$), only this direct effect would be present and the gradient would only depend on the transport cost intensity. With labor present, however, the producers can substitute labor for land, introducing an indirect effect on the gradient. As the equilibrium land-labor ratio shows (see equation \ref{eq:EmpDens}), the land share $\beta$ determines the strength of this substitutability: higher land share implies bid-rent curves decreasing with a slower rate.
 
 Agriculture has a special bid-rent curve because $\tau_3=0$ and the land share is one,
 \begin{equation}
 \label{eq:BidRent:agri}
-R_3(z) =P_3A_3 \, \forall z.
+R_r(z) =R_r \, \forall z.
 \end{equation}
 Because agricultural goods are freely tradable, their bid-rent does not depend on location.
 
 We can also get the employment gradient by substituting the bid rent curve into the labor-land ratio,
 \begin{equation}
 \label{eq:EmpGrad}
-\frac{N_i(z)}{L_i(z)} = (1-\beta)^{1/\beta} \left(\frac{P_iA_i}{W}\right)^{1/\beta} e^{-\frac{\tau_i}{\beta} z}.
+\frac{N(z)}{L(z)} = (1-\beta)^{1/\beta} \left(\frac{PA}{W}\right)^{1/\beta} e^{-\frac{\tau}{\beta} z}.
 \end{equation}
 This is the relationship we use to calibrate the sectoral transport cost intensities.
 
 \begin{proposition}\label{prop:existence}
-Assume that $\tau_1>\tau_2>0$. There exists a spatial sorting, characterized by locations $0<z_1\le z_2$ such that services with the highest $\tau_1$ locate closest to the CBD in $\left[0,z_1\right]$, manufacturing locates in $\left(z_1,z_2\right]$, and agriculture locates in $(z_2,\infty)$.
+There exists a competitive spatial equilibrium, characterized by location $0<z_1$ such that the urban sector produces at $\left[0,z_1\right]$, and agriculture locates in $(z_1,\infty)$.
 \end{proposition}
-The proof is provided in the Appendix. Intuitively, the different exponential slope of the bid-rent curves ensures that they cross exactly once. This results in a strict partitioning across sectors, as shown in Figure \ref{fig:BidRent}. When $z_1=z_2$, the city does not produce manufacturing in spatial sorting. We will later show that this cannot be an equilibrium. 
+The proof is provided in the Appendix. Intuitively, the different exponential slope of the bid-rent curves ensures that they cross exactly once. This results in a strict partitioning across sectors, as shown in Figure \ref{fig:BidRent}. 
 
 \begin{figure}[h!]
 \caption{Spatial equilibrium\label{fig:BidRent}}
@@ -226,146 +225,93 @@ The proof is provided in the Appendix. Intuitively, the different exponential sl
 \includegraphics[scale=0.4]{figures/bid_rent_curves}
 \end{center}
 
-\noindent \footnotesize{The figure plots the structure of a spatial sorting. It shows equilibrium sectoral bid rent curves as a function of distance from the city center. A sector is active over an area where it is willing to overbid alternative sectors. Crossings of the bid-rent curves determine the borders of the sectors. Services are active in $[0,z_1]$, manufacturing in $\left(z_1,z_2\right]$, and agriculture in $(z_2,\infty)$.}
+\noindent \footnotesize{The figure plots the structure of a competitive spatial equilibrium. It shows equilibrium sectoral bid rent curves as a function of distance from the city center. A sector is active over an area where it is willing to overbid the sector. Crossings of the bid-rent curves determine the borders of the sectors. The urban sector is active in $[0,z_1]$, agriculture in $(z_1,\infty)$.}
 \end{figure}
 
-Each city is characterized by two distance cutoffs, $z_1$ and $z_2$. We will call the circle $z\in\left[0,z_1\right]$ the city center or core, the ring $z\in\left(z_1,z_2\right]$ the city hinterland. Locations $z>z_2$ cannot be associated with any particular city and we will call them agricultural or rural land. This implies that $z_2$ will be the functional city boundary and we will calibrate the model accordingly.
+Each city is characterized by a distance cutoff $z_1$. Locations $z>z_1$ cannot be associated with any particular city and we will call them agricultural or rural land. This implies that $z_1$ will be the functional city boundary and we will calibrate the model accordingly.
 
 \subsection{Aggregation across space}
-For services and manufacturing, sectoral production is a function of a suitably chosen representative location. Sectoral output measured at the center is
+For the urban sector, production is a function of a suitably chosen representative location. Sectoral output measured at the center is
 \begin{equation*}
-\tilde{Q}_i=\int_{z\in Z_i}e^{-\tau_i z}A_iL_i(z)^\beta N_i(z)^{1-\beta}dz,
+\tilde{Q}_i=\int_{z=0}^{z_1}e^{-\tau z}AL(z)^\beta N(z)^{1-\beta}dz.
 \end{equation*}
-where $Z_i$ is the set of locations where sector $i$ is active in equilibrium.
 
 Let the representative location
 \begin{equation}
 \label{eq:ReprLoc}
-\tilde z_i = -
-\frac{\beta}{\tau_i}
-\ln\int_{z\in Z_i} \frac{L_i(z)}{L_i}e^{-\frac{\tau_i}{\beta} z}dz
+\tilde z = -
+\frac{\beta}{\tau}
+\ln\int_{z=0}^{z_1} \frac{L(z)}{L}e^{-\frac{\tau}{\beta} z}dz
 \end{equation}
-denote the average distance of sector $i$ to the center, where $L_i=\int_{z\in Z_i} L_i(z)dz$ is the total amount of land devoted to sector $i$. This definition ensures that the trade cost going to location $\tilde z_i$ equals the land-weighted average trade cost across all sectoral locations,
+denote the average distance of the urban sector to the center, where $L=\int_{z=0}^{z_1} L(z)dz$ is the total amount of land devoted within the city fringe. This definition ensures that the trade cost going to location $\tilde z$ equals the land-weighted average trade cost across all sectoral locations,
 \[
-e^{-\frac{\tau_i}{\beta} \tilde z_i} = \int_{z\in Z_i} \frac{L_i(z)}{L_i}e^{-\frac{\tau_i}{\beta} z}dz.
+e^{-\frac{\tau}{\beta} \tilde z} = \int_{z=0}^{z_1} \frac{L(z)}{L}e^{-\frac{\tau}{\beta} z}dz.
 \]
-As we will see below, $\tilde z_i$ is a sufficient statistic about sector location for aggregation purposes. %(XX THIS IS A TRICK OF THE MELITZ MODEL)
+As we will see below, $\tilde z$ is a sufficient statistic about sector location for aggregation purposes. %(XX THIS IS A TRICK OF THE MELITZ MODEL)
+
+Ratio of urban to rural rent
+\[
+\frac{R_u}{R_r} = \frac{R(0)e^{-\tilde z \tau /\beta}} {R_r},
+\]
+and, given that $R(z_1)=R_r$, 
+\[
+\frac{R_u}{R_r} = e^{(z_1-\tilde z) \tau /\beta}>1.
+\]
+The ratio of urban to rural rent expenditure is
+\[
+\frac{R_u L_u}{R_r L_r}=
+e^{(z_1-\tilde z) \tau /\beta}
+\frac{z_1^2 \pi}{L-z_1^2 \pi}.
+\]
 
 \begin{proposition}\label{prop:aggregation}
 City-level sectoral production function is of the form:
 \begin{equation}
-\tilde Q_i =
-A_iL_i^{\beta}N_i^{1-\beta}
- e^{-\tau_i\tilde z_i}.
+\tilde Q =
+AL^{\beta}N^{1-\beta}
+ e^{-\tau\tilde z}.
 \end{equation}
-It depends on trade costs from the representative location ($\tilde{z}_i$) defined by equation \eqref{eq:ReprLoc} and is a Cobb-Douglas aggregate of sectoral land ($L_i=\int_{Z_i}L_i(z)dz$) and labor ($N_i=\int_{Z_i}N_i(z)dz$) use.
+It depends on trade costs from the representative location ($\tilde{z}$) defined by equation \eqref{eq:ReprLoc} and is a Cobb-Douglas aggregate of sectoral land ($L=\int_{z=0}^{z_1}L(z)dz$) and labor ($N=\int_{z=0}^{z_1}N(z)dz$) use.
 \end{proposition}
 
-\subsection{Small City Equilibrium}
-The above equations characterize production in a city conditional on product prices and the number of workers. These, in turn, are pinned down in a multicity equilibrium. We first characterize a single city, taking tradable prices $P_2$ and $P_3$, as well city population $N_c$ as given. 
-
-\begin{definition}
-For given product prices $P_2$, $P_3$ and city population $N_c$, 
-the \emph{small city equilibrium} is a spatial sorting, a service price $P_{1c}$ and city wage $W_c$ such that
-\begin{enumerate}
-    \item Consumer chooses $\{C_{ic}\}_{i=1}^3$ to maximize utility (\ref{eq:Utility}) subject to her budget constraint (\ref{eq:BudCons}), taking prices as given.
-    \item Service sector clears: $N_c C_{1c}=\tilde Q_{1c}$.
-    \item Trade is balanced: $N_c(P_2C_{2c} + P_3 C_{3c}) = P_2 \tilde Q_{3c}$.
-\end{enumerate}
-\end{definition}
-
-[FIXME: Prove existence. Characterize.]
 Introduce the notation 
 \begin{equation}\label{eq:zeta}
-\zeta_{ic}=\beta(1-\beta)^{1/\beta-1} (P_{ic}A_{ic})^{1/\beta} W_c^{1-1/\beta}
+\zeta = \beta(1-\beta)^{1/\beta-1} (PA)^{1/\beta} W^{1-1/\beta}
 \end{equation}
 so that we can write the bid-rent curve as 
 \[
-R_{ic}(z) = \zeta_{ic}\exp(-z \tau_i/\beta).
+R(z) = \zeta\exp(-z \tau/\beta).
 \]
-Total rent paid in sector $i$ is
+Total rent paid in the city is
 \[
-R_{ic} = \int_{z=z_{i-1,c}}^{z_{ic}} R_{ic}(z)\bar L(z)dz = 
-\zeta_{ic}\int_{z=z_{i-1,c}}^{z_{ic}} \exp(-z \tau_i/\beta)\bar L(z)dz
+R_{u} = \int_{z=0}^{z_{1}} R(z)\bar L(z)dz = 
+\zeta\int_{z=0}^{z_1} \exp(-z \tau/\beta)\bar L(z)dz
 \]
-The ratio of rents paid by services and manufacturing is
-\[
-\frac {R_{1c}}{R_{2c}} =
-\frac {\zeta_{1c}}
-	{\zeta_{2c}}
-\frac {\int_{z=0}^{z_{1c}} \exp(-z \tau_1/\beta)\bar L(z)dz}
-	{\int_{z=z_{1c}}^{z_{2c}} \exp(-z \tau_2/\beta)\bar L(z)dz}
-=
-\left(\frac {P_{1c}A_{1c}}
-	{P_{2}A_{2c}}
-	\right)^{1/\beta}
-\frac {\int_{z=0}^{z_{1c}} \exp(-z \tau_1/\beta)\bar L(z)dz}
-	{\int_{z=z_{1c}}^{z_{2c}} \exp(-z \tau_2/\beta)\bar L(z)dz}.
-\]
-The ratio of revenues in the two sectors is the same as the ratio of rents, as they have the same rent share. Given market clearing for services and the balanced trade condition, this ratio is the same as the ratio of expenditure on services and everything else,
-\[
-\frac{R_{1c}}{R_{2c}}=
-\frac{P_{1c}C_{1c}}{P_{2}C_{2c}+P_{3}C_{3c}}.
-\]
-Rent arbitrage between services and manufacturing
-\[
-R_{1c}(z_{1c}) = R_{2c}(z_{1c})
-\]
-\[
-\zeta_{1c}\exp(-z_{1c} \tau_1/\beta)=
-\zeta_{2c}\exp(-z_{1c} \tau_2/\beta)
-\]
-\[
-\left(\frac {P_{1c}A_{1c}}
-	{P_{2}A_{2c}}
-	\right)^{1/\beta}
-= \exp[z_{1c}(\tau_1-\tau_2)/\beta].
-\]
-The price of services is
-\begin{equation}\tag{i}\label{eq:SCE1}
-P_{1c}
-= \frac {P_{2}A_{2c}} 
-	{A_{1c}}
-\exp[z_{1c}(\tau_1-\tau_2)].
-\end{equation}
-
 Rent arbitrage between manufacturing and agriculture
 \[
-R_{2c}(z_{2c}) = R_{3}
+R(z_{1}) = R_{r}
 \]
 \[
-\zeta_{2c}^\beta\exp(-z_{2c} \tau_2) = (P_3A_3)^\beta
+\zeta^\beta\exp(-z_{1} \tau) = (R_r)^\beta
 \]
 \[
-\beta^\beta(1-\beta)^{1-\beta} P_{2}A_{2c} W_c^{\beta-1}
-\exp(-z_{2c} \tau_2) = (P_3A_3)^\beta
+\beta^\beta(1-\beta)^{1-\beta} PA W^{\beta-1}
+\exp(-z_{1} \tau) = (R_r)^\beta
 \]
 \[
 \beta^\beta(1-\beta)^{1-\beta} 
-\exp(-z_{2c} \tau_2) P_{2}A_{2c}/W_c= (P_3A_3/W_c)^\beta
+\exp(-z_{1} \tau) PA/W= (R_r/W)^\beta
 \]
 \begin{equation}\tag{ii}\label{eq:SCE2}
-W_c =
-\beta^{\beta/(1-\beta)}(1-\beta) (P_{2}A_{2c})^{1/(1-\beta)} (P_3A_3)^{-\beta/(1-\beta)}
-\exp[-z_{2c} \tau_2/(1-\beta)]
+W =
+\beta^{\beta/(1-\beta)}(1-\beta) (PA)^{1/(1-\beta)} R_r^{-\beta/(1-\beta)}
+\exp[-z_{1} \tau/(1-\beta)]
 \end{equation}
-Combining the rent ratio with the price ratio,
-\begin{multline}\tag{iii}\label{eq:SCE3}
-\frac{P_{1c}C_{1c}}{P_{2}C_{2c}+P_{3}C_{3c}}\equiv
- x_{1c}(P_{1c}, P_{2}, P_{3}, W_c) \\
- =
-\exp[z_1(\tau_1-\tau_2)/\beta]
-\frac {\int_{z=0}^{z_{1c}} \exp(-z \tau_1/\beta)\bar L(z)dz}
-	{\int_{z=z_{1c}}^{z_{2c}} \exp(-z \tau_2/\beta)\bar L(z)dz}.
-\end{multline}
-The LHS is the expenditure share of services, pinned from nonhomothetic demand by prices and income.
 \begin{equation}\tag{iv}\label{eq:SCE4}
-	W_c = 
-	N_c^{-\beta}
-(1-\beta)\left[
-	 \left(P_{1c}A_{1c}\right)^{1/\beta} e^{-\tilde z_{1c}{\tau_1}/{\beta} } L_1
-	 + \left(P_{2}A_{2c}\right)^{1/\beta} e^{-\tilde z_{2c}{\tau_2}/{\beta} } L_2
-	 \right]^\beta.
+	W = 
+	N^{-\beta}
+(1-\beta)
+	 PA e^{-\tilde z{\tau}} L_u^\beta.
 \end{equation}
 
 Equations \eqref{eq:SCE1}, \eqref{eq:SCE2}, \eqref{eq:SCE3} and \eqref{eq:SCE4} can be solved for $z_{1c}$, $z_{2c}$, $P_{1c}$ and $W_c$. Specifically, 
