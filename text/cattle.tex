@@ -292,11 +292,11 @@ Rent arbitrage between manufacturing and agriculture
 R(z_{1}) = R_{r}
 \]
 \[
-\zeta^\beta\exp(-z_{1} \tau) = (R_r)^\beta
+\zeta^\beta\exp(-z_{1} \tau) = R_r^\beta
 \]
 \[
 \beta^\beta(1-\beta)^{1-\beta} PA W^{\beta-1}
-\exp(-z_{1} \tau) = (R_r)^\beta
+\exp(-z_{1} \tau) = R_r^\beta
 \]
 \[
 \beta^\beta(1-\beta)^{1-\beta} 
@@ -314,33 +314,203 @@ W =
 	 PA e^{-\tilde z{\tau}} L_u^\beta.
 \end{equation}
 
-Equations \eqref{eq:SCE1}, \eqref{eq:SCE2}, \eqref{eq:SCE3} and \eqref{eq:SCE4} can be solved for $z_{1c}$, $z_{2c}$, $P_{1c}$ and $W_c$. Specifically, 
-\begin{enumerate}
-	\item Fix a small-enough $z_{1c}$ [FIXME: find upper bound] and solve for service price using \eqref{eq:SCE1}.
-	\item Combining \eqref{eq:SCE2} and \eqref{eq:SCE4}, solve for $z_{2c}>z_{1c}$. There is a unique $z_{2c}$, as wages decrease in $z_{2c}$ in \eqref{eq:SCE2}, but increase in \eqref{eq:SCE4}.
-	\item Given $W_c$ and $z_{2c}$, check if \eqref{eq:SCE3} holds.
-	\item If not, go back to 1. If there is excess demand for services, increase $z_{1c}$.
+Equations \eqref{eq:SCE2} and \eqref{eq:SCE4} can be solved for $z_{1}$ and $W$. Specifically,
+\[
+	 e^{-\tilde z{\tau}+z_{1} \tau/(1-\beta)} L_u^\beta 
+	=
+\beta^{\beta/(1-\beta)}N^\beta(PA)^{\beta/(1-\beta)} R_r^{-\beta/(1-\beta)}
+\]
+\[
+	 e^{-\tilde z{\tau}/\beta + z_{1} \tau/(\beta-\beta^2)} L_u 
+	=
+\beta^{1/(1-\beta)}N(PA)^{1/(1-\beta)} R_r^{-1/(1-\beta)}
+\]
+\[
+	 e^{[z_{1}/(1-\beta)-\tilde z]{\tau}/\beta} L_u 
+	=
+\beta^{1/(1-\beta)}N
+\left( \frac{PA}{R_r} \right)^{1/(1-\beta)}
+\]
+The LHS is increasing in $z_1$ faster than quadratically. This pins down the equilibrium city size as an increasing function of $N$ and $PA$. Writing out $R_r=P_rA_r$,
+\[
+	 e^{[z_{1}/(1-\beta)-\tilde z]{\tau}/\beta} L_u 
+	=
+\beta^{1/(1-\beta)}N
+\left( \frac{PA}{P_rA_r} \right)^{1/(1-\beta)}.
+\]
+This is how city size (conditional on city population) depends on the relative productivity of urban and rural sectors.
 
-\end{enumerate}
+Or, for given wages,
+\[
+e^{z_{1} \tau} = \beta^\beta(1-\beta)^{1-\beta} 
+\frac {PA} {R_r^\beta W^{1-\beta}}
+\]
+pins down the city boundary. 	
+\[
+	N^{\beta} =
+(1-\beta)
+	 \frac{PA}{W} e^{-\tilde z{\tau}} L_u^\beta.
+\]
+\[
+	N =
+(1-\beta)^{1/\beta}
+	 \left(\frac{PA}{W}\right)^{1/\beta} 
+	 e^{-\tilde z{\tau/\beta}} L_u
+\]
+pins down city employment.
 
-\subsection{Multicity equilibrium}
-The above equations characterize production in a city conditional on product prices and the number of workers. These, in turn, are pinned down in a multicity equilibrium.
+\subsection{Multi-city equilibrium}
+The above equations characterize production in a city conditional on product prices and wages. These, in turn, are pinned down in a multicity equilibrium.
+
+The competitive spatial equilibrium pins down the supply of urban sectors. We assume that both urban and rural goods are tradable freely within the country. [FIXME: Rewrite tau discussion so that it comes from supply side only.] This yields the law of one price across cities. 
 
 \begin{definition}
-The multicity equilibrium of a country is a collection of competitive spatial equilibria for each city and a set of product prices $\{P_{1c}\}_{c=1}^K, P_2, P_3$ such that
+The multi-city equilibrium of a country is a collection of competitive spatial equilibria for each city, a set of prices $P_{u}$, $P_r$ and city wages $W_c$ such that
 \begin{enumerate}
-    \item Consumer $c$ chooses $\{C_{ic}\}_{i=1}^3$ to maximize utility (\ref{eq:Utility}) subject to her budget constraint (\ref{eq:BudCons}), taking prices as given.
-    \item Service sector clears in every city: $N_c C_{1c}=\tilde Q_{1c}$.
-    \item Manufacturing and agriculture clear at the country level: $\sum_{c=1}^K N_c C_{ic}=\sum_{c=1}^K\tilde Q_{ic}$.
-    \item Trade is balanced in each city: $N_c(P_2C_{2c} + P_3 C_{3c}) = P_2 \tilde Q_{3c}$.
-    \item Utility is equalized across cities. 
+    \item Consumers maximize utility (\ref{eq:Utility}) subject to their budget constraint (\ref{eq:BudCons}), taking prices as given.
+    \item Goods market clear at the country level: $\sum_{c=1}^K N_c C_{ic}=\sum_{c=1}^K\tilde Q_{ic}$.
 [FIXME: Add an amenity term to let N be calibrated freely.]
+	\item Utility is equalized across cities. [FIXME: add amenities.]
 \end{enumerate}
 \end{definition}
 
 [FIXME: Prove existence. Characterize.]
 
+Introduce the subscript $c$ for cities. Utility equalization means $W_c = W/\gamma_c$, where $\gamma_c$ captures amenities in city $c$. This is a compensating wage differential.
+The conditions for competitive spatial equilibrium are
+\[
+e^{z_{1c} \tau} = \beta^\beta(1-\beta)^{1-\beta} 
+\frac {PA_c\gamma_c^{1-\beta}} {R_r^\beta W^{1-\beta}}
+\]
+\[
+	N_c =
+(1-\beta)^{1/\beta}
+	 \left(\frac{PA_c\gamma_c}{W}\right)^{1/\beta} 
+	 e^{-\tilde z_c{\tau/\beta}} L_{c}
+\]
 
+The total rent paid in city $c$ is
+\[
+R_c = R_r e^{(z_{1c}-\tilde z_c) \tau /\beta}L_c.
+\]
+The share of urban to rural rent in the country is
+\[
+\frac {\sum_c R_c}{R_rL_r}
+=
+	\sum_c e^{(z_{1c}-\tilde z_c) \tau /\beta}L_c/L_r
+\]
+the ratio of urban to rural land times the average rent premium in cities. This increases in $P/R_r^\beta W^{1-\beta}$, the relative price of urban goods.
+
+Adding up labor demand across cities,
+\[
+N = \sum_c N_c 
+=(1-\beta)^{1/\beta} 
+	 \left(\frac{P}{W}\right)^{1/\beta} \sum_c 
+	 \left(A_c\gamma_c\right)^{1/\beta} 
+	 e^{-\tilde z_c{\tau/\beta}} L_{c}
+\]
+The relative employment of two cities,
+\[
+\frac{N_c}{N_{c'}} 
+= \frac
+	 {\left(A_c\gamma_c\right)^{1/\beta} e^{-\tilde z_c{\tau/\beta}} L_{c}}
+	 {\left(A_{c'}\gamma_{c'}\right)^{1/\beta} e^{-\tilde z_{c'}{\tau/\beta}} L_{c'}}
+\]
+depends on relative productivity, relative amenity, a relative ``congestion'' term and relative city area.
+
+Relative city boundaries,
+\[
+e^{(z_{1c}-z_{1c'}) \tau} = 
+\frac {A_c\gamma_c^{1-\beta}}
+	{A_{c'}\gamma_{c'}^{1-\beta}}.
+\]
+Similarly to Desmet and Rossi-Hansberg (2013), these two relationships can be used to calibrate $A_c$ and $\gamma_c$ to a list of $N_c$ and $L_c$.
+
+Total nominal GDP in the country
+\[
+\sum_c R_c/\beta +R_r = R_r
+\left[
+	L_r + \frac1\beta\sum_c e^{(z_{1c}-\tilde z_c) \tau /\beta}L_c
+\right]
+\]
+Let $R_r = P_rA_r$. To express real GDP, we deflate both rural and urban output,
+\[
+P_{r0}A_rL_r + \frac1\beta  \frac{R_r P_{0}}{P}\sum_c e^{(z_{1c}-\tilde z_c) \tau /\beta}L_c.
+\]
+Urban GDP is a constant multiple of wages,
+\[
+\frac{1}{1-\beta}\sum_c W_cN_c = \frac{1}{1-\beta}WN\sum_c \frac 1{\gamma_c}N_c/N,
+\]
+at constant prices,
+\[
+\frac{P_0}{1-\beta}\frac WP N\sum_c \frac 1{\gamma_c}N_c/N.
+\]
+Using the labor market clearing condition, we can write real wages as
+\[
+\frac WP = N^{-\beta}(1-\beta) 
+	 \left[\sum_c 
+	 \left(A_c\gamma_c\right)^{1/\beta} 
+	 e^{-\tilde z_c{\tau/\beta}} L_{c}
+	 \right]^{\beta}.
+\]
+Substituting in, constant-price urban GDP is
+\[
+{P_0}
+L_u^\beta N^{1-\beta}
+	 \left[\sum_c 
+	 \left(A_c\gamma_c\right)^{1/\beta} 
+	 e^{-\tilde z_c{\tau/\beta}} L_{c}/L_u
+	 \right]^{\beta}
+	 \sum_c \frac 1{\gamma_c}N_c/N.
+\]
+Real GDP depends on the number of (urban) workers, the amount of urban land, and an average land productivity of cities. There is a correction for average city amenities.
+
+When there are $K$ symmetric cities with $\gamma_c=1$, $A_c=A_u$, urban real GDP simplifies to
+\[
+{P_0}
+A_u e^{-\tilde z_c \tau}
+L_u^\beta N^{1-\beta},
+\]
+with $L_u = Kz_{1c}^2\pi$.
+
+Real output per land in agriculture is
+\[
+P_{r0}A_r,
+\]
+whereas in urban sector
+\[
+P_0A_u
+ \left(
+ \frac{N}
+ {L_u}\right)^{1-\beta}e^{-\tau\tilde z_{c}}.
+\]
+
+Given our formula for real wage and rural rent,
+\[
+W^{1-\beta} = P^{1-\beta}N^{-\beta(1-\beta)}(1-\beta)^{1-\beta} 
+	 \left[\sum_c 
+	 \left(A_c\gamma_c\right)^{1/\beta} 
+	 e^{-\tilde z_c{\tau/\beta}} L_{c}
+	 \right]^{\beta(1-\beta)}
+\]
+
+\[
+e^{z_{1c} \tau} = \beta^\beta N^{\beta(1-\beta)} 
+\left(
+	\frac {P}{P_r}
+\right)^{\beta}
+\frac {A_c/A_r\gamma_c^{1-\beta}} {\left[\sum_c 
+	 \left(A_c/A_r\gamma_c\right)^{1/\beta} 
+	 e^{-\tilde z_c{\tau/\beta}} L_{c}
+	 \right]^{\beta(1-\beta)}
+}
+\]
+\[
+	N_c =
+(1-\beta)^{1/\beta}
+	 \left(\frac{PA_c\gamma_c}{W}\right)^{1/\beta} 
+	 e^{-\tilde z_c{\tau/\beta}} L_{c}
+\]
 
 \subsection{Space and development}
 Using the aggregate production function, we can write output per worker in sector $i$ as

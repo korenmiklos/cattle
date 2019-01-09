@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.3)  8 JAN 2019 17:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.3)  9 JAN 2019 16:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -278,46 +278,23 @@ File: figures/bid_rent_curves.png Graphic file (type png)
 <use figures/bid_rent_curves.png>
 Package pdftex.def Info: figures/bid_rent_curves.png  used on input line 225.
 (pdftex.def)             Requested size: 321.1943pt x 233.66885pt.
- [8 <./figures/bid_rent_curves.png>] [9]
-
-LaTeX Warning: Reference `eq:SCE1' on page 10 undefined on input line 317.
-
-
-LaTeX Warning: Reference `eq:SCE3' on page 10 undefined on input line 317.
-
-
-LaTeX Warning: Reference `eq:SCE1' on page 10 undefined on input line 319.
-
-
-LaTeX Warning: Reference `eq:SCE3' on page 10 undefined on input line 321.
-
-[10]
-Overfull \hbox (7.60791pt too wide) in paragraph at lines 334--335
-[]\OT1/cmr/m/it/12 Manufacturing and agri-cul-ture clear at the coun-try level:
- $[][] \OML/cmm/m/it/12 N[]C[] \OT1/cmr/m/n/12 = [][] []$\OT1/cmr/m/it/12 . 
- []
-
-[11]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[12]
-<figures/sector_location_quotients.png, id=60, 803.0pt x 584.1825pt>
+ [8 <./figures/bid_rent_curves.png>] [9] [10] [11] [12] [13] [14]
+[15]
+<figures/sector_location_quotients.png, id=71, 803.0pt x 584.1825pt>
 File: figures/sector_location_quotients.png Graphic file (type png)
 <use figures/sector_location_quotients.png>
 Package pdftex.def Info: figures/sector_location_quotients.png  used on input l
-ine 420.
+ine 589.
 (pdftex.def)             Requested size: 325.215pt x 236.60152pt.
- [13] [14 <./figures/sector_location_quotients.png>] [15] [16]
-<figures/city_level_inputs/expenditure_shares.png, id=76, 803.0pt x 584.1825pt>
+ [16 <./figures/sector_location_quotients.png>] [17] [18]
+<figures/city_level_inputs/expenditure_shares.png, id=83, 803.0pt x 584.1825pt>
 
 File: figures/city_level_inputs/expenditure_shares.png Graphic file (type png)
 <use figures/city_level_inputs/expenditure_shares.png>
 Package pdftex.def Info: figures/city_level_inputs/expenditure_shares.png  used
- on input line 494.
+ on input line 663.
 (pdftex.def)             Requested size: 325.215pt x 236.60152pt.
- [17]
-[18 <./figures/city_level_inputs/expenditure_shares.png>]
+ [19] [20 <./figures/city_level_inputs/expenditure_shares.png>]
 
 ! LaTeX Error: Lonely \item--perhaps a missing list environment.
 
@@ -325,47 +302,47 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.554     \item U
+l.723     \item U
                  tility is equalized across cities.
 ? 
 
-LaTeX Warning: Reference `eq:goods_market_clearing' on page 19 undefined on inp
-ut line 569.
+LaTeX Warning: Reference `eq:goods_market_clearing' on page 21 undefined on inp
+ut line 738.
 
-[19]
-<figures/city_level_inputs/productivity.png, id=90, 803.0pt x 584.1825pt>
+[21]
+<figures/city_level_inputs/productivity.png, id=96, 803.0pt x 584.1825pt>
 File: figures/city_level_inputs/productivity.png Graphic file (type png)
 <use figures/city_level_inputs/productivity.png>
 Package pdftex.def Info: figures/city_level_inputs/productivity.png  used on in
-put line 622.
+put line 791.
 (pdftex.def)             Requested size: 325.215pt x 236.60152pt.
-<figures/city_level_inputs/land.png, id=91, 803.0pt x 584.1825pt>
+<figures/city_level_inputs/land.png, id=97, 803.0pt x 584.1825pt>
 File: figures/city_level_inputs/land.png Graphic file (type png)
 <use figures/city_level_inputs/land.png>
 Package pdftex.def Info: figures/city_level_inputs/land.png  used on input line
- 626.
+ 795.
 (pdftex.def)             Requested size: 325.215pt x 236.60152pt.
- [20] [21 <./figures/city_level_inputs/productivity.png> <./figures/city_level_
+ [22] [23 <./figures/city_level_inputs/productivity.png> <./figures/city_level_
 inputs/land.png>]
-<figures/city_level_inputs/location.png, id=100, 803.0pt x 584.1825pt>
+<figures/city_level_inputs/location.png, id=106, 803.0pt x 584.1825pt>
 File: figures/city_level_inputs/location.png Graphic file (type png)
 <use figures/city_level_inputs/location.png>
 Package pdftex.def Info: figures/city_level_inputs/location.png  used on input 
-line 630.
+line 799.
 (pdftex.def)             Requested size: 325.215pt x 236.60152pt.
-<figures/city_level_inputs/city_radius.png, id=101, 803.0pt x 584.1825pt>
+<figures/city_level_inputs/city_radius.png, id=107, 803.0pt x 584.1825pt>
 File: figures/city_level_inputs/city_radius.png Graphic file (type png)
 <use figures/city_level_inputs/city_radius.png>
 Package pdftex.def Info: figures/city_level_inputs/city_radius.png  used on inp
-ut line 634.
+ut line 803.
 (pdftex.def)             Requested size: 325.215pt x 236.60152pt.
- [22 <./figures/city_level_inputs/location.png>] [23 <./figures/city_level_inpu
-ts/city_radius.png>] (./cattle.bbl [24
+ [24 <./figures/city_level_inputs/location.png>] [25 <./figures/city_level_inpu
+ts/city_radius.png>] (./cattle.bbl [26
 
-] [25]) [26]
-[27
+] [27]) [28]
+[29
 
-] [28] (./response.tex [29] [30] [31]) [32] (./cattle.aux)
+] [30] (./response.tex [31] [32] [33]) [34] (./cattle.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -374,10 +351,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 2465 strings out of 494091
- 34626 string characters out of 6163524
+ 2463 strings out of 494091
+ 34608 string characters out of 6163524
  100598 words of memory out of 5000000
- 6094 multiletter control sequences out of 15000+600000
+ 6092 multiletter control sequences out of 15000+600000
  12575 words of font info for 45 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  41i,11n,25p,1244b,283s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -402,10 +379,10 @@ asic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2
 e/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/tex
 live/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/
 texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on cattle.pdf (32 pages, 566805 bytes).
+Output written on cattle.pdf (34 pages, 573966 bytes).
 PDF statistics:
- 203 PDF objects out of 1000 (max. 8388607)
- 133 compressed objects within 2 object streams
+ 209 PDF objects out of 1000 (max. 8388607)
+ 137 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  36 words of extra memory for PDF output out of 10000 (max. 10000000)
 
