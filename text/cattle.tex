@@ -139,83 +139,80 @@ where $x_j=P_jc_j/\sum_k P_kc_k$ is the expenditure share of good $j$.
 
 
 \subsection{Producers}
-Output in the urban sector at location $z$ depends on labor $N$ and land $L$ used at that location,
+Output in sector $i$ at location $z$ depends on labor $N$ and land $L$ used at that location,
 \[
-Q(z) = A L(z)^{\beta}N(z)^{1-\beta}.
+Q_i(z) =\beta_i^{-\beta_i}(1-\beta_i)^{-(1-\beta_i)} A_i L_i(z)^{\beta_i}N_i(z)^{1-\beta_i}.
 \]
 We take labor to be freely mobile within the city, land is in fixed $\Bar{L}(z)$ supply in each location. The names ``land'' and ``labor'' are for the sake of convenience, these two factors correspond to spatially fixed and mobile factors, respectively, and we will calibrate them accordingly.
 
 Products are sold a single location in each city, the central business district. This is location $z=0$, so that $z$ indexes distance to the center.
-To ship a product to the center, one has to incur shipping costs. If a unit of product leaves location $z$, only
+
+There are two sectors, urban and rural. The urban sector has a shipping cost, rural sector does not.
+To ship an urban product to the center, one has to incur shipping costs. If a unit of product leaves location $z$, only
 \[
 e^{-\tau z}
 \]
-units arrive at the center. This is akin to the iceberg assumption of transport costs. Sectors also differ in the intensity of shipping costs $\tau$. 
+units arrive at the center. This is akin to the iceberg assumption of transport costs.
 
-The rural sector, agriculture can be shipped freely and uses only land in production. This will ensure that in equilibrium agricultural goods are produced outside cities in rural areas. 
+The rural sector, goods can be shipped freely. This will ensure that in equilibrium agricultural goods are produced outside cities in rural areas. 
 
 Profits from production at $z$ are
 \begin{equation}
 \label{eq:profit}
-\Pi_u(z)=Pe^{-\tau z}Q(z)-WN(z)-R(z)L(z)
+\Pi_u(z)=P_ue^{-\tau z}Q_u(z)-W_uN_u(z)-R_u(z)L_u(z)
 \end{equation}
-for the urban sector. A sector being active at location $z$ requires that their maximized profit $\max\Pi(z)\geq0$.
+for the urban sector and
+\begin{equation}
+\label{eq:profit:rural}
+\Pi_r(z)=P_r Q_r(z)-W_rN_r(z)-R_rL_r(z)
+\end{equation}
+for the rural sector. A sector being active at location $z$ requires that their maximized profit $\max\Pi(z)\geq0$.
 
 \subsection{Spatial Sorting}
 Because space if featureless, the available land at each distance $z$ from the CBD is $\Bar L(z) \equiv 2z\pi$. We study symmetric equilibria where the distance to the CBD completely characterizes a location.
 
 \begin{definition}
-Given a level of rural rent $R_r$ and overall employment $N$, define the \emph{competitive spatial equilibrium} in a circular city as a set of quantities $Q(z), L(z), N(z)$ and prices $P$, $R(z), W$ such that
+Given a level of rural prices $P_r$ and wages $W_u$, $W_r$, define the \emph{spatial sorting} in a circular city as a set of quantities $Q_i(z), L_i(z), N_i(z)$ and prices $P_u$, $R(z)$ such that
 \begin{enumerate}
-    \item The producers choose location $z$, and nonnegative quantities $Q(z), L(z), N(z)$ to maximize their profits (\ref{eq:profit}), taking prices as given.
-    \item Consumer chooses $\{C_{ic}\}_{i=1}^3$ to maximize utility (\ref{eq:Utility}) subject to her budget constraint (\ref{eq:BudCons}), taking prices as given.
-    \item Service sector clears: $N_c C_{1c}=\tilde Q_{1c}$.
-    \item Labor market clears: $N=\int_{z\in Z} N(z)$.
-    \item Land markets clear at every location: $\sum_iL_i(z)=\Bar L(z)$ for all $z\in Z$.
+    \item The producers choose location $z$, and nonnegative quantities $Q_i(z), L_i(z), N_i(z)$ to maximize their profits (\ref{eq:profit}), taking prices as given.
+    \item Land markets clear at every location: $L_u(z)+L_r(z)=\Bar L(z)$ for all $z\in Z$.
 \end{enumerate}
 \end{definition}
-The competitive spatial equilibrium, as we show below, has a simple and intuitive structure. The urban sector with a positive transport cost intensity $\tau$ locates closer to the center. The rural sector is produced outside cities.
+The spatial sorting, as we show below, has a simple and intuitive structure. The urban sector with a positive transport cost intensity $\tau$ locates closer to the center. The rural sector is produced outside cities.
 
-To see why this is the case, construct the sectoral bid rent curve $R(z)$. This is the maximum rent an active producer in the urban sector would be willing to pay at location $z$. %In a competitive market, the sector with the highest bid rent curve is active at a location ($R(z)=\max_iR_i(z)$ for all $z$).
-A profit maximizing producer is choosing its land $N(z)$ and labor demand $L(z)$ to equalize the value marginal product of land and labor to rents and wages, respectively. It is true for any rent function or wages it might face, so it is true for rents given by its own bid-rent curve $R(z)$, in particular.
+To see why this is the case, construct the sectoral bid rent curve $R_i(z)$. This is the maximum rent an active producer in the urban sector would be willing to pay at location $z$. %In a competitive market, the sector with the highest bid rent curve is active at a location ($R(z)=\max_iR_i(z)$ for all $z$).
+A profit maximizing producer is choosing its land $L_i(z)$ and labor demand $N_i(z)$ to equalize the value marginal product of land and labor to rents and wages, respectively. It is true for any rent function or wages it might face, so it is true for rents given by its own bid-rent curve $R_i(z)$, in particular.
 \begin{align}
-R(z) &=\beta Pe^{-\tau z}A \left(\frac{N(z)}{L(z)}\right)^{1-\beta}\\
-W &=(1-\beta) Pe^{-\tau z}A \left(\frac{N(z)}{L(z)}\right)^{-\beta}
+R_i(z) &=\beta_i^{1-\beta_i}(1-\beta_i)^{-(1-\beta_i)} P_ie^{-\tau_i z}A_i \left(\frac{N_i(z)}{L_i(z)}\right)^{1-\beta_i}\\
+W_i &=\beta_i^{-\beta_i}(1-\beta_i)^{\beta_i)} P_ie^{-\tau_i z}A_i \left(\frac{N_i(z)}{L_i(z)}\right)^{-\beta_i}
 \end{align}
-
 The sectoral labor-land ratio (employment density) can be expressed as
 \begin{equation}
 \label{eq:EmpDens}
-\frac{N(z)}{L(z)} = \frac{1-\beta}{\beta}\frac{R(z)}{W}.
+\frac{N_i(z)}{L_i(z)} = \frac{1-\beta_i}{\beta_i}\frac{R_i(z)}{W_i}.
 \end{equation}
-
-Substituting this into the first-order condition for land use, we can get an implicit expression for the  bid rent curve of the urban sector:
-\[
-R(z) =\beta P e^{-\tau z}A \left(\frac{1-\beta}{\beta}\frac{R(z)}{W}\right)^{1-\beta},
-\]
-from which
+Substituting this into the first-order condition for land use and rearranging, we get the bid rent curve of the urban sector:
 \begin{equation}
 \label{eq:BidRent}
-R(z) =\beta(1-\beta)^{1/\beta-1} (PA)^{1/\beta} W^{1-1/\beta} e^{-\frac{\tau}{\beta} z}
+R_i(z) =(P_iA_i)^{1/\beta_i} W_i^{1-1/\beta_i} e^{-\frac{\tau_i}{\beta_i} z}
 \end{equation}
-for the urban sector, and $R(z)=R_r$ for the rural sector. Equation (\ref{eq:BidRent}) pins down the gradient of the sectoral rent curve, which determines how fast the bid-rents decrease with the distance from the CBD. The gradient is an increasing function of the transport cost and a decreasing function of land share $|\partial\log R(z)/\partial \log z|=\tau/\beta$. Intuitively, transport costs ($\tau z$) increase with distance, so producers offer lower rents for farther locations. If land were the only factor of production ($\beta=1$), only this direct effect would be present and the gradient would only depend on the transport cost intensity. With labor present, however, the producers can substitute labor for land, introducing an indirect effect on the gradient. As the equilibrium land-labor ratio shows (see equation \ref{eq:EmpDens}), the land share $\beta$ determines the strength of this substitutability: higher land share implies bid-rent curves decreasing with a slower rate.
+with $\tau_u=\tau$ for the urban sector and $\tau_r=0$ for the rural sector. Equation (\ref{eq:BidRent}) pins down the gradient of the sectoral rent curve, which determines how fast the bid-rents decrease with the distance from the CBD. The gradient is an increasing function of the transport cost and a decreasing function of land share $|\partial\log R(z)/\partial \log z|=\tau/\beta$. Intuitively, transport costs ($\tau z$) increase with distance, so producers offer lower rents for farther locations. If land were the only factor of production ($\beta=1$), only this direct effect would be present and the gradient would only depend on the transport cost intensity. With labor present, however, the producers can substitute labor for land, introducing an indirect effect on the gradient. As the equilibrium land-labor ratio shows (see equation \ref{eq:EmpDens}), the land share $\beta$ determines the strength of this substitutability: higher land share implies bid-rent curves decreasing with a slower rate.
 
-Agriculture has a special bid-rent curve because $\tau_3=0$ and the land share is one,
-\begin{equation}
-\label{eq:BidRent:agri}
-R_r(z) =R_r \, \forall z.
-\end{equation}
+Wherever the rural sector is active, it pays a fixed rent of
+\[
+R_r = (P_rA_r)^{1/\beta_r} W_r^{1-1/\beta_r}
+\]
 Because agricultural goods are freely tradable, their bid-rent does not depend on location.
 
-We can also get the employment gradient by substituting the bid rent curve into the labor-land ratio,
+We can also get the urban employment gradient by substituting the bid rent curve into the labor-land ratio,
 \begin{equation}
 \label{eq:EmpGrad}
-\frac{N(z)}{L(z)} = (1-\beta)^{1/\beta} \left(\frac{PA}{W}\right)^{1/\beta} e^{-\frac{\tau}{\beta} z}.
+\frac{N_u(z)}{L_u(z)} = \frac{1-\beta_u}{\beta_u} \left(\frac{P_uA_u}{W_u}\right)^{1/\beta_u} e^{-\frac{\tau}{\beta_u} z}.
 \end{equation}
 This is the relationship we use to calibrate the sectoral transport cost intensities.
 
 \begin{proposition}\label{prop:existence}
-There exists a competitive spatial equilibrium, characterized by location $0<z_1$ such that the urban sector produces at $\left[0,z_1\right]$, and agriculture locates in $(z_1,\infty)$.
+There exists a competitive spatial equilibrium, characterized by location $0<z_u$ such that the urban sector produces at $\left[0,z_u\right]$, and agriculture locates in $(z_u,\infty)$.
 \end{proposition}
 The proof is provided in the Appendix. Intuitively, the different exponential slope of the bid-rent curves ensures that they cross exactly once. This results in a strict partitioning across sectors, as shown in Figure \ref{fig:BidRent}. 
 
@@ -225,168 +222,97 @@ The proof is provided in the Appendix. Intuitively, the different exponential sl
 \includegraphics[scale=0.4]{figures/bid_rent_curves}
 \end{center}
 
-\noindent \footnotesize{The figure plots the structure of a competitive spatial equilibrium. It shows equilibrium sectoral bid rent curves as a function of distance from the city center. A sector is active over an area where it is willing to overbid the sector. Crossings of the bid-rent curves determine the borders of the sectors. The urban sector is active in $[0,z_1]$, agriculture in $(z_1,\infty)$.}
+\noindent \footnotesize{The figure plots the structure of a competitive spatial equilibrium. It shows equilibrium sectoral bid rent curves as a function of distance from the city center. A sector is active over an area where it is willing to overbid the sector. Crossings of the bid-rent curves determine the borders of the sectors. The urban sector is active in $[0,z_u]$, agriculture in $(z_u,\infty)$.}
 \end{figure}
 
-Each city is characterized by a distance cutoff $z_1$. Locations $z>z_1$ cannot be associated with any particular city and we will call them agricultural or rural land. This implies that $z_1$ will be the functional city boundary and we will calibrate the model accordingly.
+Each city is characterized by a distance cutoff $z_u$. Locations $z>z_u$ cannot be associated with any particular city and we will call them agricultural or rural land. This implies that $z_u$ will be the functional city boundary and we will calibrate the model accordingly.
 
 \subsection{Aggregation across space}
 For the urban sector, production is a function of a suitably chosen representative location. Sectoral output measured at the center is
 \begin{equation*}
-\tilde{Q}_i=\int_{z=0}^{z_1}e^{-\tau z}AL(z)^\beta N(z)^{1-\beta}dz.
+\tilde{Q}_u=B_u\int_{z=0}^{z_u}e^{-\tau z}A_uL(z)^\beta N_u(z)^{1-\beta}dz,
 \end{equation*}
+with $B_u=\beta_u^{-\beta_u}(1-\beta_u)^{-(1-\beta_u)}$.
 
 Let the representative location
 \begin{equation}
 \label{eq:ReprLoc}
 \tilde z = -
-\frac{\beta}{\tau}
-\ln\int_{z=0}^{z_1} \frac{L(z)}{L}e^{-\frac{\tau}{\beta} z}dz
+\frac{\beta_u}{\tau}
+\ln\int_{z=0}^{z_u} \frac{L(z)}{L_u}e^{-\frac{\tau}{\beta_u} z}dz
 \end{equation}
-denote the average distance of the urban sector to the center, where $L=\int_{z=0}^{z_1} L(z)dz$ is the total amount of land devoted within the city fringe. This definition ensures that the trade cost going to location $\tilde z$ equals the land-weighted average trade cost across all sectoral locations,
+denote the average distance of the urban sector to the center, where $L_u=\int_{z=0}^{z_u} L(z)dz$ is the total amount of land devoted within the city fringe. This definition ensures that the trade cost going to location $\tilde z$ equals the land-weighted average trade cost across all sectoral locations,
 \[
-e^{-\frac{\tau}{\beta} \tilde z} = \int_{z=0}^{z_1} \frac{L(z)}{L}e^{-\frac{\tau}{\beta} z}dz.
+e^{-\frac{\tau}{\beta_u} \tilde z} = \int_{z=0}^{z_u} \frac{L(z)}{L_u}e^{-\frac{\tau}{\beta_u} z}dz.
 \]
 As we will see below, $\tilde z$ is a sufficient statistic about sector location for aggregation purposes. %(XX THIS IS A TRICK OF THE MELITZ MODEL)
 
 Ratio of urban to rural rent
 \[
-\frac{R_u}{R_r} = \frac{R(0)e^{-\tilde z \tau /\beta}} {R_r},
+\frac{R_u}{R_r} = \frac{R(0)e^{-\tilde z \tau /\beta_u}} {R_r},
 \]
-and, given that $R(z_1)=R_r$, 
+and, given that $R(z_u)=R_r$, 
 \[
-\frac{R_u}{R_r} = e^{(z_1-\tilde z) \tau /\beta}>1.
+\frac{R_u}{R_r} = e^{(z_u-\tilde z) \tau /\beta_u}>1.
 \]
 The ratio of urban to rural rent expenditure is
 \[
 \frac{R_u L_u}{R_r L_r}=
-e^{(z_1-\tilde z) \tau /\beta}
-\frac{z_1^2 \pi}{L-z_1^2 \pi}.
+e^{(z_u-\tilde z) \tau /\beta_u}
+\frac{z_u^2 \pi}{L-z_u^2 \pi}.
 \]
 
 \begin{proposition}\label{prop:aggregation}
 City-level sectoral production function is of the form:
 \begin{equation}
-\tilde Q =
-AL^{\beta}N^{1-\beta}
+\tilde Q_u =
+A_uL_u^{\beta}N_u^{1-\beta}
  e^{-\tau\tilde z}.
 \end{equation}
-It depends on trade costs from the representative location ($\tilde{z}$) defined by equation \eqref{eq:ReprLoc} and is a Cobb-Douglas aggregate of sectoral land ($L=\int_{z=0}^{z_1}L(z)dz$) and labor ($N=\int_{z=0}^{z_1}N(z)dz$) use.
+It depends on trade costs from the representative location ($\tilde{z}$) defined by equation \eqref{eq:ReprLoc} and is a Cobb-Douglas aggregate of sectoral land ($L_u=\int_{z=0}^{z_u}L(z)dz$) and labor ($N_u=\int_{z=0}^{z_u}N(z)dz$) use.
 \end{proposition}
 
-Introduce the notation 
-\begin{equation}\label{eq:zeta}
-\zeta = \beta(1-\beta)^{1/\beta-1} (PA)^{1/\beta} W^{1-1/\beta}
-\end{equation}
-so that we can write the bid-rent curve as 
+Rent arbitrage between manufacturing and agriculture, $R_u(z_{u}) = R_{r}$, pins down the city boundary:
 \[
-R(z) = \zeta\exp(-z \tau/\beta).
-\]
-Total rent paid in the city is
-\[
-R_{u} = \int_{z=0}^{z_{1}} R(z)\bar L(z)dz = 
-\zeta\int_{z=0}^{z_1} \exp(-z \tau/\beta)\bar L(z)dz
-\]
-Rent arbitrage between manufacturing and agriculture
-\[
-R(z_{1}) = R_{r}
+e^{z_{u} \tau} =  
+\frac {P_uA_u} {R_r^{\beta_u} W_u^{1-\beta_u}}
 \]
 \[
-\zeta^\beta\exp(-z_{1} \tau) = R_r^\beta
+ =  
+\frac {P_uA_u}{P_rA_r}
+\left(
+ \frac{W_r}{P_rA_r}
+\right)^{\beta_u/\beta_r-1}
+\left(
+ \frac{W_u}{W_r}
+\right)^{\beta_u-1}
 \]
+City employment is
 \[
-\beta^\beta(1-\beta)^{1-\beta} PA W^{\beta-1}
-\exp(-z_{1} \tau) = R_r^\beta
-\]
+\frac{N_u}{L_u} = \frac{1-\beta_u}{\beta_u} \left(\frac{P_uA_u}{W_u}\right)^{1/\beta_u} e^{-\tilde z\tau/\beta_u}
+\] 
 \[
-\beta^\beta(1-\beta)^{1-\beta} 
-\exp(-z_{1} \tau) PA/W= (R_r/W)^\beta
-\]
-\begin{equation}\tag{ii}\label{eq:SCE2}
-W =
-\beta^{\beta/(1-\beta)}(1-\beta) (PA)^{1/(1-\beta)} R_r^{-\beta/(1-\beta)}
-\exp[-z_{1} \tau/(1-\beta)]
-\end{equation}
-\begin{equation}\tag{iv}\label{eq:SCE4}
-	W = 
-	N^{-\beta}
-(1-\beta)
-	 PA e^{-\tilde z{\tau}} L_u^\beta.
-\end{equation}
+=\frac{1-\beta_u}{\beta_u} 
+	 \left(\frac{P_uA_u}{P_rA_r}\right)^{1/\beta_u} 
+	 \left(\frac{W_r}{P_rA_r}\right)^{-1/\beta_u} 
+	 \left(\frac{W_u}{W_r}\right)^{-1/\beta_u} 
+	 e^{-\tilde z{\tau/\beta_u}}.
+\]	
+We want to express everything relative to rural productivity. The rural-urban split is crucial, because there is a wedge: one cannot make a piece of rural land urban. The marginal piece of land is worse than the average urban land (farther from the CBD). Hence cities are better, on average, even if land is optimally allocated.
 
-Equations \eqref{eq:SCE2} and \eqref{eq:SCE4} can be solved for $z_{1}$ and $W$. Specifically,
-\[
-	 e^{-\tilde z{\tau}+z_{1} \tau/(1-\beta)} L_u^\beta 
-	=
-\beta^{\beta/(1-\beta)}N^\beta(PA)^{\beta/(1-\beta)} R_r^{-\beta/(1-\beta)}
-\]
-\[
-	 e^{-\tilde z{\tau}/\beta + z_{1} \tau/(\beta-\beta^2)} L_u 
-	=
-\beta^{1/(1-\beta)}N(PA)^{1/(1-\beta)} R_r^{-1/(1-\beta)}
-\]
-\[
-	 e^{[z_{1}/(1-\beta)-\tilde z]{\tau}/\beta} L_u 
-	=
-\beta^{1/(1-\beta)}N
-\left( \frac{PA}{R_r} \right)^{1/(1-\beta)}
-\]
-The LHS is increasing in $z_1$ faster than quadratically. This pins down the equilibrium city size as an increasing function of $N$ and $PA$. 
-This is how city size (conditional on city population) depends on the relative productivity of urban and rural sectors.
-\[
-	 \frac1\beta e^{[z_{1}-(1-\beta)\tilde z]{\tau}/\beta} (L_u/N)^{1-\beta} 
-	=
-\frac{PA}{R_r}.
-\]
-Or, for given wages,
-\[
-e^{z_{1} \tau} = \beta^\beta(1-\beta)^{1-\beta} 
-\frac {PA} {R_r^\beta W^{1-\beta}}
-\]
-pins down the city boundary. 	
-\[
-	N^{\beta} =
-(1-\beta)
-	 \frac{PA}{W} e^{-\tilde z{\tau}} L_u^\beta.
-\]
-\[
-	N =
-(1-\beta)^{1/\beta}
-	 \left(\frac{PA}{W}\right)^{1/\beta} 
-	 e^{-\tilde z{\tau/\beta}} L_u
-\]
-pins down city employment.
-\[
-	\frac{N}{L_u} =
-(1-\beta)^{1/\beta}
-	 \left(\frac{PA}{W}\right)^{1/\beta} 
-	 e^{-\tilde z{\tau/\beta}}
-\]
-We want to express everything relative to rural rents. The rural-urban split is crucial, because there is a wedge: one cannot make a piece of rural land urban. The marginal piece of land is worse than the average urban land (farther from the CBD). Hence cities are better, on average, even if land is optimally allocated.
-
-\[
-e^{z_{1} \tau} = \beta^\beta(1-\beta)^{1-\beta} 
-\frac {PA/R_r} {(W/R_r)^{1-\beta}}
-\]
-\[
-	\frac{N}{L_u} =
-(1-\beta)^{1/\beta}
-	 \left(\frac{PA}{R_r}\right)^{1/\beta} 
-	 \left(\frac{W}{R_r}\right)^{-1/\beta} 
-	 e^{-\tilde z{\tau/\beta}}
-\]
 \subsection{Multi-city equilibrium}
 The above equations characterize production in a city conditional on product prices and wages. These, in turn, are pinned down in a multicity equilibrium.
 
-The competitive spatial equilibrium pins down the supply of urban sectors. We assume that both urban and rural goods are tradable freely within the country. [FIXME: Rewrite tau discussion so that it comes from supply side only.] This yields the law of one price across cities. 
+The spatial sorting pins down the supply of urban sectors. We assume that both urban and rural goods are tradable freely within the country. [FIXME: Rewrite tau discussion so that it comes from supply side only.] This yields the law of one price across cities. 
+
+Cities differ in productivity $A_c$ and amenity $\gamma_c$. Rural workers enjoy an amenity of 1.
 
 \begin{definition}
-The multi-city equilibrium of a country is a collection of competitive spatial equilibria for each city, a set of prices $P_{u}$, $P_r$ and city wages $W_c$ such that
+The multi-city equilibrium of a country is a collection of spatial sortings for each city, a set of prices $P_{u}$, $P_r$ and city wages $W_c$ such that
 \begin{enumerate}
     \item Consumers maximize utility (\ref{eq:Utility}) subject to their budget constraint (\ref{eq:BudCons}), taking prices as given.
     \item Goods market clear at the country level: $\sum_{c=1}^K N_c C_{ic}=\sum_{c=1}^K\tilde Q_{ic}$.
-[FIXME: Add an amenity term to let N be calibrated freely.]
-	\item Utility is equalized across cities. [FIXME: add amenities.]
+	\item Utility is equalized across cities. [FIXME: add multiplicative amenities to utility function]
 \end{enumerate}
 \end{definition}
 
@@ -395,117 +321,131 @@ The multi-city equilibrium of a country is a collection of competitive spatial e
 Introduce the subscript $c$ for cities. Utility equalization means $W_c = W/\gamma_c$, where $\gamma_c$ captures amenities in city $c$. This is a compensating wage differential.
 The conditions for competitive spatial equilibrium are
 \[
-e^{z_{1c} \tau} = \beta^\beta(1-\beta)^{1-\beta} 
-\frac {PA_c\gamma_c^{1-\beta}/R_r} {(W/R_r)^{1-\beta}}
+e^{z_{c} \tau} = 
+\frac{P_u}{P_r}
+\frac {A_c \gamma_c^{1-\beta_u}}{A_r}
+\left(
+ \frac{W_r}{P_rA_r}
+\right)^{\beta_u/\beta_r-1}
 \]
 \[
-	N_c =
-(1-\beta)^{1/\beta}
-	 \left(\frac{PA_c\gamma_c/R_r}{W/R_r}\right)^{1/\beta} 
-	 e^{-\tilde z_c{\tau/\beta}} L_{c}
+	N_c = L_c
+\frac{1-\beta_u}{\beta_u} 
+	 \left(\frac{P_uA_c\gamma_c}{P_rA_r}\right)^{1/\beta_u} 
+	 \left(\frac{W_r}{P_rA_r}\right)^{-1/\beta_u} 
+	 e^{-\tilde z_c{\tau/\beta_u}}
 \]
-
-The total rent paid in city $c$ is
 \[
-R_c = R_r e^{(z_{1c}-\tilde z_c) \tau /\beta}L_c.
+	N_c = \gamma_c 
+\frac{1-\beta_u}{\beta_u} 
+	 \left(\frac{W_r}{P_rA_r}\right)^{-1/\beta_r} 
+	 e^{(z_c-\tilde z_c){\tau/\beta_u}}L_c
 \]
-The share of urban to rural rent in the country is
-\[
-\frac {\sum_c R_c}{R_rL_r}
-=
-	\sum_c e^{(z_{1c}-\tilde z_c) \tau /\beta}L_c/L_r
-\]
-the ratio of urban to rural land times the average rent premium in cities. This increases in $P/R_r^\beta W^{1-\beta}$, the relative price of urban goods.
+[NB: The first condition is much simpler if $\beta_r=\beta_u$. Then city does not depend on wages and average popularion density.]
 
 Adding up labor demand across cities,
 \[
-N = \sum_c N_c 
-=(1-\beta)^{1/\beta} 
-	 \left(\frac{P}{W}\right)^{1/\beta} \sum_c 
-	 \left(A_c\gamma_c\right)^{1/\beta} 
-	 e^{-\tilde z_c{\tau/\beta}} L_{c}
+N_u = \sum_c N_c 
+= 
+\frac{1-\beta_u}{\beta_u} 
+	 \left(\frac{W_r}{P_rA_r}\right)^{-1/\beta_r} 
+\sum_c\gamma_c e^{(z_c-\tilde z_c){\tau/\beta_u}}L_c.
 \]
+Rural labor demand is 
+\[
+N_r = 
+\frac{1-\beta_r}{\beta_r} 
+	 \left(\frac{W_r}{P_rA_r}\right)^{-1/\beta_r}L_r.
+\]
+Using labor market clearing $N=N_u+N_r$, we can solve for the relative wage.
+\[
+\left(\frac{W_r}{P_rA_r}\right)^{1/\beta_r}
+= \frac{1}{N}
+\left[
+	\frac{1-\beta_r}{\beta_r} 
+	L_r+
+	\frac{1-\beta_u}{\beta_u} 
+	\sum_c\gamma_c e^{(z_c-\tilde z_c){\tau/\beta_u}}L_c
+\right].
+\]
+\[
+\frac{W_r}{P_rA_r}
+= N^{-\beta_r}
+\left[
+	\frac{1-\beta_r}{\beta_r} 
+	L_r+
+	\frac{1-\beta_u}{\beta_u} 
+	\sum_c\gamma_c e^{(z_c-\tilde z_c){\tau/\beta_u}}L_c
+\right]^{\beta_r}
+\]
+Substituting in for city employment,
+\[
+	N_c = \gamma_c N
+\frac {e^{(z_c-\tilde z_c){\tau/\beta_u}}L_c}
+	{	\frac{(1-\beta_r)/(1-\beta_u)}{\beta_r/\beta_u} 
+	L_r+
+	\sum_k\gamma_k e^{(z_k-\tilde z_k){\tau/\beta_u}}L_k}
+\]
+
+
+
 The relative employment of two cities,
 \[
 \frac{N_c}{N_{c'}} 
 = \frac
-	 {\left(A_c\gamma_c\right)^{1/\beta} e^{-\tilde z_c{\tau/\beta}} L_{c}}
-	 {\left(A_{c'}\gamma_{c'}\right)^{1/\beta} e^{-\tilde z_{c'}{\tau/\beta}} L_{c'}}
+	 {\left(A_c\gamma_c\right)^{1/\beta_u} e^{-\tilde z_c{\tau/\beta_u}} L_{c}}
+	 {\left(A_{c'}\gamma_{c'}\right)^{1/\beta_u} e^{-\tilde z_{c'}{\tau/\beta_u}} L_{c'}}
 \]
 depends on relative productivity, relative amenity, a relative ``congestion'' term and relative city area.
 
 Relative city boundaries,
 \[
-e^{(z_{1c}-z_{1c'}) \tau} = 
-\frac {A_c\gamma_c^{1-\beta}}
-	{A_{c'}\gamma_{c'}^{1-\beta}}.
+e^{(z_{c}-z_{c'}) \tau} = 
+\frac {A_c\gamma_c^{1-\beta_u}}
+	{A_{c'}\gamma_{c'}^{1-\beta_u}}.
 \]
 Similarly to Desmet and Rossi-Hansberg (2013), these two relationships can be used to calibrate $A_c$ and $\gamma_c$ to a list of $N_c$ and $L_c$.
 \[
 \frac{A_c\gamma_c}{A_{c'}\gamma_{c'}} 
 = \frac
-	 {\left(N_c/L_c\right)^{\beta} e^{\tilde z_c{\tau}}}
-	 {\left(N_{c'}/L_{c'}\right)^{\beta} e^{\tilde z_{c'}{\tau}}}
-\]
-\[
-\frac {\gamma_c^{\beta}}
-	{\gamma_{c'}^{\beta}} = 
-\frac
-	 {\left(N_c/L_c\right)^{\beta} e^{(\tilde z_c-z_{1c}){\tau}}}
-	 {\left(N_{c'}/L_{c'}\right)^{\beta} e^{(\tilde z_{c'}-z_{1c}){\tau}}}.
+	 {\left(N_c/L_c\right)^{\beta_u} e^{\tilde z_c{\tau}}}
+	 {\left(N_{c'}/L_{c'}\right)^{\beta_u} e^{\tilde z_{c'}{\tau}}}
 \]
 \[
 \frac {\gamma_c}
 	{\gamma_{c'}} = 
 \frac
-	 {\left(N_c/L_c\right) e^{(\tilde z_c-z_{1c}){\tau/\beta}}}
-	 {\left(N_{c'}/L_{c'}\right) e^{(\tilde z_{c'}-z_{1c}){\tau/\beta}}}.
+	 {\left(N_c/L_c\right) e^{(\tilde z_c-z_{c}){\tau/\beta_u}}}
+	 {\left(N_{c'}/L_{c'}\right) e^{(\tilde z_{c'}-z_{c}){\tau/\beta_u}}}.
 \]
 \[
 \frac{A_c}{A_{c'}} 
 = \frac
-	 {\left(N_c/L_c\right)^{\beta-1} e^{[z_{1c}-(1-\beta)\tilde z_c]{\tau/\beta}}}
-	 {...}
+	 {\left(N_c/L_c\right)^{\beta_u-1} e^{[z_{c}-(1-\beta_u)\tilde z_c]{\tau/\beta_u}}}
+	 {\left(N_{c'}/L_{c'}\right)^{\beta_u-1} e^{[z_{c'}-(1-\beta_u)\tilde z_{c'}]{\tau/\beta_u}}}
 \]
 
-Total nominal GDP in the country
-\[
-\sum_c R_c/\beta +R_r = R_r
-\left[
-	L_r + \frac1\beta\sum_c e^{(z_{1c}-\tilde z_c) \tau /\beta}L_c
-\right]
-\]
-Let $R_r = P_rA_r$. To express real GDP, we deflate both rural and urban output,
-\[
-P_{r0}A_rL_r + \frac1\beta  \frac{R_r P_{0}}{P}\sum_c e^{(z_{1c}-\tilde z_c) \tau /\beta}L_c.
-\]
 Urban GDP is a constant multiple of wages,
 \[
-\frac{1}{1-\beta}\sum_c W_cN_c = \frac{1}{1-\beta}WN\sum_c \frac 1{\gamma_c}N_c/N,
+\frac{1}{1-\beta_u}\sum_c W_cN_c = \frac{1}{1-\beta_u}W_rN\sum_c \frac 1{\gamma_c}N_c/N,
 \]
 at constant prices,
 \[
-\frac{P_0}{1-\beta}\frac WP N\sum_c \frac 1{\gamma_c}N_c/N.
+\frac{P_{u0}}{1-\beta_u}\frac {W_r}{P_u} N_u\sum_c \frac 1{\gamma_c}N_c/N_u.
 \]
-Using the labor market clearing condition, we can write real wages as
+Substituting in the labor-market clearing for urban labor, constant-price urban GDP is
 \[
-\frac WP = N^{-\beta}(1-\beta) 
+{P_{u0}}
+B_u A_rL_u^{\beta_u} N_u^{1-\beta_u}
 	 \left[\sum_c 
-	 \left(A_c\gamma_c\right)^{1/\beta} 
-	 e^{-\tilde z_c{\tau/\beta}} L_{c}
-	 \right]^{\beta}.
-\]
-Substituting in, constant-price urban GDP is
-\[
-{P_0}
-L_u^\beta N^{1-\beta}
-	 \left[\sum_c 
-	 \left(A_c\gamma_c\right)^{1/\beta} 
-	 e^{-\tilde z_c{\tau/\beta}} L_{c}/L_u
-	 \right]^{\beta}
-	 \sum_c \frac 1{\gamma_c}N_c/N.
+	 \left(\gamma_cA_c/A_r\right)^{1/\beta_u} 
+	 e^{-\tilde z_c{\tau/\beta_u}} L_{c}/L_u
+	 \right]^{\beta_u}
+	 \sum_c \frac 1{\gamma_c}N_c/N_u.
 \]
 Real GDP depends on the number of (urban) workers, the amount of urban land, and an average land productivity of cities. There is a correction for average city amenities.
+
+[NB: if $\beta_u=\beta_r$, the labor market clearing is simpler and city size does not depend on wages.]
 
 When there are $K$ symmetric cities with $\gamma_c=1$, $A_c=A_u$, urban real GDP simplifies to
 \[
