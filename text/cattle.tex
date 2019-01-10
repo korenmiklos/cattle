@@ -331,15 +331,13 @@ Equations \eqref{eq:SCE2} and \eqref{eq:SCE4} can be solved for $z_{1}$ and $W$.
 \beta^{1/(1-\beta)}N
 \left( \frac{PA}{R_r} \right)^{1/(1-\beta)}
 \]
-The LHS is increasing in $z_1$ faster than quadratically. This pins down the equilibrium city size as an increasing function of $N$ and $PA$. Writing out $R_r=P_rA_r$,
-\[
-	 e^{[z_{1}/(1-\beta)-\tilde z]{\tau}/\beta} L_u 
-	=
-\beta^{1/(1-\beta)}N
-\left( \frac{PA}{P_rA_r} \right)^{1/(1-\beta)}.
-\]
+The LHS is increasing in $z_1$ faster than quadratically. This pins down the equilibrium city size as an increasing function of $N$ and $PA$. 
 This is how city size (conditional on city population) depends on the relative productivity of urban and rural sectors.
-
+\[
+	 \frac1\beta e^{[z_{1}-(1-\beta)\tilde z]{\tau}/\beta} (L_u/N)^{1-\beta} 
+	=
+\frac{PA}{R_r}.
+\]
 Or, for given wages,
 \[
 e^{z_{1} \tau} = \beta^\beta(1-\beta)^{1-\beta} 
@@ -358,7 +356,25 @@ pins down the city boundary.
 	 e^{-\tilde z{\tau/\beta}} L_u
 \]
 pins down city employment.
+\[
+	\frac{N}{L_u} =
+(1-\beta)^{1/\beta}
+	 \left(\frac{PA}{W}\right)^{1/\beta} 
+	 e^{-\tilde z{\tau/\beta}}
+\]
+We want to express everything relative to rural rents. The rural-urban split is crucial, because there is a wedge: one cannot make a piece of rural land urban. The marginal piece of land is worse than the average urban land (farther from the CBD). Hence cities are better, on average, even if land is optimally allocated.
 
+\[
+e^{z_{1} \tau} = \beta^\beta(1-\beta)^{1-\beta} 
+\frac {PA/R_r} {(W/R_r)^{1-\beta}}
+\]
+\[
+	\frac{N}{L_u} =
+(1-\beta)^{1/\beta}
+	 \left(\frac{PA}{R_r}\right)^{1/\beta} 
+	 \left(\frac{W}{R_r}\right)^{-1/\beta} 
+	 e^{-\tilde z{\tau/\beta}}
+\]
 \subsection{Multi-city equilibrium}
 The above equations characterize production in a city conditional on product prices and wages. These, in turn, are pinned down in a multicity equilibrium.
 
@@ -380,12 +396,12 @@ Introduce the subscript $c$ for cities. Utility equalization means $W_c = W/\gam
 The conditions for competitive spatial equilibrium are
 \[
 e^{z_{1c} \tau} = \beta^\beta(1-\beta)^{1-\beta} 
-\frac {PA_c\gamma_c^{1-\beta}} {R_r^\beta W^{1-\beta}}
+\frac {PA_c\gamma_c^{1-\beta}/R_r} {(W/R_r)^{1-\beta}}
 \]
 \[
 	N_c =
 (1-\beta)^{1/\beta}
-	 \left(\frac{PA_c\gamma_c}{W}\right)^{1/\beta} 
+	 \left(\frac{PA_c\gamma_c/R_r}{W/R_r}\right)^{1/\beta} 
 	 e^{-\tilde z_c{\tau/\beta}} L_{c}
 \]
 
@@ -425,6 +441,32 @@ e^{(z_{1c}-z_{1c'}) \tau} =
 	{A_{c'}\gamma_{c'}^{1-\beta}}.
 \]
 Similarly to Desmet and Rossi-Hansberg (2013), these two relationships can be used to calibrate $A_c$ and $\gamma_c$ to a list of $N_c$ and $L_c$.
+\[
+\frac{A_c\gamma_c}{A_{c'}\gamma_{c'}} 
+= \frac
+	 {\left(N_c/L_c\right)^{\beta} e^{\tilde z_c{\tau}}}
+	 {\left(N_{c'}/L_{c'}\right)^{\beta} e^{\tilde z_{c'}{\tau}}}
+\]
+\[
+\frac {\gamma_c^{\beta}}
+	{\gamma_{c'}^{\beta}} = 
+\frac
+	 {\left(N_c/L_c\right)^{\beta} e^{(\tilde z_c-z_{1c}){\tau}}}
+	 {\left(N_{c'}/L_{c'}\right)^{\beta} e^{(\tilde z_{c'}-z_{1c}){\tau}}}.
+\]
+\[
+\frac {\gamma_c}
+	{\gamma_{c'}} = 
+\frac
+	 {\left(N_c/L_c\right) e^{(\tilde z_c-z_{1c}){\tau/\beta}}}
+	 {\left(N_{c'}/L_{c'}\right) e^{(\tilde z_{c'}-z_{1c}){\tau/\beta}}}.
+\]
+\[
+\frac{A_c}{A_{c'}} 
+= \frac
+	 {\left(N_c/L_c\right)^{\beta-1} e^{[z_{1c}-(1-\beta)\tilde z_c]{\tau/\beta}}}
+	 {...}
+\]
 
 Total nominal GDP in the country
 \[

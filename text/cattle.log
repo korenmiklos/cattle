@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.3)  9 JAN 2019 16:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.3)  10 JAN 2019 11:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -279,22 +279,26 @@ File: figures/bid_rent_curves.png Graphic file (type png)
 Package pdftex.def Info: figures/bid_rent_curves.png  used on input line 225.
 (pdftex.def)             Requested size: 321.1943pt x 233.66885pt.
  [8 <./figures/bid_rent_curves.png>] [9] [10] [11] [12] [13] [14]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 [15]
 <figures/sector_location_quotients.png, id=71, 803.0pt x 584.1825pt>
 File: figures/sector_location_quotients.png Graphic file (type png)
 <use figures/sector_location_quotients.png>
 Package pdftex.def Info: figures/sector_location_quotients.png  used on input l
-ine 589.
+ine 632.
 (pdftex.def)             Requested size: 325.215pt x 236.60152pt.
- [16 <./figures/sector_location_quotients.png>] [17] [18]
-<figures/city_level_inputs/expenditure_shares.png, id=83, 803.0pt x 584.1825pt>
+ [16] [17 <./figures/sector_location_quotients.png>] [18] [19]
+<figures/city_level_inputs/expenditure_shares.png, id=87, 803.0pt x 584.1825pt>
 
 File: figures/city_level_inputs/expenditure_shares.png Graphic file (type png)
 <use figures/city_level_inputs/expenditure_shares.png>
 Package pdftex.def Info: figures/city_level_inputs/expenditure_shares.png  used
- on input line 663.
+ on input line 706.
 (pdftex.def)             Requested size: 325.215pt x 236.60152pt.
- [19] [20 <./figures/city_level_inputs/expenditure_shares.png>]
+ [20]
+[21 <./figures/city_level_inputs/expenditure_shares.png>]
 
 ! LaTeX Error: Lonely \item--perhaps a missing list environment.
 
@@ -302,47 +306,47 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.723     \item U
+l.766     \item U
                  tility is equalized across cities.
 ? 
 
-LaTeX Warning: Reference `eq:goods_market_clearing' on page 21 undefined on inp
-ut line 738.
+LaTeX Warning: Reference `eq:goods_market_clearing' on page 22 undefined on inp
+ut line 781.
 
-[21]
-<figures/city_level_inputs/productivity.png, id=96, 803.0pt x 584.1825pt>
+[22]
+<figures/city_level_inputs/productivity.png, id=99, 803.0pt x 584.1825pt>
 File: figures/city_level_inputs/productivity.png Graphic file (type png)
 <use figures/city_level_inputs/productivity.png>
 Package pdftex.def Info: figures/city_level_inputs/productivity.png  used on in
-put line 791.
+put line 834.
 (pdftex.def)             Requested size: 325.215pt x 236.60152pt.
-<figures/city_level_inputs/land.png, id=97, 803.0pt x 584.1825pt>
+<figures/city_level_inputs/land.png, id=100, 803.0pt x 584.1825pt>
 File: figures/city_level_inputs/land.png Graphic file (type png)
 <use figures/city_level_inputs/land.png>
 Package pdftex.def Info: figures/city_level_inputs/land.png  used on input line
- 795.
+ 838.
 (pdftex.def)             Requested size: 325.215pt x 236.60152pt.
- [22] [23 <./figures/city_level_inputs/productivity.png> <./figures/city_level_
+ [23] [24 <./figures/city_level_inputs/productivity.png> <./figures/city_level_
 inputs/land.png>]
-<figures/city_level_inputs/location.png, id=106, 803.0pt x 584.1825pt>
+<figures/city_level_inputs/location.png, id=109, 803.0pt x 584.1825pt>
 File: figures/city_level_inputs/location.png Graphic file (type png)
 <use figures/city_level_inputs/location.png>
 Package pdftex.def Info: figures/city_level_inputs/location.png  used on input 
-line 799.
+line 842.
 (pdftex.def)             Requested size: 325.215pt x 236.60152pt.
-<figures/city_level_inputs/city_radius.png, id=107, 803.0pt x 584.1825pt>
+<figures/city_level_inputs/city_radius.png, id=110, 803.0pt x 584.1825pt>
 File: figures/city_level_inputs/city_radius.png Graphic file (type png)
 <use figures/city_level_inputs/city_radius.png>
 Package pdftex.def Info: figures/city_level_inputs/city_radius.png  used on inp
-ut line 803.
+ut line 846.
 (pdftex.def)             Requested size: 325.215pt x 236.60152pt.
- [24 <./figures/city_level_inputs/location.png>] [25 <./figures/city_level_inpu
-ts/city_radius.png>] (./cattle.bbl [26
+ [25 <./figures/city_level_inputs/location.png>] [26 <./figures/city_level_inpu
+ts/city_radius.png>] (./cattle.bbl [27
 
-] [27]) [28]
-[29
+] [28]) [29]
+[30
 
-] [30] (./response.tex [31] [32] [33]) [34] (./cattle.aux)
+] [31] (./response.tex [32] [33] [34]) [35] (./cattle.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -379,10 +383,10 @@ asic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2
 e/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/tex
 live/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/
 texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on cattle.pdf (34 pages, 573966 bytes).
+Output written on cattle.pdf (35 pages, 575843 bytes).
 PDF statistics:
- 209 PDF objects out of 1000 (max. 8388607)
- 137 compressed objects within 2 object streams
+ 212 PDF objects out of 1000 (max. 8388607)
+ 139 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  36 words of extra memory for PDF output out of 10000 (max. 10000000)
 
