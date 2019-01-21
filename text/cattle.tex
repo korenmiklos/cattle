@@ -104,7 +104,7 @@ To be consistent with Fact 4, we assume non-homothetic consumer preferences. We 
 A consumer living in city $c$ enjoys utility
 \begin{equation}
 \label{eq:Utility}
-u_c = \gamma_c\left[
+u_c = 
 \alpha_u^{1/\sigma_u}
 	\frac {\sigma_u}
 			{\sigma_u-1}
@@ -113,10 +113,9 @@ u_c = \gamma_c\left[
 	\alpha_r^{1/\sigma_r}
 	\frac {\sigma_r}
 			{\sigma_r-1}
-	C_{cr}^{1-1/\sigma_r}
-	\right],
+	C_{cr}^{1-1/\sigma_r},
 \end{equation}
-where $\alpha_i>0$ is the weight of sector $i$ and $\sigma_i>1$ governs the sector's price and income elasticity. Sector $u$ refers to ``urban goods,'' $r$ refers to ``rural goods.'' The city provides multiplicative amenities $\gamma_c$. The locational amenity of rural consumers is normalized to one.
+where $\alpha_i>0$ is the weight of sector $i$ and $\sigma_i>1$ governs the sector's price and income elasticity. Sector $u$ refers to ``urban goods,'' $r$ refers to ``rural goods.'' 
 
 There is a mass $N$ of consumers who supply one unit of labor inelastically, and rent land to producers in a competitive market. They are \emph{absentee landlords}: the rents they collect are independent of the place of employment.
 
@@ -124,9 +123,9 @@ The budget constraint of a city-$c$ consumer is
 \begin{equation}
 \label{eq:BudCons}
 P_u C_u + P_r C_r
-	= Y_c,
+	= W_c + R/N,
 \end{equation}
-where $Y_c$ is the income of consumer $c$. For tractability, we assume that income is proportional to wages. That is, rent income is rebated to consumers in proportion to their wage earnings.\footnote{This assumption is needed to simplify the analysis of cities with potentially different wages rate due to different amenities. If rents are distributed in other ways, the main analysis remains the same, but equilibrium wages will no longer be simply proportional to amenities.}
+where $W_c$ is the wage level in city $c$ and $R$ is the total rent in the economy.
 
 The sectoral consumption expenditures satisfy
 \begin{equation}\label{eq:ConsShares}
@@ -194,30 +193,30 @@ To see why this is the case, construct the sectoral bid rent curve $R_i(z)$. Thi
 A profit maximizing producer is choosing its land $L_i(z)$ and labor demand $N_i(z)$ to equalize the value marginal product of land and labor to rents and wages, respectively. It is true for any rent function or wages it might face, so it is true for rents given by its own bid-rent curve $R_i(z)$, in particular.
 \begin{align}
 R_i(z) &=\beta^{1-\beta}(1-\beta)^{-(1-\beta)} P_ie^{-\tau_i z}A_i \left(\frac{N_i(z)}{L_i(z)}\right)^{1-\beta}\\
-W_i &=\beta^{-\beta}(1-\beta)^{\beta)} P_ie^{-\tau_i z}A_i \left(\frac{N_i(z)}{L_i(z)}\right)^{-\beta}
+W &=\beta^{-\beta}(1-\beta)^{\beta)} P_ie^{-\tau_i z}A_i \left(\frac{N_i(z)}{L_i(z)}\right)^{-\beta}
 \end{align}
 The sectoral labor-land ratio (employment density) can be expressed as
 \begin{equation}
 \label{eq:EmpDens}
-\frac{N_i(z)}{L_i(z)} = \frac{1-\beta}{\beta}\frac{R_i(z)}{W_i}.
+\frac{N_i(z)}{L_i(z)} = \frac{1-\beta}{\beta}\frac{R_i(z)}{W}.
 \end{equation}
 Substituting this into the first-order condition for land use and rearranging, we get the bid rent curve of the urban sector:
 \begin{equation}
 \label{eq:BidRent}
-R_i(z) =(P_iA_i)^{1/\beta} W_i^{1-1/\beta} e^{-\frac{\tau_i}{\beta} z}
+R_i(z) =(P_iA_i)^{1/\beta} W^{1-1/\beta} e^{-\frac{\tau_i}{\beta} z}
 \end{equation}
 with $\tau_u=\tau$ for the urban sector and $\tau_r=0$ for the rural sector. Equation (\ref{eq:BidRent}) pins down the gradient of the sectoral rent curve, which determines how fast the bid-rents decrease with the distance from the CBD. The gradient is an increasing function of the transport cost and a decreasing function of land share $|\partial\log R(z)/\partial \log z|=\tau/\beta$. Intuitively, transport costs ($\tau z$) increase with distance, so producers offer lower rents for farther locations. If land were the only factor of production ($\beta=1$), only this direct effect would be present and the gradient would only depend on the transport cost intensity. With labor present, however, the producers can substitute labor for land, introducing an indirect effect on the gradient. As the equilibrium land-labor ratio shows (see equation \ref{eq:EmpDens}), the land share $\beta$ determines the strength of this substitutability: higher land share implies bid-rent curves decreasing with a slower rate.
 
 Wherever the rural sector is active, it pays a fixed rent of
 \[
-R_r = (P_rA_r)^{1/\beta} W_r^{1-1/\beta}
+R_r = (P_rA_r)^{1/\beta} W^{1-1/\beta}
 \]
 Because agricultural goods are freely tradable, their bid-rent does not depend on location.
 
 We can also get the urban employment gradient by substituting the bid rent curve into the labor-land ratio,
 \begin{equation}
 \label{eq:EmpGrad}
-\frac{N_u(z)}{L_u(z)} = \frac{1-\beta}{\beta} \left(\frac{P_uA_u}{W_u}\right)^{1/\beta} e^{-\frac{\tau}{\beta} z}.
+\frac{N_u(z)}{L_u(z)} = \frac{1-\beta}{\beta} \left(\frac{P_uA_u}{W}\right)^{1/\beta} e^{-\frac{\tau}{\beta} z}.
 \end{equation}
 This is the relationship we use to calibrate the sectoral transport cost intensities.
 
@@ -270,25 +269,21 @@ It depends on trade costs from the representative location ($\tilde{z}$) defined
 Rent arbitrage between manufacturing and agriculture, $R_u(z_{u}) = R_{r}$, pins down the city boundary:
 \begin{equation}\label{eq:city_boundary}
 e^{z_{u} \tau} =
-\frac {P_uA_u} {R_r^{\beta} W_u^{1-\beta}}
+\frac {P_uA_u} {R_r^{\beta} W^{1-\beta}}
  =
 \frac {P_uA_u}{P_rA_r}
-\left(
- \frac{W_u}{W_r}
-\right)^{\beta-1}
 \end{equation}
-The size of the city increases in the relative price and relative productivity of urban goods and decreases in the relative urban wage. Intuitively, when cities are productive (either in price or quantity), they can outbid the rural sector for land. These cities will be larger. Conversely, cities where wages are higher generate less land rent and will be smaller.
+The size of the city increases in the relative price and relative productivity of urban goods. Intuitively, when cities are productive (either in price or quantity), they can outbid the rural sector for land. These cities will be larger. 
 
 City employment density is
 \begin{equation}\label{eq:city_employment}
-\frac{N_u}{L_u} = \frac{1-\beta}{\beta} \left(\frac{P_uA_u}{W_u}\right)^{1/\beta} e^{-\tilde z\tau/\beta}
+\frac{N_u}{L_u} = \frac{1-\beta}{\beta} \left(\frac{P_uA_u}{W}\right)^{1/\beta} e^{-\tilde z\tau/\beta}
 =\frac{1-\beta}{\beta}
 	 \left(\frac{P_uA_u}{P_rA_r}\right)^{1/\beta}
-	 \left(\frac{W_r}{P_rA_r}\right)^{-1/\beta}
-	 \left(\frac{W_u}{W_r}\right)^{-1/\beta}
+	 \left(\frac{W}{P_rA_r}\right)^{-1/\beta}
 	 e^{-\tilde z{\tau/\beta}}.
 \end{equation}
-For a give city area, employment is increasing in the relative price and relative productivity of the city and decreases in the urban wage rate. It also decreases in city size. More productive cities will pay higher average rent, so producers will substitue land for labor. The opposite will hold for cities with high wages. And city size decreases employment density because of a selection effect: the the typical plot of land in large cities will be cheaper land, far away from the center. These plots will make more intense use of land.
+For a given city area, employment is increasing in the relative price and relative productivity of the city and decreases in the wage rate. It also decreases in city size. More productive cities will pay higher average rent, so producers will substitue land for labor. The opposite will hold when wages are high. And city size decreases employment density because of a selection effect: the the typical plot of land in large cities will be cheaper land, far away from the center. These plots will make more intense use of land.
 
 Equations \eqref{eq:city_boundary} and \eqref{eq:city_employment} completely characterize the spatial sorting within a city. City features depend on relative urban to rural productivity and a relative wage rate.
 
@@ -306,10 +301,10 @@ The urban rent premium in \eqref{eq:urban_rent_premium} will serve a crucial rol
 \subsection{Multi-city equilibrium}
 The above equations characterize production in a city conditional on product prices and wages. These, in turn, are pinned down in a multicity equilibrium. The spatial sorting pins down the supply of urban sectors. We assume that both urban and rural goods are tradable freely within the country. That is, at the marketplace, the goods produced at other cities are freely available so that the law of one price holds across cities.\footnote{We assume away frictions across cities to focus on the urban-rural divide and to present closed-form characterizations of the aggregate economy. We leave extensions of the model to city-to-city iceberg trade costs for future work.}
 
-Cities differ in productivity of the urban good $A_c$ and amenity $\gamma_c$. Rural workers enjoy an amenity of 1.
+Cities differ in productivity of the urban good $A_c$.
 
 \begin{definition}
-The multi-city equilibrium of a country is a collection of spatial sortings for each city, a set of prices $P_{u}$, $P_r$ and city wages $W_c$ such that
+The multi-city equilibrium of a country is a collection of spatial sortings for each city, a set of prices $P_{u}$, $P_r$ and wages $W$ such that
 \begin{enumerate}
     \item Consumers maximize utility (\ref{eq:Utility}) subject to their budget constraint (\ref{eq:BudCons}), taking prices as given.
     \item Goods markets clear at the country level: $\sum_{c=1}^K N_c C_{ic}=\sum_{c=1}^K\tilde Q_{ic}$.
@@ -321,25 +316,25 @@ The multi-city equilibrium of a country is a collection of spatial sortings for 
 [FIXME: Prove existence.]
 
 Take the conditions for spatial sorting \eqref{eq:city_boundary} and \eqref{eq:city_employment}.
-Introduce the subscript $c$ for cities. Utility equalization implies $W_c = W_r/\gamma_c$, where $\gamma_c$ captures amenities in city $c$. This is a compensating wage differential.
+Introduce the subscript $c$ for cities. Utility equalization implies wages are the same in each city as well as rural areas.
 
 The conditions for competitive spatial equilibrium are
 \begin{equation}\tag{i}\label{eq:EQ1}
 e^{z_{c} \tau} =
 \frac{P_u}{P_r}
-\frac {A_c \gamma_c^{1-\beta}}{A_r}
+\frac {A_c}{A_r}
 \end{equation}
 \[
 	N_c = L_c
 \frac{1-\beta}{\beta}
-	 \left(\frac{P_uA_c\gamma_c}{P_rA_r}\right)^{1/\beta}
-	 \left(\frac{W_r}{P_rA_r}\right)^{-1/\beta}
+	 \left(\frac{P_uA_c}{P_rA_r}\right)^{1/\beta}
+	 \left(\frac{W}{P_rA_r}\right)^{-1/\beta}
 	 e^{-\tilde z_c{\tau/\beta}}
 \]
 \[
-	N_c = \gamma_c
+	N_c = 
 \frac{1-\beta}{\beta}
-	 \left(\frac{W_r}{P_rA_r}\right)^{-1/\beta}
+	 \left(\frac{W}{P_rA_r}\right)^{-1/\beta}
 	 e^{(z_c-\tilde z_c){\tau/\beta}}L_c
 \]
 Adding up labor demand across cities,
@@ -347,66 +342,66 @@ Adding up labor demand across cities,
 N_u = \sum_c N_c
 =
 \frac{1-\beta}{\beta}
-	 \left(\frac{W_r}{P_rA_r}\right)^{-1/\beta}
-\sum_c\gamma_c e^{(z_c-\tilde z_c){\tau/\beta}}L_c.
+	 \left(\frac{W}{P_rA_r}\right)^{-1/\beta}
+\sum_c e^{(z_c-\tilde z_c){\tau/\beta}}L_c.
 \]
 Rural labor demand is
 \[
 N_r =
 \frac{1-\beta}{\beta}
-	 \left(\frac{W_r}{P_rA_r}\right)^{-1/\beta}L_r.
+	 \left(\frac{W}{P_rA_r}\right)^{-1/\beta}L_r.
 \]
 Using labor market clearing $N=N_u+N_r$, we can solve for the relative wage.
 \[
-\left(\frac{W_r}{P_rA_r}\right)^{1/\beta}
+\left(\frac{W}{P_rA_r}\right)^{1/\beta}
 = \frac{1}{N}
 	\frac{1-\beta}{\beta}
 \left[
 	L_r+
-	\sum_c\gamma_c e^{(z_c-\tilde z_c){\tau/\beta}}L_c
+	\sum_c e^{(z_c-\tilde z_c){\tau/\beta}}L_c
 \right].
 \]
 Introduce the notation
 \[
-\bar{\bar L} \equiv L_r+
-	\sum_c\gamma_c e^{(z_c-\tilde z_c){\tau/\beta}}L_c
+\bar L_u \equiv 
+	\sum_c e^{(z_c-\tilde z_c){\tau/\beta}}L_c
 \]
-for the amenity- and rent-corrected total quantity of land. Recall that city-$c$ has an amenity $\gamma_c$ and a rent premium $e^{(z_c-\tilde z_c){\tau/\beta}}$ over rural land. This is also a population-density corrected amount of land: the amount of land that would be needed to host all the population of the country, were its density constant at the rural population density.
+for the rent-corrected total quantity of urban land and $\bar L = L_r + \bar L_u$. Recall that city-$c$ has a rent premium $e^{(z_c-\tilde z_c){\tau/\beta}}$ over rural land. This is also a population-density corrected amount of land: the amount of land that would be needed to host all the population of the country, were its density constant at the rural population density.
 \[
-\bar{\bar L} = L
+\bar L = L
 \frac{N/L}
 	{N_r/L_r}.
 \]
 This permits us to write the relative rural wage as
 \[
-\frac{W_r}{P_rA_r}
+\frac{W}{P_rA_r}
 =
 	\frac{(1-\beta)^\beta}{\beta^\beta}
 \left(
-\frac {\bar{\bar L}}{N}
+\frac {\bar L}{N}
 \right)^{\beta}
 \]
 Substituting in for city employment,
 \begin{equation}\tag{ii}\label{eq:EQ2}
 	N_c =  N
-\frac {\gamma_c e^{(z_c-\tilde z_c){\tau/\beta}}L_c}
-	{\bar{\bar L}}
+\frac {e^{(z_c-\tilde z_c){\tau/\beta}}L_c}
+	{{\bar L}}
 \end{equation}
 Equations \eqref{eq:EQ1} and \eqref{eq:EQ2} completely characterize the production side of the economy for given relative prices $P_u/P_r$. To close the model with the demand side, we express urban and rural output and solve for relative price as the relative marginal utility.
 
 Output of the rural good
 \[
 Q_r = B A_r L_r^{\beta}N_r^{1-\beta}=
-B A_r N (\bar{\bar L}/N)^{\beta}
+B A_r N ({\bar L}/N)^{\beta}
 \frac {L_r}
-	{\bar{\bar L}}
+	{{\bar L}}
 \]
 Rural production (and consumption) per capita,
 \begin{equation}\label{eq:rural_per_capita}
 C_r=\frac {Q_r}{N} =
 B A_r \left(\frac{\bar{\bar L}}{N}\right)^{\beta}
 \frac {L_r}
-	{\bar{\bar L}}
+	{{\bar L}}
 .
 \end{equation}
 Output increases in rural productivity and the availability of effective land per worker. It also increases in the share of effective land devoted to rural production.
@@ -416,30 +411,29 @@ Output of the urban good is
 Q_u = \sum_c Q_c
 = B A_r \frac{P_r}{P_u}
 \left(\frac {N}
-	{\bar{\bar L}}
+	{{\bar L}}
 \right)^{1-\beta}
 \sum_c e^{z_c-\tilde z_c}\tau/\beta L_c.
 \]
-Denote $\bar L_u \equiv \sum_c e^{z_c-\tilde z_c}\tau/\beta L_c$. Notice that $\bar L_u \neq \bar{\bar L}-L_r$ because the former only corrects for rent premia, not for amenities.
 \[
 Q_u =  B A_r \frac{P_r}{P_u}
 \left(\frac {N}
-	{\bar{\bar L}}
+	{{\bar L}}
 \right)^{1-\beta}
 \bar L_u.
 \]
 Urban production and consumption per capita is
 \begin{equation}\label{eq:urban_per_capita}
 C_u=\frac {Q_u}{N} =
-B A_r \left(\frac{\bar{\bar L}}{N}\right)^{\beta}
+B A_r \left(\frac{{\bar L}}{N}\right)^{\beta}
  \frac{P_r}{P_u}
 \frac {\bar L_u}
-	{\bar{\bar L}}
+	{{\bar L}}
 .
 \end{equation}
 Output increases in rural productivity and the availability of effective land per worker. Notice that it is the rural productivity that shifts output. The relative productivity of the urban sector enter through the effective quantity of land. Urban output decreases in urban relative price. This is a correction for the effective land measure: if the rent premium of urban rent also captures the relative price of urban products and we have to correct for this to capture productivity. Naturally, the quantity of land devoted to cities also increases urban output per capita.
 
-Let $\zeta = B A_r N^{-\beta}{\bar{\bar L}}^{\beta-1}$ denote the common supply shifter of urban and rural output. Intuitively, whenever $\zeta$ is higher, consumers are richer.
+Let $\zeta = B A_r N^{-\beta}{{\bar L}}^{\beta-1}$ denote the common supply shifter of urban and rural output. Intuitively, whenever $\zeta$ is higher, consumers are richer.
 
 Plug in \eqref{eq:rural_per_capita} and \eqref{eq:urban_per_capita} into the demand equations \eqref{eq:ConsShares} and take the ratio to get rid of the Lagrange multiplier $\lambda$.
 \[
@@ -485,7 +479,7 @@ We add urban and rural output to obtain a fixed-price GDP,
 	P_{r0}Q_r + P_{u0}Q_u
 	=
 	B A_r P_{r0}\left(\frac {N}
-	{\bar{\bar L}}
+	{{\bar L}}
 \right)^{1-\beta}
 \left[
 L_r
@@ -521,8 +515,6 @@ Real GDP increases in rural productivity, rural population density ...
 {\alpha_r^{-\sigma_u/\sigma_r(\sigma_u-1)}
 L_r^{1+\sigma_u/\sigma_r(\sigma_u-1)}}
 \]
-
-[NB: formulas simplify if there are no amenities. we can use amenities in calibration, omit them in main model]
 
 \subsection{Space and development}
 The following propositions characterize how space use depends on development.
@@ -685,39 +677,31 @@ The relative employment of two cities,
 \[
 \frac{N_c}{N_{c'}}
 = \frac
-	 {\left(A_c\gamma_c\right)^{1/\beta} e^{-\tilde z_c{\tau/\beta}} L_{c}}
-	 {\left(A_{c'}\gamma_{c'}\right)^{1/\beta} e^{-\tilde z_{c'}{\tau/\beta}} L_{c'}}
+	 {\left(A_c\right)^{1/\beta} e^{-\tilde z_c{\tau/\beta}} L_{c}}
+	 {\left(A_{c'}\right)^{1/\beta} e^{-\tilde z_{c'}{\tau/\beta}} L_{c'}}
 \]
-depends on relative productivity, relative amenity, a relative ``congestion'' term and relative city area.
+depends on relative productivity, a relative ``congestion'' term and relative city area.
 
 Relative city boundaries,
 \[
 e^{(z_{c}-z_{c'}) \tau} =
-\frac {A_c\gamma_c^{1-\beta}}
-	{A_{c'}\gamma_{c'}^{1-\beta}}.
+\frac {A_c}
+	{A_{c'}}.
 \]
-Similarly to Desmet and Rossi-Hansberg (2013), these two relationships can be used to calibrate $A_c$ and $\gamma_c$ to a list of $N_c$ and $L_c$.
+Because we do not observe city area for many cities, we can use the above relationship to calibrate city areas to city populations.
 \[
-\frac{A_c\gamma_c}{A_{c'}\gamma_{c'}}
+\frac{N_c}{N_{c'}}
 = \frac
-	 {\left(N_c/L_c\right)^{\beta} e^{\tilde z_c{\tau}}}
-	 {\left(N_{c'}/L_{c'}\right)^{\beta} e^{\tilde z_{c'}{\tau}}}
+	 {e^{(z_c-\tilde z_c){\tau/\beta}} z_{c}^2}
+	 {e^{(z_{c'}-\tilde z_{c'}){\tau/\beta}} z_{c'}^2}
 \]
 \[
-\frac {\gamma_c}
-	{\gamma_{c'}} =
-\frac
-	 {\left(N_c/L_c\right) e^{(\tilde z_c-z_{c}){\tau/\beta}}}
-	 {\left(N_{c'}/L_{c'}\right) e^{(\tilde z_{c'}-z_{c}){\tau/\beta}}}.
+{N_c}
+= \text{constant} \times {e^{(z_c-\tilde z_c){\tau/\beta}} z_{c}^2}
 \]
-\[
-\frac{A_c}{A_{c'}}
-= \frac
-	 {\left(N_c/L_c\right)^{\beta-1} e^{[z_{c}-(1-\beta)\tilde z_c]{\tau/\beta}}}
-	 {\left(N_{c'}/L_{c'}\right)^{\beta-1} e^{[z_{c'}-(1-\beta)\tilde z_{c'}]{\tau/\beta}}}
-\]
+The right-hand-side is strictly increasing in $z_c$, which we can use to pin down the boundary of each city.
+[FIXME: we need an overall level of urban population density. This can be take from just one city per country?]
 
-[NB: If amenities are missing, we can use two equations above to pin down both Ac and Lc. Then we can use data for all cities with population data, not just in the OECD metro database]
 
 \paragraph{Representative location.}
 \begin{equation}\label{eq:representative_location}
