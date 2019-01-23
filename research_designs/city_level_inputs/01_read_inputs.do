@@ -49,4 +49,14 @@ ren priceserv price1
 ren pricemanu price2
 ren priceagri price3
 
+* express relative to USA
+foreach X of var price* {
+	su `X' if iso3=="USA", meanonly
+	scalar USA = r(mean)
+	replace `X' = `X'/USA
+}
+
+gen urban_price = sqrt(price1*price2)
+gen rural_price = price3
+
 save input/sector_price_levels, replace
