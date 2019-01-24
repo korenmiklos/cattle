@@ -4,13 +4,13 @@ use output/calibrated_cities
 
 do util/parameters
 
-gen ln_Pu_Pr = ln(urban_price) - ln(rural_price)
-gen ln_Cr = ln(Ar) + beta*ln(rural_area/rural_employment) + ln(rural_employment/(rural_employment+urban_employment))
-gen ln_Cu = ln(Ar) + beta*ln(rural_area/rural_employment) + rel_output_per_worker + ln(urban_employment/(rural_employment+urban_employment))
+gen ln_Pu_Pr = ln(Pu_Pr)
+gen ln_Cr = ln(Cr)
+gen ln_Cu = ln(Cu)
 
 egen ln_Ac = mean(ln(Ac)), by(iso3 year) 
 gen ln_Ar = ln(Ar)
-gen ln_L_N = ln(area/employment)
+gen ln_L_N = ln(L/N)
 
 tempvar cnt_tag resid
 egen `cnt_tag' = tag(iso3 year)
