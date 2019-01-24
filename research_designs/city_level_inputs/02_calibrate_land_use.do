@@ -31,7 +31,14 @@ drop urban_area
 egen urban_area = sum(city_area), by(iso3 year)
 gen rural_area = area - urban_area
 
-do util/calibrate_a
-do util/decomposition
+gen Pu_Pr = urban_price/rural_price
+gen N = employment
+gen L = area
 
+do util/calibrate_a
+do util/spatial_equilibrium
+
+do util/decomposition
 save output/calibrated_cities, replace
+
+

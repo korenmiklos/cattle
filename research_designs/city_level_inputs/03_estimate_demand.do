@@ -43,3 +43,9 @@ esttab using output/demand_parameters.tex, replace label se star(* 0.10 ** 0.05 
 	addnotes("Instrumental variables regression. ")
 
 gen alpha_u = exp(sigma_u*`resid')
+
+collapse (firstnm) alpha_u, by(iso3 year)
+gen sigma_u = sigma_u
+gen sigma_r = sigma_r
+
+save output/calibrated_countries, replace
