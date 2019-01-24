@@ -6,3 +6,5 @@ egen rel_output_per_worker = rsum(*_contribution)
 gen rural_land_contribution = ln(rural_area/rural_employment)*beta
 gen rural_productivity_contribution = ln(Ar)
 egen output_per_worker = rowtotal(*_contribution), missing
+
+gen rural_output_per_worker = A_r * (rural_area/rural_employment)^beta

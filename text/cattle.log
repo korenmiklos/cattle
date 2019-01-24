@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.3)  21 JAN 2019 10:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.3)  24 JAN 2019 09:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -273,31 +273,34 @@ Package pdftex.def Info: figures/bid_rent_curves.png  used on input line 231.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[8] [9 <./figures/bid_rent_curves.png>] [10] [11] [12] [13] [14] [15]
+[8] [9 <./figures/bid_rent_curves.png>] [10] [11] [12] [13] [14]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[15]
 <figures/sector_location_quotients.png, id=70, 803.0pt x 584.1825pt>
 File: figures/sector_location_quotients.png Graphic file (type png)
 <use figures/sector_location_quotients.png>
 Package pdftex.def Info: figures/sector_location_quotients.png  used on input l
-ine 591.
+ine 601.
 (pdftex.def)             Requested size: 325.215pt x 236.60152pt.
- [16]
-[17 <./figures/sector_location_quotients.png>] [18] [19]
+ [16] [17 <./figures/sector_location_quotients.png>] [18] [19]
 <figures/city_level_inputs/expenditure_shares.png, id=85, 803.0pt x 584.1825pt>
 
 File: figures/city_level_inputs/expenditure_shares.png Graphic file (type png)
 <use figures/city_level_inputs/expenditure_shares.png>
 Package pdftex.def Info: figures/city_level_inputs/expenditure_shares.png  used
- on input line 667.
+ on input line 677.
 (pdftex.def)             Requested size: 325.215pt x 236.60152pt.
- [20] [21 <./figures/city_level_inputs/expenditure_shares.png>]
+ [20]
+[21 <./figures/city_level_inputs/expenditure_shares.png>] [22]
 
-LaTeX Warning: Reference `eq:goods_market_clearing' on page 22 undefined on inp
-ut line 774.
+LaTeX Warning: Reference `eq:goods_market_clearing' on page 23 undefined on inp
+ut line 784.
 
-[22]
 
 LaTeX Warning: Reference `eq:output_per_worker' on page 23 undefined on input l
-ine 796.
+ine 806.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -306,26 +309,26 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: figures/city_level_inputs/productivity.png Graphic file (type png)
 <use figures/city_level_inputs/productivity.png>
 Package pdftex.def Info: figures/city_level_inputs/productivity.png  used on in
-put line 827.
+put line 837.
 (pdftex.def)             Requested size: 325.215pt x 236.60152pt.
 [23]
 <figures/city_level_inputs/land.png, id=103, 803.0pt x 584.1825pt>
 File: figures/city_level_inputs/land.png Graphic file (type png)
 <use figures/city_level_inputs/land.png>
 Package pdftex.def Info: figures/city_level_inputs/land.png  used on input line
- 831.
+ 841.
 (pdftex.def)             Requested size: 325.215pt x 236.60152pt.
 <figures/city_level_inputs/location.png, id=104, 803.0pt x 584.1825pt>
 File: figures/city_level_inputs/location.png Graphic file (type png)
 <use figures/city_level_inputs/location.png>
 Package pdftex.def Info: figures/city_level_inputs/location.png  used on input 
-line 835.
+line 845.
 (pdftex.def)             Requested size: 325.215pt x 236.60152pt.
 <figures/city_level_inputs/city_radius.png, id=105, 803.0pt x 584.1825pt>
 File: figures/city_level_inputs/city_radius.png Graphic file (type png)
 <use figures/city_level_inputs/city_radius.png>
 Package pdftex.def Info: figures/city_level_inputs/city_radius.png  used on inp
-ut line 839.
+ut line 849.
 (pdftex.def)             Requested size: 325.215pt x 236.60152pt.
  [24] [25 <./figures/city_level_inputs/productivity.png> <./figures/city_level_
 inputs/land.png>] [26 <./figures/city_level_inputs/location.png> <./figures/cit
@@ -371,7 +374,7 @@ asic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2
 e/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/tex
 live/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/
 texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on cattle.pdf (36 pages, 581433 bytes).
+Output written on cattle.pdf (36 pages, 581697 bytes).
 PDF statistics:
  215 PDF objects out of 1000 (max. 8388607)
  141 compressed objects within 2 object streams
