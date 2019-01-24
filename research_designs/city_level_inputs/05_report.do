@@ -31,3 +31,25 @@ tw 	(lowess rel_productivity_contribution `X') ///
 	scheme(s2mono)   ytitle("Relative contribution (New York=1)")
 graph export output/urban_contributions.pdf, replace
 
+tempfile scenarios
+use output/scenario_0, clear
+* not to mix up with variables save in scenario 3
+ren iso3 iso
+local scenario0 : char _dta[note1]
+save `scenarios', replace emptyok
+
+forval i=1/3 {
+	use output/scenario_`i', clear
+	* not to mix up with variables save in scenario 3
+	ren iso3 iso
+	local scenario`i' : char _dta[note1]
+	
+	merge 1:1 METRO_ID using `scenarios', keep(match) nogen
+	
+	ren *0 *`i'0
+	foreach X of var *`i' {
+		replace `X' = `X' / `X'0
+	}
+	ren *`i'0 *0
+	save `scenarios', replace
+}

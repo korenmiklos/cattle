@@ -12,11 +12,11 @@ restore
 
 preserve
 	* increase productivity to check the effect of non-homotheticity
-	replace Ac = 1.1*Ac
-	replace Ar = 1.1*Ar
+	replace Ac = 2*Ac
+	replace Ar = 2*Ar
 
 	do util/demand_loop
-	do util/save_scenario 1 "10% increase in productivity"
+	do util/save_scenario 1 "100% increase in productivity"
 restore
 
 preserve
@@ -25,4 +25,12 @@ preserve
 
 	do util/demand_loop
 	do util/save_scenario 2 "10% increase in demand for urban goods"
+restore
+
+preserve
+	* increase population density
+	replace N = 1.1*N
+
+	do util/demand_loop
+	do util/save_scenario 3 "10% increase in population"
 restore

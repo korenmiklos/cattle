@@ -28,6 +28,7 @@ estadd scalar sigma_u = sigma_u
 estadd scalar sigma_r = sigma_r
 eststo
 predict `resid', resid
+gen alpha_u = exp(sigma_u*(`resid'+_b[_cons]))
 
 label var ln_Pu_Pr "$\ln(Pu/Pr)$"
 label var ln_Cr "$\ln Cr$"
@@ -42,7 +43,9 @@ esttab using output/demand_parameters.tex, replace label se star(* 0.10 ** 0.05 
 	title(Estimate of utility function parameters\label{tab1}) ///
 	addnotes("Instrumental variables regression. ")
 
-gen alpha_u = exp(sigma_u*`resid')
+
+* verify MRS = relative price exactly
+assert abs(Pu_Pr - Cu^(-1/sigma_u) * Cr^(1/sigma_r) * alpha_u^(1/sigma_u)) < 0.01
 
 collapse (firstnm) alpha_u, by(iso3 year)
 gen sigma_u = sigma_u
