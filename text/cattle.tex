@@ -704,141 +704,21 @@ Because we do not observe city area for many cities, we can use the above relati
 The right-hand-side is strictly increasing in $z_c$, which we can use to pin down the boundary of each city.
 [FIXME: we need an overall level of urban population density. This can be take from just one city per country?]
 
-
-\paragraph{Representative location.}
-\begin{equation}\label{eq:representative_location}
-	\tilde z_{ic}
-	=
-	- \frac {\beta}{\tau_i}
-	\ln
-	\left[
-	\int_{z=z_{i-1,c}}^{z_{ic}}
-		\frac {z^2\pi}{L_{ic}}
-		\exp(-z \tau_i/\beta)
-		dz
-	\right]
-\end{equation}
-\paragraph{Land market clearing.}
-\begin{equation}\label{eq:land_market_clearing}
-	L_{ic}
-	=
-	\int_{z=z_{i-1,c}}^{z_{ic}}
-		z^2\pi
-		dz
-\end{equation}
-with $L_{1c}+L_{2c}=L_c$.
-
-\paragraph{Labor intensity.}
-\begin{equation}\label{eq:labor_intensity}
-	\frac 	{N_{ic}}
-			{L_{ic}}
-	=
-	\frac 	{1-\beta}
-			{\beta}
-	\exp(\zeta_{ic}-\tilde z_{ic} \tau_i/\beta),
-\end{equation}
-where we introduced
-\[
-\zeta_{ic}=\ln\beta + \frac{1-\beta}{\beta} \ln (1-\beta)
-+ \frac 1{\beta} (\ln P_{ic} + \ln A_{ic} - \ln W_c)
-\]
-to simplify notation. The endogenous variable $\zeta_{ic}$ captures relative factor prices in sector $i$.
-
-\paragraph{Rent arbitrage.}
-\begin{equation}\label{eq:rent_arbitrage}
-	\zeta_{ic} - z_{ic} \tau_i/\beta
-	=
-	\zeta_{i+1,c} - z_{ic} \tau_{i+1}/\beta
-\end{equation}
-\paragraph{Labor market clearing.}
-\begin{equation}\label{eq:labor_market_clearing}
-	N_{1c}+N_{2c} = N_c
-\end{equation}
-\paragraph{Balanced trade.}
-\begin{equation}\label{eq:balanced_trade}
-N_c(P_2C_{2c} + P_3 C_{3c}) = P_2 \tilde Q_{3c}.
-\end{equation}
- Utility is equalized across cities.
-[FIXME: Write out equilibrium conditions.]
-
-For each city $c$, we solve these equations for $(z_1,z_2,z_3)$, $(\tilde z_1,\tilde z_2,\tilde z_3)$, $(L_1,L_2,L_3)$, $(N_1,N_2,N_3)$ and $(\zeta_1,\zeta_2,\zeta_3)$.
-
-Given city-level data on total area $L$, total employment $N$, sectoral prices $P_i$, and GDP per capita $Y$, we recover the sector-city level productivity parameters as follows.
-
-\begin{enumerate}
-	\item Assuming the city is circular, set $z_{2c}=\sqrt{L_c/\pi}$.
-	\item Use rent arbitrage condition \eqref{eq:rent_arbitrage} for sector 2 to recover $\zeta_2$,
-	\[
-	\zeta_{2c} = \ln P_{3c} + \ln A_{3c} - \ln W_c + z_{2c}\tau_2/\beta_2.
-	\]
-\end{enumerate}
-\begin{enumerate}
-	\item Using the estimated expenditure shares $x_{ic}$ and equations \eqref{eq:goods_market_clearing} and \eqref{eq:labor_market_clearing}, calculate $(N_{1c},N_{2c},N_{3c})$.
-	\item Assuming the city is circular, set $z_{3c}=\sqrt{L_c/\pi}$.
-	\item Pick a candidate $z_{1c}$ and $z_{2c}$ dividing the service and manufacituring areas.
-	\item Using equations \eqref{eq:land_market_clearing} and \eqref{eq:representative_location}, calculate $(L_{1c}, L_{2c}, L_{3c})$ and $(\tilde z_{1c}, \tilde z_{2c}, \tilde z_{3c})$.
-	\item Using equation \eqref{eq:labor_intensity}, calculate $(\zeta_{1c}, \zeta_{2c}, \zeta_{3c})$.
-	\item If rent arbitrage equation \eqref{eq:rent_arbitrage} is not satisfied, go back to step 3.
-	\item Calculate equilibrium wages as
-	\[
-		W_c = \frac
-			{\sum_i (1-\beta)Y_{ic}}
-			{N_c}
-	\]
-	and using data on prices, recover
-	\[
-		A_{ic} =
-			 \frac {\beta}{(1-\beta)^{1-\beta}}
-			 \frac {W_c}{P_{ic}}
-			 \exp(\zeta_{ic}).
-	\]
-\end{enumerate}
+\input{../research_designs/city_level_inputs/output/demand_parameters.tex}
 
 \section{Decomposition of output per worker}
-To evaluate the quantitative importance of our mechanism, we report the decomposition of output per worker \eqref{eq:output_per_worker} into a Hicks-neutral productivity term, land per worker, and the representative location of the industry. We express each component relative to New York, one of the richest cities in the sample.
+
+\dofigure{../../research_designs/city_level_inputs/output/rural_contributions}{The contribution of rural productivity and land use to city output per worker}{Notes: Figure presents the nonparametric relationship between city-level output per worker and rural productivity and land per worker using locally weighted scatterplot smoothing. All productivity contributions are expressed relative to those in New York.}
+
+\dofigure{../../research_designs/city_level_inputs/output/urban_contributions}{The contribution of urban productivity, land use and location to city output per worker}{Notes: Figure presents the nonparametric relationship between city-level output per worker and relative urban/rural productivity, relative land per worker and the contribution of the location friction using locally weighted scatterplot smoothing. All productivity contributions are expressed relative to those in New York.}
 
 \begin{table}[h!]
   \begin{center}
-  \caption{Distribution of productivity components across cities\label{tab:decomposition}}
-    \begin{tabular}{lccc}
-    \toprule
-    \textbf{} & \multicolumn{3}{c}{\textbf{Contribution to output per worker of}}\\
-    \textbf{} & \textbf{productivity} & \textbf{land per worker} & \textbf{location} \\
-    \midrule
-Services	& 0.186	& 1.083	& 0.987	\\
-	& 0.683	& 1.433	& 1.135	\\
-				
-Manufacturing	& 0.149	& 0.968	& 0.985	\\
-	& 0.706	& 1.316	& 1.097	\\
-				
-Agriculture	& 0.123	& 0.880	& 0.958	\\
-	& 0.589	& 1.911	& 1.200	\\
-    \bottomrule
-    \end{tabular}%
-
+  \caption{Counterfactual values of aggregate variables relative to actual values\label{tab:counterfactuals}}
+  \input{../research_designs/city_level_inputs/output/counterfactuals.tex}
   \end{center}
-  \noindent \footnotesize{Notes: Table presents the 10th and 90th percentiles of contributions to output per worker. All contributions are expressed relative to New York. See text for the precise definition of decomposition.}
+  \noindent \footnotesize{Notes: Table presents ratio of counterfactual aggregate variables to the actual value in two counterfactual scenarios. The first column reports the scenario when all rural and city productivities double in all countries. The second column reports the scenarion when the demand shifter of rural goods increases by 10\% in all countries.}
 \end{table}
-
-Table \ref{tab:decomposition} presents the distribution of productivity components across cities. For each sector and and each productivity component, we report the 10th and 90th percentile of the component relative to New York. For example, the 10th percentile of Hicks-neutral productivity in the service sector is only 18.6 percent of that in New York. The productivity gap in similar in the three sectors.
-
-The contribution of land per worker ranges between 108 and 143 percent for services, 97 and 132 percent for manufacturing, and 88 and 191 percent for agriculture. This is not surprising, as agriculture is the most land intensive of the three sectors and many cities are smaller than New York and have less agricultural land available.
-
-The contribution of sector location is generally between 96 and 120 percent.
-
-\dofigure{city_level_inputs/productivity}{The contribution of productivity to output per worker}{Notes: Figure presents the nonparametric relationship between city-level GDP per capita and sectoral productivity using locally weighted scatterplot smoothing. Productivity is expressed relative to that in New York.}
-
-To see how land usage and city structure varies with development, we plot these productivity contributions against GDP per capita of the cities. Figure \ref{fig:city_level_inputs/productivity} shows the nonparametric relationship between productivity and GDP per capita, separately for each of the three sectors. Not surprisingly, richer cities are estimated to have higher productivity. The three sectoral productivities run in parallel, showing that technological differences across cities are unbiased. This is in contrast with \citeN{Herrendorf2012-yg}, who find large heterogeneity in sectoral productivities.
-
-\dofigure{city_level_inputs/land}{The contribution of land usage to output per worker}{Notes: Figure presents the nonparametric relationship between city-level GDP per capita and the contribution of land usage to output per worker using locally weighted scatterplot smoothing. The contribution is expressed relative to that in New York.}
-
-Figure \ref{fig:city_level_inputs/land} shows the contribution of land per worker to output per worker, relative to New York. Across the entire level of city GDP per capita, this contribution is less than one, because most cities are more densely populated than the New York metropolitan area. There is no clear tendency with development, but richer cities tend to have more land avaible for agriculture than for other sectors. This is because agricultural employment in these cities are smaller and they can use larger amounts of land on the city fringe.
-
-\dofigure{city_level_inputs/location}{The contribution of sector location to output per worker}{Notes: Figure presents the nonparametric relationship between city-level GDP per capita and the contribution of sector location to output per worker using locally weighted scatterplot smoothing. The contribution is expressed relative to that in New York.}
-
-Figure \ref{fig:city_level_inputs/location} plots the contribution of sector location to output per worker. For all cities this contribution is greater than in New York. This is because these cities tend to be smaller in area than New York, as is shown in Figure \ref{fig:city_level_inputs/city_radius}. For rich and large cities, the spatial sprawl reduces output per worker by about 10 percent in services and manufacturing, and even more in agriculture.
-
-\dofigure{city_level_inputs/city_radius}{City radius and GDP per capita}{Notes: Figure presents the nonparametric relationship between city-level GDP per capita and the radius of the city using locally weighted scatter plot smoothing. City radius is estimated using OECD data on city area and assuming circular cities.}
 
 
 \section{Conclusion}

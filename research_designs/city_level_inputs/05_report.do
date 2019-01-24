@@ -53,3 +53,27 @@ forval i=1/3 {
 	ren *`i'0 *0
 	save `scenarios', replace
 }
+local lbl ""
+forval i=0/3 {
+	local lbl `lbl' `i' "`scenario`i''"
+}
+
+egen tag = tag(iso)
+keep if tag
+keep METRO_ID iso year Pu_Pr* Ar* Lu* Lr* Qr* Qu* Y*
+
+local variables Pu_Pr Lu Lr Qu Qr Y
+reshape long `variables', i(METRO_ID iso year) j(scenario)
+
+label def scenario `lbl'
+label value scenario scenario
+label var Pu_Pr "Urban relative price"
+label var Lu "Urban land"
+label var Lr "Rural land"
+label var Qr "Rural output per worker"
+label var Qu "Urba output per worker"
+label var Y "Constant-price GDP"
+
+drop if scenario==0 | scenario==3
+bys scenario: eststo: quietly estpost summarize `variables', listwise
+esttab using output/counterfactuals.tex, replace cells("mean(fmt(3))") label nodepvar noobs

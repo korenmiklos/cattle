@@ -16,7 +16,7 @@ preserve
 	replace Ar = 2*Ar
 
 	do util/demand_loop
-	do util/save_scenario 1 "100% increase in productivity"
+	do util/save_scenario 1 "100\% increase in productivity"
 restore
 
 preserve
@@ -24,13 +24,16 @@ preserve
 	replace alpha_u = 1.1*alpha_u
 
 	do util/demand_loop
-	do util/save_scenario 2 "10% increase in demand for urban goods"
+	do util/save_scenario 2 "10\% increase in demand for urban goods"
 restore
 
 preserve
-	* increase population density
-	replace N = 1.1*N
+	* every city becomes New York
+	foreach X of var Ac Ar {
+		su `X' if METRO_ID=="US084", meanonly
+		replace `X' = r(mean) 
+	}
 
 	do util/demand_loop
-	do util/save_scenario 3 "10% increase in population"
+	do util/save_scenario 3 "All productivities like New York"
 restore
