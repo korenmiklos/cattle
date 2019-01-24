@@ -1,4 +1,4 @@
-local variables N L Ac Ar Pu_Pr Lr Lu_bar L_bar Cr Cu Qr Qc Qu
+local variables N L Ac Ar Pu_Pr Lu Lr Lu_bar L_bar Cr Cu Qr Qc Qu Y
 keep iso3 year METRO_ID city_name `variables'
 
 foreach X of var `variables' {
