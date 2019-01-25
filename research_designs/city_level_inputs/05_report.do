@@ -6,6 +6,14 @@ merge m:1 iso3 year using output/calibrated_countries, keep(match) nogen
 do util/parameters
 do util/programs
 
+* report actual vs estimated area
+gen ln_area_data = ln(city_area_data) 
+gen ln_area_model = ln(city_area)
+scatter ln_area_model ln_area_data, scheme(s2mono) msize(small) xtitle("City area (data, log)") ytitle("City area (model, log)") 
+graph export output/area_model_data.pdf, replace
+
+corr ln_area_model ln_area_data
+
 gen ln_Qc = ln(Qc)
 
 * everything relative to New York

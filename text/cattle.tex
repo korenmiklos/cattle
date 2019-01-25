@@ -6,6 +6,7 @@
 \usepackage{array,graphicx}
 \usepackage{chicago}        %bibliography style
 \usepackage{booktabs}       %to make table lines thicker
+\usepackage{dcolumn}
 
 \setlength{\topmargin}{-0.3in} \setlength{\textheight}{8.75in}
 \setlength{\oddsidemargin}{0.25in} \setlength{\evensidemargin}{0.25in}
@@ -110,12 +111,11 @@ u_c =
 			{\sigma_u-1}
 	C_{cu}^{1-1/\sigma_u}
 	+
-	\alpha_r^{1/\sigma_r}
 	\frac {\sigma_r}
 			{\sigma_r-1}
 	C_{cr}^{1-1/\sigma_r},
 \end{equation}
-where $\alpha_i>0$ is the weight of sector $i$ and $\sigma_i>1$ governs the sector's price and income elasticity. Sector $u$ refers to ``urban goods,'' $r$ refers to ``rural goods.'' 
+where $\alpha_u>0$ is the weight of the urban sector (we have normalized $\alpha_r=1$) and $\sigma_i>1$ governs the sector's price and income elasticity. Sector $u$ refers to ``urban goods,'' $r$ refers to ``rural goods.'' 
 
 There is a mass $N$ of consumers who supply one unit of labor inelastically, and rent land to producers in a competitive market. They are \emph{absentee landlords}: the rents they collect are independent of the place of employment.
 
@@ -257,7 +257,7 @@ e^{-\frac{\tau}{\beta} \tilde z} = \int_{z=0}^{z_u} \frac{L(z)}{L_u}e^{-\frac{\t
 As we will see below, $\tilde z$ is a sufficient statistic about sector location for aggregation purposes.
 
 \begin{proposition}\label{prop:aggregation}
-City-level sectoral production function is of the form:
+City-level production function is of the form:
 \begin{equation}
 \tilde Q_u =
 BA_uL_u^{\beta}N_u^{1-\beta}
@@ -312,9 +312,6 @@ The multi-city equilibrium of a country is a collection of spatial sortings for 
 	\item Labor market clears at the country level: $\sum_{c=1}^K N_c = N$.
 \end{enumerate}
 \end{definition}
-
-[FIXME: Prove existence.]
-
 Take the conditions for spatial sorting \eqref{eq:city_boundary} and \eqref{eq:city_employment}.
 Introduce the subscript $c$ for cities. Utility equalization implies wages are the same in each city as well as rural areas.
 
@@ -669,11 +666,14 @@ Figure \ref{fig:city_level_inputs/expenditure_shares} plots the estimated expend
 \dofigure{city_level_inputs/expenditure_shares}{Estimated expenditure shares and GDP per capita}{Fitted values of regression \eqref{eq:estimable:utility} plotted against log GDP per capita. Estimates also depend on sectoral relative prices, leading to variation independent of income.}
 
 \subsection{Recovering city-level parameters}
-We use city-level data on land area, employment and GDP per capita from the the OECD Metropolitan Areas database \cite{oecd}. Our sample includes 277 cities across OECD countries with non-missing area and employment data in 2007.\footnote{We impute employment from population for three cities in Switzerland.} Cities are defined as ``functional urban areas,'' and are typically extend beyond the administrative boundaries. For US cities, they roughly correspond to Metropolitan Statistical Areas. To obtain variation in expenditure shares across cities, we use the model-consistent expenditure shares predicted by our estimated utility function.
+In addition to the country-level data discussed above, we use population data on all cities greater than XX \cite{}. We assume population is proportional to employment in each city so that we can use our city-level population counts as proxies for employment. 
+
+Our sample includes XX cities across XX countries.
+XXXXXXXX Cities are defined as ``functional urban areas,'' and are typically extend beyond the administrative boundaries. For US cities, they roughly correspond to Metropolitan Statistical Areas. To obtain variation in expenditure shares across cities, we use the model-consistent expenditure shares predicted by our estimated utility function.
+
+For XX of the cities, we also have data on its area. We use these to test the predictions of the model.
 
 The following equations completely characterize the spatial equilibrium of city $c$.
-
-
 
 The relative employment of two cities,
 \[
@@ -684,12 +684,6 @@ The relative employment of two cities,
 \]
 depends on relative productivity, a relative ``congestion'' term and relative city area.
 
-Relative city boundaries,
-\[
-e^{(z_{c}-z_{c'}) \tau} =
-\frac {A_c}
-	{A_{c'}}.
-\]
 Because we do not observe city area for many cities, we can use the above relationship to calibrate city areas to city populations.
 \[
 \frac{N_c}{N_{c'}}
@@ -701,12 +695,53 @@ Because we do not observe city area for many cities, we can use the above relati
 {N_c}
 = \text{constant} \times {e^{(z_c-\tilde z_c){\tau/\beta}} z_{c}^2}
 \]
-The right-hand-side is strictly increasing in $z_c$, which we can use to pin down the boundary of each city.
-[FIXME: we need an overall level of urban population density. This can be take from just one city per country?]
+The right-hand-side is strictly increasing in $z_c$, which we can use to pin down the boundary of each city. We choose the constant in such a way so as to match the overall population density of the country.
+
+Given the calibrated boundary of each city, we can calculate its area, its employment and its average rent (relative to rural rents). 
+
+Given relative urban/rural prices as measure in the data, we use equation \eqref{eq:EQ1} to pin down city productivity relative to urban productivity.
+
+We can then choose a level of rural productivity that matches aggreate GDP per capita (which we take as a proxy for output per worker).
+
+Figure \ref{fig:../../research_designs/city_level_inputs/output/area_model_data} plots the calibrated city areas agains the actual city areas in the sample for which we have data. Although cities vary in size, population density and urban structure, the model-calibrated area matches the actual area quite well, with a correlation of 0.78. 
+
+\dofigure{../../research_designs/city_level_inputs/output/area_model_data}{Calibrated city areas in the model}{Notes: Figure includes subsample of XX cities for which we have area data. Area calibration depends on city population, the average population density of the country, and our calibrated rent gradient $\tau/\beta$.}
+
+Given a set of productivities, we can calculate the aggregate output of the rural and the urban good for each country. We use these to estimate the demand system. Given a set of output, divide by total population to get per capita consumption $C_u$ and $C_r$. 
+
+We can rewrite \eqref{eq:EQ3} as 
+\[
+\ln P_u/P_r = -\frac 1 {\sigma_u}\ln C_u + \frac 1 {\sigma_r}\ln C_r + \frac 1 {\sigma_u}\ln\alpha_u.
+\]
+The challenge is that consumption patterns are correlated with demand shocks, so we cannot estimate this equation by OLS. We make the additional assumption that $\alpha_u$ is uncorrelated across countries with urban and rural productivities and average population density. These three varibales can then be used as instruments for $C_u$ and $C_r$.
 
 \input{../research_designs/city_level_inputs/output/demand_parameters.tex}
 
+Table \ref{tab1} reports our estimates. Our instruments are strong for both endogenous variable, with an F-test of XX and XX. As expected, urban productivity mostly increases urban consumption, whereas rural productivity mostly icnreases rural consumption. The latter also increases when land is abundant in the country. Using these instruments, we can recover the coefficients of log consumption in the second stage. Our estimates are consistent by the model assumptions that $\sigma_u>\sigma_r>1$. The two sectors are substitutes and urban goods are luxury goods.
+
 \section{Decomposition of output per worker}
+Recall that city-level output of the urban good is
+\[
+Q_c =
+BA_cL_c^{\beta}N_c^{1-\beta}
+ e^{-\tau\tilde z_c}.
+\]
+Taking the equilibrium conditions, we rewrite city-level output per worker as follows
+\begin{equation}
+\frac {Q_c}{N_c} =
+B A_r 
+\left(\frac 
+	{L_r}{N_r}
+\right)^\beta
+\frac{A_c}{A_r}
+e^{(z_c-\tilde z_c)\tau/\beta}
+e^{-\tilde z_c\tau}.
+\end{equation}
+The first two terms capture the overall level of rural productivity. The third term is the abundance of rural land. When land is more abundent, it will reduce rural rents, which are directly connected to city rents. Then output per worker increases. The next term is the productivity of the city relative to the rural sector.
+
+XXXXXX
+%% FIXME: am i calculating this correctly? should P/P be included?
+
 
 \dofigure{../../research_designs/city_level_inputs/output/rural_contributions}{The contribution of rural productivity and land use to city output per worker}{Notes: Figure presents the nonparametric relationship between city-level output per worker and rural productivity and land per worker using locally weighted scatterplot smoothing. All productivity contributions are expressed relative to those in New York.}
 
