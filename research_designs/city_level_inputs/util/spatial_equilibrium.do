@@ -1,7 +1,7 @@
 confirm numeric variable Ac Ar Pu_Pr N L
 confirm scalar tau beta
 
-foreach X in z z_tilde Lc Lu Lu_bar Lr L_bar Cr Cu Qr Qc Qu Y {
+foreach X in z z_tilde Lc Lu Lu_bar Lr L_bar Cr Cu Qr Qc Qu Y Nr Nu {
 	capture drop `X'
 }
 

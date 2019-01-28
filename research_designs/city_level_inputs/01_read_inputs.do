@@ -1,19 +1,9 @@
 * city data from OECD
-use  ../../data/oecd/cities/consistent/cities, clear
-keep METRO_ID Metro year gdp_pc pop emp labour_ surf_* iso3
-keep if year==2007
+use  ../../data/un/table-pop-240/city-population-2005-2011, clear
+keep if year==2005
 
-ren Metro city_name
-ren pop city_population
-ren emp city_employment
-gen city_area = surf_core+surf_hinter
-
-* impute employment for Switzerland
-reg city_employment city_population if year==2007, nocons
-tempvar hat
-predict `hat'
-replace city_employment = `hat' if missing(city_employment)
-
+* FIXME: employment rates can be adjusted at the country level
+gen city_employment = city_population
 save input/cities, replace
 
 * unit labor cost data from OECD

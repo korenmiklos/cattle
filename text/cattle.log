@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.3)  25 JAN 2019 15:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.3)  28 JAN 2019 14:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -326,9 +326,12 @@ t/urban_contributions.pdf  used on input line 748.
 (pdftex.def)             Requested size: 325.215pt x 236.52663pt.
 
 (../research_designs/city_level_inputs/output/counterfactuals.tex)
-Overfull \hbox (50.79898pt too wide) in paragraph at lines 3--754
+Overfull \hbox (54.22394pt too wide) in paragraph at lines 3--754
  [] 
  []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [24] [25 <./figures/../../research_designs/city_level_inputs/output/rural_contr
 ibutions.pdf>] [26 <./figures/../../research_designs/city_level_inputs/output/u
@@ -368,7 +371,7 @@ pe1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2018basic/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2018basic/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2018basic/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on cattle.pdf (36 pages, 567663 bytes).
+Output written on cattle.pdf (36 pages, 595949 bytes).
 PDF statistics:
  240 PDF objects out of 1000 (max. 8388607)
  165 compressed objects within 2 object streams

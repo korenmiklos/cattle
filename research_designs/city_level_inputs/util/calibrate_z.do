@@ -5,10 +5,10 @@ tempvar predicted_city_employment diff
 tempname tolerance gap step_size
 
 * start with large guess, can only be reduced
-gen z = sqrt(city_employment/rural_density)/pi
-gen city_area = .
-gen `predicted_city_employment' = .
-gen `diff' = .
+gen double z = sqrt(city_employment/rural_density)/pi
+gen double city_area = .
+gen double `predicted_city_employment' = .
+gen double `diff' = .
 
 scalar `tolerance' = .05
 scalar `gap' = 999
