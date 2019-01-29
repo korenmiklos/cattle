@@ -7,24 +7,28 @@ do util/parameters
 do util/programs
 
 gen ln_Qc = ln(Qc)
+gen ln_Y = ln(gdppercapita)
 
 * everything relative to New York
-foreach X of var ln_Qc *_contribution {
+foreach X of var ln_Qc ln_Y *_contribution {
 	su `X' if city_code=="USA-1", meanonly
-	replace `X' = exp(`X' - r(mean))
+	replace `X' = (`X' - r(mean))
 }
 
+* FIXME: derive aggregate urban contribution
+collapse (mean) ln_Qc ln_Y rural_productivity_contribution rural_land_contribution rel_productivity_contribution land_contribution location_contribution, by(iso3 year)
 
-local X ln_Qc
-label var ln_Qc "City output per worker (New York=1)"
+
+local X ln_Y
+label var ln_Qc "City output per worker (log, New York=0)"
+label var ln_Y "GDP per capita (log, USA=0)"
 * execute graphing command
 
-* FIXME: this graph only at country level
 tw 	(scatter rural_productivity_contribution `X', msize(tiny)) ///
 	(lowess rural_productivity_contribution `X') ///
 	(lowess rural_land_contribution `X'), ///
 	legend(order(2 "Rural productivity" 3 "Rural land use")) ///
-	scheme(s2mono)  ytitle("Relative contribution (New York=1)")
+	scheme(s2mono)  ytitle("Relative contribution (log, New York=0)")
 graph export output/rural_contributions.pdf, replace
 
 tw 	(scatter rel_productivity_contribution `X', msize(tiny)) ///
@@ -32,7 +36,7 @@ tw 	(scatter rel_productivity_contribution `X', msize(tiny)) ///
 	(lowess land_contribution `X') ///
 	(lowess location_contribution `X'), ///
 	legend(order(2 "Urban/rural productivity" 3 "Urban/rural land use" 4 "Location")) ///
-	scheme(s2mono)   ytitle("Relative contribution (New York=1)")
+	scheme(s2mono)   ytitle("Relative contribution (log, New York=0)")
 graph export output/urban_contributions.pdf, replace
 
 tempfile scenarios
