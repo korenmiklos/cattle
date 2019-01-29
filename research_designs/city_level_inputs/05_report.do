@@ -49,7 +49,7 @@ ren iso3 iso
 local scenario0 : char _dta[note1]
 save `scenarios', replace emptyok
 
-forval i=1/3 {
+forval i=1/4 {
 	use output/scenario_`i', clear
 	* not to mix up with variables save in scenario 3
 	ren iso3 iso
@@ -65,7 +65,7 @@ forval i=1/3 {
 	save `scenarios', replace
 }
 local lbl ""
-forval i=0/3 {
+forval i=0/4 {
 	local lbl `lbl' `i' "`scenario`i''"
 }
 
@@ -87,6 +87,6 @@ label var Qr "Rural output per worker"
 label var Qu "Urban output per worker"
 label var Y "Constant-price GDP"
 
-drop if scenario==0 | scenario==3
+drop if scenario==0 | scenario==3 | scenario==2
 bys scenario: eststo: quietly estpost summarize `variables', listwise
 esttab using output/counterfactuals.tex, replace cells("mean(fmt(3))") label nodepvar noobs

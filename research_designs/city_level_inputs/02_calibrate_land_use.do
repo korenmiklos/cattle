@@ -1,7 +1,8 @@
 clear all
 use input/cities
 
-drop if city_employment<1000
+* only keep large cities
+drop if city_employment<50000
 
 merge m:1 iso3 year using input/macro_indicators, keep(match) nogen
 merge m:1 iso3 using input/sector_price_levels, keep(match) nogen

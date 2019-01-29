@@ -39,7 +39,7 @@ label var ln_L_N "$\ln(L/N)$"
 
 
 esttab using output/demand_parameters.tex, replace label se star(* 0.10 ** 0.05 *** 0.01) alignment(D{.}{.}{-1}) ///
-	scalars("sigma_u $\sigma u$" "sigma_r $\sigma r$") ///
+	scalars("F F-test" "sigma_u $\sigma u$" "sigma_r $\sigma r$") ///
 	title(Estimate of utility function parameters\label{tab1}) ///
 	addnotes("Instrumental variables regression. ")
 

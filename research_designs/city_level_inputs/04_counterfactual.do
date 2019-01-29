@@ -37,3 +37,11 @@ preserve
 	do util/demand_loop
 	do util/save_scenario 3 "All productivities like New York"
 restore
+
+preserve
+	* tau decreases by half
+	scalar tau = tau/2
+
+	do util/demand_loop
+	do util/save_scenario 4 "50\% decrease in trade cost"
+restore
