@@ -9,14 +9,17 @@ do util/programs
 gen ln_Qc = ln(Qc)
 gen ln_Y = ln(gdppercapita)
 
+gen city_share = city_employment/urban_employment
 * everything relative to New York
 foreach X of var ln_Qc ln_Y *_contribution {
 	su `X' if city_code=="USA-1", meanonly
-	replace `X' = (`X' - r(mean))
+	replace `X' = city_share * exp(`X' - r(mean))
 }
 
-* FIXME: derive aggregate urban contribution
-collapse (mean) ln_Qc ln_Y rural_productivity_contribution rural_land_contribution rel_productivity_contribution land_contribution location_contribution, by(iso3 year)
+collapse (sum) city_share ln_Qc ln_Y rural_productivity_contribution rural_land_contribution rel_productivity_contribution land_contribution location_contribution, by(iso3 year)
+foreach X of var ln_Qc ln_Y *_contribution {
+	replace `X' = ln(`X'/city_share)
+}
 
 
 local X ln_Y
