@@ -1,8 +1,7 @@
 clear all
 use input/cities
 
-replace year = 2007
-drop if city_population<100000
+drop if city_employment<1000
 
 merge m:1 iso3 year using input/macro_indicators, keep(match) nogen
 merge m:1 iso3 using input/sector_price_levels, keep(match) nogen

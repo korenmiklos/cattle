@@ -5,9 +5,9 @@ tempname tolerance gap step_size
 gen `predicted_price' = .
 gen `diff' = .
 
-scalar `tolerance' = .01
+scalar `tolerance' = .05
 scalar `gap' = 999
-scalar `step_size' = 0.25
+scalar `step_size' = 0.1
 
 scalar i = 1
 while `gap'>`tolerance' {

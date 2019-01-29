@@ -30,7 +30,7 @@ restore
 preserve
 	* every city becomes New York
 	foreach X of var Ac Ar {
-		su `X' if city_code==47210, meanonly
+		su `X' if city_code=="USA-1", meanonly
 		replace `X' = r(mean) 
 	}
 

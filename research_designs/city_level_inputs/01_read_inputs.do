@@ -1,9 +1,11 @@
 * city data from OECD
-use  ../../data/un/table-pop-240/city-population-2005-2011, clear
-keep if year==2005
+use  ../../data/maxmind/all_cities, clear
+ren iso iso3
+gen str city_code = iso3+"-"+string(rank)
+gen year=2007
 
 * FIXME: employment rates can be adjusted at the country level
-gen city_employment = city_population
+gen city_employment = citypopulation
 save input/cities, replace
 
 * unit labor cost data from OECD
