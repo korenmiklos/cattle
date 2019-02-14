@@ -3,11 +3,9 @@ set more off
 capture log close
 log using ../doc/merge_zips, text replace
 
-local CBP ~/SparkleShare/County-Business-Patterns
-
 * read zip-level population
 tempfile zippop
-insheet using `CBP'/population/zcta_county_rel_10.txt
+insheet using ../data/census/cbp/zcta_county_rel_10.txt
 collapse (mean) zpop zhu zarealand, by(zcta5)
 ren zcta5 zip
 replace zarealand = zarealand/1e+6
@@ -18,7 +16,7 @@ sort zip
 save `zippop', replace
 
 clear
-insheet using `CBP'/2007/zbp07detail.txt
+insheet using ../data/census/cbp/zbp07detail.txt
 
 * drop sector totals, no new info
 drop if naics=="------"
@@ -39,8 +37,10 @@ replace est=0 if missing(est)
 replace emp=0 if missing(emp)
 
 * merge different sectors
-recode sector 11 = 1 21 22 23 31 = 2 * =3
-collapse (sum) emp est, by(zip sector)
+recode sector 11 21 22 = 1 23 31 = 2 * =3
+* keep only urban sectors: construction, manufacturing, services
+keep if sector==2 | sector==3
+collapse (sum) emp est, by(zip)
 
 * merge distances and areas
 csvmerge zip using ../data/census/cbp/zip.csv
@@ -66,13 +66,8 @@ corr area ziparea
 
 
 * merge naics land and labor shares
-gen laborshare = 0.46
-replace laborshare = 0.67 if sector==2
-replace laborshare = 0.66 if sector==3
-
-gen landshare = 0.18
-replace landshare = 0.03 if sector==2
-replace landshare = 0.06 if sector==3
+gen laborshare = 0.67
+gen landshare = 0.05
 
 * calculate densities
 gen emp_density = emp/area
@@ -90,7 +85,7 @@ replace landdemand = landdemand+pop*0.3*0.36
 * allocate area of ZIP to sectors based on their direct need 
 gen share = emp/laborshare*landshare/landdemand
 su share, d
-xi: reg share i.sector*lndistance
+reg share lndistance
 
 
 * area of zip is split across sectors and homeowners
@@ -102,16 +97,6 @@ gen imputed_density = emp/imputed_area
 
 saveold ../data/zip_business_patterns, replace
 
-* calculate total areas
-collapse (sum) emp imputed_area residential_area (mean) landshare laborshare, by(sector)
-egen sumemp = sum(emp)
-gen indirect_land = emp/sumemp*residential_area
-
-l sector imputed_area indirect_land
-
-residential_area
-
-l
 
 log close
 set more on

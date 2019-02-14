@@ -1,20 +1,11 @@
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
       name:  <unnamed>
-       log:  /Volumes/Home/Dropbox/projects/balassa/code/../doc/zip_level_gradients.log
+       log:  /Users/koren/Dropbox/projects/submitted/balassa/code/../doc/zip_level_gradients.log
   log type:  text
- opened on:  10 Apr 2013, 17:21:24
+ opened on:  14 Feb 2019, 14:55:33
 
 . 
 . use ../data/zip_business_patterns
-
-. 
-. su sector
-
-    Variable |       Obs        Mean    Std. Dev.       Min        Max
--------------+--------------------------------------------------------
-      sector |     97512           2    .8165008          1          3
-
-. local max `r(max)'
 
 . 
 . * nonparametric gradients
@@ -22,9 +13,9 @@
 
 . egen distpct = cut(distance), group(`K')
 
-. egen mean_emp_dens = mean(imputed_density), by(distpct sector)
+. egen mean_emp_dens = mean(imputed_density), by(distpct)
 
-. egen tag = tag(distpct sector)
+. egen tag = tag(distpct)
 
 . 
 . gen ln_mean_emp_dens = ln(mean_emp_dens)
@@ -35,316 +26,119 @@
 . label var ln_mean "Imputed employment density (log)"
 
 . 
-. tw (line ln_mean_emp_dens distance if tag&sector==1&distance<=100, sort) /*
-> */ (line ln_mean_emp_dens distance if tag&sector==2&distance<=100, sort) /*
-> */ (line ln_mean_emp_dens distance if tag&sector==3&distance<=100, sort) /*
-> */, legend(order(1 "Agriculture" 2 "Manufacturing" 3 "Services")) scheme(s2color)
+. tw (line ln_mean_emp_dens distance if tag&distance<=100, sort), legend(order(1 "Urban sectors")) schem
+> e(s2mono)
 
-. graph export ../text/figures/nonparametric_gradients.png, width(800) replace
-(file ../text/figures/nonparametric_gradients.png written in PNG format)
-
-. 
-. preserve
-
-. * calculate shares
-. collapse emp est lndistance distance, by(sector distpct)
-
-. reshape wide emp est, i(distpct) j(sector)
-(note: j = 1 2 3)
-
-Data                               long   ->   wide
------------------------------------------------------------------------------
-Number of obs.                       99   ->      33
-Number of variables                   6   ->       9
-j variable (3 values)            sector   ->   (dropped)
-xij variables:
-                                    emp   ->   emp1 emp2 emp3
-                                    est   ->   est1 est2 est3
------------------------------------------------------------------------------
-
-. egen totalemp = rsum(emp?)
-
-. sort distance
-
-. forval i=1/`max' {
-  2.         gen share`i' = emp`i'/totalemp
-  3.         egen meanshare`i' = mean(share`i')
-  4.         gen lnshare`i' = ln(emp`i'/totalemp)
-  5.         gen share`i'norm = share`i'/meanshare`i'
-  6. }
-
-. 
-. label var distance "Distance to city center (km)"
-
-. 
-. tw (line share?norm distance if distance<=100, sort), /*
->  */ ytitle(Location quotient of sector) /*
->  */ legend(order(1 "Agriculture" 2 "Manufacturing" 3 "Services")) scheme(s2color)
-
-. graph export ../text/figures/sector_location_quotients.png, width(800) replace
-(file ../text/figures/sector_location_quotients.png written in PNG format)
-
-. 
-. restore
+. graph export ../text/figures/nonparametric_gradients.pdf, replace
+(file /Users/koren/Dropbox/projects/submitted/balassa/code/../text/figures/nonparametric_gradients.pdf w
+> ritten in PDF format)
 
 . 
 . * sector-level regressions
 . gen lower = 0
 
-. gen upper = 500
+. gen upper = 60
 
-. replace upper = 30 if sector==3
-(32504 real changes made)
-
-. replace lower = 30 if sector==2
-(32504 real changes made)
-
-. replace upper = 60 if sector==2
-(32504 real changes made)
-
-. * non-overlapping zones for M and S
-. * we do not care about agri gradient
 . 
 . egen citycode = group(city)
 
 . 
 . foreach X in emp_density establishment_size imputed_density {
   2.         gen tau_`X' = .
-  3.         forval i = 1/`max' {
-  4.                 xtpoisson `X' distance if sector==`i' & distance>=lower & distance<upper, i(citycode) fe
-  5.                 replace tau_`X' = _b[distance] if sector==`i'
-  6.         }
-  7. }
-(97512 missing values generated)
+  3.         xtpoisson `X' distance if  distance>=lower & distance<upper, i(citycode) fe
+  4.         replace tau_`X' = _b[distance]
+  5. }
+(32,504 missing values generated)
 note: you are responsible for interpretation of non-count dep. variable
 
-Iteration 0:   log likelihood = -23160.822  
-Iteration 1:   log likelihood = -22267.182  
-Iteration 2:   log likelihood = -22266.327  
-Iteration 3:   log likelihood = -22266.327  
+Iteration 0:   log likelihood =  -54824318  
+Iteration 1:   log likelihood =  -32376612  
+Iteration 2:   log likelihood =  -32347753  
+Iteration 3:   log likelihood =  -32347711  
+Iteration 4:   log likelihood =  -32347711  
 
-Conditional fixed-effects Poisson regression    Number of obs      =     32387
-Group variable: citycode                        Number of groups   =       486
+Conditional fixed-effects Poisson regression    Number of obs     =     22,395
+Group variable: citycode                        Number of groups  =        485
 
-                                                Obs per group: min =         3
-                                                               avg =      66.6
-                                                               max =       563
+                                                Obs per group:
+                                                              min =          3
+                                                              avg =       46.2
+                                                              max =        562
 
-                                                Wald chi2(1)       =   1420.22
-Log likelihood  = -22266.327                    Prob > chi2        =    0.0000
+                                                Wald chi2(1)      =   2.42e+07
+Log likelihood  =  -32347711                    Prob > chi2       =     0.0000
 
 ------------------------------------------------------------------------------
  emp_density |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-    distance |  -.0198063   .0005256   -37.69   0.000    -.0208364   -.0187762
+    distance |  -.1576909    .000032 -4924.33   0.000    -.1577537   -.1576282
 ------------------------------------------------------------------------------
-(32504 real changes made)
-note: you are responsible for interpretation of non-count dep. variable
-note: 14 groups (14 obs) dropped because of only one obs per group
-
-Iteration 0:   log likelihood = -262350.79  
-Iteration 1:   log likelihood = -260044.09  
-Iteration 2:   log likelihood = -260042.78  
-Iteration 3:   log likelihood = -260042.78  
-
-Conditional fixed-effects Poisson regression    Number of obs      =      9582
-Group variable: citycode                        Number of groups   =       448
-
-                                                Obs per group: min =         2
-                                                               avg =      21.4
-                                                               max =       188
-
-                                                Wald chi2(1)       =   4522.27
-Log likelihood  = -260042.78                    Prob > chi2        =    0.0000
-
-------------------------------------------------------------------------------
- emp_density |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
--------------+----------------------------------------------------------------
-    distance |  -.0234346   .0003485   -67.25   0.000    -.0241176   -.0227516
-------------------------------------------------------------------------------
-(32504 real changes made)
+(32,504 real changes made)
+(32,504 missing values generated)
 note: you are responsible for interpretation of non-count dep. variable
 
-Iteration 0:   log likelihood =  -45613843  
-Iteration 1:   log likelihood =  -27300240  
-Iteration 2:   log likelihood =  -27299294  
-Iteration 3:   log likelihood =  -27299294  
+Iteration 0:   log likelihood = -187391.13  
+Iteration 1:   log likelihood = -180498.11  
+Iteration 2:   log likelihood = -180495.72  
+Iteration 3:   log likelihood = -180495.72  
 
-Conditional fixed-effects Poisson regression    Number of obs      =     12799
-Group variable: citycode                        Number of groups   =       485
+Conditional fixed-effects Poisson regression    Number of obs     =     22,375
+Group variable: citycode                        Number of groups  =        485
 
-                                                Obs per group: min =         3
-                                                               avg =      26.4
-                                                               max =       374
+                                                Obs per group:
+                                                              min =          3
+                                                              avg =       46.1
+                                                              max =        562
 
-                                                Wald chi2(1)       =  2.27e+07
-Log likelihood  =  -27299294                    Prob > chi2        =    0.0000
-
-------------------------------------------------------------------------------
- emp_density |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
--------------+----------------------------------------------------------------
-    distance |  -.2050682    .000043 -4765.55   0.000    -.2051525   -.2049839
-------------------------------------------------------------------------------
-(32504 real changes made)
-(97512 missing values generated)
-note: you are responsible for interpretation of non-count dep. variable
-note: 2 groups (2 obs) dropped because of only one obs per group
-
-Iteration 0:   log likelihood = -79405.478  
-Iteration 1:   log likelihood = -78819.345  
-Iteration 2:   log likelihood = -78817.768  
-Iteration 3:   log likelihood = -78817.768  
-
-Conditional fixed-effects Poisson regression    Number of obs      =     10024
-Group variable: citycode                        Number of groups   =       484
-
-                                                Obs per group: min =         2
-                                                               avg =      20.7
-                                                               max =       130
-
-                                                Wald chi2(1)       =   1130.35
-Log likelihood  = -78817.768                    Prob > chi2        =    0.0000
+                                                Wald chi2(1)      =   13538.39
+Log likelihood  = -180495.72                    Prob > chi2       =     0.0000
 
 ------------------------------------------------------------------------------------
 establishment_size |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------------+----------------------------------------------------------------
-          distance |  -.0036786   .0001094   -33.62   0.000    -.0038931   -.0034642
+          distance |  -.0141526   .0001216  -116.35   0.000     -.014391   -.0139142
 ------------------------------------------------------------------------------------
-(32504 real changes made)
-note: you are responsible for interpretation of non-count dep. variable
-note: 13 groups (13 obs) dropped because of only one obs per group
-
-Iteration 0:   log likelihood = -109424.95  
-Iteration 1:   log likelihood = -109420.35  
-Iteration 2:   log likelihood = -109420.35  
-
-Conditional fixed-effects Poisson regression    Number of obs      =      8885
-Group variable: citycode                        Number of groups   =       448
-
-                                                Obs per group: min =         2
-                                                               avg =      19.8
-                                                               max =       183
-
-                                                Wald chi2(1)       =      9.22
-Log likelihood  = -109420.35                    Prob > chi2        =    0.0024
-
-------------------------------------------------------------------------------------
-establishment_size |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
--------------------+----------------------------------------------------------------
-          distance |   .0009695   .0003193     3.04   0.002     .0003437    .0015952
-------------------------------------------------------------------------------------
-(32504 real changes made)
+(32,504 real changes made)
+(32,504 missing values generated)
 note: you are responsible for interpretation of non-count dep. variable
 
-Iteration 0:   log likelihood = -100714.69  
-Iteration 1:   log likelihood = -94849.938  
-Iteration 2:   log likelihood = -94849.908  
-Iteration 3:   log likelihood = -94849.908  
+Iteration 0:   log likelihood =  -56816094  
+Iteration 1:   log likelihood =  -33110323  
+Iteration 2:   log likelihood =  -33102993  
+Iteration 3:   log likelihood =  -33102992  
 
-Conditional fixed-effects Poisson regression    Number of obs      =     12766
-Group variable: citycode                        Number of groups   =       485
+Conditional fixed-effects Poisson regression    Number of obs     =     22,375
+Group variable: citycode                        Number of groups  =        485
 
-                                                Obs per group: min =         3
-                                                               avg =      26.3
-                                                               max =       374
+                                                Obs per group:
+                                                              min =          3
+                                                              avg =       46.1
+                                                              max =        562
 
-                                                Wald chi2(1)       =  11614.67
-Log likelihood  = -94849.908                    Prob > chi2        =    0.0000
-
-------------------------------------------------------------------------------------
-establishment_size |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
--------------------+----------------------------------------------------------------
-          distance |  -.0303913    .000282  -107.77   0.000    -.0309441   -.0298386
-------------------------------------------------------------------------------------
-(32504 real changes made)
-(97512 missing values generated)
-note: you are responsible for interpretation of non-count dep. variable
-note: 2 groups (2 obs) dropped because of only one obs per group
-
-Iteration 0:   log likelihood = -1997242.3  
-Iteration 1:   log likelihood = -1067314.6  
-Iteration 2:   log likelihood = -1054770.3  
-Iteration 3:   log likelihood = -1054749.4  
-Iteration 4:   log likelihood = -1054749.4  
-
-Conditional fixed-effects Poisson regression    Number of obs      =     10024
-Group variable: citycode                        Number of groups   =       484
-
-                                                Obs per group: min =         2
-                                                               avg =      20.7
-                                                               max =       130
-
-                                                Wald chi2(1)       =  1.21e+06
-Log likelihood  = -1054749.4                    Prob > chi2        =    0.0000
+                                                Wald chi2(1)      =   3.31e+07
+Log likelihood  =  -33102992                    Prob > chi2       =     0.0000
 
 ---------------------------------------------------------------------------------
 imputed_density |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 ----------------+----------------------------------------------------------------
-       distance |  -.0767309   .0000698 -1099.60   0.000    -.0768676   -.0765941
+       distance |  -.0968549   .0000168 -5753.66   0.000    -.0968879   -.0968219
 ---------------------------------------------------------------------------------
-(32504 real changes made)
-note: you are responsible for interpretation of non-count dep. variable
-note: 13 groups (13 obs) dropped because of only one obs per group
+(32,504 real changes made)
 
-Iteration 0:   log likelihood = -3095290.1  
-Iteration 1:   log likelihood = -3033792.1  
-Iteration 2:   log likelihood = -3033731.3  
-Iteration 3:   log likelihood = -3033731.3  
-
-Conditional fixed-effects Poisson regression    Number of obs      =      8885
-Group variable: citycode                        Number of groups   =       448
-
-                                                Obs per group: min =         2
-                                                               avg =      19.8
-                                                               max =       183
-
-                                                Wald chi2(1)       = 120013.03
-Log likelihood  = -3033731.3                    Prob > chi2        =    0.0000
-
----------------------------------------------------------------------------------
-imputed_density |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
-----------------+----------------------------------------------------------------
-       distance |  -.0221797    .000064  -346.43   0.000    -.0223051   -.0220542
----------------------------------------------------------------------------------
-(32504 real changes made)
-note: you are responsible for interpretation of non-count dep. variable
-
-Iteration 0:   log likelihood =  -43722409  
-Iteration 1:   log likelihood =  -26477776  
-Iteration 2:   log likelihood =  -26469899  
-Iteration 3:   log likelihood =  -26469899  
-
-Conditional fixed-effects Poisson regression    Number of obs      =     12766
-Group variable: citycode                        Number of groups   =       485
-
-                                                Obs per group: min =         3
-                                                               avg =      26.3
-                                                               max =       374
-
-                                                Wald chi2(1)       =  2.73e+07
-Log likelihood  =  -26469899                    Prob > chi2        =    0.0000
-
----------------------------------------------------------------------------------
-imputed_density |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
-----------------+----------------------------------------------------------------
-       distance |  -.1315511   .0000252 -5229.49   0.000    -.1316004   -.1315018
----------------------------------------------------------------------------------
-(32504 real changes made)
+. gen sector=1
 
 . table sector, c(mean tau_emp_density mean tau_establishment_size mean tau_imputed_density)
 
 ----------------------------------------------------------
    sector | mean(tau_em~y)  mean(tau_es~e)  mean(tau_im~y)
 ----------+-----------------------------------------------
-        1 |      -.0198063       -.0036786       -.0767309
-        2 |      -.0234346        .0009695       -.0221797
-        3 |      -.2050682       -.0303913       -.1315511
+        1 |      -.1576909       -.0141526       -.0968549
 ----------------------------------------------------------
 
 . 
 . log close
       name:  <unnamed>
-       log:  /Volumes/Home/Dropbox/projects/balassa/code/../doc/zip_level_gradients.log
+       log:  /Users/koren/Dropbox/projects/submitted/balassa/code/../doc/zip_level_gradients.log
   log type:  text
- closed on:  10 Apr 2013, 17:21:36
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ closed on:  14 Feb 2019, 14:55:37
+--------------------------------------------------------------------------------------------------------

@@ -1,15 +1,7 @@
 scalar pi = 3.1416
 
-*land shares
-scalar beta1 = 0.13
-scalar beta2 = 0.10
-scalar beta3 = 0.23
+*land share
+scalar beta = 0.12
 
-scalar beta = beta1
-
-* taus calibrated to employment gradients
-scalar tau3 = 0.81/100
-scalar tau2 = 0.52/100
-scalar tau1 = 1.71/100
-
-scalar tau = tau1
+* tau calibrated to employment gradient
+scalar tau = 0.158 * beta

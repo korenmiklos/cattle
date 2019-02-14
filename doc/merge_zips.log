@@ -1,25 +1,22 @@
---------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
       name:  <unnamed>
-       log:  /Users/koren/Dropbox/projects/balassa/code/../doc/merge_zips.log
+       log:  /Users/koren/Dropbox/projects/submitted/balassa/code/../doc/merge_zips.log
   log type:  text
- opened on:  16 Jun 2012, 12:27:04
-
-. 
-. local CBP ~/SparkleShare/County-Business-Patterns
+ opened on:  14 Feb 2019, 14:51:18
 
 . 
 . * read zip-level population
 . tempfile zippop
 
-. insheet using `CBP'/population/zcta_county_rel_10.txt
-(24 vars, 44410 obs)
+. insheet using ../data/census/cbp/zcta_county_rel_10.txt
+(24 vars, 44,410 obs)
 
 . collapse (mean) zpop zhu zarealand, by(zcta5)
 
 . ren zcta5 zip
 
 . replace zarealand = zarealand/1e+6
-(33120 real changes made)
+(33,120 real changes made)
 
 . ren zarealand ziparea
 
@@ -30,29 +27,29 @@
 . sort zip 
 
 . save `zippop', replace
-(note: file /var/folders/7b/svcv81g94n3fm6nrj7ckr15c0000gn/T//S_00149.000001 not found)
-file /var/folders/7b/svcv81g94n3fm6nrj7ckr15c0000gn/T//S_00149.000001 saved
+(note: file /var/folders/f4/7drmhl1d5kj3wp1r33jvx32m0000gn/T//S_00459.000001 not found)
+file /var/folders/f4/7drmhl1d5kj3wp1r33jvx32m0000gn/T//S_00459.000001 saved
 
 . 
 . clear
 
-. insheet using `CBP'/2007/zbp07detail.txt
-(12 vars, 3340643 obs)
+. insheet using ../data/census/cbp/zbp07detail.txt
+(12 vars, 3,340,643 obs)
 
 . 
 . * drop sector totals, no new info
 . drop if naics=="------"
-(39652 observations deleted)
+(39,652 observations deleted)
 
 . 
 . * keep only 2-digit NAICS
 . keep if substr(naics,3,4)=="----"
-(2874166 observations deleted)
+(2,874,166 observations deleted)
 
 . 
 . * estimate employment
-. gen emp = n1_4*2.5 + n5_9*7 + n10_19*15 + n20_49*35 + n50_99*75 + n100_249*175 + n250_499*375 + n500_999*750
->  + n1000*2000
+. gen emp = n1_4*2.5 + n5_9*7 + n10_19*15 + n20_49*35 + n50_99*75 + n100_249*175 + n250_499*375 + n500_9
+> 99*750 + n1000*2000
 
 . 
 . gen sector = real(substr(naics,1,2))
@@ -88,50 +85,53 @@ xij variables:
 -----------------------------------------------------------------------------
 
 . replace est=0 if missing(est)
-(366215 real changes made)
+(366,215 real changes made)
 
 . replace emp=0 if missing(emp)
-(366215 real changes made)
+(366,215 real changes made)
 
 . 
 . * merge different sectors
-. recode sector 11 = 1 21 22 23 31 = 2 * =3
+. recode sector 11 21 22 = 1 23 31 = 2 * =3
 (sector: 793040 changes made)
 
-. collapse (sum) emp est, by(zip sector)
+. * keep only urban sectors: construction, manufacturing, services
+. keep if sector==2 | sector==3
+(118,956 observations deleted)
+
+. collapse (sum) emp est, by(zip)
 
 . 
 . * merge distances and areas
 . csvmerge zip using ../data/census/cbp/zip.csv
-(8 vars, 33120 obs)
-(note: file /var/folders/7b/svcv81g94n3fm6nrj7ckr15c0000gn/T//S_00149.000002 not found)
-file /var/folders/7b/svcv81g94n3fm6nrj7ckr15c0000gn/T//S_00149.000002 saved
+(8 vars, 33,120 obs)
+(note: file /var/folders/f4/7drmhl1d5kj3wp1r33jvx32m0000gn/T//S_00459.000002 not found)
+file /var/folders/f4/7drmhl1d5kj3wp1r33jvx32m0000gn/T//S_00459.000002 saved
 (note: you are using old merge syntax; see [D] merge for new syntax)
-variable zip does not uniquely identify observations in the master data
 
 . tab _m
 
      _merge |      Freq.     Percent        Cum.
 ------------+-----------------------------------
-          1 |     21,444       17.93       17.93
-          2 |        616        0.52       18.45
-          3 |     97,512       81.55      100.00
+          1 |      7,148       17.75       17.75
+          2 |        616        1.53       19.28
+          3 |     32,504       80.72      100.00
 ------------+-----------------------------------
-      Total |    119,572      100.00
+      Total |     40,268      100.00
 
 . tab _m [fw=est]
 
      _merge |      Freq.     Percent        Cum.
 ------------+-----------------------------------
-          1 |    118,363        1.54        1.54
-          3 |  7,586,655       98.46      100.00
+          1 |    114,766        1.50        1.50
+          3 |  7,523,731       98.50      100.00
 ------------+-----------------------------------
-      Total |  7,705,018      100.00
+      Total |  7,638,497      100.00
 
 . * nonmatched zips are only 1.54% of establishments, drop them
 . 
 . keep if _m==3
-(22060 observations deleted)
+(7,764 observations deleted)
 
 . drop _m
 
@@ -145,7 +145,7 @@ variable zip does not uniquely identify observations in the master data
 . 
 . * area is in m2, convert to km2
 . replace area = area/1e+6
-(97512 real changes made)
+(32,504 real changes made)
 
 . 
 . * merge population data
@@ -154,14 +154,14 @@ variable zip does not uniquely identify observations in the master data
     Result                           # of obs.
     -----------------------------------------
     not matched                             0
-    matched                            97,512  (_merge==3)
+    matched                            32,504  (_merge==3)
     -----------------------------------------
 
 . drop _m
 
 . 
 . corr area ziparea
-(obs=97512)
+(obs=32,504)
 
              |     area  ziparea
 -------------+------------------
@@ -172,22 +172,9 @@ variable zip does not uniquely identify observations in the master data
 . 
 . 
 . * merge naics land and labor shares
-. gen laborshare = 0.46
+. gen laborshare = 0.67
 
-. replace laborshare = 0.67 if sector==2
-(32504 real changes made)
-
-. replace laborshare = 0.66 if sector==3
-(32504 real changes made)
-
-. 
-. gen landshare = 0.18
-
-. replace landshare = 0.03 if sector==2
-(32504 real changes made)
-
-. replace landshare = 0.06 if sector==3
-(32504 real changes made)
+. gen landshare = 0.05
 
 . 
 . * calculate densities
@@ -208,7 +195,7 @@ variable zip does not uniquely identify observations in the master data
 . * people living or working in this zip code all take up space
 . * population has land share 0.3*0.36
 . replace landdemand = landdemand+pop*0.3*0.36
-(97104 real changes made)
+(32,368 real changes made)
 
 . 
 . * allocate area of ZIP to sectors based on their direct need 
@@ -219,39 +206,33 @@ variable zip does not uniquely identify observations in the master data
                             share
 -------------------------------------------------------------
       Percentiles      Smallest
- 1%            0              0
- 5%            0              0
-10%            0              0       Obs               97512
-25%            0              0       Sum of Wgt.       97512
+ 1%     .0057925              0
+ 5%      .016654              0
+10%     .0267626              0       Obs              32,504
+25%     .0553657              0       Sum of Wgt.      32,504
 
-50%     .0133448                      Mean           .0573469
-                        Largest       Std. Dev.      .1098541
-75%     .0621947              1
-90%      .171473              1       Variance       .0120679
-95%     .2600081              1       Skewness       3.871924
-99%     .5410421              1       Kurtosis       23.65368
+50%     .1139519                      Mean            .157623
+                        Largest       Std. Dev.      .1551269
+75%     .2076763              1
+90%     .3252393              1       Variance       .0240644
+95%     .4425952              1       Skewness       2.451847
+99%     .8564159              1       Kurtosis       11.15588
 
-. xi: reg share i.sector*lndistance
-i.sector          _Isector_1-3        (naturally coded; _Isector_1 omitted)
-i.sector*lndi~e   _IsecXlndis_#       (coded as above)
+. reg share lndistance
 
-      Source |       SS       df       MS              Number of obs =   97512
--------------+------------------------------           F(  5, 97506) =12883.55
-       Model |   468.14554     5   93.629108           Prob > F      =  0.0000
-    Residual |  708.609148 97506  .007267339           R-squared     =  0.3978
--------------+------------------------------           Adj R-squared =  0.3978
-       Total |  1176.75469 97511  .012067917           Root MSE      =  .08525
+      Source |       SS           df       MS      Number of obs   =    32,504
+-------------+----------------------------------   F(1, 32502)     =   5034.02
+       Model |  104.897312         1  104.897312   Prob > F        =    0.0000
+    Residual |  677.266531    32,502  .020837688   R-squared       =    0.1341
+-------------+----------------------------------   Adj R-squared   =    0.1341
+       Total |  782.163844    32,503  .024064358   Root MSE        =    .14435
 
--------------------------------------------------------------------------------
-        share |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
---------------+----------------------------------------------------------------
-   _Isector_2 |    .032934   .0024071    13.68   0.000     .0282162    .0376519
-   _Isector_3 |   .3472585   .0024071   144.27   0.000     .3425407    .3519763
-   lndistance |   .0026681   .0004594     5.81   0.000     .0017677    .0035685
-_IsecXlndis_2 |  -.0038644   .0006497    -5.95   0.000    -.0051377    -.002591
-_IsecXlndis_3 |  -.0590409   .0006497   -90.88   0.000    -.0603142   -.0577675
-        _cons |  -.0042501   .0017021    -2.50   0.013    -.0075861   -.0009141
--------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+       share |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+  lndistance |  -.0551923   .0007779   -70.95   0.000     -.056717   -.0536676
+       _cons |   .3540615   .0028821   122.85   0.000     .3484124    .3597105
+------------------------------------------------------------------------------
 
 . 
 . 
@@ -262,43 +243,22 @@ _IsecXlndis_3 |  -.0590409   .0006497   -90.88   0.000    -.0603142   -.0577675
 
 . 
 . gen establishment_size = emp/est
-(25542 missing values generated)
+(74 missing values generated)
 
 . gen imputed_density = emp/imputed_area
-(25542 missing values generated)
+(74 missing values generated)
 
 . 
 . saveold ../data/zip_business_patterns, replace
+(saving in Stata 13 format)
+(FYI, saveold has options version(12) and version(11) that write files in older Stata formats)
 file ../data/zip_business_patterns.dta saved
 
 . 
-. * calculate total areas
-. collapse (sum) emp imputed_area residential_area (mean) landshare laborshare, by(sector)
-
-. egen sumemp = sum(emp)
-
-. gen indirect_land = emp/sumemp*residential_area
-
 . 
-. l sector imputed_area indirect_land
-
-     +------------------------------+
-     | sector   impute~a   indire~d |
-     |------------------------------|
-  1. |      1   52906.78   9812.369 |
-  2. |      2   158582.2    1144929 |
-  3. |      3     882908    5079613 |
-     +------------------------------+
-
-. 
-. residential_area
-unrecognized command:  residential_area
-r(199);
-
-end of do-file
-
-r(199);
-
-. do calibrate_sector_locations
-
-. capture log close
+. log close
+      name:  <unnamed>
+       log:  /Users/koren/Dropbox/projects/submitted/balassa/code/../doc/merge_zips.log
+  log type:  text
+ closed on:  14 Feb 2019, 14:51:33
+--------------------------------------------------------------------------------------------------------

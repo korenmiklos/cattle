@@ -410,15 +410,13 @@ Assume $\sigma_u>\sigma_r$. Adding a new city with $A_c>0$ and $\gamma_c>0$ or i
 \end{proposition}
 
 \section{Mapping the model to data}
-We calibrate the model to city-level data from the OECD to show how land usage and sector location varies with development. We fix a number of parameters across cities, but the supply of land and labor, as well as sectoral productivity are allowed to vary.
+We calibrate the model to city-level data from XX to show how land usage and sector location contributes to development. We fix a number of parameters across cities, but the supply of land and labor, as well as urban productivity are allowed to vary.
 
-We assume that cities are in autarky so that we can analyze them separately.\footnote{\citeN{Desmet2013} study a system of cities with endogenous mobility among them.} First we calibrate land shares and shipping costs using US data. Then we turn to the calibration of parameters influencing cross-country, cross-city variations.
+We assume that each country is in a \emph{multi-city equilibrium}, with workers and goods freely mobile across cities. Countries are assumed to be in autarky so that we can analyze them separately. First we calibrate land shares and shipping costs using US data. Then we turn to the calibration of parameters influencing cross-country, cross-city variations.
 
 \subsection{Common parameters}
 \paragraph{Land shares.}
-[FIXME: Remove agriculture from this section.]
-
-We calibrate sectoral land share ($\beta$) using US data. Our aim is to capture the share of immobile factors in production. These come from two sources: $(i)$ the direct use of land in production and $(ii)$ the land-rent paid by workers. We calibrate the direct use of land in sectoral production using US factor income share estimates of \citeN{Valentinyi08}. The first two columns of Table \ref{tab:Sector_Shares} show their estimates for land and labor shares across sectors.
+We calibrate sectoral land share ($\beta$) using US data. Our aim is to capture the share of immobile factors in production. These come from two sources: $(i)$ the direct use of land in production and $(ii)$ the land-rent paid by workers. We calibrate the direct use of land in sectoral production using US factor income share estimates of \citeN{Valentinyi08}. The first two columns of Table \ref{tab:Sector_Shares} show their estimates for land and labor shares across sectors. Because we use common land shares across sectors, we take this from the total economy (reported in the last row).
 
 The indirect use of land is the land used by workers. We calibrate land-rent share in labor as a product of the US aggregate rent-share in consumption expenditure reported by the BLS ($30\%$) and the average land-share of US house prices between 1984-1998 estimated by \citeN{Davis08} (36\%). We find it to be 10.8\%. We multiply this by the labor shares to get the indirect land shares listed in column 3 of Table \ref{tab:Sector_Shares}. Our calibrated overall land shares ($\beta$) are the sum of the direct and indirect land shares, and they are shown in column 4.
 
@@ -435,6 +433,8 @@ Factor shares & Direct land & Labor & Indirect land & Overall land share \\
 Agriculture & 0.18 & 0.46  & 0.05 & 0.23 \\
 Manufacturing& 0.03 & 0.67 & 0.07 & 0.10  \\
 Services    &  0.06 & 0.66 & 0.07 & 0.13 \\
+\midrule
+Total & 0.05 & 0.67  & 0.07 & 0.12 \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -442,32 +442,29 @@ Services    &  0.06 & 0.66 & 0.07 & 0.13 \\
 \noindent \footnotesize{Land and Labor shares are estimates of \citeN{Valentinyi08}. Land share in labor is the product of rent-share in US consumption expenditures, the average land-share of US house prices between 1984-1998 estimated by \citeN{Davis08} and the labor shares. Our land share estimates are the sum of direct land share and the indirect land share in labor.}
 \end{table}
 
-[FIXME: Average land shares across urban sectors.]
-
 \paragraph{Shipping costs.}
-We use the 2010 ZIP Business Patters of the U.S. Census \cite{CBP} to determine the location of sectors in the United States. We use this to calibrate transportation costs and distances of the sectors from the center.
+We use the 2010 ZIP Business Patters of the U.S. Census \cite{CBP} to estimate the employment density of urban sectors in the United States. We use this to calibrate transportation costs.
 
-The ZIP Business Patterns contains the number of establishments in employment size categories in each ZIP code for each 6-digit NAICS code. We merge NAICS codes into agriculture, manufacturing and services as follows. Agriculture is sector 11 of NAICS. We merge mining (21), utilities (22), and construction (23) together with manufacturing industries (31-33). As services, we categorize the rest, including public administration. We estimate employment by using the midpoints of the size categories.
+The ZIP Business Patterns contains the number of establishments in employment size categories in each ZIP code for each 6-digit NAICS code. We use construction (NAICS code 23) together with manufacturing industries (31-33) and services (including public administration) as urban sectors. We estimate employment by using the midpoints of the size categories.
 
 To map the model into the data, we need to specify how far each ZIP code is from the city center. We take Urbanized Areas (UAs) as independent monocentric cities, and we assign the central point to the business or administrative center of the first-mentioned city in the UA, as given by Yahoo Maps. For example, the center of ``New York–Newark, NY-NJ-CT Urbanized Area'' is the corner of Broadway and Chamber St in downtown Manhattan, whereas the center of ``Boston, MA–NH-RI Urbanized Area'' is 1 Boston Pl. We calculate the distance of each ZIP code to business center of the nearest UA.
 
-According to equation \ref{eq:EmpDens}, the employment density of sector $i$ in location $z$ is proportional to the rent-wage ratio. When industry $i$ demands positive land in the neighborhood of $z$, then the rent is proportional to $e^{-\tau_i/\beta z}$. We can use this observation to estimate $\tau_i$:
+According to equation \ref{eq:EmpDens}, the employment density in location $z$ is proportional to the rent-wage ratio. The rent is proportional to $e^{-\tau/\beta z}$. We can use this observation to estimate $\tau$:
 \[
-\frac{d\ln n_i(z)/l_i(z)}{dz} =\frac{d\ln r_i(z)}{dz} = -\frac{\tau_i}{\beta}.
+\frac{d\ln N(z)/L(z)}{dz} =\frac{d\ln R(z)}{dz} = -\frac{\tau}{\beta}.
 \]
+\dofigure{nonparametric_gradients}{Average imputed employment density plotted against distance to the city center. Sample: 485 cities with 22,395 ZIP codes from ZIP-code Business Patterns in year 2007.}
 
-To get a sense where each sectors is active, we calculate location quotients by distance to the city center. For each sector, they measure the employment share at a certain distance relative to the average employment share of the same sector. A value higher than 1 implies that the sector is overrepresented in the particular distance from the center.
+Figure \ref{fig:nonparametric_gradients} shows that, within 60km of the city center, employment density declines sharply with distance. The exponential functional form is also consistent with the model as log density is linear in distance. To estimate $\tau$, we use ZIP-codes within 60kms of the city center as follows.
 
-\dofigure{sector_location_quotients}{Sector location quotients}{Source: ZIP Business Patterns. Plots the sectoral employment shares at a particular distance (in a 3km-wide ring) from the city center, relative to the average sectoral employment share. The figure shows that sectors sort as in the model: services are overrepresented closer the the city center, while manufacturing and agriculture are located mostly farther away, agriculture showing a particularly steep gradient.}
-
-Figure \ref{fig:sector_location_quotients} shows that sectors sort as in the model: services are overrepresented closer to the city center, while manufacturing and agriculture are both underrepresented there. Agriculture shows a particularly steep gradient, with high relative employment farther away from the city center. In the calculation of sectoral employment gradients below, we restrict attention to the areas where the sectors are overrepresented. We assume that services are active up to 30 kms from the center, manufacturing is active between 10 and 60 kms (there is some mixed use) and agriculture farther than 60 kms.
-
-Let $n_{izc}$ be the employment of industry $i$ in ZIP code $z$, belonging to city (MSA) $c$.  Assuming that establishments in a given sector consume the same amount of land,\footnote{We believe this approximation is likely to bias our estimates of the rent gradient downward. Rural establishments probably occupy more space that urban establishments even in the same narrow industry, so establishment sizes do not go down as fast with distance as employment density does. } we denote by $l_{izc}$ the number of establishments of sector $i$ in ZIP code $z$. We can then regress establishment size (workers per establishment) in each sector in each ZIP code on fixed effects, and the distance of the ZIP code to the city center,
+Let $n_{zc}$ be the employment of urban sectors in ZIP code $z$, belonging to city (MSA) $c$.  Assuming that establishments in a given sector consume the same amount of land,\footnote{We believe this approximation is likely to bias our estimates of the rent gradient downward. Rural establishments probably occupy more space that urban establishments even in the same narrow industry, so establishment sizes do not go down as fast with distance as employment density does. } we denote by $l_{zc}$ the number of establishments in ZIP code $z$. We can then regress establishment size (workers per establishment) in each sector in each ZIP code on fixed effects, and the distance of the ZIP code to the city center,
 \begin{equation}\label{eq:estimable:gradient}
-\frac{n_{izc}}{l_{izc}} = e^{\mu_c+\nu_i-\gamma_i d(z,c)}.
+\frac{N_{zc}}{L_{zc}} = e^{\mu_c-\gamma d(z,c)}.
 \end{equation}
-The city fixed effect captures variation in rents and wages in the MSA, the sector fixed effect captures variation in land and labor intensity and establishment size across sectors. %XX WE MAY NEED CITY*SECTOR FEs
-The key parameter of interest is $\gamma_i$, which captures how fast employment declines with distance to the center by sector.
+The city fixed effect captures variation in rents and wages in the MSA. %XX WE MAY NEED CITY*SECTOR FEs
+The key parameter of interest is $\gamma$, which captures how fast employment declines with distance to the center by sector.
+
+%% FIXME: remove or better explain imputation
 
 From the ZBP, we have the approximate employment of the sector (reconstructed from establishment-size bins), and the total area of the ZIP code, but area is not broken down by sector. If a ZIP code is exclusively used by one of the three sector, this is not a problem. Otherwise, we impute the area used by sector $i$ as follows.
 
@@ -489,7 +486,7 @@ H(z) = 0.3\cdot0.36 P(z) \frac{W}{R(z)}.
 \]
 We then allocate residential land in proportion to $0.3\cdot0.36 P(z)$.
 
-We estimate \eqref{eq:estimable:gradient} by a Poisson regression which ensures that the equation holds in expectation, and permits estimation even when $n_{izc}=0$, which is often the case. The estimates of $\gamma_i$ and the implied sectoral transport cost intensities $\tau_i$ in the three sectors are below.
+We estimate \eqref{eq:estimable:gradient} by a Poisson regression which ensures that the equation holds in expectation, and permits estimation even when $N_{zc}=0$, which is sometimes the case. The estimate of $\gamma$ and the implied sectoral transport cost intensity $\tau$ are below.
 
 % Table generated by Excel2LaTeX from sheet 'tau'
 \begin{table}[h!]
@@ -499,42 +496,25 @@ We estimate \eqref{eq:estimable:gradient} by a Poisson regression which ensures 
     \toprule
     \textbf{} & \textbf{} & \multicolumn{2}{c}{\textbf{Gradient (per km)}}\\
     \midrule
-    \textbf{} & \textbf{Land share $\beta$ } & \textbf{Rents $\gamma_i$} & \textbf{Prices $\tau_i$} \\
-    Services & 13\%  & 13.15\% & 1.71\% \\
-    Manufacturing & 10\%  & 5.15\% & 0.52\% \\
-    Agriculture & 23\%  & 3.54\% & 0.81\% \\
+    \textbf{} & \textbf{Land share $\beta$ } & \textbf{Rents $\gamma$} & \textbf{Prices $\tau$} \\
+    Urban sectors & 12\%  & 15.8\% & 1.9\% \\
     \bottomrule
     \end{tabular}%
 
   \end{center}
   \label{tab:EmpGrad}%
 
-  \noindent \footnotesize{Sectoral rent gradients $\gamma_i$ are estimated using US employment-density observation across ZIP codes in MSAs. Price gradients reflect transport costs ($\tau_i$) and are estimated by multiplying rent gradients with sectoral land shares ($\beta$). }
+  \noindent \footnotesize{Sectoral rent gradient $\gamma$ is estimated using US employment-density observation across ZIP codes in MSAs. Price gradient reflect transport costs ($\tau$) and is estimated by multiplying the rent gradient with the land shares ($\beta$). }
 \end{table}%
 
-[FIXME: Recalculate taus for common land shares.]
-
-The three columns report the calibrated land shares, and the estimates for rent and price gradients, respectively, for each sector. The estimated coefficients can be interpreted as follows. We find that the rents paid by services become 13.15\% cheaper with every kilometer from the city center over the 0-30km range, where services are active. Though a 13\% reduction is substantial, it does not seem unrealistic with a whole 1 kilometer distance. In line with our intuition, rent gradients of manufacturing and agriculture (measured further away from the city center) both imply slower rent declines. We infer price gradients reflecting the transportation cost intensities ($\tau_i$) from the measured rent gradients $\gamma_i=\tau_i/\beta$ and the sectoral land shares. The last column of table \ref{tab:EmpGrad} shows that we find transportation costs of services significantly higher (1.71\%) than those of manufacturing and agriculture (0.52\%, 0.81\%). These rent gradients are in line with estimates of \citeN{Schmenner1981} and \citeN{Eberts1982} and are lower than historical rent gradients in New York City \cite{Atack1998}. We hold these estimated technology parameters constant across countries and cities.
+The three columns report the calibrated land shares, and the estimates for rent and price gradients, respectively. The estimated coefficients can be interpreted as follows. We find that the rents paid by urban sectors become 15.8\% cheaper with every kilometer from the city center over the 0-60km range. Though a 15.8\% reduction is substantial, it does not seem unrealistic with a whole 1 kilometer distance. We infer price gradient reflecting the transportation cost intensity ($\tau$) from the measured rent gradient $\gamma=\tau/\beta$ and the sectoral land share. The last column of table \ref{tab:EmpGrad} shows that we find transportation costs of urban sectors to be 1.9\%.\footnote{We have also estimate rent and price gradients separately for manufacturing and agriculture (0.52\% and 0.81\% price gradient, respectively). Indeed, urban sectors have the steepest gradient.} This rent gradient is in line with estimates of \citeN{Schmenner1981} and \citeN{Eberts1982} and are lower than historical rent gradients in New York City \cite{Atack1998}. We hold these estimated technology parameters constant across countries and cities.
 
 \paragraph{Utility parameters.}
-We estimate the utility function \eqref{eq:Utility} in cross-country data from 2007. Expenditure shares ($\{x_i\}$) are from the 2005 wave of the International Comparison Program \cite{icp}. We calculate sectoral price levels ($\{P_i\}$) from the International Comparison Program's disaggregate data on 24 product headings. We measure per capita income by purchasing power parity adjusted GDP per capita ($y$).
+[FIXME: write up demand estimation]
 
-We estimate the following equation for expenditure share of sector $i=1,2,3$ in country $c$ by non-linear least squares,
-\begin{equation}\label{eq:estimable:utility}
-	x_{ic} =
-	\frac 	{\alpha_i \lambda(y_c)^{-\sigma_i}  P_{ic}^{1-\sigma_i}}
-			{\sum_j {\alpha_j \lambda(y_c)^{-\sigma_j}  P_{jc}^{1-\sigma_j}}}
-	+ \varepsilon_{ic},
-\end{equation}
-where $\lambda(y_c) = by_c^{-1/\sum_j x_{j0}\sigma_j}$ is the first-order Taylor approximation of marginal utility around average expenditure shares $\{x_{j0}\}$, and $\varepsilon_{ic}$ is an error term independent of income and prices.\footnote{To be precise, since we are only approximating $\lambda$, higher-order terms in income will show up in the error term. As our results do not change when we include second-order terms in income, this effect is likely quantitatively small.}
+\input{../research_designs/city_level_inputs/output/demand_parameters.tex}
 
-[FIXME: sigma has to be greater than 1. Take from Fieler 2011]
-
-Our estimated elasticities are $\sigma_1=0.45$, $\sigma_2=0.46$ and $\sigma_3=0.16$. The model fits the expenditure share data quite well, with an $R^2$ between $0.86$ for manufacturing and $0.95$ for services. The model captures the fact that the expenditure share of agriculture is decreasing in income by estimating a low $\sigma_3$. The income elasticities of manufacturing and services are not significantly different from one another.
-
-Figure \ref{fig:city_level_inputs/expenditure_shares} plots the estimated expenditure shares against GDP per capita of the country. Note that because these shares also depend on prices, the univariate relationship is necessarily noisy. The well-known pattern of structural transformation is visible.\footnote{See, for example, \citeN{Buera2012} for recent cross-country estimates of how expenditure shares depend on development.} The share of services is steadily growing with development, while the share of agriculture is shrinking and eventually vanishes. Manufacturing follows a hump shaped pattern with development.
-
-\dofigure{city_level_inputs/expenditure_shares}{Estimated expenditure shares and GDP per capita}{Fitted values of regression \eqref{eq:estimable:utility} plotted against log GDP per capita. Estimates also depend on sectoral relative prices, leading to variation independent of income.}
+Table \ref{tab1} reports our estimates. Our instruments are strong for both endogenous variable, with an F-test of 269 and 1151. As expected, urban productivity mostly increases urban consumption, whereas rural productivity mostly icnreases rural consumption. The latter also increases when land is abundant in the country. Using these instruments, we can recover the coefficients of log consumption in the second stage. Our estimates are consistent by the model assumptions that $\sigma_u>\sigma_r>1$. The two sectors are substitutes and urban goods are luxury goods.
 
 \subsection{Recovering city-level parameters}
 In addition to the country-level data discussed above, we use population data on all cities greater than XX \cite{}. We assume population is proportional to employment in each city so that we can use our city-level population counts as proxies for employment. 
@@ -586,9 +566,6 @@ We can rewrite \eqref{eq:EQ3} as
 \]
 The challenge is that consumption patterns are correlated with demand shocks, so we cannot estimate this equation by OLS. We make the additional assumption that $\alpha_u$ is uncorrelated across countries with urban and rural productivities and average population density. These three varibales can then be used as instruments for $C_u$ and $C_r$.
 
-\input{../research_designs/city_level_inputs/output/demand_parameters.tex}
-
-Table \ref{tab1} reports our estimates. Our instruments are strong for both endogenous variable, with an F-test of XX and XX. As expected, urban productivity mostly increases urban consumption, whereas rural productivity mostly icnreases rural consumption. The latter also increases when land is abundant in the country. Using these instruments, we can recover the coefficients of log consumption in the second stage. Our estimates are consistent by the model assumptions that $\sigma_u>\sigma_r>1$. The two sectors are substitutes and urban goods are luxury goods.
 
 \section{Decomposition of output per worker}
 Recall that city-level output of the urban good is
