@@ -6,40 +6,33 @@ merge m:1 iso3 year using output/calibrated_countries, keep(match) nogen
 do util/parameters
 do util/programs
 
-gen ln_Qc = ln(Qc)
-gen ln_Y = ln(gdppercapita)
+* only report country-level decomposition
+egen country_tag = tag(iso)
+keep if country_tag
 
-gen city_share = city_employment/urban_employment
-* everything relative to New York
-foreach X of var ln_Qc ln_Y *_contribution {
-	su `X' if city_code=="USA-1", meanonly
-	replace `X' = city_share * exp(`X' - r(mean))
+local variables Qc Y rural_output_per_worker urbanization_premium urbanization_contribution relative_price_effect
+foreach X of var `variables' {
+	gen ln_`X' = ln(`X')
+	su ln_`X' if iso=="USA", meanonly
+	replace ln_`X' = ln_`X' - r(mean)
 }
-
-collapse (sum) city_share ln_Qc ln_Y rural_productivity_contribution rural_land_contribution rel_productivity_contribution land_contribution location_contribution, by(iso3 year)
-foreach X of var ln_Qc ln_Y *_contribution {
-	replace `X' = ln(`X'/city_share)
-}
-
 
 local X ln_Y
-label var ln_Qc "City output per worker (log, New York=0)"
 label var ln_Y "GDP per capita (log, USA=0)"
-* execute graphing command
+tw 	(scatter ln_rural_output_per_worker `X', msize(tiny)) ///
+	(lowess ln_rural_output_per_worker `X') ///
+	(lowess ln_urbanization_contribution `X'), ///
+	legend(order(2 "Rural output per worker" 3 "Urbanization contribution")) ///
+	scheme(s2mono)  ytitle("Contribution to GDP per worker (log, USA=0)")
+graph export output/rural_urban_contributions.pdf, replace
 
-tw 	(scatter rural_productivity_contribution `X', msize(tiny)) ///
-	(lowess rural_productivity_contribution `X') ///
-	(lowess rural_land_contribution `X'), ///
-	legend(order(2 "Rural productivity" 3 "Rural land use")) ///
-	scheme(s2mono)  ytitle("Relative contribution (log, New York=0)")
-graph export output/rural_contributions.pdf, replace
-
-tw 	(scatter rel_productivity_contribution `X', msize(tiny)) ///
-	(lowess rel_productivity_contribution `X') ///
-	(lowess land_contribution `X') ///
-	(lowess location_contribution `X'), ///
-	legend(order(2 "Urban/rural productivity" 3 "Urban/rural land use" 4 "Location")) ///
-	scheme(s2mono)   ytitle("Relative contribution (log, New York=0)")
+local X ln_urbanization_contribution
+label var ln_urbanization_contribution "Relative urban/rural output per worker (log, USA=0)"
+tw 	(scatter ln_urbanization_premium `X', msize(tiny)) ///
+	(lowess ln_urbanization_premium `X') ///
+	(lowess ln_relative_price_effect `X') ///
+	, legend(order(2 "Urbanization premium" 3 "Relative price effect")) ///
+	scheme(s2mono)   ytitle("Contribution to GDP per worker (log, USA=0)")
 graph export output/urban_contributions.pdf, replace
 
 tempfile scenarios
