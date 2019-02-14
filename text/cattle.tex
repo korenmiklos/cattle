@@ -93,9 +93,9 @@ Our model is motivated by four robust empirical facts. First, urban land becomes
 
 
 \section{A model of industry location}
-We introduce location choice to a multi-sector general equilibrium model. We have three sectors: agriculture, manufacturing and services, each using land and labor for production. Our spatial structure follows the von Thünen monocentric city model: producers choose a location on the plane and need to transport their goods to the central business district.
+We introduce location choice in a multi-sector general equilibrium model. We have two sectors: urban and rural, each using land and labor for production. Our spatial structure follows the von Thünen monocentric city model: producers choose a location on the plane and need to transport their goods to the central business district.
 
-A city is a point on a bounded but otherwise featureless two-dimensional plane. A country is a collection multiple cities, with some goods and people moving freely across these cities. We assume that countries are large enough such that city boundaries never overlap with each other or with country boundaries.
+A city is a point on a bounded but otherwise featureless two-dimensional plane. A country is a collection multiple cities, with goods and people moving freely across these cities. We assume that countries are large enough such that city boundaries never overlap with each other or with country boundaries.
 
 We first characterize the distribution of economic activities within a city, then discuss equilibrium allocation across cities within a country.
 
@@ -156,12 +156,12 @@ We take labor to be freely mobile within the city, land is in fixed $\Bar{L}(z)$
 
 Products are sold at a single marketplace in each city, the central business district. This is location $z=0$, so that $z$ indexes distance to the center. We will first characterize the spatial equilibrium in one city, then discuss the equilibrium across multiple cities within a country.
 
-There are two sectors, urban and rural. The urban sector has a shipping cost, rural sector does not.
+There are two sectors, urban and rural. The urban sector has a shipping cost, rural sector has not.
 To ship an urban product to the center, one has to incur shipping costs. If a unit of product leaves location $z$, only
 \[
 e^{-\tau z}
 \]
-units arrive at the center. This is akin to the iceberg assumption of transport costs.
+units arrive at the center. We assume that once a good arrives at the center, it can be freely traded across cities. This ensures that the law of one price holds across cities, and is a convenient simplification driven by the fact that we have no data on city-level prices.\footnote{An alternative interpretation of transport costs within the city is that production takes place at the CBD, while workers have to commute from farther away. In this case, $\tau$ captures commuting costs.}
 
 In the rural sector, goods can be shipped freely. This will ensure that in equilibrium agricultural goods are produced outside cities in rural areas.
 
@@ -181,7 +181,7 @@ for the rural sector. A sector being active at location $z$ requires that their 
 Because space if featureless, the available land at each distance $z$ from the CBD is $\Bar L(z) \equiv 2z\pi$. We study symmetric equilibria where the distance to the CBD completely characterizes a location.
 
 \begin{definition}
-Given a level of rural prices $P_r$ and wages $W_u$, $W_r$, define the \emph{spatial sorting} in a circular city as a set of quantities $Q_i(z), L_i(z), N_i(z)$ and prices $P_u$, $R(z)$ such that
+Given a level of prices $P_u$, $P_r$ and wages $W$, define the \emph{spatial sorting} in a circular city as a set of quantities $Q_i(z), L_i(z), N_i(z)$ such that
 \begin{enumerate}
     \item The producers choose location $z$, and nonnegative quantities $Q_i(z), L_i(z), N_i(z)$ to maximize their profits (\ref{eq:profit}), taking prices as given.
     \item Land markets clear at every location: $L_u(z)+L_r(z)=\Bar L(z)$ for all $z\in Z$.
@@ -200,7 +200,7 @@ The sectoral labor-land ratio (employment density) can be expressed as
 \label{eq:EmpDens}
 \frac{N_i(z)}{L_i(z)} = \frac{1-\beta}{\beta}\frac{R_i(z)}{W}.
 \end{equation}
-Substituting this into the first-order condition for land use and rearranging, we get the bid rent curve of the urban sector:
+Substituting this into the first-order condition for land use and rearranging, we get the bid rent curve:
 \begin{equation}
 \label{eq:BidRent}
 R_i(z) =(P_iA_i)^{1/\beta} W^{1-1/\beta} e^{-\frac{\tau_i}{\beta} z}
@@ -223,7 +223,7 @@ This is the relationship we use to calibrate the sectoral transport cost intensi
 \begin{proposition}\label{prop:existence}
 There exists a competitive spatial equilibrium, characterized by location $0<z_u$ such that the urban sector produces at $\left[0,z_u\right]$, and agriculture locates in $(z_u,\infty)$.
 \end{proposition}
-The proof is provided in the Appendix. Intuitively, the different exponential slope of the bid-rent curves ensures that they cross exactly once. This results in a strict partitioning across sectors, as shown in Figure \ref{fig:BidRent}.
+The different exponential slope of the bid-rent curves ensures that they cross exactly once. This results in a strict partitioning across sectors, as shown in Figure \ref{fig:BidRent}.
 
 \begin{figure}[h!]
 \caption{Spatial equilibrium\label{fig:BidRent}}
@@ -287,7 +287,7 @@ For a given city area, employment is increasing in the relative price and relati
 
 Equations \eqref{eq:city_boundary} and \eqref{eq:city_employment} completely characterize the spatial sorting within a city. City features depend on relative urban to rural productivity and a relative wage rate.
 
-The primary object of interest is the rent curve plotted in Figure \ref{fig:BidRent}. Urban rents will be always higher than rural rents, because urban plots have a productivity advantage: they are closer to the center. Even though city boundaries are determined in frictionless equilibrium, rents are only equalized \emph{at the margin}. Rents at inframarginal urban locations command a premium. More specifically,
+The primary object of interest is the rent curve plotted in Figure \ref{fig:BidRent}. Urban rents will always be higher than rural rents, because urban plots have a productivity advantage: they are closer to the center. Even though city boundaries are determined in frictionless equilibrium, rents are only equalized \emph{at the margin}. Rents at inframarginal urban locations command a premium. More specifically,
 the ratio of urban to rural rent
 \[
 \frac{R_u}{R_r} = \frac{R(0)e^{-\tilde z \tau /\beta}} {R_r},
@@ -299,9 +299,7 @@ and, given that $R(z_u)=R_r$,
 The urban rent premium in \eqref{eq:urban_rent_premium} will serve a crucial role in characterizing the aggregate economy of multiple cities.
 
 \subsection{Multi-city equilibrium}
-The above equations characterize production in a city conditional on product prices and wages. These, in turn, are pinned down in a multicity equilibrium. The spatial sorting pins down the supply of urban sectors. We assume that both urban and rural goods are tradable freely within the country. That is, at the marketplace, the goods produced at other cities are freely available so that the law of one price holds across cities.\footnote{We assume away frictions across cities to focus on the urban-rural divide and to present closed-form characterizations of the aggregate economy. We leave extensions of the model to city-to-city iceberg trade costs for future work.}
-
-Cities differ in productivity of the urban good $A_c$.
+The above equations characterize production in a city conditional on product prices and wages. These, in turn, are pinned down in a multicity equilibrium. We assume that both urban and rural goods are tradable freely within the country. That is, at the marketplace, the goods produced at other cities are freely available so that the law of one price holds across cities.\footnote{We assume away frictions across cities to focus on the urban-rural divide and to present closed-form characterizations of the aggregate economy. We leave extensions of the model to city-to-city iceberg trade costs for future work.} Cities differ in productivity of the urban good $A_c$.
 
 \begin{definition}
 The multi-city equilibrium of a country is a collection of spatial sortings for each city, a set of prices $P_{u}$, $P_r$ and wages $W$ such that
@@ -315,50 +313,7 @@ The multi-city equilibrium of a country is a collection of spatial sortings for 
 Take the conditions for spatial sorting \eqref{eq:city_boundary} and \eqref{eq:city_employment}.
 Introduce the subscript $c$ for cities. Utility equalization implies wages are the same in each city as well as rural areas.
 
-The conditions for competitive spatial equilibrium are
-\begin{equation}\tag{i}\label{eq:EQ1}
-e^{z_{c} \tau} =
-\frac{P_u}{P_r}
-\frac {A_c}{A_r}
-\end{equation}
-\[
-	N_c = L_c
-\frac{1-\beta}{\beta}
-	 \left(\frac{P_uA_c}{P_rA_r}\right)^{1/\beta}
-	 \left(\frac{W}{P_rA_r}\right)^{-1/\beta}
-	 e^{-\tilde z_c{\tau/\beta}}
-\]
-\[
-	N_c = 
-\frac{1-\beta}{\beta}
-	 \left(\frac{W}{P_rA_r}\right)^{-1/\beta}
-	 e^{(z_c-\tilde z_c){\tau/\beta}}L_c
-\]
-Adding up labor demand across cities,
-\[
-N_u = \sum_c N_c
-=
-\frac{1-\beta}{\beta}
-	 \left(\frac{W}{P_rA_r}\right)^{-1/\beta}
-\sum_c e^{(z_c-\tilde z_c){\tau/\beta}}L_c.
-\]
-Rural labor demand is
-\[
-N_r =
-\frac{1-\beta}{\beta}
-	 \left(\frac{W}{P_rA_r}\right)^{-1/\beta}L_r.
-\]
-Using labor market clearing $N=N_u+N_r$, we can solve for the relative wage.
-\[
-\left(\frac{W}{P_rA_r}\right)^{1/\beta}
-= \frac{1}{N}
-	\frac{1-\beta}{\beta}
-\left[
-	L_r+
-	\sum_c e^{(z_c-\tilde z_c){\tau/\beta}}L_c
-\right].
-\]
-Introduce the notation
+Introduce the notation $L_c = \int_{z=0}^{z_c}L(z)dz$ for the area of city $c$;
 \[
 \bar L_u \equiv 
 	\sum_c e^{(z_c-\tilde z_c){\tau/\beta}}L_c
@@ -369,39 +324,40 @@ for the rent-corrected total quantity of urban land and $\bar L = L_r + \bar L_u
 \frac{N/L}
 	{N_r/L_r}.
 \]
-This permits us to write the relative rural wage as
-\[
-\frac{W}{P_rA_r}
-=
-	\frac{(1-\beta)^\beta}{\beta^\beta}
-\left(
-\frac {\bar L}{N}
-\right)^{\beta}
-\]
-Substituting in for city employment,
+
+\begin{proposition}\label{prop:MCE}
+A multi-city equilibrium exists and is unique. It is characterized by the following three sets of equations
+\begin{equation}\tag{i}\label{eq:EQ1}
+e^{z_{c} \tau} =
+\frac{P_u}{P_r}
+\frac {A_c}{A_r}\text{ for all }c,
+\end{equation}
 \begin{equation}\tag{ii}\label{eq:EQ2}
 	N_c =  N
 \frac {e^{(z_c-\tilde z_c){\tau/\beta}}L_c}
-	{{\bar L}}
+	{{\bar L}} \text{ for all }c,
 \end{equation}
-Equations \eqref{eq:EQ1} and \eqref{eq:EQ2} completely characterize the production side of the economy for given relative prices $P_u/P_r$. To close the model with the demand side, we express urban and rural output and solve for relative price as the relative marginal utility.
-
-Output of the rural good
+\begin{equation}\label{eq:EQ3}\tag{iii}
+\frac {P_u}{P_r}
+=.....
+(\zeta \Bar L/L)^{(\sigma_u/\sigma_r-1)/(\sigma_u-1)}
+\alpha_u^{-1/(\sigma_u-1)}
+\frac {(\bar L_u/\bar L)^{-1/(\sigma_u-1)}}
+{(L_r/\bar L)^{-\sigma_u/\sigma_r(\sigma_u-1)}},
+\end{equation}
+with $\zeta = B A_r (L/N)^{\beta}$ a parameter capturing output per worker if everybody worked in the rural sector.
+\end{proposition}
+The first equation pins down the urban boundaries from rent arbitrage. The second equation is labor market clearing in each city. The third equation is goods market clearing at the country level. Appendix \ref{
+} provides the formal proof.
+ 
+\subsection{Space and development}
+Output of the rural good is
 \[
 Q_r = B A_r L_r^{\beta}N_r^{1-\beta}=
-B A_r N ({\bar L}/N)^{\beta}
-\frac {L_r}
-	{{\bar L}}
+\zeta \left(\frac{\bar L}{L}\right)^\beta
+{N_r}.
 \]
-Rural production (and consumption) per capita,
-\begin{equation}\label{eq:rural_per_capita}
-C_r=\frac {Q_r}{N} =
-B A_r \left(\frac{\bar{\bar L}}{N}\right)^{\beta}
-\frac {L_r}
-	{{\bar L}}
-.
-\end{equation}
-Output increases in rural productivity and the availability of effective land per worker. It also increases in the share of effective land devoted to rural production.
+Rural output per worker is increasing in urbanization ($\bar L/L$) because with people moving to cities, more land remains available for each rural worker.
 
 Output of the urban good is
 \[
@@ -410,119 +366,34 @@ Q_u = \sum_c Q_c
 \left(\frac {N}
 	{{\bar L}}
 \right)^{1-\beta}
-\sum_c e^{(z_c-\tilde z_c)\tau/\beta} L_c.
+\sum_c e^{(z_c-\tilde z_c)\tau/\beta} L_c=
+\zeta\frac{P_r}{P_u}
+\left(\frac{\bar L}{L}\right)^\beta
+N_u.
 \]
-\[
-Q_u =  B A_r \frac{P_r}{P_u}
-\left(\frac {N}
-	{{\bar L}}
-\right)^{1-\beta}
-\bar L_u.
-\]
-Urban production and consumption per capita is
-\begin{equation}\label{eq:urban_per_capita}
-C_u=\frac {Q_u}{N} =
-B A_r \left(\frac{{\bar L}}{N}\right)^{\beta}
- \frac{P_r}{P_u}
-\frac {\bar L_u}
-	{{\bar L}}
-.
-\end{equation}
-Output increases in rural productivity and the availability of effective land per worker. Notice that it is the rural productivity that shifts output. The relative productivity of the urban sector enter through the effective quantity of land. Urban output decreases in urban relative price. This is a correction for the effective land measure: if the rent premium of urban rent also captures the relative price of urban products and we have to correct for this to capture productivity. Naturally, the quantity of land devoted to cities also increases urban output per capita.
-
-Let $\zeta = B A_r N^{-\beta}{{\bar L}}^{\beta-1}$ denote the common supply shifter of urban and rural output. Intuitively, whenever $\zeta$ is higher, consumers are richer.
-
-Plug in \eqref{eq:rural_per_capita} and \eqref{eq:urban_per_capita} into the demand equations \eqref{eq:ConsShares} and take the ratio to get rid of the Lagrange multiplier $\lambda$.
-\[
-\frac{\alpha_u^{1/\sigma_u}}{\alpha_r^{1/\sigma_r}}
-\zeta^{1/\sigma_r-1/\sigma_u}
-\frac {\bar L_u^{-1/\sigma_u}}
-{L_r^{-1/\sigma_r}}
-\left(\frac {P_u}{P_r}\right)^{1/\sigma_u}
-= \frac {P_u}{P_r}
-\]
-Rearranging,
-\[
-\frac {\bar L_u^{1/\sigma_u}}
-{L_r^{1/\sigma_r}}
-=
-\frac{\alpha_u^{1/\sigma_u}}{\alpha_r^{1/\sigma_r}}
-\zeta^{1/\sigma_r-1/\sigma_u}
-\left(\frac {P_u}{P_r}\right)^{1/\sigma_u-1}
-.\]
-\[
-\frac {\bar L_u}
-{L_r}
-=
-L_r^{1-\sigma_u/\sigma_r}
-\frac{\alpha_u}{\alpha_r^{\sigma_u/\sigma_r}}
-\zeta^{\sigma_u/\sigma_r-1}
-\left(\frac {P_u}{P_r}\right)^{1-\sigma_u}
-.\]
-Expressing
- $P_u/P_r$,
-\begin{equation}\label{eq:EQ3}\tag{iii}
-\frac {P_u}{P_r}
-=
-\zeta^{(\sigma_u/\sigma_r-1)/(\sigma_u-1)}
-\frac {(\bar L_u/\alpha_u)^{-1/(\sigma_u-1)}}
-{(L_r/\alpha_r)^{-\sigma_u/\sigma_r(\sigma_u-1)}}
-\end{equation}
-For given land allocation, this is increasing in consumer wealth $\zeta$, because $\sigma_u>\sigma_r>1$. Equations \eqref{eq:EQ1}, \eqref{eq:EQ2} and \eqref{eq:EQ3} fully characterize the multi-city equilibrium.
-
-Assuming that taste shocks are uncorrelated with productivity shocks, we can estimate $\sigma$s by a simple IV.
-
 We add urban and rural output to obtain a fixed-price GDP,
 \begin{equation}
 	Y \equiv
 	P_{r0}Q_r + P_{u0}Q_u
 	=
-	B A_r P_{r0}\left(\frac {N}
-	{{\bar L}}
-\right)^{1-\beta}
+	\zeta P_{r0} \left(\frac{\bar L}{L}\right)^\beta N
 \left[
-L_r
+\frac {N_r}{N}
 +
 \frac{P_r/P_{r0}}{P_u/P_{u0}}
-\bar L_u\right].
-\end{equation}
-\[
-	Y =
-	B A_r P_{r0}\left(\frac {N_r}
-	{L_r}
-\right)^{1-\beta} L_r
-\left[
-1
-+
-\frac{P_r/P_{r0}}{P_u/P_{u0}}
-\frac{\bar L_u}{L_r}
+\frac {N_u}{N}
 \right].
-\]
-Real GDP increases in rural productivity, rural population density ...
-\[
-\frac {P_r}{P_u}
-=
-\zeta^{(1-\sigma_u/\sigma_r)/(\sigma_u-1)}
-\frac {(\bar L_u/\alpha_u)^{1/(\sigma_u-1)}}
-{(L_r/\alpha_r)^{\sigma_u/\sigma_r(\sigma_u-1)}}
-\]
-\[
-\frac {P_r \bar L_u}{P_uL_r}
-=
-\zeta^{(1-\sigma_u/\sigma_r)/(\sigma_u-1)}
-\frac {\alpha_u^{-1/(\sigma_u-1)}\bar L_u^{\sigma_u/(\sigma_u-1)}}
-{\alpha_r^{-\sigma_u/\sigma_r(\sigma_u-1)}
-L_r^{1+\sigma_u/\sigma_r(\sigma_u-1)}}
-\]
+\end{equation}
+Real GDP per worker can be decomposed into (i) baseline rural output per $\zeta$, (ii) urbanization premium $\bar L/L$, and (iii) a term depending on urban/rural relative price.
 
-\subsection{Space and development}
+
 The following propositions characterize how space use depends on development.
 \begin{proposition}[Balanced growth]\label{prop:balanced_growth}
-Assume $\sigma_u=\sigma_r$. Then a uniform increase in productivity across sectors leaves sectoral and spatial allocations ($z_c$, $L_c$, $Q_u/Q_r$) unchanged.
+Assume $\sigma_u=\sigma_r$. Then a uniform increase in productivity across sectors leaves sectoral and spatial allocations ($z_c$, $L_c$, $Q_u/Q_r$) unchanged. GDP per worker only changes with $\zeta$.
 \end{proposition}
 
 \begin{proposition}[Structural change]\label{prop:comparative_static}
-Assume $\sigma_u>\sigma_r$. Then a uniform increase in productivity across sectors expands the amount of land devoted to the urban sector and shrinks the amount of land devoted to the rural sector. The share of urban population goes up. The price of the urban good increases relative to the rural good.
+Assume $\sigma_u>\sigma_r$. Then a uniform increase in productivity across sectors expands the amount of land devoted to the urban sector and shrinks the amount of land devoted to the rural sector. The share of urban population goes up. The price of the urban good increases relative to the rural good. Urbanization premium $\bar L/L$ increases.
 \end{proposition}
 
 Proposition \ref{prop:comparative_static} is consistent with the empirical facts about structural change, urbanization, and the relative price of services.
@@ -773,17 +644,19 @@ We see two avenues for further research. First, the number and size of cities wi
 \section*{Appendix}
 \section{Proofs}
 \subsection{Proof of Proposition \ref{prop:existence}}
-We first show that the allocation of space across sectors follows a strict partitioning, and hence can be characterized by two cutoffs: $z_1$ denotes the boundary between services and manufacturing and $z_2$ denotes the boundary between manufacturing and agriculture. We then apply Brouwer's fixed point theorem to show there exist such equilibrium cutoffs.
+We first show that the allocation of space across sectors follows a strict partitioning, and hence can be characterized by a cutoff: the boundary between the urban and the rural sector. We then apply Brouwer's fixed point theorem to show there exist such equilibrium cutoffs.
 
-First note that profit maximization requires $R_i(z)\ge R(z)$ for all industries and locations and a strict inequality implies that $Q_i(z)=0$. Because the three bid-rent curves have different slopes, they can only intersect at a measure zero set of points. Hence all locations are used by a single industry, there is no mixed use.
+First note that profit maximization requires $R_i(z)\ge R(z)$ for all industries and locations and a strict inequality implies that $Q_i(z)=0$. Because the two bid-rent curves have different slopes, they can only intersect at a measure zero set of points. Hence all locations are used by a single industry, there is no mixed use.
 
-The single-crossing property of bid-rent curves imply a strict partitioning. For any pair of sectors with $\tau_i/\beta>\tau_j/\beta_j$ we have $\sup\{z: Q_i(z)>0\} \le \inf\{z: Q_j(z)>0\}$. That is, all sector $i$ locations are closer to the CBD than any sector $j$ location.
+The single-crossing property of bid-rent curves imply a strict partitioning. For any pair of sectors with $\tau_i/\beta_i>\tau_j/\beta_j$ we have $\sup\{z: Q_i(z)>0\} \le \inf\{z: Q_j(z)>0\}$. That is, all sector $i$ locations are closer to the CBD than any sector $j$ location.
 
-Equation \eqref{eq:ConsShares} ensures positive demand for all three products so that all three sectors are active. The only such partitioning is where $\{z: Q_1(z)>0\} = [0,z_1]$, $\{z: Q_2(z)>0\} = (z_1,z_2]$ and $\{z: Q_3(z)>0\} = (z_2,z_3]$. At these boundaries, a rent arbitrage condition holds:
+Equation \eqref{eq:ConsShares} ensures positive demand for both products so that both sectors are active. The only such partitioning is where $\{z: Q_u(z)>0\} = [0,z_1]$, $\{z: Q_r(z)>0\} = (z_1,\infty)$. At this boundaries, a rent arbitrage condition holds:
 \begin{equation}\label{eq:rent_arbitrage}
-	R_i(z_i) = R_{i+1}(z_i).
+	R_u(z_1) = R_{r}(z_1).
 \end{equation}
-To use Brouwer's fixed point theorem, construct the following mapping. Take a pair of $z_1<z_2 \in [0,z_3]$. Denote the set of admissible $z$s by $Z=\{(z_1,z_2): z_1<z_2 \in [0,z_3]\}$, which is a compact and convex set. Let $W\equiv 1$ serve as the numeraire. Use the rent arbitrage condition at the boundaries \eqref{eq:rent_arbitrage} and the resource constraint for aggregate labor
+To use Brouwer's fixed point theorem, construct the following mapping. Take a $z_1>0$. Denote the set of admissible $z$s by $Z=\{(z_1,z_2): z_1<z_2 \in [0,z_3]\}$, which is a compact and convex set. 
+%% FIXME: no longer compact
+Let $W\equiv 1$ serve as the numeraire. Use the rent arbitrage condition at the boundaries \eqref{eq:rent_arbitrage} and the resource constraint for aggregate labor
 \[
 N = \sum_{i=1}^3 \int_{z=z_{i-1}}^{z_i}(1-\beta)^{1/\beta}
 	(P_iA_i)^{1/\beta}
@@ -800,6 +673,199 @@ Given these prices, solve for utility-maximizing expenditure shares $(x_1,x_2,x_
 	{\beta_j x_j}.
 \]
 Let $(z_1',z_2')$ be the sector boundaries consistent with these relative rent amounts. Clearly, $(z_1',z_2')\in Z$ and the mapping is continuous. Applying Brouwer's fixed point theorem, there exists a $(z_1^*,z_2^*)$ such that $(z_1'^{*},z_2'^{*}) = (z_1^*,z_2^*)$ and all equilibrium conditions hold with equality.\hfill Q.E.D.
+
+\subsection{Proof of .......}
+The conditions for competitive spatial equilibrium are
+\begin{equation}\tag{i}\label{eq:EQ1}
+e^{z_{c} \tau} =
+\frac{P_u}{P_r}
+\frac {A_c}{A_r}
+\end{equation}
+\[
+	N_c = L_c
+\frac{1-\beta}{\beta}
+	 \left(\frac{P_uA_c}{P_rA_r}\right)^{1/\beta}
+	 \left(\frac{W}{P_rA_r}\right)^{-1/\beta}
+	 e^{-\tilde z_c{\tau/\beta}}
+\]
+\[
+	N_c = 
+\frac{1-\beta}{\beta}
+	 \left(\frac{W}{P_rA_r}\right)^{-1/\beta}
+	 e^{(z_c-\tilde z_c){\tau/\beta}}L_c
+\]
+Adding up labor demand across cities,
+\[
+N_u = \sum_c N_c
+=
+\frac{1-\beta}{\beta}
+	 \left(\frac{W}{P_rA_r}\right)^{-1/\beta}
+\sum_c e^{(z_c-\tilde z_c){\tau/\beta}}L_c.
+\]
+Rural labor demand is
+\[
+N_r =
+\frac{1-\beta}{\beta}
+	 \left(\frac{W}{P_rA_r}\right)^{-1/\beta}L_r.
+\]
+Using labor market clearing $N=N_u+N_r$, we can solve for the relative wage.
+\[
+\left(\frac{W}{P_rA_r}\right)^{1/\beta}
+= \frac{1}{N}
+	\frac{1-\beta}{\beta}
+\left[
+	L_r+
+	\sum_c e^{(z_c-\tilde z_c){\tau/\beta}}L_c
+\right].
+\]
+
+
+This permits us to write the relative rural wage as
+\[
+\frac{W}{P_rA_r}
+=
+	\frac{(1-\beta)^\beta}{\beta^\beta}
+\left(
+\frac {\bar L}{N}
+\right)^{\beta}
+\]
+Substituting in for city employment,
+\begin{equation}\tag{ii}\label{eq:EQ2}
+	N_c =  N
+\frac {e^{(z_c-\tilde z_c){\tau/\beta}}L_c}
+	{{\bar L}}
+\end{equation}
+Equations \eqref{eq:EQ1} and \eqref{eq:EQ2} completely characterize the production side of the economy for given relative prices $P_u/P_r$. To close the model with the demand side, we express urban and rural output and solve for relative price as the relative marginal utility.
+
+Output of the rural good
+\[
+Q_r = B A_r L_r^{\beta}N_r^{1-\beta}=
+B A_r N ({\bar L}/N)^{\beta}
+\frac {L_r}
+	{{\bar L}}
+\]
+Rural production (and consumption) per capita,
+\begin{equation}\label{eq:rural_per_capita}
+C_r=\frac {Q_r}{N} =
+B A_r \left(\frac{\bar{\bar L}}{N}\right)^{\beta}
+\frac {L_r}
+	{{\bar L}}
+.
+\end{equation}
+Output increases in rural productivity and the availability of effective land per worker. It also increases in the share of effective land devoted to rural production.
+
+Output of the urban good is
+\[
+Q_u = \sum_c Q_c
+= B A_r \frac{P_r}{P_u}
+\left(\frac {N}
+	{{\bar L}}
+\right)^{1-\beta}
+\sum_c e^{(z_c-\tilde z_c)\tau/\beta} L_c.
+\]
+\[
+Q_u =  B A_r \frac{P_r}{P_u}
+\left(\frac {N}
+	{{\bar L}}
+\right)^{1-\beta}
+\bar L_u.
+\]
+Urban production and consumption per capita is
+\begin{equation}\label{eq:urban_per_capita}
+C_u=\frac {Q_u}{N} =
+B A_r \left(\frac{{\bar L}}{N}\right)^{\beta}
+ \frac{P_r}{P_u}
+\frac {\bar L_u}
+	{{\bar L}}
+.
+\end{equation}
+Output increases in rural productivity and the availability of effective land per worker. Notice that it is the rural productivity that shifts output. The relative productivity of the urban sector enter through the effective quantity of land. Urban output decreases in urban relative price. This is a correction for the effective land measure: if the rent premium of urban rent also captures the relative price of urban products and we have to correct for this to capture productivity. Naturally, the quantity of land devoted to cities also increases urban output per capita.
+
+Let $\zeta = B A_r N^{-\beta}{{\bar L}}^{\beta-1}$ denote the common supply shifter of urban and rural output. Intuitively, whenever $\zeta$ is higher, consumers are richer.
+
+Plug in \eqref{eq:rural_per_capita} and \eqref{eq:urban_per_capita} into the demand equations \eqref{eq:ConsShares} and take the ratio to get rid of the Lagrange multiplier $\lambda$.
+\[
+\frac{\alpha_u^{1/\sigma_u}}{\alpha_r^{1/\sigma_r}}
+\zeta^{1/\sigma_r-1/\sigma_u}
+\frac {\bar L_u^{-1/\sigma_u}}
+{L_r^{-1/\sigma_r}}
+\left(\frac {P_u}{P_r}\right)^{1/\sigma_u}
+= \frac {P_u}{P_r}
+\]
+Rearranging,
+\[
+\frac {\bar L_u^{1/\sigma_u}}
+{L_r^{1/\sigma_r}}
+=
+\frac{\alpha_u^{1/\sigma_u}}{\alpha_r^{1/\sigma_r}}
+\zeta^{1/\sigma_r-1/\sigma_u}
+\left(\frac {P_u}{P_r}\right)^{1/\sigma_u-1}
+.\]
+\[
+\frac {\bar L_u}
+{L_r}
+=
+L_r^{1-\sigma_u/\sigma_r}
+\frac{\alpha_u}{\alpha_r^{\sigma_u/\sigma_r}}
+\zeta^{\sigma_u/\sigma_r-1}
+\left(\frac {P_u}{P_r}\right)^{1-\sigma_u}
+.\]
+Expressing
+ $P_u/P_r$,
+\begin{equation}\label{eq:EQ3}\tag{iii}
+\frac {P_u}{P_r}
+=
+\zeta^{(\sigma_u/\sigma_r-1)/(\sigma_u-1)}
+\frac {(\bar L_u/\alpha_u)^{-1/(\sigma_u-1)}}
+{(L_r/\alpha_r)^{-\sigma_u/\sigma_r(\sigma_u-1)}}
+\end{equation}
+For given land allocation, this is increasing in consumer wealth $\zeta$, because $\sigma_u>\sigma_r>1$. Equations \eqref{eq:EQ1}, \eqref{eq:EQ2} and \eqref{eq:EQ3} fully characterize the multi-city equilibrium.
+
+Assuming that taste shocks are uncorrelated with productivity shocks, we can estimate $\sigma$s by a simple IV.
+
+We add urban and rural output to obtain a fixed-price GDP,
+\begin{equation}
+	Y \equiv
+	P_{r0}Q_r + P_{u0}Q_u
+	=
+	B A_r P_{r0}\left(\frac {N}
+	{{\bar L}}
+\right)^{1-\beta}
+\left[
+L_r
++
+\frac{P_r/P_{r0}}{P_u/P_{u0}}
+\bar L_u\right].
+\end{equation}
+\[
+	Y =
+	B A_r P_{r0}\left(\frac {N_r}
+	{L_r}
+\right)^{1-\beta} L_r
+\left[
+1
++
+\frac{P_r/P_{r0}}{P_u/P_{u0}}
+\frac{\bar L_u}{L_r}
+\right].
+\]
+Real GDP increases in rural productivity, rural population density ...
+\[
+\frac {P_r}{P_u}
+=
+\zeta^{(1-\sigma_u/\sigma_r)/(\sigma_u-1)}
+\frac {(\bar L_u/\alpha_u)^{1/(\sigma_u-1)}}
+{(L_r/\alpha_r)^{\sigma_u/\sigma_r(\sigma_u-1)}}
+\]
+\[
+\frac {P_r \bar L_u}{P_uL_r}
+=
+\zeta^{(1-\sigma_u/\sigma_r)/(\sigma_u-1)}
+\frac {\alpha_u^{-1/(\sigma_u-1)}\bar L_u^{\sigma_u/(\sigma_u-1)}}
+{\alpha_r^{-\sigma_u/\sigma_r(\sigma_u-1)}
+L_r^{1+\sigma_u/\sigma_r(\sigma_u-1)}}
+\]
+
 
 \subsection{Proof of Proposition \ref{prop:balanced_growth}}
 We will verify that when $d\ln A_i=\kappa$ for all $i$, $d\ln P_i=-\kappa$ is an equilibrium. Because resource allocations across sectors and space only depend on $P_iA_i$, these will not change. Output in each sector goes up by $d\ln Q_i = \kappa$. Because preferences are homothetic and relative prices have not changed, expenditure shares remain constant. They are hence still consistent with the equilibrium.\hfill Q.E.D.
