@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.3)  14 FEB 2019 10:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.3)  14 FEB 2019 17:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -287,69 +287,66 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Warning: Reference ` ' on page 12 undefined on input line 351.
 
 [12] [13] [14]
-<figures/sector_location_quotients.png, id=67, 803.0pt x 584.1825pt>
-File: figures/sector_location_quotients.png Graphic file (type png)
-<use figures/sector_location_quotients.png>
-Package pdftex.def Info: figures/sector_location_quotients.png  used on input l
-ine 461.
-(pdftex.def)             Requested size: 325.215pt x 236.60152pt.
- [15 <./figures/sector_location_quotients.png>] [16] [17]
-<figures/city_level_inputs/expenditure_shares.png, id=78, 803.0pt x 584.1825pt>
-
-File: figures/city_level_inputs/expenditure_shares.png Graphic file (type png)
-<use figures/city_level_inputs/expenditure_shares.png>
-Package pdftex.def Info: figures/city_level_inputs/expenditure_shares.png  used
- on input line 537.
-(pdftex.def)             Requested size: 325.215pt x 236.60152pt.
-
-[18] [19 <./figures/city_level_inputs/expenditure_shares.png>]
+<figures/nonparametric_gradients.pdf, id=67, 397.485pt x 289.08pt>
+File: figures/nonparametric_gradients.pdf Graphic file (type pdf)
+<use figures/nonparametric_gradients.pdf>
+Package pdftex.def Info: figures/nonparametric_gradients.pdf  used on input lin
+e 458.
+(pdftex.def)             Requested size: 325.215pt x 236.52663pt.
+<figures/urban_share.pdf, id=68, 397.485pt x 289.08pt>
+File: figures/urban_share.pdf Graphic file (type pdf)
+<use figures/urban_share.pdf>
+Package pdftex.def Info: figures/urban_share.pdf  used on input line 462.
+(pdftex.def)             Requested size: 325.215pt x 236.52663pt.
+ [15 <./figures/nonparametric_gradients.pdf>] [16 <./figures/urban_share.pdf>]
+(../research_designs/city_level_inputs/output/demand_parameters.tex) [17]
+[18] [19]
 <figures/../../research_designs/city_level_inputs/output/area_model_data.pdf, i
-d=90, 397.485pt x 289.08pt>
+d=106, 397.485pt x 289.08pt>
 File: figures/../../research_designs/city_level_inputs/output/area_model_data.p
 df Graphic file (type pdf)
 <use figures/../../research_designs/city_level_inputs/output/area_model_data.pd
 f>
 Package pdftex.def Info: figures/../../research_designs/city_level_inputs/outpu
-t/area_model_data.pdf  used on input line 579.
+t/area_model_data.pdf  used on input line 563.
 (pdftex.def)             Requested size: 325.215pt x 236.52663pt.
  [20 <./figures/../../research_designs/city_level_inputs/output/area_model_data
 .pdf>]
-(../research_designs/city_level_inputs/output/demand_parameters.tex) [21]
 <figures/../../research_designs/city_level_inputs/output/rural_urban_contributi
-ons.pdf, id=107, 397.485pt x 289.08pt>
+ons.pdf, id=120, 397.485pt x 289.08pt>
 File: figures/../../research_designs/city_level_inputs/output/rural_urban_contr
 ibutions.pdf Graphic file (type pdf)
 <use figures/../../research_designs/city_level_inputs/output/rural_urban_contri
 butions.pdf>
 Package pdftex.def Info: figures/../../research_designs/city_level_inputs/outpu
-t/rural_urban_contributions.pdf  used on input line 617.
+t/rural_urban_contributions.pdf  used on input line 598.
 (pdftex.def)             Requested size: 325.215pt x 236.52663pt.
 <figures/../../research_designs/city_level_inputs/output/urban_contributions.pd
-f, id=108, 397.485pt x 289.08pt>
+f, id=121, 397.485pt x 289.08pt>
 File: figures/../../research_designs/city_level_inputs/output/urban_contributio
 ns.pdf Graphic file (type pdf)
 <use figures/../../research_designs/city_level_inputs/output/urban_contribution
 s.pdf>
 Package pdftex.def Info: figures/../../research_designs/city_level_inputs/outpu
-t/urban_contributions.pdf  used on input line 619.
+t/urban_contributions.pdf  used on input line 600.
 (pdftex.def)             Requested size: 325.215pt x 236.52663pt.
 
 (../research_designs/city_level_inputs/output/counterfactuals.tex)
-Overfull \hbox (21.32428pt too wide) in paragraph at lines 3--625
+Overfull \hbox (21.32428pt too wide) in paragraph at lines 3--606
  [] 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[22 <./figures/../../research_designs/city_level_inputs/output/rural_urban_cont
-ributions.pdf>] [23 <./figures/../../research_designs/city_level_inputs/output/
-urban_contributions.pdf>] [24] [25] (./cattle.bbl [26
+[21 <./figures/../../research_designs/city_level_inputs/output/rural_urban_cont
+ributions.pdf>] [22 <./figures/../../research_designs/city_level_inputs/output/
+urban_contributions.pdf>] [23] (./cattle.bbl [24
 
-] [27]) [28] [29
+] [25]) [26] [27
 
-] [30]
-[31] [32] [33] (./response.tex [34] [35] [36]) [37] (./cattle.aux)
+] [28] [29]
+[30] [31] (./response.tex [32] [33] [34]) [35] (./cattle.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -358,10 +355,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 2498 strings out of 494091
- 35947 string characters out of 6163524
- 102350 words of memory out of 5000000
- 6114 multiletter control sequences out of 15000+600000
+ 2495 strings out of 494091
+ 35730 string characters out of 6163524
+ 106331 words of memory out of 5000000
+ 6112 multiletter control sequences out of 15000+600000
  13276 words of font info for 47 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  41i,15n,25p,1309b,283s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -369,27 +366,26 @@ Here is how much of TeX's memory you used:
 0.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mbx12.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmex10.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/amsfo
-nts/cmextra/cmex8.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2018basic/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2018basic/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2018basic/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018basic/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2018basic/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2018basic/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2018basic
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2018bas
-ic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2018b
-asic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2
-018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texliv
-e/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/tex
-live/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/
-texlive/2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on cattle.pdf (37 pages, 614770 bytes).
+nts/cm/cmmi10.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmmi12.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018basic/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2018basic/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2018basic/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2018basic/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2018basic/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2018basic/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018basic
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2018ba
+sic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/201
+8basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/
+2018basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on cattle.pdf (35 pages, 537333 bytes).
 PDF statistics:
- 246 PDF objects out of 1000 (max. 8388607)
- 170 compressed objects within 2 object streams
+ 251 PDF objects out of 1000 (max. 8388607)
+ 176 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

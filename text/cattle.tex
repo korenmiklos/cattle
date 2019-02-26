@@ -376,12 +376,13 @@ We add urban and rural output to obtain a fixed-price GDP,
 	Y \equiv
 	P_{r0}Q_r + P_{u0}Q_u
 	=
-	\zeta P_{r0} \left(\frac{\bar L}{L}\right)^\beta N
+	\zeta P_{r0} \left(\frac{\bar L}{L}\right)^{\beta-1} N
 \left[
-\frac {N_r}{N}
+\frac {L_r}{L}
 +
 \frac{P_r/P_{r0}}{P_u/P_{u0}}
-\frac {N_u}{N}
+\frac {\bar L_u}{L_u}
+\frac {L_u}{L}
 \right].
 \end{equation}
 Real GDP per worker can be decomposed into (i) baseline rural output per $\zeta$, (ii) urbanization premium $\bar L/L$, and (iii) a term depending on urban/rural relative price.
@@ -453,9 +454,12 @@ According to equation \ref{eq:EmpDens}, the employment density in location $z$ i
 \[
 \frac{d\ln N(z)/L(z)}{dz} =\frac{d\ln R(z)}{dz} = -\frac{\tau}{\beta}.
 \]
-\dofigure{nonparametric_gradients}{Average imputed employment density plotted against distance to the city center. Sample: 485 cities with 22,395 ZIP codes from ZIP-code Business Patterns in year 2007.}
+\dofigure{nonparametric_gradients}{Weighted average employment density plotted against distance to the city center. Sample: 485 cities with 22,395 ZIP codes from ZIP-code Business Patterns in year 2007.}
 
 Figure \ref{fig:nonparametric_gradients} shows that, within 60km of the city center, employment density declines sharply with distance. The exponential functional form is also consistent with the model as log density is linear in distance. To estimate $\tau$, we use ZIP-codes within 60kms of the city center as follows.
+
+\dofigure{urban_share}{Weighted average urban employment per population plotted against distance to the city center. Sample: 485 cities with 22,395 ZIP codes from ZIP-code Business Patterns in year 2007.}
+
 
 Let $n_{zc}$ be the employment of urban sectors in ZIP code $z$, belonging to city (MSA) $c$.  Assuming that establishments in a given sector consume the same amount of land,\footnote{We believe this approximation is likely to bias our estimates of the rent gradient downward. Rural establishments probably occupy more space that urban establishments even in the same narrow industry, so establishment sizes do not go down as fast with distance as employment density does. } we denote by $l_{zc}$ the number of establishments in ZIP code $z$. We can then regress establishment size (workers per establishment) in each sector in each ZIP code on fixed effects, and the distance of the ZIP code to the city center,
 \begin{equation}\label{eq:estimable:gradient}
