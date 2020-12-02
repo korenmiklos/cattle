@@ -354,39 +354,47 @@ The first equation pins down the urban boundaries from rent arbitrage. The secon
 Output of the rural good is
 \[
 Q_r = B A_r L_r^{\beta}N_r^{1-\beta}=
-\zeta \left(\frac{\bar L}{L}\right)^\beta
-{N_r}.
+...
 \]
-Rural output per worker is increasing in urbanization ($\bar L/L$) because with people moving to cities, more land remains available for each rural worker.
 
-Output of the urban good is
+Output per worker of the urban good in city $c$ is
 \[
-Q_u = \sum_c Q_c
-= B A_r \frac{P_r}{P_u}
-\left(\frac {N}
-	{{\bar L}}
-\right)^{1-\beta}
-\sum_c e^{(z_c-\tilde z_c)\tau/\beta} L_c=
-\zeta\frac{P_r}{P_u}
-\left(\frac{\bar L}{L}\right)^\beta
-N_u.
+\frac {Q_c} {N_c} 
+= B A_c \left(
+			\frac {L_c} {N_c}
+		\right)^\beta
+		e^{-\tau \tilde z_c} 
+= B A_c \left(
+			\frac {\bar L} {N}
+		\right)^\beta
+		e^{-\tau z_c} 
 \]
-We add urban and rural output to obtain a fixed-price GDP,
-\begin{equation}
-	Y \equiv
-	P_{r0}Q_r + P_{u0}Q_u
-	=
-	\zeta P_{r0} \left(\frac{\bar L}{L}\right)^{\beta-1} N
-\left[
-\frac {L_r}{L}
-+
-\frac{P_r/P_{r0}}{P_u/P_{u0}}
-\frac {\bar L_u}{L_u}
-\frac {L_u}{L}
-\right].
-\end{equation}
-Real GDP per worker can be decomposed into (i) baseline rural output per $\zeta$, (ii) urbanization premium $\bar L/L$, and (iii) a term depending on urban/rural relative price.
+Let $\lambda_u = L_u/L$ denote the share of land devoted to cities and $\rho_u = \bar L_u/L_u-1$ denote the urban rent premium. Then we can write 
+\[
+\bar L = L(1+\lambda_u \rho _u).
+\]
+We can write urban output per worker as
+\[
+\frac {Q_c} {N_c} 
+= B A_c \left(
+			\frac {L} {N}
+		\right)^\beta
+		(1 + \lambda_u \rho_u)^\beta
+		e^{-\tau z_c} 
+= B A_r \left(
+			\frac {L} {N}
+		\right)^\beta
+		\frac {P_r} {P_u}
+		(1 + \lambda_u \rho_u)^\beta		 
+= \zeta
+		\frac {P_r} {P_u}
+		(1 + \lambda_u \rho_u)^\beta.		 
+\]
+The urban productivity premium relative to a full rural economy $\zeta$ depends on three terms.
 
+First, if urban relative prices ($P_u/P_r$) are lower, cities must be more productive. Second, when the urbanization rate (in terms of area, not population) is larger, more land is available to cities so they are more productive. Third, when the urban rent premium $\rho_u$ is larger, it signals that cities can pay higher rent, which implies they are more productive.
+
+Of the two indexes of urbanization, $\lambda_u$ depends on the total land devoted to cities, $\rho_u$ depends on the typical $z_c$, the size of the typical city.
 
 The following propositions characterize how space use depends on development.
 \begin{proposition}[Balanced growth]\label{prop:balanced_growth}
